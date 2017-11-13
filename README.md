@@ -13,4 +13,4 @@ my home assistant configuration
 - **media_player/broadlink** as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are relates to this component.
 
 ### Python Script
- - [**service_call_loop.py**](python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
+ - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
