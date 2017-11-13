@@ -1,0 +1,399 @@
+##########################################
+################# Groups #################
+##########################################
+living_room_tv_led:
+  name: living_room_tv_led
+  entities:
+    - light.tv_lights
+    - input_number.tv_led_brightness
+    - input_number.tv_led_temperature
+    - input_select.tv_led_color
+    - input_select.tv_led_theme
+
+living_room_ac:
+  name: living_room_ac
+  entities:
+    - input_boolean.lr_ac_status
+    - sensor.lr_ac_temp_sensor
+    - cover.lr_ac_temp_cover
+    - input_select.lr_ac_state
+    - input_select.lr_ac_fan
+
+living_room_switches:
+  name: living_room_switches
+  entities:
+    - light.tv_lights
+    - switch.living_room_night_light
+    - switch.living_room_main_light
+    - switch.living_room_small_light
+    - switch.balcony_light
+    - switch.entrance_light
+
+kitchen_switches:
+  name: kitchen_switches
+  entities:
+    - switch.kitchen_main_light
+    - switch.kitchen_island_light
+    - switch.kitchen_bar_light
+    - switch.service_room_light
+
+hallways_switches:
+  name: hallways_switches    
+  entities:
+    - switch.main_hallway_light
+    - switch.small_hallway_light
+    - switch.entrance_light
+    
+bathrooms_switches:
+  name: bathrooms_switches
+  entities:
+    - switch.main_bathroom_light
+    - switch.small_bathroom_light
+    - switch.shower_light
+
+service_room_switches:
+  name: service_room_switches
+  entities:
+    - switch.service_room_light
+
+bedroom_ac:
+  name: bedroom_ac
+  entities:
+    - input_boolean.bedroom_ac_status
+    - sensor.bedroom_ac_temp_sensor
+    - cover.bedroom_ac_temp_cover
+    - input_select.bedroom_ac_state
+    - input_select.bedroom_ac_fan
+    - group.bedroom_ac_hidden_controls
+    
+bedroom_switches:
+  name: bedroom_switches
+  entities:
+    - switch.closet_room_light
+    - switch.shower_light
+    - switch.bedroom_main_light
+    
+empty_room_switches:
+  name: empty_room_switches
+  entities:
+    - switch.empty_room_light
+    
+guest_room_switches:
+  name: guest_room_switches
+  entities:
+    - switch.guest_room_light
+    
+balcony_switches:
+  name: balcony_switches
+  entities:
+    - switch.balcony_light
+
+living_room_google_wifi_point:
+  name: living_room_google_wifi_point
+  entities:
+    - sensor.google_wifi_living_room_status
+    - sensor.google_wifi_living_room_last_restart
+    - sensor.google_wifi_living_room_uptime
+    - sensor.google_wifi_living_room_current_version
+    - sensor.google_wifi_living_room_new_version
+
+guest_room_google_wifi_point:
+  name: guest_room_google_wifi_point
+  entities:
+    - sensor.google_wifi_guest_room_status
+    - sensor.google_wifi_guest_room_last_restart
+    - sensor.google_wifi_guest_room_uptime
+    - sensor.google_wifi_guest_room_current_version
+    - sensor.google_wifi_guest_room_new_version
+
+bedroom_google_wifi_point:
+  name: bedroom_google_wifi_point
+  entities:
+    - sensor.google_wifi_bedroom_status
+    - sensor.google_wifi_bedroom_last_restart
+    - sensor.google_wifi_bedroom_uptime
+    - sensor.google_wifi_bedroom_current_version
+    - sensor.google_wifi_bedroom_new_version
+    
+user_tomer_devices:
+  name: user_tomer_devices
+  entities:
+    - device_tracker.tomerphone_tpowntracks
+    - device_tracker.tomer_bluetooth
+    - device_tracker.tomers_iphone6s
+    - device_tracker.tomersiphone6s
+
+user_hava_devices:
+  name: user_hava_devices
+  entities:
+    - device_tracker.havaphone_hpowntracks
+    - device_tracker.hava_bluetooth
+    - device_tracker.hava_ezra
+    - device_tracker.havaezra
+  
+manage_automations:
+  name: manage_automations
+  entities:
+    - automation.tomer_low_batt_notify
+    - automation.hava_low_batt_notify
+    - automation.small_bathroom_door_sensor_open
+    - automation.main_bathroom_door_sensor_open
+    - automation.closet_room_door_sensor_open
+    - automation.service_room_door_sensor_open
+    - automation.service_room_door_sensor_closed
+    
+all_door_sensors:
+  name: all_door_sensors
+  entities:
+    - sensor.small_bathroom_door_sensor
+    - sensor.main_bathroom_door_sensor
+    - sensor.closet_room_door_sensor
+    - sensor.service_room_door_sensor
+
+all_living_room_sensors:
+  name: all_living_room_sensors
+  entities:
+    - sensor.living_room_broadlink_a1_temperature
+    - sensor.living_room_broadlink_a1_humidity
+    - sensor.living_room_broadlink_a1_air_quality
+    - sensor.living_room_broadlink_a1_light
+    - sensor.living_room_broadlink_a1_noise
+    - sensor.google_wifi_living_room_status
+
+all_kitchen_sensors:
+  name: all_kitchen_sensors
+  entities:
+    - sensor.service_room_door_sensor
+
+all_bathrooms_sensors:
+  name: all_bathrooms_sensors
+  entities:
+    - sensor.small_bathroom_door_sensor
+    - sensor.main_bathroom_door_sensor
+
+all_service_room_sensors:
+  name: all_service_room_sensors
+  entities:
+    - sensor.service_room_door_sensor
+
+all_bedroom_sensors:
+  name: all_bedroom_sensors
+  entities:
+    - sensor.google_wifi_bedroom_status
+    - sensor.closet_room_door_sensor
+
+all_guest_room_sensors:
+  name: all_guest_room_sensors
+  entities:
+    - sensor.google_wifi_guest_room_status
+    
+activate_operations:
+  name: activate_operations
+  entities:
+    - script.icloud_find_hava_iphone
+    - script.icloud_find_tomer_iphone
+    - script.get_sensors_report_notificiation_from_ui
+        
+household_summary:
+  name: household_summary
+  entities:
+    - sensor.hava_tracker_sensor
+    - sensor.hava_icloud_battery_sensor
+    - sensor.tomer_tracker_sensor
+    - sensor.tomer_icloud_battery_sensor
+
+start_scenes:
+  name: start_scenes
+  entities:
+    - scene.watch_tv
+    - scene.watch_movie
+    - scene.leaving_home
+    - scene.sleep_time
+
+ha_statistics:
+  name: ha_statistics
+  entities:
+    - sensor.ha_duckdns_cert_expiry
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.run_speed_test_last_run
+    - sensor.den_pc_mqtt_client_status
+    
+ha_operations:
+  name: ha_operations
+  entities:
+    - script.run_speed_test
+    - script.get_den_mqtt_client_status
+    - script.restart_s1c_addon_script
+    - script.update_all_devices
+    
+bedroom_ac_hidden_controls:
+  name: bedroom_ac_hidden_controls
+  entities:
+    - switch.bedroom_ac_light
+    - switch.bedroom_ac_shutter
+
+nmap_alexa_trackers:
+  name: nmap_alexa_trackers
+  entities:
+    - sensor.living_room_echo_one_nmap_tracker
+    - sensor.bedroom_echo_nmap_tracker
+    - sensor.den_dot_nmap_tracker
+
+nmap_remotes_trackers:
+  name: nmap_remote_trackers
+  entities:
+    - sensor.living_room_rm_pro_nmap_tracker
+    - sensor.bedroom_rm_mini_nmap_tracker
+    - sensor.living_room_harmony_hub_nmap_tracker
+
+nmap_yes_stb_trackers:
+  name: nmap_yes_stb_trackers
+  entities:
+    - sensor.living_room_yes_nmap_tracker
+    - sensor.bedroom_yes_nmap_tracker
+    - sensor.guest_room_yes_nmap_tracker
+      
+nmap_computers_tracker:
+  name: nmap_computers_tracker
+  entities:
+    - sensor.den_pc_nmap_tracker
+    - sensor.shield_console_nmap_tracker
+    - sensor.tomers_laptop_nmap_tracker
+    - sensor.havas_laptop_nmap_tracker
+    - sensor.nexus_tablet_nmap_tracker
+
+nmap_phones_tracker:
+  name: nmap_phones_tracker
+  entities:
+    - sensor.tomers_phone_nmap_tracker
+    - sensor.havas_phone_nmap_tracker
+
+nmap_lights_tracker:
+  name: nmap_lights_tracker
+  entities:
+    - sensor.kitchen_bar_sp2_nmap_tracker
+    - sensor.living_room_night_light_sp2_nmap_tracker
+    - sensor.tv_lifxz_led_nmap_tracker
+    - sensor.service_room_s1c_nmap_tracker
+      
+nmap_various_trackers:
+  name: nmap_trackers
+  entities:
+    - sensor.switcher_v2_nmap_tracker
+    - sensor.hallway_netgear_hub_nmap_tracker
+    - sensor.living_room_broadlink_a1_nmap_tracker
+    - sensor.living_room_samsung_tv_nmap_tracker
+
+shabbat_times:
+  name: shabbat_times
+  entities:
+    - input_select.select_shabbat_city
+    - sensor.select_city_shabbat_start_time
+    - sensor.select_city_shabbat_end_time
+
+##########################################
+################# Views ##################
+##########################################
+default_view:
+  view: yes
+  entities:
+    - group.shabbat_times
+    - group.household_summary
+    - group.manage_automations
+    - group.start_scenes
+    - group.activate_operations
+    - group.all_door_sensors
+    - media_player.spotify
+
+living_room_view:
+  name: living_room_view
+  view: true
+  entities:
+    - group.all_living_room_sensors
+    - group.living_room_ac
+    - group.living_room_tv_led
+    - group.living_room_switches
+
+kitchen_view:
+  name: kitchen_view
+  view: true
+  entities:
+    - group.all_kitchen_sensors
+    - group.kitchen_switches
+    
+bathrooms_view:
+  name: bathrooms_view
+  view: true
+  entities:
+    - group.all_bathrooms_sensors    
+    - group.bathrooms_switches
+
+hallways_view:
+  name: hallways_view
+  view: true
+  entities:
+    - group.hallways_switches
+
+service_room_view:
+  name: service_room_view
+  view: true
+  entities:
+    - group.all_service_room_sensors
+    - group.service_room_switches
+    
+bedroom_view:
+  name: bedroom_view
+  view: true
+  entities:
+    - group.all_bedroom_sensors
+    - group.bedroom_ac
+    - group.bedroom_switches
+    
+empty_room_view:
+  name: empty_room_view
+  view: true
+  entities:
+    - group.empty_room_switches
+    
+guest_room_view:
+  name: guest_room_view
+  view: true
+  entities:
+    - group.all_guest_room_sensors
+    - group.guest_room_switches
+
+balcony_view:
+  name: balcony_view
+  view: true
+  entities:
+    - group.balcony_switches
+
+tech_support_view:
+  name: tech_support_view
+  view: true
+  entities:
+    - group.living_room_google_wifi_point
+    - group.guest_room_google_wifi_point
+    - group.bedroom_google_wifi_point
+    - group.user_tomer_devices
+    - group.user_hava_devices
+    - group.ha_statistics
+    - group.ha_operations
+    - group.nmap_alexa_trackers
+    - group.nmap_remotes_trackers
+    - group.nmap_yes_stb_trackers
+    - group.nmap_computers_tracker
+    - group.nmap_phones_tracker
+    - group.nmap_lights_tracker
+    - group.nmap_various_trackers
+
+tomer_testing:
+  name: tomer_testing
+  view: true
+  entities:
+    - media_player.samsung_tv_remote
+    - remote.living_room_harmony_hub
+    - media_player.bedroom_tv
+    

@@ -1,0 +1,49 @@
+- platform: owntracks
+  max_gps_accuracy: 100
+  track_new_devices: false
+
+- platform: bluetooth_tracker
+  interval_seconds: 30
+  consider_home: 180
+  track_new_devices: false
+
+- platform: icloud
+  username: !secret icloud_tomer_username
+  password: !secret icloud_tomer_password
+  account_name: 'Tomers iCloud'
+
+- platform: icloud
+  username: !secret icloud_hava_username
+  password: !secret icloud_hava_password
+  account_name: "Havas iCloud"
+  
+- platform: nmap_tracker
+  home_interval: 10
+  consider_home: 0
+  track_new_devices: false
+  hosts:
+    - !secret den_pc_ip
+    - !secret living_room_shield_ip
+    - !secret guest_room_yes_ip
+    - !secret bedroom_yes_ip
+    - !secret living_room_yes_ip
+    - !secret hallways_netgear_switch_ip
+    - !secret hallways_switcher_ip
+    - !secret den_echo_dot_ip
+    - !secret living_room_echo_one_ip
+    - !secret bedroom_echo_one_ip
+    - !secret living_room_broadlink_a1_ip
+    - !secret living_room_night_light_broadlink_sp2_ip
+    - !secret kitchen_bar_light_broadlink_sp2_ip
+    - !secret service_room_light_broadlink_sc1_ip
+    - !secret bedroom_broadlink_rm_mini_ip
+    - !secret living_room_broadlink_rm_pro_ip
+    - !secret living_room_samaung_tv_ip
+    - !secret living_room_tv_lifx_z_ip
+    - !secret living_room_broadlink_a1_ip
+    - !secret living_room_logitech_harmony_hub_ip
+    - !secret devices_tomer_phone_ip
+    - !secret devices_hava_phone_ip
+    - !secret portable_tomer_lp_ip
+    - !secret portable_hava_lp_ip
+    - !secret portable_nexus_tablet_ip

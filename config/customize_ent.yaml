@@ -1,0 +1,765 @@
+##########################################
+################ Switches ################
+##########################################
+switch.living_room_night_light:
+  friendly_name: "Living Room Night Light"
+  emulated_hue_name: "Living Room Night Light"
+  emulated_hue_hidden: false
+switch.kitchen_bar_light:
+  friendly_name: "Bar Light"
+  emulated_hue_name: "Bar Light"
+  emulated_hue_hidden: false
+switch.service_room_light:
+  friendly_name: "Service Room Light"
+  emulated_hue_name: "Service Room Light"
+  emulated_hue_hidden: false
+switch.living_room_main_light:
+  friendly_name: "Living Room Main Light"
+  emulated_hue_name: "Living Room Main Light"
+  emulated_hue_hidden: false
+switch.living_room_small_light:
+  friendly_name: "Living Room Small Light"
+  emulated_hue_name: "Living Room Small Light"
+  emulated_hue_hidden: false
+switch.kitchen_main_light_fixed:
+  hidden: true
+switch.kitchen_main_light:
+  friendly_name: "Kitchen Main Light"
+  assumed_state: true
+  emulated_hue_name: "Kitchen Main Light"
+  emulated_hue_hidden: false
+switch.kitchen_island_light_fixed:
+  hidden: true
+switch.kitchen_island_light:
+  friendly_name: "Island Light"
+  assumed_state: true
+  emulated_hue_name: "Island Light"
+  emulated_hue_hidden: false
+switch.main_hallway_light_fixed:
+  hidden: true
+switch.main_hallway_light:
+  friendly_name: "Main Hallway Light"
+  assumed_state: true
+  emulated_hue_name: "Main Hallway Light"
+  emulated_hue_hidden: false
+switch.small_bathroom_light:
+  friendly_name: "Small Bathroom Light"
+  emulated_hue_name: "Small Bathroom Light"
+  emulated_hue_hidden: false
+switch.shower_light:
+  friendly_name: "Shower Light"
+  emulated_hue_name: "Shower Light"
+  emulated_hue_hidden: false
+switch.closet_room_light:
+  friendly_name: "Closet Room Light"
+  emulated_hue_name: "Closet Light"
+  emulated_hue_hidden: false
+switch.empty_room_light:
+  friendly_name: "Empty Room Light"
+  emulated_hue_name: "Empty Room Light"
+  emulated_hue_hidden: false
+switch.bedroom_main_light:
+  friendly_name: "Bedroom Main Light"
+  emulated_hue_name: "Bedroom Main Light"
+  emulated_hue_hidden: false
+switch.guest_room_light:
+  friendly_name: "Guest Room Light"
+  emulated_hue_name: "Guest Room Light"
+  emulated_hue_hidden: false
+switch.balcony_light:
+  friendly_name: "Balcony Light"
+  emulated_hue_name: "Balcony Light"
+  emulated_hue_hidden: false
+switch.entrance_light:
+  friendly_name: "Entrance Light"
+  emulated_hue_name: "Entrance Light"
+  emulated_hue_hidden: false
+switch.main_bathroom_light:
+  friendly_name: "Main Bathroom Light"
+  emulated_hue_name: "Main Bathroom Light"
+  emulated_hue_hidden: false
+switch.small_hallway_light:
+  friendly_name: "Small Hallway Light"
+  emulated_hue_name: "Small Hallway Light"
+  emulated_hue_hidden: false
+switch.bedroom_ac_shutter:
+  friendly_name: "Shutter"
+  icon: mdi:blinds
+switch.bedroom_ac_light:
+  friendly_name: "Panel Light"
+  icon: mdi:spotlight
+  
+##########################################
+################# Lights #################
+##########################################
+light.tv_lights:
+  friendly_name: "TV Back Light"
+
+##########################################
+############# Media Players ##############
+##########################################
+media_player.samsung_tv_remote:
+  friendly_name: "Living Room Samsung TV"
+  icon: mdi:television
+media_player.spotify:
+  friendly_name: "Tomers Spotify"
+  icon: mdi:spotify
+media_player.bedroom_tv:
+  friendly_name: "Bedroom Hisense TV"
+  icon: mdi:television
+
+##########################################
+############# Input Number ###############
+##########################################
+input_number.tv_led_brightness:
+  friendly_name: "Brightness"
+  icon: mdi:brightness-6
+input_number.tv_led_temperature:
+  friendly_name: "Temperature"
+  icon: mdi:oil-temperature
+
+##########################################
+############# Input Select ###############
+##########################################
+input_select.tv_led_color:
+  friendly_name: "Color"
+  icon: mdi:format-color-fill
+input_select.tv_led_theme:
+  friendly_name: "Theme"
+  icon: mdi:white-balance-iridescent
+input_select.lr_ac_state:
+  friendly_name: "State"
+  icon: mdi:weather-windy-variant
+input_select.lr_ac_fan:
+  friendly_name: "Fan"
+  icon: mdi:fan
+input_select.bedroom_ac_state:
+  friendly_name: "State"
+  icon: mdi:weather-windy-variant
+input_select.bedroom_ac_fan:
+  friendly_name: "Fan"
+  icon: mdi:fan
+input_select.select_shabbat_city:
+  friendly_name: "City"
+  icon: mdi:city
+
+##########################################
+############# Input Boolean ##############
+##########################################
+input_boolean.lr_ac_status:
+  friendly_name: "Status"
+  icon: mdi:air-conditioner
+input_boolean.bedroom_ac_status:
+  friendly_name: "Status"
+  icon: mdi:air-conditioner
+
+##########################################
+############### Input Text ###############
+##########################################
+input_text.lr_ac_temp_text:
+  name: lr_ac_temp_text
+input_text.bedroom_ac_temp_text:
+  name: bedroom_ac_temp_text
+input_text.hava_last_state:
+  name: hava_last_state
+input_text.tomer_last_state:
+  name: tomer_last_state
+
+##########################################
+################# Covers #################
+##########################################
+cover.lr_ac_temp_cover:
+  friendly_name: "Change Temperature"
+  icon: mdi:temperature-celsius
+cover.bedroom_ac_temp_cover:
+  friendly_name: "Change Temperature"
+  icon: mdi:temperature-celsius
+
+##########################################
+################# Sensors ################
+##########################################
+sensor.living_room_broadlink_a1_temperature:
+  friendly_name: "Temperature"
+sensor.living_room_broadlink_a1_humidity:
+  friendly_name: "Humidity"
+  icon: mdi:water-percent
+sensor.living_room_broadlink_a1_air_quality:
+  friendly_name: "Air Quality"
+  icon: mdi:weather-windy
+sensor.living_room_broadlink_a1_light:
+  friendly_name: "Light"
+  icon: mdi:brightness-5
+sensor.living_room_broadlink_a1_noise:
+  friendly_name: "Noise"
+  icon: mdi:voice
+sensor.google_wifi_bedroom_status:
+  friendly_name: "AP Status"
+sensor.google_wifi_bedroom_last_restart:
+  friendly_name: "Last Restart"
+sensor.google_wifi_bedroom_current_version:
+  friendly_name: "Current Version"
+sensor.google_wifi_bedroom_uptime:
+  friendly_name: "Uptime"
+sensor.google_wifi_bedroom_new_version:
+  friendly_name: "Version Status"
+sensor.google_wifi_guest_room_status:
+  friendly_name: "AP Status"
+sensor.google_wifi_guest_room_last_restart:
+  friendly_name: "Last Restart"
+sensor.google_wifi_guest_room_current_version:
+  friendly_name: "Current Version"
+sensor.google_wifi_guest_room_uptime:
+  friendly_name: "Uptime"
+sensor.google_wifi_guest_room_new_version:
+  friendly_name: "Version Status"  
+sensor.google_wifi_living_room_status:
+  friendly_name: "AP Status"
+sensor.google_wifi_living_room_last_restart:
+  friendly_name: "Last Restart"
+sensor.google_wifi_living_room_current_version:
+  friendly_name: "Current Version"
+sensor.google_wifi_living_room_uptime:
+  friendly_name: "Uptime"
+sensor.google_wifi_living_room_new_version:
+  friendly_name: "Version Status"
+sensor.lr_ac_temp_sensor:
+  friendly_name: "Current Temperature"
+  icon_template: mdi:thermometer
+sensor.bedroom_ac_temp_sensor:
+  friendly_name: "Current Temperature"
+  icon_template: mdi:thermometer
+sensor.small_bathroom_door_sensor:
+  friendly_name: "Small Bathroom Door"
+sensor.main_bathroom_door_sensor:
+  friendly_name: "Main Bathroom Door"
+sensor.closet_room_door_sensor:
+  friendly_name: "Closet Room Door"
+sensor.service_room_door_sensor:
+  friendly_name: "Service Room Door"
+sensor.hava_ezra_battery_level:
+  hidden: true
+sensor.hava_ezra_battery_state:
+  hidden: true
+sensor.tomers_iphone6s_battery_level:
+  hidden: true
+sensor.tomers_iphone6s_battery_state:
+  hidden: true
+sensor.hava_tracker_sensor:
+  friendly_name: "Hava Location"
+  icon: mdi:account-location
+sensor.tomer_tracker_sensor:
+  friendly_name: "Tomer Location"
+  icon: mdi:account-location
+sensor.hava_icloud_battery_sensor:
+  friendly_name: "Hava Battery"
+sensor.tomer_icloud_battery_sensor:
+  friendly_name: "Tomer Battery"
+sensor.ha_duckdns_cert_expiry:
+  friendly_name: "DuckDNS Certificate Days Left"
+  icon: mdi:certificate
+sensor.speedtest_ping:
+  friendly_name: "Speedtest Ping"
+  icon: mdi:network
+sensor.speedtest_download:
+  friendly_name: "Speedtest Download"
+  icon: mdi:download-network
+sensor.speedtest_upload:
+  friendly_name: "Speedtest Upload"
+  icon: mdi:upload-network
+sensor.bedroom_ac_status_sensor:
+  hidden: false
+sensor.living_room_echo_one_nmap_tracker:
+  friendly_name: "Living Room Echo"
+  icon: mdi:amazon
+sensor.bedroom_echo_nmap_tracker:
+  friendly_name: "Bedroom Echo"
+  icon: mdi:amazon
+sensor.den_dot_nmap_tracker:
+  friendly_name: "Den Dot"
+  icon: mdi:amazon
+sensor.bedroom_yes_nmap_tracker:
+  friendly_name: "Bedroom Yes"
+  icon: mdi:television-classic
+sensor.guest_room_yes_nmap_tracker:
+  friendly_name: "Guest Room Yes"
+  icon: mdi:television-classic
+sensor.living_room_yes_nmap_tracker:
+  friendly_name: "Living Room Yes"
+  icon: mdi:television-classic
+sensor.den_pc_nmap_tracker:
+  friendly_name: "Den Computer"
+  icon: mdi:windows
+sensor.tomers_laptop_nmap_tracker:
+  friendly_name: "Tomer's Laptop"
+  icon: mdi:windows
+sensor.havas_laptop_nmap_tracker:
+  friendly_name: "Hava's Laptop"
+  icon: mdi:windows
+sensor.nexus_tablet_nmap_tracker:
+  friendly_name: "Nexus Tablet"
+  icon: mdi:android
+sensor.shield_console_nmap_tracker:
+  friendly_name: "Shield Console"
+  icon: mdi:android
+sensor.tomers_phone_nmap_tracker:
+  friendly_name: "Tomer's Phone"
+  icon: mdi:cellphone-iphone
+sensor.havas_phone_nmap_tracker:
+  friendly_name: "Hava's Phone"
+  icon: mdi:cellphone-iphone
+sensor.living_room_harmony_hub_nmap_tracker:
+  friendly_name: "Living Room Harmony Hub"
+  icon: mdi:remote
+sensor.living_room_rm_pro_nmap_tracker:
+  friendly_name: "Living Room RM Pro"
+  icon: mdi:remote
+sensor.bedroom_rm_mini_nmap_tracker:
+  friendly_name: "Bedroom RM Mini"
+  icon: mdi:remote
+sensor.hallway_netgear_hub_nmap_tracker:
+  friendly_name: "Hallway Netgear Hub"
+  icon: mdi:access-point-network
+sensor.kitchen_bar_sp2_nmap_tracker:
+  friendly_name: "Kitchen Bar SP2"
+  icon: mdi:power-socket-eu
+sensor.living_room_night_light_sp2_nmap_tracker:
+  friendly_name: "Living Room SP2"
+  icon: mdi:power-socket-eu
+sensor.service_room_s1c_nmap_tracker:
+  friendly_name: "Service Room SC1"
+  icon: mdi:power-socket-eu
+sensor.switcher_v2_nmap_tracker:
+  friendly_name: "Switcher Water Heater"
+  icon: mdi:steam
+sensor.tv_lifxz_led_nmap_tracker:
+  friendly_name: "Living Room Lifx Strip"
+  icon: mdi:led-strip
+sensor.living_room_samsung_tv_nmap_tracker:
+  friendly_name: "Living Room Samsung TV"
+  icon: mdi:television
+sensor.living_room_broadlink_a1_nmap_tracker:
+  friendly_name: "Living Room A1"
+sensor.run_speed_test_last_run:
+  friendly_name: "Last Speed Test"
+  icon: mdi:timetable
+sensor.tomer_owntracks_gecode:
+  hidden: true
+sensor.hava_owntracks_gecode:
+  hidden: true
+sensor.tomer_icloud_gecode:
+  hidden: true
+sensor.hava_icloud_gecode:
+  hidden: true
+sensor.den_pc_mqtt_client_status:
+  friendly_name: "Den Mqtt Client"
+  icon: mdi:developer-board
+sensor.shabbat_times_il_haifa:
+  hidden: true
+sensor.shabbat_times_il_rishon_lezion:
+  hidden: true
+sensor.select_city_shabbat_start_time:
+  friendly_name: "Shabbat Starts At"
+  icon: mdi:clock-start
+sensor.select_city_shabbat_end_time:
+  friendly_name: "Shabbat Ends At"
+  icon: mdi:clock-end
+
+##########################################
+################# Scripts ################
+##########################################
+script.icloud_find_hava_iphone:
+  friendly_name: "Find Havas iPhone"
+  icon: mdi:magnify
+script.icloud_find_tomer_iphone:
+  friendly_name: "Find Tomers iPhone"
+  icon: mdi:magnify
+script.living_room_ac_check_state_script:
+  hidden: true
+script.living_room_ac_cool_low_script:
+  hidden: true
+script.living_room_ac_cool_medium_script:
+  hidden: true
+script.living_room_ac_cool_high_script:
+  hidden: true
+script.living_room_ac_cool_auto_script:
+  hidden: true
+script.living_room_ac_warm_low_script:
+  hidden: true
+script.living_room_ac_warm_medium_script:
+  hidden: true
+script.living_room_ac_warm_high_script:
+  hidden: true
+script.living_room_ac_warm_auto_script:
+  hidden: true
+script.living_room_rm_pro_send_packet:
+  hidden: true
+script.bedroom_ac_check_state_script:
+  hidden: true
+script.bedroom_ac_cool_low_script:
+  hidden: true
+script.bedroom_ac_cool_medium_script:
+  hidden: true
+script.bedroom_ac_cool_high_script:
+  hidden: true
+script.bedroom_ac_cool_auto_script:
+  hidden: true
+script.bedroom_ac_warm_low_script:
+  hidden: true
+script.bedroom_ac_warm_medium_script:
+  hidden: true
+script.bedroom_ac_warm_high_script:
+  hidden: true
+script.bedroom_ac_warm_auto_script:
+  hidden: true
+script.bedroom_rm_mini_send_packet:
+  hidden: true
+script.tv_led_theme_select_script:
+  hidden: true
+script.restart_s1c_addon_script:
+  friendly_name: "Update Sensors"
+  icon: mdi:surround-sound
+script.update_all_devices:
+  friendly_name: "Update Devices"
+  icon: mdi:cellphone-link
+script.update_hava_devices:
+  hidden: true
+script.update_tomer_devices:
+  hidden: true
+script.send_sensors_report_notification:
+  hidden: true
+script.get_sensors_report_notificiation_from_leaving_home:
+  hidden: true
+script.get_sensors_report_notificiation_from_ui:
+  friendly_name: "Get Sensors Report"
+  icon: mdi:file-chart
+script.get_sensors_report_notificiation_from_alexa:
+  hidden: true
+script.run_speed_test:
+  friendly_name: "Run Speed Test"
+  icon: mdi:speedometer
+script.correct_objects_values:
+  hidden: true
+script.watch_living_room_tv:
+  hidden: true
+script.leaving_home:
+  hidden: true
+script.get_den_mqtt_client_status:
+  friendly_name: "Get Den Mqtt Status"
+  icon: mdi:developer-board
+script.sleep_time:
+  hidden: true
+script.bedroom_tv_set_timer:
+  hidden: true
+
+##########################################
+################# Groups #################
+##########################################
+group.all_automations:
+  hidden: true
+group.all_covers:
+  hidden: true
+group.all_devices:
+  hidden: true
+group.all_lights:
+  hidden: true
+group.all_remotes:
+  hidden: true
+group.all_scripts:
+  hidden: true
+group.all_switches:
+  hidden: true
+group.living_room_tv_led:
+  friendly_name: "TV Led"
+  control: hidden
+group.living_room_ac:
+  friendly_name: "Main AC"
+  control: hidden
+group.living_room_switches:
+  friendly_name: "Lights"
+group.kitchen_switches:
+  friendly_name: "Lights"
+group.hallways_switches:
+  friendly_name: "Lights"
+group.bathrooms_switches:
+  friendly_name: "Lights"
+group.service_room_switches:
+  friendly_name: "Lights"
+group.bedroom_ac:
+  friendly_name: "Bedroom AC"
+  control: hidden
+group.bedroom_ac_hidden_controls:
+  friendly_name: "Extra Controls"
+  control: hidden
+group.bedroom_switches:
+  friendly_name: "Lights"
+group.empty_room_switches:
+  friendly_name: "Lights"
+group.guest_room_switches:
+  friendly_name: "Lights"
+group.balcony_switches:
+  friendly_name: "Lights"
+group.living_room_google_wifi_point:
+  friendly_name: "Living Room Access Point"
+  icon: mdi:access-point-network
+  control: hidden
+group.guest_room_google_wifi_point:
+  friendly_name: "Guest Room Access Point"
+  icon: mdi:access-point-network
+  control: hidden
+group.bedroom_google_wifi_point:
+  friendly_name: "Bedroom Access Point"
+  icon: mdi:access-point-network
+  control: hidden
+group.user_tomer_devices:
+  friendly_name: "Tomer Devices"
+  icon: mdi:human-male
+  control: hidden
+group.user_hava_devices:
+  friendly_name: "Hava Devices"
+  icon: mdi:human-female
+  control: hidden
+group.manage_automations:
+  friendly_name: "Manage Automations"
+  icon: mdi:home-automation
+group.all_door_sensors:
+  friendly_name: "Door Sensors"
+  icon: mdi:glassdoor
+  control: hidden
+group.all_living_room_sensors:
+  friendly_name: "Sensors"
+  icon: mdi:surround-sound
+  control: hidden
+group.all_kitchen_sensors:
+  friendly_name: "Sensors"
+  icon: mdi:surround-sound
+  control: hidden
+group.all_bathrooms_sensors:
+  friendly_name: "Sensors"
+  icon: mdi:surround-sound
+  control: hidden
+group.all_service_room_sensors:
+  friendly_name: "Sensors"
+  icon: mdi:surround-sound
+  control: hidden
+group.all_bedroom_sensors:
+  friendly_name: "Sensors"
+  icon: mdi:surround-sound
+  control: hidden
+group.all_guest_room_sensors:
+  friendly_name: "Sensors"
+  icon: mdi:surround-sound
+  control: hidden
+group.activate_operations:
+  friendly_name: "Activate Operations"
+  icon: mdi:script
+  control: hidden
+group.household_summary:
+  friendly_name: "Household"
+  icon: home-heart
+  control: hidden
+group.start_scenes:
+  friendly_name: "Start Scenes"
+  icon: mdi:crop-landscape
+  control: hidden
+group.ha_statistics:
+  friendly_name: "Home Assistant Pi"
+  icon: mdi:raspberrypi
+  control: hidden
+group.ha_operations:
+  friendly_name: "Activate Operaions"
+  icon: mdi:script
+  control: hidden
+group.nmap_alexa_trackers:
+  friendly_name: "Alexa Devices"
+  icon: mdi:amazon
+  control: hidden
+group.nmap_remotes_trackers:
+  friendly_name: "Remotes"
+  icon: mdi:remote
+  control: hidden
+group.nmap_yes_stb_trackers:
+  friendly_name: "Yes STB's"
+  icon: mdi:movie
+  control: hidden
+group.nmap_computers_tracker:
+  friendly_name: "Computers"
+  icon: mdi:desktop-classic
+  control: hidden
+group.nmap_phones_tracker:
+  friendly_name: "Phones"
+  icon: mdi:cellphone
+  control: hidden
+group.nmap_lights_tracker:
+  friendly_name: "Lights"
+  icon: mdi:lightbulb
+  control: hidden
+group.nmap_various_trackers:
+  friendly_name: "Various Devices"
+  icon: mdi:developer-board
+  control: hidden
+group.shabbat_times:
+  friendly_name: "Shabbat Times"
+  icon: mdi:timetable
+
+##########################################
+################# Views ##################
+##########################################
+group.default_view:
+  friendly_name: "Home"
+group.living_room_view:
+  friendly_name: "Living Room"
+group.kitchen_view:
+  friendly_name: "Kitchen"
+group.hallways_view:
+  friendly_name: "Hallways"
+group.bathrooms_view:
+  friendly_name: "Bathrooms"
+group.service_room_view:
+  friendly_name: "Service Room"
+group.bedroom_view:
+  friendly_name: "Bedroom"
+group.empty_room_view:
+  friendly_name: "Empty Room"
+group.guest_room_view:
+  friendly_name: "Guest Room"
+group.balcony_view:
+  friendly_name: "Balcony"
+group.tech_support_view:
+  friendly_name: "Tech Support"
+group.tomer_testing:
+  friendly_name: "Tests"
+
+##########################################
+################# Scenes #################
+##########################################
+scene.blissful_lights:
+  hidden: true
+scene.cheerful_lights:
+  hidden: true
+scene.dream_lights:
+  hidden: true
+scene.energizing_lights:
+  hidden: true
+scene.epic_lights:
+  hidden: true
+scene.exciting_lights:
+  hidden: true
+scene.focusing_lights:
+  hidden: true
+scene.halloween_lights:
+  hidden: true
+scene.hanukkah_lights:
+  hidden: true
+scene.holy_lights:
+  hidden: true
+scene.independence_day_lights:
+  hidden: true
+scene.intense_lights:
+  hidden: true
+scene.mellow_lights:
+  hidden: true
+scene.peaceful_lights:
+  hidden: true
+scene.powerful_lights:
+  hidden: true
+scene.relaxing_lights:
+  hidden: true
+scene.santa_lights:
+  hidden: true
+scene.serene_lights:
+  hidden: true
+scene.soothing_lights:
+  hidden: true
+scene.sports_lights:
+  hidden: true
+scene.tranquil_lights:
+  hidden: true
+scene.warming_lights:
+  hidden: true
+scene.leaving_home:
+  friendly_name: "Leaving Home"
+  emulated_hue_hidden: false
+  emulated_hue_name: "Leaving Home Scene"
+scene.watch_tv:
+  friendly_name: "Watch TV"
+  emulated_hue_hidden: false
+  emulated_hue_name: "Watch TV Scene"
+scene.watch_movie:
+  friendly_name: "Watch A Movie"
+  emulated_hue_hidden: false
+  emulated_hue_name: "Watch A Movie Scene"
+scene.sleep_time:
+  friendly_name: "Sleep Time"
+  emulated_hue_hidden: false
+  emulated_hue_name: "Go To Sleep Scene"
+
+##########################################
+############### Automations ##############
+##########################################
+automation.change_tv_led_brightness:
+  hidden: true
+automation.change_tv_led_temperature:
+  hidden: true
+automation.change_tv_led_color:
+  hidden: true
+automation.change_tv_led_theme:
+  hidden: true
+automation.lr_ac_changes:
+  hidden: true
+automation.lr_ac_status_on:
+  hidden: true
+automation.lr_ac_status_off:
+  hidden: true
+automation.bedroom_ac_changes:
+  hidden: true
+automation.bedroom_ac_status_on:
+  hidden: true
+automation.bedroom_ac_status_off:
+  hidden: true
+automation.bedroom_ac_show_extra_controls_on:
+  hidden: true
+automation.bedroom_ac_show_extra_controls_off:
+  hidden: true
+automation.small_bathroom_door_sensor_open:
+  friendly_name: "Small Bathroom Open"
+  icon: mdi:lightbulb-on
+automation.main_bathroom_door_sensor_open:
+  friendly_name: "Main Bathroom Open"
+  icon: mdi:lightbulb-on
+automation.closet_room_door_sensor_open:
+  friendly_name: "Closet Room Open"
+  icon: mdi:lightbulb-on
+automation.service_room_door_sensor_open:
+  friendly_name: "Service Room Open"
+  icon: mdi:lightbulb-on
+automation.service_room_door_sensor_closed:
+  friendly_name: "Service Room Closed"
+  icon: mdi:lightbulb-outline
+automation.on_start_event:
+  hidden: true
+automation.hava_tracking_group_change_state:
+  hidden: true
+automation.tomer_tracking_group_change_state:
+  hidden: true
+automation.update_hava_last_state:
+  hidden: true
+automation.update_tomer_last_state:
+  hidden: true
+automation.tomer_low_batt_notify:
+  friendly_name: "Tomer Low Battery Notification"
+  icon: mdi:battery-charging-wireless-30
+automation.hava_low_batt_notify:
+  friendly_name: "Hava Low Battery Notification"
+  icon: mdi:battery-charging-wireless-30
+automation.tomer_low_batt_reset_variable:
+  hidden: true
+automation.hava_low_batt_reset_variable:
+  hidden: true
+automation.den_pc_update_mqtt_client_status:
+  hidden: true
+
+##########################################
+################# Remotes ################
+##########################################
+remote.living_room_harmony_hub:
+  friendly_name: "Living Room Harmony Hub"

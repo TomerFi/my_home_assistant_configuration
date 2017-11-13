@@ -1,0 +1,28 @@
+- platform: lifx_cloud
+  token: !secret lifx_cloud_token
+  
+- name: leaving_home
+  entities:
+    script.leaving_home:
+      state: on
+
+- name: watch_tv
+  entities:
+    remote.living_room_harmony_hub:
+      state: on
+      activity: "Watch TV"
+    script.watch_living_room_tv:
+      state: on
+    
+- name: watch_movie
+  entities:
+    remote.living_room_harmony_hub:
+      state: on
+      activity: "Watch Shield"
+    script.watch_living_room_tv:
+      state: on
+
+- name: sleep_time
+  entities:
+    script.sleep_time:
+      state: on

@@ -1,0 +1,239 @@
+- platform: broadlink
+  name: living_room_broadlink_a1
+  update_interval: 60
+  host: !secret living_room_broadlink_a1_ip
+  mac: !secret living_room_broadlink_a1_mac
+  monitored_conditions:
+    - temperature
+    - humidity
+    - air_quality
+    - light
+    - noise
+
+#- platform: yr
+
+- platform: google_wifi
+  host: !secret living_room_google_wifi_ip
+  name: google_wifi_living_room
+  monitored_conditions:
+    - current_version
+    - last_restart
+    - new_version
+    - status
+    - uptime
+  
+- platform: google_wifi
+  host: !secret guest_room_google_wifi_ip
+  name: google_wifi_guest_room
+  monitored_conditions:
+    - current_version
+    - last_restart
+    - new_version
+    - status
+    - uptime
+  
+- platform: google_wifi
+  host: !secret bedroom_google_wifi_ip
+  name: google_wifi_bedroom
+  monitored_conditions:
+    - current_version
+    - last_restart
+    - new_version
+    - status
+    - uptime
+
+- platform: template
+  sensors:
+    lr_ac_temp_sensor:
+      value_template: "{{ states.input_text.lr_ac_temp_text.state }}"
+    bedroom_ac_temp_sensor:
+      value_template: "{{ states.input_text.bedroom_ac_temp_text.state }}"
+    bedroom_ac_status_sensor:
+      value_template: "{{ states.input_boolean.bedroom_ac_status.state }}"
+    hava_tracker_sensor:
+      value_template: "{%if states.sensor.havas_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.hava_last_state.state }}{%endif%}"
+    tomer_tracker_sensor:
+      value_template: "{%if states.sensor.tomers_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.tomer_last_state.state }}{%endif%}"
+    hava_icloud_battery_sensor:
+      value_template: "{{ states.device_tracker.havaezra.attributes.battery | round }}"
+      unit_of_measurement: '%'
+      icon_template: >
+        {% if (states.device_tracker.havaezra.attributes.battery_status ==  "Charging") %}
+          {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery-charging-100
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-charging-90
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-charging-80
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-charging-80
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-charging-60
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-charging-60
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-charging-40
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-charging-30
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-charging-20
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-charging-20
+          {%endif%}
+        {% else %}
+          {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-90
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-80
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-70
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-60
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-50
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-40
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-30
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-20
+          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-10
+          {%endif%}
+        {% endif%}
+    tomer_icloud_battery_sensor:
+      value_template: "{{ states.device_tracker.tomersiphone6s.attributes.battery | round }}"
+      unit_of_measurement: '%'
+      icon_template: >
+        {% if (states.device_tracker.tomersiphone6s.attributes.battery_status ==  "Charging") %}
+          {% if ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 90) %} mdi:battery-charging-100
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 80) %} mdi:battery-charging-90
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 70) %} mdi:battery-charging-80
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 60) %} mdi:battery-charging-80
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 50) %} mdi:battery-charging-60
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 40) %} mdi:battery-charging-60
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 30) %} mdi:battery-charging-40
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 20) %} mdi:battery-charging-30
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 10) %} mdi:battery-charging-20
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 0) %} mdi:battery-charging-20
+          {%endif%}
+        {% else %}
+          {% if ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 90) %} mdi:battery
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 80) %} mdi:battery-90
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 70) %} mdi:battery-80
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 60) %} mdi:battery-70
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 50) %} mdi:battery-60
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 40) %} mdi:battery-50
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 30) %} mdi:battery-40
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 20) %} mdi:battery-30
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 10) %} mdi:battery-20
+          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 0) %} mdi:battery-10
+          {%endif%}
+        {% endif%}
+    den_pc_nmap_tracker:
+      value_template: "{%if states.device_tracker.den_pc.state == 'home'%}Online{%else%}Offline{%endif%}"
+    bedroom_yes_nmap_tracker:
+      value_template: "{%if states.device_tracker.bedroom_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+    guest_room_yes_nmap_tracker:
+      value_template: "{%if states.device_tracker.guest_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+    living_room_echo_one_nmap_tracker:
+      value_template: "{%if states.device_tracker.living_room_echo_one.state == 'home'%}Online{%else%}Offline{%endif%}"
+    switcher_v2_nmap_tracker:
+      value_template: "{%if states.device_tracker.switcher_v2.state == 'home'%}Online{%else%}Offline{%endif%}"
+    bedroom_echo_nmap_tracker:
+      value_template: "{%if states.device_tracker.bedroom_echo.state == 'home'%}Online{%else%}Offline{%endif%}"
+    living_room_yes_nmap_tracker:
+      value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+    hallway_netgear_hub_nmap_tracker:
+      value_template: "{%if states.device_tracker.hallway_netgear_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
+    shield_console_nmap_tracker:
+      value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
+    den_dot_nmap_tracker:
+      value_template: "{%if states.device_tracker.den_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
+    kitchen_bar_sp2_nmap_tracker:
+      value_template: "{%if states.device_tracker.kitchen_bar_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
+    living_room_rm_pro_nmap_tracker:
+      value_template: "{%if states.device_tracker.living_room_rm_pro.state == 'home'%}Online{%else%}Offline{%endif%}"
+    living_room_night_light_sp2_nmap_tracker:
+      value_template: "{%if states.device_tracker.living_room_night_light_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
+    bedroom_rm_mini_nmap_tracker:
+      value_template: "{%if states.device_tracker.bedroom_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+    living_room_broadlink_a1_nmap_tracker:
+      value_template: "{%if states.device_tracker.living_room_broadlink_a1.state == 'home'%}Online{%else%}Offline{%endif%}"
+    service_room_s1c_nmap_tracker:
+      value_template: "{%if states.device_tracker.service_room_s1c.state == 'home'%}Online{%else%}Offline{%endif%}"
+    tv_lifxz_led_nmap_tracker:
+      value_template: "{%if states.device_tracker.tv_lifxz_led.state == 'home'%}Online{%else%}Offline{%endif%}"
+    living_room_harmony_hub_nmap_tracker:
+      value_template: "{%if states.device_tracker.living_room_harmony_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
+    living_room_samsung_tv_nmap_tracker:
+      value_template: "{%if states.device_tracker.living_room_samsung_tv.state == 'home'%}Online{%else%}Offline{%endif%}"
+    tomers_phone_nmap_tracker:
+      value_template: "{%if states.device_tracker.tomers_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
+    havas_phone_nmap_tracker:
+      value_template: "{%if states.device_tracker.havas_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
+    tomers_laptop_nmap_tracker:
+      value_template: "{%if states.device_tracker.tomers_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
+    havas_laptop_nmap_tracker:
+      value_template: "{%if states.device_tracker.havas_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
+    nexus_tablet_nmap_tracker:
+      value_template: "{%if states.device_tracker.nexus_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
+    run_speed_test_last_run:
+      value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+    select_city_shabbat_start_time:
+      value_template: >
+        {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_start }}
+        {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_start }}
+        {%endif%}
+    select_city_shabbat_end_time:
+      value_template: >
+        {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_end }}
+        {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_end }}
+        {%endif%}
+    
+- platform: mqtt
+  state_topic: "sensors/s1c/small_bathroom"
+  name: "small_bathroom_door_sensor"
+  
+- platform: mqtt
+  state_topic: "sensors/s1c/main_bathroom"
+  name: "main_bathroom_door_sensor"
+
+- platform: mqtt
+  state_topic: "sensors/s1c/closet_room"
+  name: "closet_room_door_sensor"
+
+- platform: mqtt
+  state_topic: "sensors/s1c/service_room"
+  name: "service_room_door_sensor"
+  
+- platform: mqtt
+  state_topic: "smarthome/mqtt_client/status_update"
+  name: "den_pc_mqtt_client_status"
+  
+- platform: cert_expiry
+  name: ha_duckdns_cert_expiry
+  host: !secret dns_name
+  scan_interval: 86400
+  
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  manual: true
+  
+- platform: google_geocode
+  name: tomer_owntracks_gecode
+  origin: device_tracker.tomerphone_tpowntracks
+  options: street, city
+  display_zone: hide
+  api_key: !secret google_geocoding_api_key
+  
+- platform: google_geocode
+  name: hava_owntracks_gecode
+  origin: device_tracker.havaphone_hpowntracks
+  options: street, city
+  display_zone: hide
+  api_key: !secret google_geocoding_api_key
+  
+- platform: google_geocode
+  name: tomer_icloud_gecode
+  origin: device_tracker.tomersiphone6s
+  options: street, city
+  display_zone: hide
+  api_key: !secret google_geocoding_api_key
+  
+- platform: google_geocode
+  name: hava_icloud_gecode
+  origin: device_tracker.havaezra
+  options: street, city
+  display_zone: hide
+  api_key: !secret google_geocoding_api_key
+
+- platform: shabbat_times
+  geonames: "IL-Haifa,IL-Rishon LeZion"
+  candle_lighting_minutes_before_sunset: 0
+  havdalah_minutes_after_sundown: 40

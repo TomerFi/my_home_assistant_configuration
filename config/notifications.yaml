@@ -1,0 +1,5 @@
+- platform: group
+  name: all_ios
+  services:
+    - service: ios_tomers_iphone6s
+    - service: ios_hava_ezra

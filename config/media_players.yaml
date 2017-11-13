@@ -1,0 +1,15 @@
+- platform: spotify
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+  
+- platform: samsungtv
+  host: !secret living_room_samaung_tv_ip
+  mac: !secret living_room_samaung_tv_mac
+
+# - platform: cast
+
+- platform: broadlink
+  name: bedroom_tv
+  host: !secret bedroom_broadlink_rm_mini_ip
+  mac: !secret bedroom_broadlink_rm_mini_mac
+  ircodes_ini: 'ir_codes/bedroom_tv.ini'

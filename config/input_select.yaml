@@ -1,0 +1,70 @@
+tv_led_color:
+  name: tv_led_color
+  options:
+    - Red
+    - Blue
+    - Green
+    - Gold
+    - Orange
+    - Pink
+    - Purple
+
+tv_led_theme:
+  name: tv_led_theme
+  options:
+    - Blissful
+    - Cheerful
+    - Dream
+    - Energizing
+    - Epic
+    - Exciting
+    - Focusing
+    - Halloween
+    - Hanukkah
+    - Holy
+    - Independence Day
+    - Intense
+    - Mellow
+    - Peaceful
+    - Powerful
+    - Relaxing
+    - Santa
+    - Serene
+    - Soothing
+    - Sports
+    - Tranquil
+    - Warming
+    
+lr_ac_state:
+  name: lr_ac_state
+  options :
+    - Cool
+    - Warm
+
+lr_ac_fan:
+  name: lr_ac_fan
+  options:
+    - Low
+    - Medium
+    - High
+    - Auto
+    
+bedroom_ac_state:
+  name: bedroom_ac_state
+  options :
+    - Cool
+    - Warm
+
+bedroom_ac_fan:
+  name: bedroom_ac_fan
+  options:
+    - Low
+    - Medium
+    - High
+    - Auto
+
+select_shabbat_city:
+  name: select_shabbat_city
+  options:
+    - Haifa
+    - Rishon LeZion

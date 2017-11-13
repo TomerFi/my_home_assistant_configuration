@@ -1,0 +1,302 @@
+##########################################
+############### Owntracks ################
+##########################################
+tomerphone_tpowntracks:
+  hide_if_away: false
+  icon: mdi:map
+  mac:
+  name: "Tomer Owntracks"
+  picture:
+  track: true
+  vendor:
+
+havaphone_hpowntracks:
+  hide_if_away: false
+  icon: mdi:map
+  mac:
+  name: "Hava Owntracks"
+  picture:
+  track: true
+  vendor:
+
+##########################################
+############### Bluetooth ################
+##########################################
+tomer_bluetooth:
+  hide_if_away: false
+  icon: mdi:bluetooth
+  mac: !secret devices_tomer_phone_bluetooth_mac
+  name: "Tomer Bluetooth"
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+hava_bluetooth:
+  hide_if_away: false
+  icon: mdi:bluetooth
+  mac: !secret devices_hava_phone_bluetooth_mac
+  name: "Hava Bluetooth"
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+##########################################
+################## IOS ###################
+##########################################
+tomers_iphone6s:
+  hide_if_away: false
+  icon: mdi:apple-ios
+  mac:
+  name: "Tomer IOS"
+  picture:
+  track: true
+  vendor:
+
+hava_ezra:
+  hide_if_away: false
+  icon: mdi:apple-ios
+  mac:
+  name: "Hava IOS"
+  picture:
+  track: true
+  vendor:
+
+##########################################
+################ iCloud ##################
+##########################################
+tomersiphone6s:
+  hide_if_away: false
+  icon: mdi:cellphone-iphone
+  mac:
+  name: "Tomer iCloud"
+  picture:
+  track: true
+  vendor:
+
+havaezra:
+  hide_if_away: false
+  icon: mdi:cellphone-iphone
+  mac:
+  name: "Hava iCloud"
+  picture:
+  track: true
+  vendor:
+
+##########################################
+############# Nmap Devices ###############
+##########################################
+den_pc:
+  hide_if_away: false
+  icon:
+  mac: !secret den_pc_mac
+  name: "Den PC"
+  picture:
+  track: true
+  vendor: ASUSTek COMPUTER INC.
+
+bedroom_yes:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_yes_mac
+  name: "Bedroom Yes STB"
+  picture:
+  track: true
+  vendor: UEC COMMERCIAL
+
+guest_room_yes:
+  hide_if_away: false
+  icon:
+  mac: !secret guest_room_yes_mac
+  name: "Guest Room Yes STB"
+  picture:
+  track: true
+  vendor: UEC COMMERCIAL
+
+living_room_echo_one:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_echo_one_mac
+  name: "Living Room Echo One"
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+switcher_v2:
+  hide_if_away: false
+  icon:
+  mac: !secret hallways_switcher_mac
+  name: "Switcher Water Heater"
+  picture:
+  track: true
+  vendor: Shenzhen Ogemray Technology Co., Ltd.
+
+bedroom_echo:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_echo_one_mac
+  name: "Bedroom Echo One"
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+living_room_yes:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_yes_mac
+  name: "Living Room Yes STB"
+  picture:
+  track: true
+  vendor: Advanced Digital Broadcast SA
+
+hallway_netgear_hub:
+  hide_if_away: false
+  icon:
+  mac: !secret hallways_netgear_switch_mac
+  name: "Hallways Netgear Hub"
+  picture:
+  track: true
+  vendor: NETGEAR
+
+shield_console:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_shield_mac
+  name: "nVidia Shield Console"
+  picture:
+  track: true
+  vendor: unknown
+
+den_dot:
+  hide_if_away: false
+  icon:
+  mac: !secret den_echo_dot_mac
+  name: "Den Dot"
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+kitchen_bar_sp2:
+  hide_if_away: false
+  icon:
+  mac: !secret kitchen_bar_light_broadlink_sp2_mac
+  name: "Kitchen Bar SP2"
+  picture:
+  track: true
+  vendor: Broadlink Pty Ltd
+
+living_room_rm_pro:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_broadlink_rm_pro_mac
+  name: "Living Room RM Pro"
+  picture:
+  track: true
+  vendor: Broadlink Pty Ltd
+
+living_room_night_light_sp2:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_night_light_broadlink_sp2_mac
+  name: "Living Room Night Light SP2"
+  picture:
+  track: true
+  vendor: unknown
+
+bedroom_rm_mini:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_broadlink_rm_mini_mac
+  name: "Bedroom RM Mini"
+  picture:
+  track: true
+  vendor: unknown
+
+living_room_broadlink_a1:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_broadlink_a1_mac
+  name: "Living Room Broadlink A1"
+  picture:
+  track: true
+  vendor: unknown
+
+service_room_s1c:
+  hide_if_away: false
+  icon:
+  mac: !secret service_room_light_broadlink_sc1_mac
+  name: "Service Room S1C"
+  picture:
+  track: true
+  vendor: HangZhou Gubei Electronics Technology Co.,Ltd
+
+living_room_harmony_hub:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_logitech_harmony_hub_mac
+  name: "Living Room Harmony Hub"
+  picture:
+  track: true
+  vendor: Slim Devices, Inc.
+
+tv_lifxz_led:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_tv_lifx_z_mac
+  name: "TV LifxZ Led"
+  picture:
+  track: true
+  vendor: LIFI LABS MANAGEMENT PTY LTD
+
+living_room_samsung_tv:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_samaung_tv_mac
+  name: "Living Room Samsung TV"
+  picture:
+  track: true
+  vendor: Samsung Electronics Co.,Ltd
+
+tomers_phone:
+  hide_if_away: false
+  icon:
+  mac: !secret devices_tomer_phone_mac
+  name: "Tomer's Phone"
+  picture:
+  track: true
+  vendor: unknown
+
+havas_phone:
+  hide_if_away: false
+  icon:
+  mac: !secret devices_hava_phone_mac
+  name: "Hava's Phone"
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+tomers_laptop:
+  hide_if_away: false
+  icon:
+  mac: !secret portable_tomer_lp_mac
+  name: "Tomer's Laptop"
+  picture:
+  track: true
+  vendor: Intel Corporate
+
+havas_laptop:
+  hide_if_away: false
+  icon:
+  mac: !secret portable_hava_lp_mac
+  name: "Hava's Laptop"
+  picture:
+  track: true
+  vendor: Liteon Technology Corporation
+
+nexus_tablet:
+  hide_if_away: false
+  icon:
+  mac: !secret portable_nexus_tablet_mac
+  name: "Nexus Tablet"
+  picture:
+  track: true
+  vendor: ASUSTek COMPUTER INC.

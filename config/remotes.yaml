@@ -1,0 +1,4 @@
+- platform: harmony
+  name: living_room_harmony_hub
+  host: !secret living_room_logitech_harmony_hub_ip
+  activity: Watch TV

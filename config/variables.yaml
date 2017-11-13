@@ -1,0 +1,4 @@
+tomer_low_batt_notification_sent:
+  value: false
+hava_low_batt_notification_sent:
+  value: false

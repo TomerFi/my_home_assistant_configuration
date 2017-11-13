@@ -1,0 +1,26 @@
+- platform: template
+  covers:
+    lr_ac_temp_cover:
+      position_template: "{% if states.sensor.lr_ac_temp_sensor ==  none %}25{% else %}{{ states.sensor.lr_ac_temp_sensor.state | int }}{% endif %}"
+      open_cover:
+        service: input_text.set_value
+        data_template:
+          entity_id: input_text.lr_ac_temp_text
+          value: "{{ [((states.input_text.lr_ac_temp_text.state | int) + 1), 32] | min }}"
+      close_cover:
+        service: input_text.set_value
+        data_template:
+          entity_id: input_text.lr_ac_temp_text
+          value: "{{ [((states.input_text.lr_ac_temp_text.state | int) - 1), 16] | max }}"
+    bedroom_ac_temp_cover:
+      position_template: "{% if states.sensor.bedroom_ac_temp_sensor ==  none %}25{% else %}{{ states.sensor.bedroom_ac_temp_sensor.state | int }}{% endif %}"
+      open_cover:
+        service: input_text.set_value
+        data_template:
+          entity_id: input_text.bedroom_ac_temp_text
+          value: "{{ [((states.input_text.bedroom_ac_temp_text.state | int) + 1), 30] | min }}"
+      close_cover:
+        service: input_text.set_value
+        data_template:
+          entity_id: input_text.bedroom_ac_temp_text
+          value: "{{ [((states.input_text.bedroom_ac_temp_text.state | int) - 1), 17] | max }}"
