@@ -12,8 +12,19 @@ my home assistant configuration
 - **sensor/shabbat_times** made by myself, you can have a look [here](https://community.home-assistant.io/t/get-shabbat-times-from-hebcal-api-custom-sensor/32429).
 - **media_player/broadlink** as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are relates to this component.
 
-### Python Script
+### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
  
 ### Themes
-- None of the [themes](config/themes) are made by me, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
+- None of the [themes](config/themes) were made by me, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
+
+## Devices, Equipment and Endpoints
+
+- [Home Assistant Hass.io](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
+- 5X [Amazon Alexa Enabled Devices](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Want laying around the house.
+- [Lifx-Z 2 meters led strip](https://www.amazon.com/gp/product/B01KY02NLY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) behind the living room's television.
+- [Harmony Elite](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controling the following devices:
+  - Samsung Smart TV
+  - [Nvidia Shield Console](https://www.amazon.com/gp/product/B01N1NT9Y6/ref=oh_aui_detailpage_o02_s00?ie=UTF8&th=1).
+  - [Harman Kardon Sabre SB35](https://www.amazon.com/Harman-Kardon-SABRE-SB35-Entertainment/dp/B00F9HTX7U/ref=sr_1_1?s=electronics&ie=UTF8&qid=1510609535&sr=1-1&keywords=sabre+sb35).
+- [Broadlink RM Pro](https://www.aliexpress.com/item/Broadlink-RM2-RM-Pro-Smart-home-Automation-Universal-Intelligent-wireless-remote-control-WIFI-IR-RF-switch/32738344424.html?spm=a2g0s.9042311.0.0.elfcCR) in the living room controling the following devices:
