@@ -1,0 +1,11 @@
+Vintage:
+  dark-primary-color: "#373f27"
+  primary-color: "#636b46"
+  light-primary-color: "#e9e7da"
+  paper-toggle-button-checked-ink-color: "#cda34f"
+  paper-toggle-button-checked-button-color: "#cda34f"
+  paper-toggle-button-checked-bar-color: "#cda34f"
+  paper-slider-knob-color: "#cda34f"
+  paper-slider-knob-start-color: "#cda34f"
+  paper-slider-pin-color: "#cda34f"
+  paper-slider-active-color: "#cda34f"
