@@ -1,0 +1,9 @@
+{
+	"intents": [{
+		"slots": [{
+			"name": "Action",
+			"type": "LIST_OF_ACTIONS"
+		}],
+		"intent": "StartAction"
+	}]
+}

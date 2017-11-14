@@ -1,0 +1,38 @@
+LocateTomerIntent where's {TomerNick}
+LocateTomerIntent where is {TomerNick}
+LocateTomerIntent find {TomerNick}
+LocateTomerIntent locate {TomerNick}
+LocateHavaIntent where's {HavaNick}
+LocateHavaIntent where is {HavaNick}
+LocateHavaIntent find {HavaNick}
+LocateHavaIntent locate {HavaNick}
+FindTomerIphoneIntent where's {TomerNick} iphone
+FindTomerIphoneIntent where is {TomerNick} iphone
+FindTomerIphoneIntent find {TomerNick} iphone
+FindTomerIphoneIntent locate {TomerNick} iphone
+FindHavaIphoneIntent where's {HavaNick} iphone
+FindHavaIphoneIntent where is {HavaNick} iphone
+FindHavaIphoneIntent find {HavaNick} iphone
+FindHavaIphoneIntent locate {HavaNick} iphone
+UpdateSensorsIntent update sensors
+UpdateSensorsIntent update sensors states
+UpdateSensorsIntent update sensors status
+UpdateDevicesIntent update devices
+UpdateDevicesIntent update devices states
+UpdateDevicesIntent update devices status
+GetSensorsStatesIntent for the sensors states
+GetSensorsStatesIntent for the sensors status
+GetSensorsStatesIntent what are the sensors states
+GetSensorsStatesIntent what are sensors status
+GetSensorsStatesIntent for the sensors report
+GetSensorsStatesIntent for a sensors report
+GetSensorsStatesIntent give you the sensors report
+GetSensorsStatesIntent give you a sensors report
+SendSensorsStatesIntent send a sensors report to {SendTo}
+SendSensorsStatesIntent send the sensors report to {SendTo}
+SendSensorsStatesIntent send the sensors states to {SendTo}
+SendSensorsStatesIntent send the sensors status to {SendTo}
+SendSensorsStatesIntent send {SendTo} a sensors report
+SendSensorsStatesIntent send {SendTo} the sensors report
+SendSensorsStatesIntent send {SendTo} the sensors states
+SendSensorsStatesIntent send {SendTo} the sensors status
