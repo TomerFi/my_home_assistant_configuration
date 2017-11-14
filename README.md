@@ -8,6 +8,7 @@ This is my home assistant configruation, although I'm going to focus on home ass
     - [Custom Components](#custom-components)
     - [Python Scripts](#python-scripts)
   - [Themes](#themes)
+  - [Installed Hass.io Addons](#installed-hass.io-addons)
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
 - [Alexa Skills Configuration](#alexa-skills-configuration)
@@ -30,6 +31,8 @@ This is my home assistant configruation, although I'm going to focus on home ass
  
 ### Themes
 - None of the [themes](config/themes) were made by myself, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
+
+### Installed Hass.io Addons
 
 ## Network Gear
 - [TP-Ling C7 AC1750](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
