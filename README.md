@@ -42,16 +42,6 @@ This is my home assistant configruation, although I'm going to focus on home ass
 - [Home Assistant Hass.io](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
 - 5X [Amazon Alexa Enabled Devices](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wans laying around the house.
 - [Lifx-Z 2 meters led strip](https://www.amazon.com/gp/product/B01KY02NLY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) behind the living room's television.
-  - Store Skills:
-    - [Broadlink Remote Control](https://www.amazon.com/BroadLink-Remote-Control/dp/B073PLQYKS/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648170&sr=1-1&keywords=broadlink) for controlling the tv in the bedroom.
-    - [Harmony](https://www.amazon.com/Logitech-Harmony/dp/B01M4LDPX3/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648428&sr=1-1&keywords=harmony) for controlling the entertainment center in the living room.
-    - [LIFX Optimized for Smart Home](https://www.amazon.com/LIFX-Optimized-for-Smart-Home/dp/B01EIQSPOY/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648575&sr=1-1&keywords=lifx) for controling my led strip.
-    - [Shabbat Times](https://www.amazon.com/Tomer-Figenblat-Shabbat-Times/dp/B072PRCHRD/ref=sr_1_2?s=digital-skills&ie=UTF8&qid=1510648624&sr=1-2&keywords=shabbat+times) for getting the start and end times for the shabbat.
-  - Personal Skills:
-    - AskMyPc home assistat skill controlling my computer.
-    - Home Assistant for controling my home assistant installation.
-  - Core Functionality
-    - My Home Assistant installation acts as an  [Emulated Hue](https://home-assistant.io/components/emulated_hue/) platform making devices discoverable from alexa as Hue Lights.
 - [Harmony Elite](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controling the following devices:
   - Samsung Smart TV
   - Yes STB
@@ -73,3 +63,13 @@ This is my home assistant configruation, although I'm going to focus on home ass
 - [Broadlink A1 Sensor](https://www.aliexpress.com/item/Broadlink-A1-E-air-wifi-Air-Quatily-Detector-Intelligent-Purifier-smart-home-Automation-phone-detect-Temperature/32614430027.html?spm=a2g0s.9042311.0.0.6NtFMx).
 
 ## Alexa Skills Configuration
+- Store Skills:
+  - [Broadlink Remote Control](https://www.amazon.com/BroadLink-Remote-Control/dp/B073PLQYKS/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648170&sr=1-1&keywords=broadlink) for controlling the tv in the bedroom.
+  - [Harmony](https://www.amazon.com/Logitech-Harmony/dp/B01M4LDPX3/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648428&sr=1-1&keywords=harmony) for controlling the entertainment center in the living room.
+  - [LIFX Optimized for Smart Home](https://www.amazon.com/LIFX-Optimized-for-Smart-Home/dp/B01EIQSPOY/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648575&sr=1-1&keywords=lifx) for controling my led strip.
+  - [Shabbat Times](https://www.amazon.com/Tomer-Figenblat-Shabbat-Times/dp/B072PRCHRD/ref=sr_1_2?s=digital-skills&ie=UTF8&qid=1510648624&sr=1-2&keywords=shabbat+times) for getting the start and end times for the shabbat.
+- Personal Skills:
+  - AskMyPc home assistat skill controlling my computer.
+  - Home Assistant for controling my home assistant installation.
+- Core Functionality
+  - My Home Assistant installation acts as an  [Emulated Hue](https://home-assistant.io/components/emulated_hue/) platform making devices discoverable from alexa as Hue Lights.
