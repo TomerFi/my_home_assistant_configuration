@@ -50,7 +50,7 @@ I'll now cover the views I've created in my home assistant installation:
   - **Manage Automations** for turning on or off specific automations.
   - **Start Scenes** for activating the light scenes.
   - **Activate Operations** for activating specific scripts.
-  - **Household** gathering location and gathering data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. It will either show the zone (if in a known zone) or the address I'm in.</br>
+  - **Household** gathering location and battery data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. It will either show the zone (if in a known zone) or the address I'm in.</br>
   Another cool thing in this panel, the batery level icon changes accoarding to the battery level and rather or it's currently connected to the charger.
   - **Door Sensors** for tracking my door sensors.
   - **Spotify** for controlling my spotify account.
