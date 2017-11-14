@@ -33,6 +33,11 @@ This is my home assistant configruation, although I'm going to focus on home ass
 - None of the [themes](config/themes) were made by myself, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
 
 ### Installed Hass.io Addons
+- [**Bluthooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for use of the bluetooth device tracker.
+- [**DuckDNS**](https://home-assistant.io/addons/duckdns/) to update DuckDNS servers with my modem's ip address, the addon also uses the [Let's Encrypt Addon](https://home-assistant.io/addons/lets_encrypt/] for an ssl certificate.
+- [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing the system with putty.
+- [**Samba Share**](https://home-assistant.io/addons/samba/) for accessing my configuration files from a windows environment.
+- [**Mosquitto MQTT Broker**](https://home-assistant.io/addons/mosquitto/) for mqtt connectivity with home assistant, owntracks and my computer's local client.
 
 ## Network Gear
 - [TP-Ling C7 AC1750](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
