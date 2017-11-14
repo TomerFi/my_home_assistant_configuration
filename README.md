@@ -8,7 +8,7 @@ This is my home assistant configruation, although I'm going to focus on home ass
     - [Custom Components](#custom-components)
     - [Python Scripts](#python-scripts)
   - [Themes](#themes)
-- [Smart Home Devices, Equipment and Endpoints](#smart-home-devices,-equipment-and-endpoints)
+- [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
 - [Alexa Skills Configuration](#alexa-skills-configuration)
 
 ## Home Assistant
