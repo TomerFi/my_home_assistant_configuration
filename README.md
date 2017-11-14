@@ -12,6 +12,7 @@ This is my home assistant configruation, although I'm going to focus on home ass
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
 - [Alexa Skills Configuration](#alexa-skills-configuration)
+- [Useful Tools and Applications](#useful-tools-and-applications)
 
 ## Home Assistant
 
@@ -88,14 +89,14 @@ This is my home assistant configruation, although I'm going to focus on home ass
 ## Useful Tools and Applications
 - [**Notepad++**](https://notepad-plus-plus.org/) I use it for editing *YAML* and *JSON* files.
 - [**Sublime Text**](https://www.sublimetext.com/) I use if for writing and editing *JavaScript* and *Python* scripts.
-- [**Eclipse**](https://www.eclipse.org/) for java developing.
-- [**JSONLint**](https://jsonlint.com/) a very easy json validator.
-- [**JSLint**](http://www.jslint.com/) one of the best javascript validator I ran into.
-- [**PEP8**](http://pep8online.com/) a very easy python validator.
-- [**Python Command Line**](https://www.python.org/) built in to the python installer, I use it to test python code.
+- [**Eclipse**](https://www.eclipse.org/) for *Java* developing.
+- [**JSONLint**](https://jsonlint.com/) a very easy and simple *JSON* validator.
+- [**JSLint**](http://www.jslint.com/) one of the best *JavaScript* validator I ran into.
+- [**PEP8**](http://pep8online.com/) a very easy and simple *Python* validator.
+- [**Python Command Line**](https://www.python.org/) built in to the python installer, I use it to test *Python* code.
 - [**Putty**](http://www.putty.org/) the most usefull ssh client I know.
 - [**Postman**](https://www.getpostman.com/) a very useful tool for posting http rest requests.
 
 I also want to acknowledge a couple of builtin tools with home assistant that I use consistently. in the developer tools:
-- **Services** a very useful tool for testing service calls before integrating them into your yaml files.
-- **Templates** there is no way I'm even looking at a template in the yaml files without testing it with this tool.
+- **Services** a very useful tool for testing service calls before integrating them into my yaml files.
+- **Templates** there is no way I'm even looking at a template in the yaml files without testing it with this tool first, amazing.
