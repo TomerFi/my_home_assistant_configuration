@@ -1,24 +1,26 @@
 # My  Home Assistant Configuration
-This is my home assistant configruation, although I'm going to focus on home assistat, I'll also mention some other elements and devices in order to give a full scan of complete smart home.
+This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully scan my smart home.
 
-## Customization and modification
+## Home Assistant
 
-### Custom Addons
+### Customization and modification
+
+#### Custom Addons
 - **s1c** build based on [this post](https://community.home-assistant.io/t/broadlink-s1c-kit-sensors-in-ha-using-python-and-mqtt/19886/23). The files in the [*share*](share) folder are related to this addon.
 
-### Custom Components
+#### Custom Components
 - **variable** as instructed in [this post](https://community.home-assistant.io/t/custom-component-to-declare-set-variables/25218).
 - **sensor/google_geocode** as instructed in [this post](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233).
 - **sensor/shabbat_times** made by myself, you can have a look [here](https://community.home-assistant.io/t/get-shabbat-times-from-hebcal-api-custom-sensor/32429).
 - **media_player/broadlink** as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are relates to this component.
 
-### Python Scripts
+#### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
  
 ### Themes
 - None of the [themes](config/themes) were made by myself, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
 
-## Smart Home Devices, Equipment and Endpoints
+### Smart Home Devices, Equipment and Endpoints
 
 - [Home Assistant Hass.io](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
 - 5X [Amazon Alexa Enabled Devices](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wans laying around the house.
@@ -50,3 +52,6 @@ This is my home assistant configruation, although I'm going to focus on home ass
   - Hisense Simple IR TV
   - Yes STB
   - Elco Air Conditioner
+
+### Alexa Skills Configuration
+
