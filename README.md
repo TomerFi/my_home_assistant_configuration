@@ -1,5 +1,5 @@
 # My  Home Assistant Configuration
-This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully scan my smart home.
+This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully describe my smart home.
 
 **Table Of Contents**
 - [Home Assistant](#home-assistant)
