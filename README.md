@@ -1,5 +1,5 @@
 # My  Home Assistant Configuration
-This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully describe my smart home.
+This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully describe my smart home.</br>
 I will try to keep this repository updated with any changes I'll make in my working environment as much as I can.
 
 **Table Of Contents**
@@ -46,15 +46,24 @@ I will try to keep this repository updated with any changes I'll make in my work
 First of all, I want to acknowledge the theme I use, one of the best themes I saw for home assistant. Needles to say, it isn't my creation, I don't (and won't) do frontend. The theme is called *Solarized* and I got it [here](https://community.home-assistant.io/t/share-your-themes/22018/31).
 I'll now cover the views I've created in my home assistant installation:
 - [HOME](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_HOME.jpg), this is my most used view. I use it to control the basic overall controls of home assistant:
-  - *Shabbat Times Group* for getting the next or current shabbat start and end date and time for a couple of predefined cities.
-  - *Manage Automations* for turning on or off specific automations.
-  - *Start Scenes* for controling the light scenes.
-  - *Activate Operations* for activating specific scripts.
-  - *Household* gathering location and gathering data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. It will either show the zone (if in a known zone) or the address I'm in.</br>
+  - **Shabbat Times Group** for getting the next or current shabbat start and end date and time for a couple of predefined cities.
+  - **Manage Automations** for turning on or off specific automations.
+  - **Start Scenes** for activating the light scenes.
+  - **Activate Operations** for activating specific scripts.
+  - **Household** gathering location and gathering data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. It will either show the zone (if in a known zone) or the address I'm in.</br>
   Another cool thing in this panel, the batery level icon changes accoarding to the battery level and rather or it's currently connected to the charger.
-  - *Door Sensors* for tracking my door sensors.
-- [LIVING ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_LIVING_ROOM.jpg):
-  - *Sensors* nothing special here, just a grouping of my living room sensors.
+  - **Door Sensors** for tracking my door sensors.
+  - **Spotify** for controlling my spotify account.
+- [LIVING ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_LIVING_ROOM.jpg)
+  - **Sensors** nothing special here, just a grouping of my living room sensors.
+  - **Main AC** I really like this panel, it a has alot of scripts and automations surrounding it, it works very much like the regulat IR remote.
+  - **TV Led** also a great panel, controlling my lifx-z led strip behind the tv.
+  - **Lights** nothing special here, just a grouping of my living room lights.
+-[KITCHEN](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_KITCHEN.jpg), nothing special here, just lights and sensors.
+-[BATHROOMS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BATHROOMS.jpg), nothing special here, just lights and sensors.
+-[HALLWAYS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_HALLWAYS.jpg), nothing special here, just lights.
+-[SERVICE ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_SERVICE_ROOM.jpg), nothing special here, just lights and sensors.
+- [BEDROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_OFF.jpg), besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open it.
 
 ## Network Gear
 - [**TP-Ling C7 AC1750**](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
