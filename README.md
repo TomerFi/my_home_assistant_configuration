@@ -2,14 +2,14 @@
 This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully scan my smart home.
 
 **Table Of Contents**
-- [Home Assistant](#home_assistant)
-  - [Customization and modification](#customization_and_modification)
-    - [Custom Addons](#custom_addons)
-    - [Custom Components](#custom_components)
-    - [Python Scripts](#python_scripts)
+- [Home Assistant](#home-assistant)
+  - [Customization and modification](#customization-and-modification)
+    - [Custom Addons](#custom-addons)
+    - [Custom Components](#custom-components)
+    - [Python Scripts](#python-scripts)
   - [Themes](#themes)
-- [Smart Home Devices, Equipment and Endpoints](#smart_home_devices,_equipment_and_endpoints)
-- [Alexa Skills Configuration](#alexa_skills_configuration)
+- [Smart Home Devices, Equipment and Endpoints](#smart-home-devices,-equipment-and-endpoints)
+- [Alexa Skills Configuration](#alexa-skills-configuration)
 
 ## Home Assistant
 
