@@ -1,5 +1,5 @@
 # My  Home Assistant Configuration
-This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully describe my smart home.</br>
+This is my home assistant configruation, although I'm going to focus mainly on home assistant, I'll also talk about my smart home devices and my alexa configuration in order to fully describe my smart home.</br>
 I will try to keep this repository updated with any changes I'll make in my working environment as much as I can.
 
 **Table Of Contents**
