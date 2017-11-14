@@ -165,7 +165,7 @@
         - "JgDKAJCMFzQSERM0EjQUEBMQEzQTEBMREjQVDxIREzQTMxMREjUSERI1EjQTNBM0ERISNRE2EDYRExATERIRExA2ERMQExE2EDcSNBQQEhESERMREhESEhATEBMRNhA3EDYRNhE2EKyPkhA2ERMQNhE2EBMRExA2ERMQExE2EBMRExA2ETYREhE2ERMQNhE2EDcQNhETEDYRNhE2EBMRExATERIRNhESERMQNxA2ETYREhETEBMREhETEBMSEhIREDcSNBE2ETYSNRIADQUAAAAAAAAAAAAAAAAAAA=="
         
 - id: bedroom_ac_show_extra_controls_on
-  alias: bedroom_ac_show_extra_controls
+  alias: bedroom_ac_show_extra_controls_on
   trigger:
     platform: state
     entity_id: sensor.bedroom_ac_status_sensor
@@ -177,7 +177,7 @@
       visible: true
       
 - id: bedroom_ac_show_extra_controls_off
-  alias: bedroom_ac_show_extra_controls
+  alias: bedroom_ac_show_extra_controls_off
   trigger:
     platform: state
     entity_id: sensor.bedroom_ac_status_sensor
