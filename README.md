@@ -8,7 +8,7 @@ This is my home assistant configruation, although I'm going to focus on home ass
     - [Custom Components](#custom-components)
     - [Python Scripts](#python-scripts)
   - [Themes](#themes)
-  - [Installed Hass.io Addons](#installed-hass.io-addons)
+  - [Installed Hass.io Addons](#installed-hassio-addons)
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
 - [Alexa Skills Configuration](#alexa-skills-configuration)
