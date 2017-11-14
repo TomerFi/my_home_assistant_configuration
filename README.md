@@ -84,3 +84,18 @@ This is my home assistant configruation, although I'm going to focus on home ass
   The invocation name I use for this skil is *home*, the phrase I use to invoke it is *Alexa, ask home*.
 - Core Functionality
   - My Home Assistant installation acts as an  [Emulated Hue](https://home-assistant.io/components/emulated_hue/) platform making devices discoverable from alexa as Hue Lights. I use the emulated hue component from controlling most of my switches and all of my scenes.
+
+## Useful Tools and Applications
+- [**Notepad++**](https://notepad-plus-plus.org/) I use it for editing *YAML* and *JSON* files.
+- [**Sublime Text**](https://www.sublimetext.com/) I use if for writing and editing *JavaScript* and *Python* scripts.
+- [**Eclipse**](https://www.eclipse.org/) for java developing.
+- [**JSONLint**](https://jsonlint.com/) a very easy json validator.
+- [**JSLint**](http://www.jslint.com/) one of the best javascript validator I ran into.
+- [**PEP8**](http://pep8online.com/) a very easy python validator.
+- [**Python Command Line**](https://www.python.org/) built in to the python installer, I use it to test python code.
+- [**Putty**](http://www.putty.org/) the most usefull ssh client I know.
+- [**Postman**](https://www.getpostman.com/) a very useful tool for posting http rest requests.
+
+I also want to acknowledge a couple of builtin tools with home assistant that I use consistently. in the developer tools:
+- **Services** a very useful tool for testing service calls before integrating them into your yaml files.
+- **Templates** there is no way I'm even looking at a template in the yaml files without testing it with this tool.
