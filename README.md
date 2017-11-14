@@ -56,7 +56,7 @@ I'll now cover the views I've created in my home assistant installation:
   - **Spotify** for controlling my spotify account.
 - [LIVING ROOM](frontend_pics/View_LIVING_ROOM.jpg)
   - **Sensors** nothing special here, just a grouping of my living room sensors.
-  - **Main AC** I really like this panel, it a has alot of scripts and automations surrounding it, it works very much like the regular IR remote.
+  - **Main AC** I really like this panel, it a has a lot of scripts and automations surrounding it, it works very much like the regular IR remote.
   - **TV Led** also a great panel, controlling my lifx-z led strip behind the tv.
   - **Lights** nothing special here, just a grouping of my living room lights.
 - [KITCHEN](frontend_pics/View_KITCHEN.jpg) nothing special here, just lights and sensors.
@@ -67,7 +67,7 @@ I'll now cover the views I've created in my home assistant installation:
 - [EMPTY ROOM](frontend_pics/View_EMPTY_ROOM.jpg) nothing special here, just lights.
 - [GUEST ROOM](frontend_pics/View_GUEST_ROOM.jpg) nothing special here, just lights and sensors.
 - [BALCONY](frontend_pics/View_BALCONY.jpg) nothing special here, just lights.
-- [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT_1.jpg) now this is my favourite view, it's actually has to many object to fit in one picture, the bottom part is [here](frontend_pics/View_TECH_SUPPORT_2.jpg). It groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have alot of automations an templating based on the values of the objects in this view.
+- [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT_1.jpg) now this is my favourite view, it's actually has to many object to fit in one picture, the bottom part is [here](frontend_pics/View_TECH_SUPPORT_2.jpg). It groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have a lot of automations an templating based on the values of the objects in this view.
 
 ## Network Gear
 - [**TP-Ling C7 AC1750**](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
