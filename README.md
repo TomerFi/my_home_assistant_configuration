@@ -20,7 +20,7 @@ This is my home assistant configruation, although I'm going to focus on home ass
 ### Themes
 - None of the [themes](config/themes) were made by myself, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
 
-### Smart Home Devices, Equipment and Endpoints
+## Smart Home Devices, Equipment and Endpoints
 
 - [Home Assistant Hass.io](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
 - 5X [Amazon Alexa Enabled Devices](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wans laying around the house.
@@ -53,5 +53,5 @@ This is my home assistant configruation, although I'm going to focus on home ass
   - Yes STB
   - Elco Air Conditioner
 
-### Alexa Skills Configuration
+## Alexa Skills Configuration
 
