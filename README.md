@@ -113,7 +113,11 @@ I'll now cover the views I've created in my home assistant installation:
   - [Home Assistant](alexa_skills/home_assistant) for controling my home assistant installation, I use it to run scripts, receive reports and retrieve data.</br>
   The invocation name I use for this skil is *home*, the phrase I use to invoke it is *Alexa, ask home*.
 - Core Functionality
-  - My Home Assistant installation acts as an  [Emulated Hue](https://home-assistant.io/components/emulated_hue/) platform making devices discoverable from alexa as Hue Lights. I use the emulated hue component from controlling most of my switches and all of my scenes.
+  - My Home Assistant installation acts as an  [Emulated Hue](https://home-assistant.io/components/emulated_hue/) platform making devices discoverable from alexa as Hue Lights. I use the emulated hue component from controlling most of my switches and all of my scenes. Using the eumlated hue devices, I created a couple of routins:
+    - **Alexa, let's go to sleep** will activate my *sleep_time* scene which will turn of all the lights in my house besides one light which will be automaticly closed after 10 minutes, it will turn off my living room tv, turn on my bedroom tv and set the timer on it for 90 minutes.
+    - **Alexa, goodbye** will activate the *leaving_home* scene which will turn off all the lights, ac's and the living room television, leaving only the kitchen light on (for the dog).
+    - **Alexa, let's watch a movie** will activate the *watch_tv* scene which will turn off all the light in the living room area, turn on a specific light scene for the lifx led strip behind the tv, and start the *Watch A Movie* activity on my harmony which will set my entertainment center towards my shield console.
+    - **Alexa, let's watch tv** will activate the *watch_movie* scene which will turn off all the light in the living room area, turn on a specific light scene for the lifx led strip behind the tv, and start the *Watch A Movie* activity on my harmony which will set my entertainment center towards my yes stb.
 
 ## Useful Tools and Applications
 - [**Notepad++**](https://notepad-plus-plus.org/) I use it for editing *YAML* and *JSON* files.
