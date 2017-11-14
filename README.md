@@ -51,18 +51,18 @@ I'll now cover the views I've created in my home assistant installation:
   - **Start Scenes** for activating the light scenes.
   - **Activate Operations** for activating specific scripts.
   - **Household** gathering location and battery data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. It will either show the zone (if in a known zone) or the address I'm in.</br>
-  Another cool thing in this panel, the batery level icon changes accoarding to the battery level and rather or it's currently connected to the charger.
+  Another cool thing in this panel, the batery level icon changes accoarding to the battery level and rather or it's currently connected to a charger.
   - **Door Sensors** for tracking my door sensors.
   - **Spotify** for controlling my spotify account.
 - [LIVING ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_LIVING_ROOM.jpg)
   - **Sensors** nothing special here, just a grouping of my living room sensors.
-  - **Main AC** I really like this panel, it a has alot of scripts and automations surrounding it, it works very much like the regulat IR remote.
+  - **Main AC** I really like this panel, it a has alot of scripts and automations surrounding it, it works very much like the regular IR remote.
   - **TV Led** also a great panel, controlling my lifx-z led strip behind the tv.
   - **Lights** nothing special here, just a grouping of my living room lights.
--[KITCHEN](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_KITCHEN.jpg), nothing special here, just lights and sensors.
--[BATHROOMS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BATHROOMS.jpg), nothing special here, just lights and sensors.
--[HALLWAYS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_HALLWAYS.jpg), nothing special here, just lights.
--[SERVICE ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_SERVICE_ROOM.jpg), nothing special here, just lights and sensors.
+- [KITCHEN](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_KITCHEN.jpg), nothing special here, just lights and sensors.
+- [BATHROOMS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BATHROOMS.jpg), nothing special here, just lights and sensors.
+- [HALLWAYS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_HALLWAYS.jpg), nothing special here, just lights.
+- [SERVICE ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_SERVICE_ROOM.jpg), nothing special here, just lights and sensors.
 - [BEDROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_OFF.jpg), besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open it.
 
 ## Network Gear
