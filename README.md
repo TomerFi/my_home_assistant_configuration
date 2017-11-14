@@ -34,41 +34,41 @@ This is my home assistant configruation, although I'm going to focus on home ass
 
 ### Installed Hass.io Addons
 - [**Bluthooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for use of the bluetooth device tracker.
-- [**DuckDNS**](https://home-assistant.io/addons/duckdns/) to update DuckDNS servers with my modem's ip address, the addon also uses the [Let's Encrypt Addon](https://home-assistant.io/addons/lets_encrypt/] for an ssl certificate.
+- [**DuckDNS**](https://home-assistant.io/addons/duckdns/) to update DuckDNS servers with my modem's ip address, the addon also uses the [Let's Encrypt Addon](https://home-assistant.io/addons/lets_encrypt/) for an ssl certificate.
 - [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing the system with putty.
 - [**Samba Share**](https://home-assistant.io/addons/samba/) for accessing my configuration files from a windows environment.
 - [**Mosquitto MQTT Broker**](https://home-assistant.io/addons/mosquitto/) for mqtt connectivity with home assistant, owntracks and my computer's local client.
 
 ## Network Gear
-- [TP-Ling C7 AC1750](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
-- 3X [Google Wifi Points](https://www.amazon.com/gp/product/B01MAW2294/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1) spreaded as wifi access points, I'm not using the mesh network functionality becouse it's not supported in ap mode. But I did named all the ssid the same, and the handoff between them are great so I actually have one wifi network through out my house.
-- [Netgear Prosafe 5 ports hub](https://www.amazon.com/gp/product/B00HGLVZLY/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
-- [Edimax 5 ports hub](https://www.amazon.com/Edimax-ES-5500GV3-Gigabit-Ethernet-Switch/dp/B00H8XIZT0/ref=sr_1_12?s=electronics&ie=UTF8&qid=1510662309&sr=1-12&keywords=edimax+switch).
+- [**TP-Ling C7 AC1750**](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
+- **3X [Google Wifi Points**](https://www.amazon.com/gp/product/B01MAW2294/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1) spreaded as wifi access points, I'm not using the mesh network functionality becouse it's not supported in ap mode. But I did named all the ssid the same, and the handoff between them are great so I actually have one wifi network through out my house.
+- [**Netgear Prosafe 5 ports hub**](https://www.amazon.com/gp/product/B00HGLVZLY/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
+- [**Edimax 5 ports hub**](https://www.amazon.com/Edimax-ES-5500GV3-Gigabit-Ethernet-Switch/dp/B00H8XIZT0/ref=sr_1_12?s=electronics&ie=UTF8&qid=1510662309&sr=1-12&keywords=edimax+switch).
 - 4X Netowrk RJ45 to Coax Convertors I've received from my cable supllier *Yes*, I used them to get the wired connectivity to different areas in my house.
 
 ## Smart Home Devices, Equipment and Endpoints
-- [Home Assistant Hass.io](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
-- 5X [Amazon Alexa Enabled Devices](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wans laying around the house.
-- [Lifx-Z 2 meters led strip](https://www.amazon.com/gp/product/B01KY02NLY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) behind the living room's television.
-- [Harmony Elite](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controling the following devices:
+- [**Home Assistant Hass.io**](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
+- **5X [Amazon Alexa Enabled Devices**](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wans laying around the house.
+- [**Lifx-Z 2 meters led strip**](https://www.amazon.com/gp/product/B01KY02NLY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) behind the living room's television.
+- [**Harmony Elite**](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controling the following devices:
   - Samsung Smart TV
   - Yes STB
   - [Nvidia Shield Console](https://www.amazon.com/gp/product/B01N1NT9Y6/ref=oh_aui_detailpage_o02_s00?ie=UTF8&th=1).
   - [Harman Kardon Sabre SB35](https://www.amazon.com/Harman-Kardon-SABRE-SB35-Entertainment/dp/B00F9HTX7U/ref=sr_1_1?s=electronics&ie=UTF8&qid=1510609535&sr=1-1&keywords=sabre+sb35).
   - [Lifx-Z led strip](https://www.amazon.com/gp/product/B01KY02NLY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1).
-- [Broadlink RM Pro](https://www.aliexpress.com/item/Broadlink-RM2-RM-Pro-Smart-home-Automation-Universal-Intelligent-wireless-remote-control-WIFI-IR-RF-switch/32738344424.html?spm=a2g0s.9042311.0.0.elfcCR) in the living room controling the following devices:
+- [**Broadlink RM Pro**](https://www.aliexpress.com/item/Broadlink-RM2-RM-Pro-Smart-home-Automation-Universal-Intelligent-wireless-remote-control-WIFI-IR-RF-switch/32738344424.html?spm=a2g0s.9042311.0.0.elfcCR) in the living room controling the following devices:
   - Electra Classic 35 Air Conditioner in the living room.
   - 8X [Broadlink TC2 1Gang Switches EU Standart](https://www.aliexpress.com/item/2016-New-Arrival-Broadlink-TC2-Light-Touch-Switch-EU-220V-1Gang-Wall-Switch-White-Touch-Panel/32592935925.html?spm=a2g0s.9042311.0.0.elfcCR).
   - 2X [Broadlink TC2 2Gang Switches EU Standart](https://www.aliexpress.com/item/2016-New-Arrival-Broadlink-TC2-Touch-Switches-2Gang-EU-220V-Remote-Control-Wall-Light-Switch-Smart/32592959665.html?spm=a2g0s.9042311.0.0.elfcCR).
   - [Broadlink TC2 3Gang Switch US Standart](https://www.aliexpress.com/item/2016-New-Broadlink-TC2-Light-Touch-Switch-US-AU-110V-3Gang-Wall-Switch-Wireless-Remote-Control/32591265614.html?spm=a2g0s.9042311.0.0.1rwADH).
-- 2X [Broadlink SP2 Plugs](https://www.aliexpress.com/item/Broadlink-16A-EU-US-wifi-power-socket-SP-CC-Home-Automation-Smart-plug-outlet-Wireless-Control/32639393902.html?spm=a2g0s.9042311.0.0.1rwADH) for a night lamp in the living room and a simple led strip in the kitchen.
-- [Broadlink SC1 Outer Plug](https://www.aliexpress.com/item/New-Broadlink-SC1-Wifi-Smart-Remote-Controlled-Power-Home-Automation-APP-Wireless-power-light-Switch-Via/32811421862.html?spm=a2g0s.9042311.0.0.1rwADH) for my service room light.
-- [Broadlink RM Mini](https://www.aliexpress.com/item/Original-Broadlink-RM-Mini3Black-bean-Smart-Home-Automation-Universal-Intelligent-WiFi-IR-4G-Wireless-Controller-by/32657100947.html?spm=a2g0s.9042311.0.0.1rwADH) controlling the following devices:
+- **2X [Broadlink SP2 Plugs**](https://www.aliexpress.com/item/Broadlink-16A-EU-US-wifi-power-socket-SP-CC-Home-Automation-Smart-plug-outlet-Wireless-Control/32639393902.html?spm=a2g0s.9042311.0.0.1rwADH) for a night lamp in the living room and a simple led strip in the kitchen.
+- [**Broadlink SC1 Outer Plug**](https://www.aliexpress.com/item/New-Broadlink-SC1-Wifi-Smart-Remote-Controlled-Power-Home-Automation-APP-Wireless-power-light-Switch-Via/32811421862.html?spm=a2g0s.9042311.0.0.1rwADH) for my service room light.
+- [**Broadlink RM Mini**](https://www.aliexpress.com/item/Original-Broadlink-RM-Mini3Black-bean-Smart-Home-Automation-Universal-Intelligent-WiFi-IR-4G-Wireless-Controller-by/32657100947.html?spm=a2g0s.9042311.0.0.1rwADH) controlling the following devices:
   - Hisense Simple IR TV
   - Yes STB
   - Elco Air Conditioner
-- [Broadlink S1c 1st generation Alarm Kit](https://www.aliexpress.com/item/2015-New-Arrival-Broadlink-S1-S1C-SmartOne-Alarm-Security-Kit-For-Home-Smart-Home-Alarm-System/32523639274.html?spm=a2g0s.9042311.0.0.1rwADH) working with 4X [Broadlink magnetic sensors](https://www.aliexpress.com/item/Original-Broadlink-S1C-433Mhz-Door-Sensor-Contact-Wireless-Window-Magnet-Entry-Detector-Sensor-Smart-Home-Alarm/32694362268.html?spm=a2g0s.9042311.0.0.8GFN5e).
-- [Broadlink A1 Sensor](https://www.aliexpress.com/item/Broadlink-A1-E-air-wifi-Air-Quatily-Detector-Intelligent-Purifier-smart-home-Automation-phone-detect-Temperature/32614430027.html?spm=a2g0s.9042311.0.0.6NtFMx).
+- [**Broadlink S1c 1st generation Alarm Kit**](https://www.aliexpress.com/item/2015-New-Arrival-Broadlink-S1-S1C-SmartOne-Alarm-Security-Kit-For-Home-Smart-Home-Alarm-System/32523639274.html?spm=a2g0s.9042311.0.0.1rwADH) working with 4X [Broadlink magnetic sensors](https://www.aliexpress.com/item/Original-Broadlink-S1C-433Mhz-Door-Sensor-Contact-Wireless-Window-Magnet-Entry-Detector-Sensor-Smart-Home-Alarm/32694362268.html?spm=a2g0s.9042311.0.0.8GFN5e).
+- [**Broadlink A1 Sensor**](https://www.aliexpress.com/item/Broadlink-A1-E-air-wifi-Air-Quatily-Detector-Intelligent-Purifier-smart-home-Automation-phone-detect-Temperature/32614430027.html?spm=a2g0s.9042311.0.0.6NtFMx).
 
 ## Alexa Skills Configuration
 - Store Skills:
