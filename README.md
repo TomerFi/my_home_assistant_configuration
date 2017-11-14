@@ -1,5 +1,6 @@
 # My  Home Assistant Configuration
 This is my home assistant configruation, although I'm going to focus on home assistat, I'll also talk about my smart home devices and my alexa configuration in order to fully describe my smart home.
+I will try to keep this repository updated with any changes I'll make in my working environment as much as I can.
 
 **Table Of Contents**
 - [Home Assistant](#home-assistant)
@@ -49,9 +50,11 @@ I'll now cover the views I've created in my home assistant installation:
   - *Manage Automations* for turning on or off specific automations.
   - *Start Scenes* for controling the light scenes.
   - *Activate Operations* for activating specific scripts.
-  - *Household* gathering location and gathering data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. I will either show the zone (if in a known zone) or the address.
+  - *Household* gathering location and gathering data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. It will either show the zone (if in a known zone) or the address I'm in.</br>
+  Another cool thing in this panel, the batery level icon changes accoarding to the battery level and rather or it's currently connected to the charger.
   - *Door Sensors* for tracking my door sensors.
-- [LIVING ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_LIVING_ROOM.jpg)
+- [LIVING ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_LIVING_ROOM.jpg):
+  - *Sensors* nothing special here, just a grouping of my living room sensors.
 
 ## Network Gear
 - [**TP-Ling C7 AC1750**](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
