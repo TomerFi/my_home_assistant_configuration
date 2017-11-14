@@ -63,7 +63,7 @@ I'll now cover the views I've created in my home assistant installation:
 - [BATHROOMS](frontend_pics/View_BATHROOMS.jpg) nothing special here, just lights and sensors.
 - [HALLWAYS](frontend_pics/View_HALLWAYS.jpg) nothing special here, just lights.
 - [SERVICE ROOM](frontend_pics/View_SERVICE_ROOM.jpg) nothing special here, just lights and sensors.
-- [BEDROOM](frontend_pics/View_BEDROOM_AC_OFF.jpg) besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open the extra controls.
+- [BEDROOM](frontend_pics/View_BEDROOM_AC_OFF.jpg) besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living room. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open the extra controls.
 - [EMPTY ROOM](frontend_pics/View_EMPTY_ROOM.jpg) nothing special here, just lights.
 - [GUEST ROOM](frontend_pics/View_GUEST_ROOM.jpg) nothing special here, just lights and sensors.
 - [BALCONY](frontend_pics/View_BALCONY.jpg) nothing special here, just lights.
