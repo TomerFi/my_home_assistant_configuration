@@ -1,5 +1,5 @@
-# my_home_assistant_configuration
-my home assistant configuration
+# My  Home Assistant Configuration
+This is my home assistant configruation, although I'm going to focus on home assistat, I'll also mention some other elements and devices in order to give a full scan of complete smart home.
 
 ## Customization and modification
 
