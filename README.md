@@ -45,7 +45,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 ### Frontend
 First of all, I want to acknowledge the theme I use, one of the best themes I saw for home assistant. Needles to say, it isn't my creation, I don't (and won't) do frontend. The theme is called *Solarized* and I got it [here](https://community.home-assistant.io/t/share-your-themes/22018/31).
 I'll now cover the views I've created in my home assistant installation:
-- [HOME](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_HOME.jpg), this is my most used view. I use it to control the basic overall controls of home assistant:
+- [HOME](frontend_pics/View_HOME.jpg) this is my most used view. I use it to control the basic overall controls of home assistant:
   - **Shabbat Times Group** for getting the next or current shabbat start and end date and time for a couple of predefined cities.
   - **Manage Automations** for turning on or off specific automations.
   - **Start Scenes** for activating the light scenes.
@@ -54,16 +54,20 @@ I'll now cover the views I've created in my home assistant installation:
   Another cool thing in this panel, the batery level icon changes accoarding to the battery level and rather or it's currently connected to a charger.
   - **Door Sensors** for tracking my door sensors.
   - **Spotify** for controlling my spotify account.
-- [LIVING ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_LIVING_ROOM.jpg)
+- [LIVING ROOM](frontend_pics/View_LIVING_ROOM.jpg)
   - **Sensors** nothing special here, just a grouping of my living room sensors.
   - **Main AC** I really like this panel, it a has alot of scripts and automations surrounding it, it works very much like the regular IR remote.
   - **TV Led** also a great panel, controlling my lifx-z led strip behind the tv.
   - **Lights** nothing special here, just a grouping of my living room lights.
-- [KITCHEN](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_KITCHEN.jpg), nothing special here, just lights and sensors.
-- [BATHROOMS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BATHROOMS.jpg), nothing special here, just lights and sensors.
-- [HALLWAYS](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_HALLWAYS.jpg), nothing special here, just lights.
-- [SERVICE ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_SERVICE_ROOM.jpg), nothing special here, just lights and sensors.
-- [BEDROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_OFF.jpg), besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open it.
+- [KITCHEN](frontend_pics/View_KITCHEN.jpg) nothing special here, just lights and sensors.
+- [BATHROOMS](frontend_pics/View_BATHROOMS.jpg) nothing special here, just lights and sensors.
+- [HALLWAYS](frontend_pics/View_HALLWAYS.jpg) nothing special here, just lights.
+- [SERVICE ROOM](frontend_pics/View_SERVICE_ROOM.jpg) nothing special here, just lights and sensors.
+- [BEDROOM](frontend_pics/View_BEDROOM_AC_OFF.jpg) besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open it.
+- [EMPTY ROOM](frontend_pics/View_EMPTY_ROOM.jpg) nothing special here, just lights.
+- [GUEST ROOM](frontend_pics/View_GUEST_ROOM.jpg) nothing special here, just lights and sensors.
+- [BALCONY](frontend_pics/View_BALCONY.jpg) nothing special here, just lights.
+- [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT.jpg) now this is my favourite view, it groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have alot of automations an templating based on the values of the objects in this view.
 
 ## Network Gear
 - [**TP-Ling C7 AC1750**](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
