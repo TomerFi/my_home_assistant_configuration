@@ -63,11 +63,11 @@ I'll now cover the views I've created in my home assistant installation:
 - [BATHROOMS](frontend_pics/View_BATHROOMS.jpg) nothing special here, just lights and sensors.
 - [HALLWAYS](frontend_pics/View_HALLWAYS.jpg) nothing special here, just lights.
 - [SERVICE ROOM](frontend_pics/View_SERVICE_ROOM.jpg) nothing special here, just lights and sensors.
-- [BEDROOM](frontend_pics/View_BEDROOM_AC_OFF.jpg) besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open it.
+- [BEDROOM](frontend_pics/View_BEDROOM_AC_OFF.jpg) besides the regular lights and sensors panels, I also have the **Bedroom AC** panel which is a bit different from the AC panel in the living. I has a hidden group that will only show when the ac is on, I've called it *Extra Controls* and [this](frontend_pics/View_BEDROOM_AC_ON.jpg) is what it looks like when the ac is on, [this](frontend_pics/View_BEDROOM_AC_EXTRA.jpg) is what it looks like when I open the extra controls.
 - [EMPTY ROOM](frontend_pics/View_EMPTY_ROOM.jpg) nothing special here, just lights.
 - [GUEST ROOM](frontend_pics/View_GUEST_ROOM.jpg) nothing special here, just lights and sensors.
 - [BALCONY](frontend_pics/View_BALCONY.jpg) nothing special here, just lights.
-- [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT.jpg) now this is my favourite view, it groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have alot of automations an templating based on the values of the objects in this view.
+- [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT_1.jpg) now this is my favourite view, it's actually has to many object to fit in one picture, the bottom part is [here](frontend_pics/View_TECH_SUPPORT_2.jpg). It groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have alot of automations an templating based on the values of the objects in this view.
 
 ## Network Gear
 - [**TP-Ling C7 AC1750**](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
