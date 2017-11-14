@@ -9,6 +9,7 @@ This is my home assistant configruation, although I'm going to focus on home ass
     - [Python Scripts](#python-scripts)
   - [Themes](#themes)
   - [Installed Hass.io Addons](#installed-hassio-addons)
+  - [Frontend](#frontend)
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
 - [Alexa Skills Configuration](#alexa-skills-configuration)
@@ -39,6 +40,18 @@ This is my home assistant configruation, although I'm going to focus on home ass
 - [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing the system with putty.
 - [**Samba Share**](https://home-assistant.io/addons/samba/) for accessing my configuration files from a windows environment.
 - [**Mosquitto MQTT Broker**](https://home-assistant.io/addons/mosquitto/) for mqtt connectivity with home assistant, owntracks and my computer's local client.
+
+### Frontend
+First of all, I want to acknowledge the theme I use, one of the best themes I saw for home assistant. Needles to say, it isn't my creation, I don't (and won't) do frontend. The theme is called *Solarized* and I got it [here](https://community.home-assistant.io/t/share-your-themes/22018/31).
+I'll now cover the views I've created in my home assistant installation:
+- [HOME](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_HOME.jpg), this is my most used view. I use it to control the basic overall controls of home assistant:
+  - *Shabbat Times Group* for getting the next or current shabbat start and end date and time for a couple of predefined cities.
+  - *Manage Automations* for turning on or off specific automations.
+  - *Start Scenes* for controling the light scenes.
+  - *Activate Operations* for activating specific scripts.
+  - *Household* gathering location and gathering data for the household members. The location sensor is a bit complexed, its value is based on 3 diffrent trackers and a couple of geocode sensors. I will either show the zone (if in a known zone) or the address.
+  - *Door Sensors* for tracking my door sensors.
+- [LIVING ROOM](https://github.com/TomerFi/my_home_assistant_configuration/blob/master/frontend_pics/View_LIVING_ROOM.jpg)
 
 ## Network Gear
 - [**TP-Ling C7 AC1750**](https://www.amazon.com/TP-Link-Archer-C7-802-11ac-Wireless/dp/B00BUSDVBQ/ref=sr_1_4?ie=UTF8&qid=1510661698&sr=8-4&keywords=tp-link+ac1750) is my main router, this is my lan, it connects to my modem and to all the endpoint via hubs, access points or direct connections.
