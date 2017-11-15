@@ -46,7 +46,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 First of all, I want to acknowledge the theme I use, one of the best themes I saw for home assistant. Needles to say, it isn't my creation, I don't (and won't) do frontend. The theme is called *Solarized* and I got it [here](https://community.home-assistant.io/t/share-your-themes/22018/31).
 I'll now cover the views I've created in my home assistant installation:
 - [HOME](frontend_pics/View_HOME.jpg) this is my most used view. I use it to control the basic overall controls of home assistant:
-  - **Shabbat Times Group** for getting the next or current shabbat start and end date and time for a couple of predefined cities.
+  - **Shabbat Times Group** for getting the next or current shabbat start and end date and time for a couple of predefined cities and the status of designated notification defined in TECH SUPPORT view.
   - **Manage Automations** for turning on or off specific automations.
   - **Start Scenes** for activating the light scenes.
   - **Activate Operations** for activating specific scripts.
