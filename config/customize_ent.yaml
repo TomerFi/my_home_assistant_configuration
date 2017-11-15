@@ -152,6 +152,12 @@ input_boolean.lr_ac_status:
 input_boolean.bedroom_ac_status:
   friendly_name: "Status"
   icon: mdi:air-conditioner
+input_boolean.send_shabbat_notification_tomer:
+  friendly_name: "Notify Tomer"
+  icon: mdi:send
+input_boolean.send_shabbat_notification_hava:
+  friendly_name: "Notify Hava"
+  icon: mdi:send
 
 ##########################################
 ############### Input Text ###############
@@ -164,6 +170,8 @@ input_text.hava_last_state:
   name: hava_last_state
 input_text.tomer_last_state:
   name: tomer_last_state
+input_text.shabbat_notify_minutes_start:
+  name: shabbat_notify_minutes_start
 
 ##########################################
 ################# Covers #################
@@ -174,6 +182,9 @@ cover.lr_ac_temp_cover:
 cover.bedroom_ac_temp_cover:
   friendly_name: "Change Temperature"
   icon: mdi:temperature-celsius
+cover.shabbat_notify_minutes_start:
+  friendly_name: "Adjust Minutes"
+  icon: mdi:alarm-plus
 
 ##########################################
 ################# Sensors ################
@@ -358,11 +369,17 @@ sensor.shabbat_times_il_haifa:
 sensor.shabbat_times_il_rishon_lezion:
   hidden: true
 sensor.select_city_shabbat_start_time:
-  friendly_name: "Shabbat Starts At"
+  friendly_name: "Shabbat starts at"
   icon: mdi:clock-start
 sensor.select_city_shabbat_end_time:
-  friendly_name: "Shabbat Ends At"
+  friendly_name: "Shabbat ends at"
   icon: mdi:clock-end
+sensor.shabbat_notify_minutes_start:
+  friendly_name: "Notify Minutes Before Start"
+  icon: mdi:timer
+sensor.shabbat_start_notification_status:
+  friendly_name: "Reminder set to"
+  icon: mdi:mailbox
 
 ##########################################
 ################# Scripts ################
@@ -600,6 +617,10 @@ group.nmap_various_trackers:
 group.shabbat_times:
   friendly_name: "Shabbat Times"
   icon: mdi:timetable
+  control: hidden
+group.shabbat_reminder_settings:
+  friendly_name: "Shabbat Reminder Settings"
+  icon: mdi:message-settings-variant
 
 ##########################################
 ################# Views ##################
@@ -756,6 +777,8 @@ automation.tomer_low_batt_reset_variable:
 automation.hava_low_batt_reset_variable:
   hidden: true
 automation.den_pc_update_mqtt_client_status:
+  hidden: true
+automation.shabbat_candle_lighting_time_reminder:
   hidden: true
 
 ##########################################

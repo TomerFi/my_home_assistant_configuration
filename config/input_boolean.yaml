@@ -4,3 +4,7 @@ lr_ac_status:
 bedroom_ac_status:
   name: "bedroom_ac_status"
   initial: off
+send_shabbat_notification_tomer:
+  name: "send_shabbat_notification_tomer"
+send_shabbat_notification_hava:
+  name: "send_shabbat_notification_hava"

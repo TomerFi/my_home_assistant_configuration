@@ -292,7 +292,16 @@ shabbat_times:
     - input_select.select_shabbat_city
     - sensor.select_city_shabbat_start_time
     - sensor.select_city_shabbat_end_time
+    - sensor.shabbat_start_notification_status
 
+shabbat_reminder_settings:
+  name: shabbat_reminder_settings
+  entities:
+    - sensor.shabbat_notify_minutes_start
+    - cover.shabbat_notify_minutes_start
+    - input_boolean.send_shabbat_notification_hava
+    - input_boolean.send_shabbat_notification_tomer
+    
 ##########################################
 ################# Views ##################
 ##########################################
@@ -377,6 +386,7 @@ tech_support_view:
     - group.living_room_google_wifi_point
     - group.guest_room_google_wifi_point
     - group.bedroom_google_wifi_point
+    - group.shabbat_reminder_settings
     - group.user_tomer_devices
     - group.user_hava_devices
     - group.ha_statistics
