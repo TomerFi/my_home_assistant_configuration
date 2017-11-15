@@ -167,7 +167,7 @@
   alias: bedroom_ac_show_extra_controls_on
   trigger:
     platform: state
-    entity_id: sensor.bedroom_ac_status_sensor
+    entity_id: input_boolean.bedroom_ac_status
     to: 'on'
   action:
     service: group.set_visibility
@@ -179,7 +179,7 @@
   alias: bedroom_ac_show_extra_controls_off
   trigger:
     platform: state
-    entity_id: sensor.bedroom_ac_status_sensor
+    entity_id: input_boolean.bedroom_ac_status
     to: 'off'
   action:
     service: group.set_visibility

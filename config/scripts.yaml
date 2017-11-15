@@ -414,7 +414,7 @@ correct_objects_values:
     - service: group.set_visibility
       data_template:
         entity_id: group.bedroom_ac_hidden_controls
-        visible: "{%if (states.sensor.bedroom_ac_status_sensor.state == 'on')%}true{%else%}false{%endif%}"
+        visible: "{%if (states.input_boolean.bedroom_ac_status.state == 'on')%}true{%else%}false{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.lr_ac_temp_text

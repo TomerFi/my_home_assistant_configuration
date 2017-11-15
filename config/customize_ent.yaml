@@ -2,110 +2,110 @@
 ################ Switches ################
 ##########################################
 switch.living_room_night_light:
-  friendly_name: "Living Room Night Light"
+  friendly_name: "Living Room night light"
   emulated_hue_name: "Living Room Night Light"
   emulated_hue_hidden: false
 switch.kitchen_bar_light:
-  friendly_name: "Bar Light"
+  friendly_name: "Bar light"
   emulated_hue_name: "Bar Light"
   emulated_hue_hidden: false
 switch.service_room_light:
-  friendly_name: "Service Room Light"
+  friendly_name: "Service room light"
   emulated_hue_name: "Service Room Light"
   emulated_hue_hidden: false
 switch.living_room_main_light:
-  friendly_name: "Living Room Main Light"
+  friendly_name: "Living room main light"
   emulated_hue_name: "Living Room Main Light"
   emulated_hue_hidden: false
 switch.living_room_small_light:
-  friendly_name: "Living Room Small Light"
+  friendly_name: "Living room small light"
   emulated_hue_name: "Living Room Small Light"
   emulated_hue_hidden: false
 switch.kitchen_main_light_fixed:
   hidden: true
 switch.kitchen_main_light:
-  friendly_name: "Kitchen Main Light"
+  friendly_name: "Kitchen Main light"
   assumed_state: true
   emulated_hue_name: "Kitchen Main Light"
   emulated_hue_hidden: false
 switch.kitchen_island_light_fixed:
   hidden: true
 switch.kitchen_island_light:
-  friendly_name: "Island Light"
+  friendly_name: "Island light"
   assumed_state: true
   emulated_hue_name: "Island Light"
   emulated_hue_hidden: false
 switch.main_hallway_light_fixed:
   hidden: true
 switch.main_hallway_light:
-  friendly_name: "Main Hallway Light"
+  friendly_name: "Main hallway light"
   assumed_state: true
   emulated_hue_name: "Main Hallway Light"
   emulated_hue_hidden: false
 switch.small_bathroom_light:
-  friendly_name: "Small Bathroom Light"
+  friendly_name: "Small bathroom light"
   emulated_hue_name: "Small Bathroom Light"
   emulated_hue_hidden: false
 switch.shower_light:
-  friendly_name: "Shower Light"
+  friendly_name: "Shower light"
   emulated_hue_name: "Shower Light"
   emulated_hue_hidden: false
 switch.closet_room_light:
-  friendly_name: "Closet Room Light"
+  friendly_name: "Closet room light"
   emulated_hue_name: "Closet Light"
   emulated_hue_hidden: false
 switch.empty_room_light:
-  friendly_name: "Empty Room Light"
+  friendly_name: "Empty room light"
   emulated_hue_name: "Empty Room Light"
   emulated_hue_hidden: false
 switch.bedroom_main_light:
-  friendly_name: "Bedroom Main Light"
+  friendly_name: "Bedroom main light"
   emulated_hue_name: "Bedroom Main Light"
   emulated_hue_hidden: false
 switch.guest_room_light:
-  friendly_name: "Guest Room Light"
+  friendly_name: "Guest room light"
   emulated_hue_name: "Guest Room Light"
   emulated_hue_hidden: false
 switch.balcony_light:
-  friendly_name: "Balcony Light"
+  friendly_name: "Balcony light"
   emulated_hue_name: "Balcony Light"
   emulated_hue_hidden: false
 switch.entrance_light:
-  friendly_name: "Entrance Light"
+  friendly_name: "Entrance light"
   emulated_hue_name: "Entrance Light"
   emulated_hue_hidden: false
 switch.main_bathroom_light:
-  friendly_name: "Main Bathroom Light"
+  friendly_name: "Main bathroom light"
   emulated_hue_name: "Main Bathroom Light"
   emulated_hue_hidden: false
 switch.small_hallway_light:
-  friendly_name: "Small Hallway Light"
+  friendly_name: "Small hallway light"
   emulated_hue_name: "Small Hallway Light"
   emulated_hue_hidden: false
 switch.bedroom_ac_shutter:
   friendly_name: "Shutter"
   icon: mdi:blinds
 switch.bedroom_ac_light:
-  friendly_name: "Panel Light"
+  friendly_name: "Panel light"
   icon: mdi:spotlight
   
 ##########################################
 ################# Lights #################
 ##########################################
 light.tv_lights:
-  friendly_name: "TV Back Light"
+  friendly_name: "TV back light"
 
 ##########################################
 ############# Media Players ##############
 ##########################################
 media_player.samsung_tv_remote:
-  friendly_name: "Living Room Samsung TV"
+  friendly_name: "Living room samsung tv"
   icon: mdi:television
 media_player.spotify:
-  friendly_name: "Tomers Spotify"
+  friendly_name: "Tomer's spotify"
   icon: mdi:spotify
 media_player.bedroom_tv:
-  friendly_name: "Bedroom Hisense TV"
+  friendly_name: "Bedroom hisense tv"
   icon: mdi:television
 
 ##########################################
@@ -177,13 +177,13 @@ input_text.shabbat_notify_minutes_start:
 ################# Covers #################
 ##########################################
 cover.lr_ac_temp_cover:
-  friendly_name: "Change Temperature"
+  friendly_name: "Change temperature"
   icon: mdi:temperature-celsius
 cover.bedroom_ac_temp_cover:
-  friendly_name: "Change Temperature"
+  friendly_name: "Change temperature"
   icon: mdi:temperature-celsius
 cover.shabbat_notify_minutes_start:
-  friendly_name: "Adjust Minutes"
+  friendly_name: "Adjust minutes"
   icon: mdi:alarm-plus
 
 ##########################################
@@ -195,7 +195,7 @@ sensor.living_room_broadlink_a1_humidity:
   friendly_name: "Humidity"
   icon: mdi:water-percent
 sensor.living_room_broadlink_a1_air_quality:
-  friendly_name: "Air Quality"
+  friendly_name: "Air quality"
   icon: mdi:weather-windy
 sensor.living_room_broadlink_a1_light:
   friendly_name: "Light"
@@ -204,49 +204,49 @@ sensor.living_room_broadlink_a1_noise:
   friendly_name: "Noise"
   icon: mdi:voice
 sensor.google_wifi_bedroom_status:
-  friendly_name: "AP Status"
+  friendly_name: "Access point"
 sensor.google_wifi_bedroom_last_restart:
-  friendly_name: "Last Restart"
+  friendly_name: "Last restart"
 sensor.google_wifi_bedroom_current_version:
-  friendly_name: "Current Version"
+  friendly_name: "Current version"
 sensor.google_wifi_bedroom_uptime:
   friendly_name: "Uptime"
 sensor.google_wifi_bedroom_new_version:
-  friendly_name: "Version Status"
+  friendly_name: "Version status"
 sensor.google_wifi_guest_room_status:
-  friendly_name: "AP Status"
+  friendly_name: "Accees point"
 sensor.google_wifi_guest_room_last_restart:
-  friendly_name: "Last Restart"
+  friendly_name: "Last restart"
 sensor.google_wifi_guest_room_current_version:
-  friendly_name: "Current Version"
+  friendly_name: "Current version"
 sensor.google_wifi_guest_room_uptime:
   friendly_name: "Uptime"
 sensor.google_wifi_guest_room_new_version:
-  friendly_name: "Version Status"  
+  friendly_name: "Version status"  
 sensor.google_wifi_living_room_status:
-  friendly_name: "AP Status"
+  friendly_name: "Access point"
 sensor.google_wifi_living_room_last_restart:
-  friendly_name: "Last Restart"
+  friendly_name: "Last restart"
 sensor.google_wifi_living_room_current_version:
-  friendly_name: "Current Version"
+  friendly_name: "Current version"
 sensor.google_wifi_living_room_uptime:
   friendly_name: "Uptime"
 sensor.google_wifi_living_room_new_version:
-  friendly_name: "Version Status"
+  friendly_name: "Version status"
 sensor.lr_ac_temp_sensor:
-  friendly_name: "Current Temperature"
+  friendly_name: "Current temperature"
   icon_template: mdi:thermometer
 sensor.bedroom_ac_temp_sensor:
-  friendly_name: "Current Temperature"
+  friendly_name: "Current temperature"
   icon_template: mdi:thermometer
 sensor.small_bathroom_door_sensor:
-  friendly_name: "Small Bathroom Door"
+  friendly_name: "Small bathroom door"
 sensor.main_bathroom_door_sensor:
-  friendly_name: "Main Bathroom Door"
+  friendly_name: "Main bathroom door"
 sensor.closet_room_door_sensor:
-  friendly_name: "Closet Room Door"
+  friendly_name: "Closet room door"
 sensor.service_room_door_sensor:
-  friendly_name: "Service Room Door"
+  friendly_name: "Service room door"
 sensor.hava_ezra_battery_level:
   hidden: true
 sensor.hava_ezra_battery_state:
@@ -256,102 +256,100 @@ sensor.tomers_iphone6s_battery_level:
 sensor.tomers_iphone6s_battery_state:
   hidden: true
 sensor.hava_tracker_sensor:
-  friendly_name: "Hava Location"
+  friendly_name: "Hava's location"
   icon: mdi:account-location
 sensor.tomer_tracker_sensor:
-  friendly_name: "Tomer Location"
+  friendly_name: "Tomer's location"
   icon: mdi:account-location
 sensor.hava_icloud_battery_sensor:
-  friendly_name: "Hava Battery"
+  friendly_name: "Hava's battery"
 sensor.tomer_icloud_battery_sensor:
-  friendly_name: "Tomer Battery"
+  friendly_name: "Tomer's battery"
 sensor.ha_duckdns_cert_expiry:
-  friendly_name: "DuckDNS Certificate Days Left"
+  friendly_name: "DuckDNS certificate days left"
   icon: mdi:certificate
 sensor.speedtest_ping:
-  friendly_name: "Speedtest Ping"
+  friendly_name: "Speedtest ping"
   icon: mdi:network
 sensor.speedtest_download:
-  friendly_name: "Speedtest Download"
+  friendly_name: "Speedtest download"
   icon: mdi:download-network
 sensor.speedtest_upload:
-  friendly_name: "Speedtest Upload"
+  friendly_name: "Speedtest upload"
   icon: mdi:upload-network
-sensor.bedroom_ac_status_sensor:
-  hidden: false
 sensor.living_room_echo_one_nmap_tracker:
-  friendly_name: "Living Room Echo"
+  friendly_name: "Living room echo"
   icon: mdi:amazon
 sensor.bedroom_echo_nmap_tracker:
-  friendly_name: "Bedroom Echo"
+  friendly_name: "Bedroom echo"
   icon: mdi:amazon
 sensor.den_dot_nmap_tracker:
-  friendly_name: "Den Dot"
+  friendly_name: "Den dot"
   icon: mdi:amazon
 sensor.bedroom_yes_nmap_tracker:
-  friendly_name: "Bedroom Yes"
+  friendly_name: "Bedroom yes"
   icon: mdi:television-classic
 sensor.guest_room_yes_nmap_tracker:
-  friendly_name: "Guest Room Yes"
+  friendly_name: "Guest room yes"
   icon: mdi:television-classic
 sensor.living_room_yes_nmap_tracker:
-  friendly_name: "Living Room Yes"
+  friendly_name: "Living room yes"
   icon: mdi:television-classic
 sensor.den_pc_nmap_tracker:
-  friendly_name: "Den Computer"
+  friendly_name: "Den computer"
   icon: mdi:windows
 sensor.tomers_laptop_nmap_tracker:
-  friendly_name: "Tomer's Laptop"
+  friendly_name: "Tomer's laptop"
   icon: mdi:windows
 sensor.havas_laptop_nmap_tracker:
-  friendly_name: "Hava's Laptop"
+  friendly_name: "Hava's laptop"
   icon: mdi:windows
 sensor.nexus_tablet_nmap_tracker:
-  friendly_name: "Nexus Tablet"
+  friendly_name: "Nexus tablet"
   icon: mdi:android
 sensor.shield_console_nmap_tracker:
-  friendly_name: "Shield Console"
+  friendly_name: "Shield console"
   icon: mdi:android
 sensor.tomers_phone_nmap_tracker:
-  friendly_name: "Tomer's Phone"
+  friendly_name: "Tomer's phone"
   icon: mdi:cellphone-iphone
 sensor.havas_phone_nmap_tracker:
-  friendly_name: "Hava's Phone"
+  friendly_name: "Hava's phone"
   icon: mdi:cellphone-iphone
 sensor.living_room_harmony_hub_nmap_tracker:
-  friendly_name: "Living Room Harmony Hub"
+  friendly_name: "Living room harmony hub"
   icon: mdi:remote
 sensor.living_room_rm_pro_nmap_tracker:
-  friendly_name: "Living Room RM Pro"
+  friendly_name: "Living room rm pro"
   icon: mdi:remote
 sensor.bedroom_rm_mini_nmap_tracker:
-  friendly_name: "Bedroom RM Mini"
+  friendly_name: "Bedroom rm mini"
   icon: mdi:remote
 sensor.hallway_netgear_hub_nmap_tracker:
-  friendly_name: "Hallway Netgear Hub"
+  friendly_name: "Hallway netgear hub"
   icon: mdi:access-point-network
 sensor.kitchen_bar_sp2_nmap_tracker:
-  friendly_name: "Kitchen Bar SP2"
+  friendly_name: "Kitchen bar sp2"
   icon: mdi:power-socket-eu
 sensor.living_room_night_light_sp2_nmap_tracker:
-  friendly_name: "Living Room SP2"
+  friendly_name: "Living room sp2"
   icon: mdi:power-socket-eu
 sensor.service_room_s1c_nmap_tracker:
-  friendly_name: "Service Room SC1"
+  friendly_name: "Service room sc1"
   icon: mdi:power-socket-eu
 sensor.switcher_v2_nmap_tracker:
-  friendly_name: "Switcher Water Heater"
+  friendly_name: "Switcher water heater"
   icon: mdi:steam
 sensor.tv_lifxz_led_nmap_tracker:
-  friendly_name: "Living Room Lifx Strip"
+  friendly_name: "Living room lifx strip"
   icon: mdi:led-strip
 sensor.living_room_samsung_tv_nmap_tracker:
-  friendly_name: "Living Room Samsung TV"
+  friendly_name: "Living room samsung tv"
   icon: mdi:television
 sensor.living_room_broadlink_a1_nmap_tracker:
-  friendly_name: "Living Room A1"
+  friendly_name: "Living room a1"
 sensor.run_speed_test_last_run:
-  friendly_name: "Last Speed Test"
+  friendly_name: "Last speed test"
   icon: mdi:timetable
 sensor.tomer_owntracks_gecode:
   hidden: true
@@ -362,7 +360,7 @@ sensor.tomer_icloud_gecode:
 sensor.hava_icloud_gecode:
   hidden: true
 sensor.den_pc_mqtt_client_status:
-  friendly_name: "Den Mqtt Client"
+  friendly_name: "Den mqtt client"
   icon: mdi:developer-board
 sensor.shabbat_times_il_haifa:
   hidden: true
@@ -375,7 +373,7 @@ sensor.select_city_shabbat_end_time:
   friendly_name: "Shabbat ends at"
   icon: mdi:clock-end
 sensor.shabbat_notify_minutes_start:
-  friendly_name: "Notify Minutes Before Start"
+  friendly_name: "Notify minutes before start"
   icon: mdi:timer
 sensor.shabbat_start_notification_status:
   friendly_name: "Reminder set to"
@@ -385,10 +383,10 @@ sensor.shabbat_start_notification_status:
 ################# Scripts ################
 ##########################################
 script.icloud_find_hava_iphone:
-  friendly_name: "Find Havas iPhone"
+  friendly_name: "Find Hava's iphone"
   icon: mdi:magnify
 script.icloud_find_tomer_iphone:
-  friendly_name: "Find Tomers iPhone"
+  friendly_name: "Find Tomer's iphone"
   icon: mdi:magnify
 script.living_room_ac_check_state_script:
   hidden: true
@@ -433,10 +431,10 @@ script.bedroom_rm_mini_send_packet:
 script.tv_led_theme_select_script:
   hidden: true
 script.restart_s1c_addon_script:
-  friendly_name: "Update Sensors"
+  friendly_name: "Update sensors"
   icon: mdi:surround-sound
 script.update_all_devices:
-  friendly_name: "Update Devices"
+  friendly_name: "Update devices"
   icon: mdi:cellphone-link
 script.update_hava_devices:
   hidden: true
@@ -447,12 +445,12 @@ script.send_sensors_report_notification:
 script.get_sensors_report_notificiation_from_leaving_home:
   hidden: true
 script.get_sensors_report_notificiation_from_ui:
-  friendly_name: "Get Sensors Report"
+  friendly_name: "Get sensors report"
   icon: mdi:file-chart
 script.get_sensors_report_notificiation_from_alexa:
   hidden: true
 script.run_speed_test:
-  friendly_name: "Run Speed Test"
+  friendly_name: "Run speedtest"
   icon: mdi:speedometer
 script.correct_objects_values:
   hidden: true
@@ -461,7 +459,7 @@ script.watch_living_room_tv:
 script.leaving_home:
   hidden: true
 script.get_den_mqtt_client_status:
-  friendly_name: "Get Den Mqtt Status"
+  friendly_name: "Get den mqtt status"
   icon: mdi:developer-board
 script.sleep_time:
   hidden: true
@@ -486,7 +484,7 @@ group.all_scripts:
 group.all_switches:
   hidden: true
 group.living_room_tv_led:
-  friendly_name: "TV Led"
+  friendly_name: "TV Back Led"
   control: hidden
 group.living_room_ac:
   friendly_name: "Main AC"
@@ -742,19 +740,19 @@ automation.bedroom_ac_show_extra_controls_on:
 automation.bedroom_ac_show_extra_controls_off:
   hidden: true
 automation.small_bathroom_door_sensor_open:
-  friendly_name: "Small Bathroom Open"
+  friendly_name: "Small bathroom open - turn on the light"
   icon: mdi:lightbulb-on
 automation.main_bathroom_door_sensor_open:
-  friendly_name: "Main Bathroom Open"
+  friendly_name: "Main bathroom open - turn on the light"
   icon: mdi:lightbulb-on
 automation.closet_room_door_sensor_open:
-  friendly_name: "Closet Room Open"
+  friendly_name: "Closet room open - turn on the light"
   icon: mdi:lightbulb-on
 automation.service_room_door_sensor_open:
-  friendly_name: "Service Room Open"
+  friendly_name: "Service room open - turn on the light"
   icon: mdi:lightbulb-on
 automation.service_room_door_sensor_closed:
-  friendly_name: "Service Room Closed"
+  friendly_name: "Service room closed - turn off the light"
   icon: mdi:lightbulb-outline
 automation.on_start_event:
   hidden: true
@@ -767,10 +765,10 @@ automation.update_hava_last_state:
 automation.update_tomer_last_state:
   hidden: true
 automation.tomer_low_batt_notify:
-  friendly_name: "Tomer Low Battery Notification"
+  friendly_name: "Tomer's low battery notification"
   icon: mdi:battery-charging-wireless-30
 automation.hava_low_batt_notify:
-  friendly_name: "Hava Low Battery Notification"
+  friendly_name: "Hava's low battery notification"
   icon: mdi:battery-charging-wireless-30
 automation.tomer_low_batt_reset_variable:
   hidden: true
@@ -785,4 +783,4 @@ automation.shabbat_candle_lighting_time_reminder:
 ################# Remotes ################
 ##########################################
 remote.living_room_harmony_hub:
-  friendly_name: "Living Room Harmony Hub"
+  friendly_name: "Living room harmony hub"

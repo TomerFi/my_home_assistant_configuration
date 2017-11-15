@@ -48,8 +48,6 @@
       value_template: "{{ states.input_text.lr_ac_temp_text.state }}"
     bedroom_ac_temp_sensor:
       value_template: "{{ states.input_text.bedroom_ac_temp_text.state }}"
-    bedroom_ac_status_sensor:
-      value_template: "{{ states.input_boolean.bedroom_ac_status.state }}"
     hava_tracker_sensor:
       value_template: "{%if states.sensor.havas_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.hava_last_state.state }}{%endif%}"
     tomer_tracker_sensor:
