@@ -300,7 +300,7 @@
     - delay: '00:01:00'
     - service: script.turn_on
       entity_id: script.get_den_mqtt_client_status
-        
+      
 #- id: hava_tracking_group_change_state
 #  alias: hava_tracking_group_change_state
 #  trigger:
@@ -410,7 +410,7 @@
       seconds: 00
   condition:
     - condition: time
-      weekday: wed
+      weekday: fri
     - condition: template
       value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}true{%else%}false{%endif%}"
     - condition: template

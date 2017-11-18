@@ -237,10 +237,3 @@
 
 - platform: shabbat_times
   geonames: "IL-Haifa,IL-Rishon LeZion"
-  candle_lighting_minutes_before_sunset: 20
-  havdalah_minutes_after_sundown: 40
-  
-#- platform: rest
-#  name: hebcal_shabbat_start
-#  method: GET
-#  resource: http://www.hebcal.com/hebcal/?v=1&cfg=json&maj=off&min=off&mod=off&nx=off&year=2017&month=11&ss=off&mf=off&c=on&geo=city&city=IL-{{ states.input_select.select_shabbat_city.state }}&m=0&s=off
