@@ -1,0 +1,170 @@
+##########################################
+########## One Time Reminders ############
+##########################################
+tomer_dental_hygienist:
+  name: tomer_dental_hygienist
+  hour: 8
+  minute: 30
+  day: 22
+  month: 11
+  year: 2017
+  message: "Dental hygienist appointment at 08:30 in rishon lezion"
+  days_notice: 1
+  notifier: "ios_tomers_iphone6s"
+
+tomer_dental_doctor:
+  name: tomer_dental_doctor
+  hour: 9
+  minute: 30
+  day: 5
+  month: 12
+  year: 2017
+  message: "Dental doctor check out appointment at 09:30 in rishon lezion"
+  days_notice: 1
+  notifier: "ios_tomers_iphone6s"
+
+rafis_memorial_date:
+  name: rafis_memorial_date
+  hour: 10
+  day: 3
+  month: 3
+  year: 2018
+  message: "Dad's memorial"
+  days_notice: 7
+  notifier: "ios_tomers_iphone6s"
+  
+tzilas_memorial_date:
+  name: tzilas_memorial_date
+  hour: 10
+  day: 5
+  month: 9
+  year: 2018
+  message: "Mom's memorial"
+  days_notice: 7
+  notifier: "ios_tomers_iphone6s"
+
+##########################################
+########### Yearly Reminders #############
+##########################################
+wedding_day:
+  name: wedding_day
+  hour: 10
+  day: 30
+  month: 3
+  message: "Wedding day"
+  days_notice: 7
+  notifier: "all_ios"
+  
+havas_birthday:
+  name: havas_birthday
+  hour: 10
+  day: 30
+  month: 3
+  message: "Hava's birthday"
+  days_notice: 7
+  notifier: "ios_tomers_iphone6s"
+  
+tomers_birthday:
+  name: tomers_birthday
+  hour: 10
+  day: 2
+  month: 2
+  message: "Hava's birthday"
+  days_notice: 4
+  notifier: "ios_hava_ezra"
+
+matans_birthday:
+  name: matans_birthday
+  hour: 10
+  day: 8
+  month: 2
+  message: "Matan's birthday"
+  days_notice: 1
+  notifier: "all_ios"
+  
+gilis_birthday:
+  name: gilis_birthday
+  hour: 10
+  day: 25
+  month: 2
+  message: "Gili's birthday"
+  days_notice: 1
+  notifier: "all_ios"
+  
+mayas_birthday:
+  name: mayas_birthday
+  hour: 10
+  day: 24
+  month: 4
+  message: "Maya's birthday"
+  days_notice: 1
+  notifier: "all_ios"
+  
+twins_birthday:
+  name: twins_birthday
+  hour: 10
+  day: 13
+  month: 4
+  message: "The twins's birthday"
+  days_notice: 2
+  notifier: "all_ios"
+  
+tzilas_birthday:
+  name: tzilas_birthday
+  hour: 10
+  day: 2
+  month: 3
+  message: "Mom's birthday"
+  days_notice: 1
+  notifier: "ios_tomers_iphone6s"
+  
+rafis_birthday:
+  name: rafis_birthday
+  hour: 10
+  day: 5
+  month: 6
+  message: "Dad's birthday"
+  days_notice: 1
+  notifier: "ios_tomers_iphone6s"
+  
+tzilas_passing_date:
+  name: tzilas_passing_date
+  hour: 10
+  day: 1
+  month: 8
+  message: "Mom's passing jewish date is the 25 of Elul, please set a new reminder with the gregorian date for the memorial"
+  days_notice: 0
+  notifier: "ios_tomers_iphone6s"
+  
+rafis_passing_date:
+  name: rafis_passing_date
+  hour: 10
+  day: 15
+  month: 1
+  message: "Dad's passing jewish date is the 16 of Adar, please set a new reminder with the gregorian date for the memorial"
+  days_notice: 0
+  notifier: "ios_tomers_iphone6s"
+
+##########################################
+########## Monthly Reminders #############
+##########################################
+# Monthly Reminder will be send on the 19th of every month at 21:27
+#monthly_reminder:
+#  name: "montly test"
+#  hour: 21
+#  minute: 27
+#  day: 19
+#  message: "montly test2"
+#  days_notice: 0
+#  notifier: "ios_tomers_iphone6s"
+
+##########################################
+########### Daily Reminders ##############
+########################################## 
+# Daily Reminder will be send every day at 21:28
+#daily_reminder:
+#  name: "daily test"
+#  hour: 21
+#  minute: 28
+#  message: "daily test"
+#  notifier: "ios_tomers_iphone6s"

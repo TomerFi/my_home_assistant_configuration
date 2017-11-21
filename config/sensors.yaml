@@ -173,7 +173,7 @@
     shabbat_notify_minutes_start:
       value_template: "{{ states.input_text.shabbat_notify_minutes_start.state }}"
     shabbat_start_notification_status:
-      value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}{{ states.sensor.shabbat_notify_minutes_start.state }} minutes before start{%else%}Off{%endif%}"
+      value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}{{ states.sensor.shabbat_notify_minutes_start.state }} Minutes Before Start{%else%}Off{%endif%}"
     
 - platform: mqtt
   state_topic: "sensors/s1c/small_bathroom"

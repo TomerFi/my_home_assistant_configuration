@@ -72,13 +72,13 @@ mqtt:
 logger:
   default: warning
 #  logs:
+#    custom_components.date_notifier: debug
+#    homeassistant.components.notify: debug
 #    homeassistant.components.python_script: debug
-#    homeassistant.components.device_tracker.nmap_tracker: debug
 #    homeassistant.components.media_player: debug
 #    homeassistant.components.emulated_hue: debug
 #    homeassistant.components.alexa: debug
 #    homeassistant.components.mqtt: debug
-#    homeassistant.components.tcp_client: debug
 #    homeassistant.components.climate: debug
 #    homeassistant.components.device_tracker: debug
 #    homeassistant.components.sensor: debug
@@ -116,3 +116,4 @@ zone: !include zones.yaml
 intent_script: !include alexa_intents.yaml
 scene: !include scenes.yaml
 notify: !include notifications.yaml
+date_notifier: !include date_notifiers.yaml
