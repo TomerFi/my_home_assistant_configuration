@@ -348,6 +348,9 @@ sensor.living_room_samsung_tv_nmap_tracker:
   icon: mdi:television
 sensor.living_room_broadlink_a1_nmap_tracker:
   friendly_name: "Living Room A1"
+sensor.dash_wand_nmap_tracker:
+  friendly_name: "Dash Wand"
+  icon: mdi:amazon
 sensor.run_speed_test_last_run:
   friendly_name: "Last Speed Test"
   icon: mdi:timetable
@@ -378,6 +381,22 @@ sensor.shabbat_notify_minutes_start:
 sensor.shabbat_start_notification_status:
   friendly_name: "Reminder Set To"
   icon: mdi:mailbox
+sensor.cpu_used:
+  friendly_name: "CPU"
+sensor.disk_free_home:
+  friendly_name: "Disk Free"
+sensor.disk_used_home:
+  friendly_name: "Disk Used"
+sensor.disk_used_home_2:
+  friendly_name: "Disk Used Percentage"
+sensor.ram_available:
+  friendly_name: "RAM Free"
+sensor.ram_used:
+  friendly_name: "RAM Used Percentage"
+sensor.ram_used_2:
+  friendly_name: "RAM Used"
+sensor.last_boot:
+  friendly_name: "Last Boot"
 
 ##########################################
 ################# Scripts ################

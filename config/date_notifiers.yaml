@@ -3,13 +3,12 @@
 ##########################################
 tomer_dental_hygienist:
   name: tomer_dental_hygienist
-  hour: 8
-  minute: 30
-  day: 22
-  month: 11
-  year: 2017
-  message: "Dental hygienist appointment at 08:30 in rishon lezion"
-  days_notice: 1
+  hour: 16
+  day: 13
+  month: 3
+  year: 2018
+  message: "Dental hygienist appointment at 16:0 in rishon lezion"
+  days_notice: 7
   notifier: "ios_tomers_iphone6s"
 
 tomer_dental_doctor:

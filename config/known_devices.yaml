@@ -300,3 +300,12 @@ nexus_tablet:
   picture:
   track: true
   vendor: ASUSTek COMPUTER INC.
+
+dash_wand:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_dash_wand_mac
+  name: 'Dash Wand'
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.

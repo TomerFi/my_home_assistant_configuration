@@ -1,6 +1,10 @@
 - platform: owntracks
   max_gps_accuracy: 100
   track_new_devices: false
+  #waypoints: true
+  #waypoint_whitelist:
+    #- tomerphone
+    #- havaphone
 
 - platform: bluetooth_tracker
   interval_seconds: 30
@@ -16,6 +20,11 @@
   username: !secret icloud_hava_username
   password: !secret icloud_hava_password
   account_name: "Havas iCloud"
+  
+- platform: snmp
+  host: !secret den_pc_ip
+  community: !secret den_pc_snmp_community
+  baseoid: 1.3.6.1.2.1.1.5.0
   
 - platform: nmap_tracker
   home_interval: 10
@@ -47,3 +56,4 @@
     - !secret portable_tomer_lp_ip
     - !secret portable_hava_lp_ip
     - !secret portable_nexus_tablet_ip
+    - !secret living_room_dash_wand_ip

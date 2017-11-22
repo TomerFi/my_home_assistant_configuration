@@ -158,6 +158,8 @@
       value_template: "{%if states.device_tracker.havas_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
     nexus_tablet_nmap_tracker:
       value_template: "{%if states.device_tracker.nexus_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
+    dash_wand_nmap_tracker:
+      value_template: "{%if states.device_tracker.dash_wand.state == 'home'%}Online{%else%}Offline{%endif%}"
     run_speed_test_last_run:
       value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
     select_city_shabbat_start_time:
@@ -207,6 +209,20 @@
     - upload
   manual: true
   
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: disk_use
+      arg: /home
+    - type: disk_free
+      arg: /home
+    - type: memory_use_percent
+    - type: memory_use
+    - type: memory_free
+    - type: processor_use
+    - type: last_boot
+
 - platform: google_geocode
   name: tomer_owntracks_gecode
   origin: device_tracker.tomerphone_tpowntracks

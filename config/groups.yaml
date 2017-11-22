@@ -213,7 +213,15 @@ start_scenes:
 ha_statistics:
   name: ha_statistics
   entities:
+    - sensor.cpu_used
     - sensor.ha_duckdns_cert_expiry
+    - sensor.last_boot
+    - sensor.disk_used_home_2
+    - sensor.disk_used_home
+    - sensor.disk_free_home
+    - sensor.ram_used
+    - sensor.ram_used_2
+    - sensor.ram_available
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload
@@ -240,6 +248,7 @@ nmap_alexa_trackers:
     - sensor.living_room_echo_one_nmap_tracker
     - sensor.bedroom_echo_nmap_tracker
     - sensor.den_dot_nmap_tracker
+    - sensor.dash_wand_nmap_tracker
 
 nmap_remotes_trackers:
   name: nmap_remote_trackers
@@ -405,4 +414,4 @@ tomer_testing:
   entities:
     - media_player.samsung_tv_remote
     - remote.living_room_harmony_hub
-    - media_player.bedroom_tv   
+    - media_player.bedroom_tv

@@ -418,15 +418,15 @@ correct_objects_values:
     - service: input_text.set_value
       data_template:
         entity_id: input_text.lr_ac_temp_text
-        value: "{%if is_state(states.input_text.lr_ac_temp_text.state, 'unknown')%}25{%else%}{{ states.input_text.lr_ac_temp_text.state }}{%endif%}"
+        value: "{%if states.input_text.lr_ac_temp_text == none%}25{%else%}{{ states.input_text.lr_ac_temp_text.state }}{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.bedroom_ac_temp_text
-        value: "{%if is_state(states.input_text.bedroom_ac_temp_text.state, 'unknown')%}25{%else%}{{ states.input_text.bedroom_ac_temp_text.state }}{%endif%}"
+        value: "{%if states.input_text.bedroom_ac_temp_text == none%}25{%else%}{{ states.input_text.bedroom_ac_temp_text.state }}{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.shabbat_notify_minutes_start
-        value: "{%if is_state(states.input_text.shabbat_notify_minutes_start.state, 'unknown')%}30{%else%}{{ states.input_text.shabbat_notify_minutes_start.state }}{%endif%}"
+        value: "{%if states.input_text.shabbat_notify_minutes_start == none%}30{%else%}{{ states.input_text.shabbat_notify_minutes_start.state }}{%endif%}"
 
 get_den_mqtt_client_status:
   sequence:
