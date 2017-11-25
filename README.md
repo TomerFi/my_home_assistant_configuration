@@ -135,6 +135,7 @@ I'll now cover the views I've created in my home assistant installation:
 - [**Python Command Line**](https://www.python.org/) built into the python installer, I use it to test *Python* code.
 - [**Putty**](http://www.putty.org/) the most usefull ssh client I know.
 - [**Postman**](https://www.getpostman.com/) a very useful tool for posting http rest requests.
+- [**JSON Query Tool**](http://www.jsonquerytool.com/) a great tool for testing *JSON* queries before applying them to the code.
 
 I also want to acknowledge a couple of builtin tools with home assistant that I use regularly. in the developer tools:
 - **Services** a very useful tool for testing service calls before integrating them into my yaml files.
