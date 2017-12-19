@@ -66,8 +66,9 @@ StartAction:
     service: mqtt.publish
     data_template:
       topic: "smarthome/mqtt_client/askmypc_action"
-      payload: '{{ Action }}'
+      payload: '{{ Action | lower }}'
       qos: 0
   speech:
     type: ssml
     text: "<speak>Sure thingboss.</speak>"
+    

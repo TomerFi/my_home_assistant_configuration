@@ -4,17 +4,17 @@
 living_room_ac_check_state_script:
   sequence:
     - service_template: >
-        {% if (selecte_state == "Cool") %}
-          {% if (selected_fan == "Low") %} script.living_room_ac_cool_low_script
-          {% elif (selected_fan == "Medium") %} script.living_room_ac_cool_medium_script
-          {% elif (selected_fan == "High") %} script.living_room_ac_cool_high_script
-          {% elif (selected_fan == "Auto") %} script.living_room_ac_cool_auto_script
+        {% if (selecte_state.lower() == "cool") %}
+          {% if (selected_fan.lower() == "low") %} script.living_room_ac_cool_low_script
+          {% elif (selected_fan.lower() == "med") %} script.living_room_ac_cool_medium_script
+          {% elif (selected_fan.lower() == "high") %} script.living_room_ac_cool_high_script
+          {% elif (selected_fan.lower() == "auto") %} script.living_room_ac_cool_auto_script
           {% endif %}
-        {%-elif (selecte_state == "Warm") %}
-          {% if (selected_fan == "Low") %} script.living_room_ac_warm_low_script
-          {% elif (selected_fan == "Medium") %} script.living_room_ac_warm_medium_script
-          {% elif (selected_fan == "High") %} script.living_room_ac_warm_high_script
-          {% elif (selected_fan == "Auto") %} script.living_room_ac_warm_auto_script
+        {%-elif (selecte_state.lower() == "heat") %}
+          {% if (selected_fan.lower() == "low") %} script.living_room_ac_heat_low_script
+          {% elif (selected_fan.lower() == "med") %} script.living_room_ac_heat_medium_script
+          {% elif (selected_fan.lower() == "high") %} script.living_room_ac_heat_high_script
+          {% elif (selected_fan.lower() == "auto") %} script.living_room_ac_heat_auto_script
           {% endif %}
         {% endif %}
       data_template:
@@ -116,7 +116,7 @@ living_room_ac_cool_auto_script:
           {% elif (selected_temp == "32") %} "JgDYAAABKJcQOhA6EhYPFxAWEhYQOhI6EToROhE6EhYRFhIWEToROhEWERYSFhIWERYROhA6EjoRFhE6ERYROhE6ERYSFhIWEhYRFhEWEhYRFhE6EBYSOhEWERYSFhEWERYRFxEWEBYRFhAWEhYQFxEWEDsRFhIXERYRFhIWERYRFhIWERYSFhEWEhYRFhEWEhYRFhIWERYSFhEWERYSFhEWEjoPFxEWERYRFhEWEBYQFhEWERYTFhEWEhYRFhIVEhYRFhIWERYSFhEWETsPFhIWEDoSOhAXFAANBQ=="
           {% endif %}
 
-living_room_ac_warm_low_script:
+living_room_ac_heat_low_script:
   sequence:
     - service: script.living_room_rm_pro_send_packet
       data_template:
@@ -140,7 +140,7 @@ living_room_ac_warm_low_script:
           {% elif (selected_temp == "32") %} "JgDYAAABKJcROg87EBYRFhEWEhYSOhA6EToROhE7EBYSFhAWEjoQOxIWERYSFhEWERYSOhA6EToTOhAWEToROhE6ERYTFhEWEhYRFhEWEhYRFhI6DzsRFhIWEhYRFhIWERYRFhIWERcRFhEWEhYTFBMUFBQTFBM5EhQTFBMUExQTFBMUExQTFRIVExQSFRMUEhUTFBMUExUSFBMVEBYUFBAWFDgRFhIWERYSFhEWERYSFhEWEhYRFhIWERYSFhEWERYSFhEWEhYROhE6EDoTFhEWERYSFhE6EwANBQ=="
           {% endif %}
 
-living_room_ac_warm_medium_script:
+living_room_ac_heat_medium_script:
   sequence:
     - service: script.living_room_rm_pro_send_packet
       data_template:
@@ -164,7 +164,7 @@ living_room_ac_warm_medium_script:
           {% elif (selected_temp == "32") %} "JgDYAAABKJcSORA5EhUSFRIVExUTORE5EjoSORI5ExQSFRMUEjkTOBUTExUSFRMVEhUSORM4EjkTFRMVEhUSFRMVEjkSFREWEhUSFRIVEhUSFRIVEjkSFRMVExURFREVExUTFRIVExUTFBMVEhUTFRIVEhUTFRI5ERUTFREVExURFhIVEhUSFRIVExQSFRMVERUTFREVExUSFRIVEhUSFRIVEjkSFRIWExYSFRIVExUSFRMUExUSFhIVEhUTFRIVExQTFRIVExUTFBM5ERUSORIVEjkSORIVFQANBQ=="
           {% endif %}
 
-living_room_ac_warm_high_script:
+living_room_ac_heat_high_script:
   sequence:
     - service: script.living_room_rm_pro_send_packet
       data_template:
@@ -188,7 +188,7 @@ living_room_ac_warm_high_script:
           {% elif (selected_temp == "32") %} "JgDYAAABKJcROg86EhYSFhIWERYROhA6EjoQOhI6ERYRFhEWEToROhIWEhYRFhEWERYQOhI6EDoROhI6ExQQFxEWEDsRFhIXERYRFhIWERYSFRI6EBYRFxAWEhYQFhIWEBYSFhAXERYRFhEWERYRFhEWEhURFhI6EBcRFhIWEhUSFhEWEhYRFhIWFBMSFhEWERYSFhEWEhYRFhIWERYRFhIWEToQFhEXEBYSFhAXERYRFhQTERYRFhEWEhYQFhIWEBYSFhAWEhYSOhAWEjoQOhMVEhYROhEWFAANBQ=="
           {% endif %}
 
-living_room_ac_warm_auto_script:
+living_room_ac_heat_auto_script:
   sequence:
     - service: script.living_room_rm_pro_send_packet
       data_template:
@@ -218,17 +218,17 @@ living_room_ac_warm_auto_script:
 bedroom_ac_check_state_script:
   sequence:
     - service_template: >
-        {% if (selecte_state == "Cool") %}
-          {% if (selected_fan == "Low") %} script.bedroom_ac_cool_low_script
-          {% elif (selected_fan == "Medium") %} script.bedroom_ac_cool_medium_script
-          {% elif (selected_fan == "High") %} script.bedroom_ac_cool_high_script
-          {% elif (selected_fan == "Auto") %} script.bedroom_ac_cool_auto_script
+        {% if (selecte_state.lower() == "cool") %}
+          {% if (selected_fan.lower() == "low") %} script.bedroom_ac_cool_low_script
+          {% elif (selected_fan.lower() == "med") %} script.bedroom_ac_cool_medium_script
+          {% elif (selected_fan.lower() == "high") %} script.bedroom_ac_cool_high_script
+          {% elif (selected_fan.lower() == "auto") %} script.bedroom_ac_cool_auto_script
           {% endif %}
-        {%-elif (selecte_state == "Warm") %}
-          {% if (selected_fan == "Low") %} script.bedroom_ac_warm_low_script
-          {% elif (selected_fan == "Medium") %} script.bedroom_ac_warm_medium_script
-          {% elif (selected_fan == "High") %} script.bedroom_ac_warm_high_script
-          {% elif (selected_fan == "Auto") %} script.bedroom_ac_warm_auto_script
+        {%-elif (selecte_state.lower() == "heat") %}
+          {% if (selected_fan.lower() == "low") %} script.bedroom_ac_heat_low_script
+          {% elif (selected_fan.lower() == "med") %} script.bedroom_ac_heat_medium_script
+          {% elif (selected_fan.lower() == "high") %} script.bedroom_ac_heat_high_script
+          {% elif (selected_fan.lower() == "auto") %} script.bedroom_ac_heat_auto_script
           {% endif %}
         {% endif %}
       data_template:
@@ -318,7 +318,7 @@ bedroom_ac_cool_auto_script:
           {% elif (selected_temp == "30") %} "JgDSAAkAAUIbAAI6jpISNBIREjUSNRMRERIQNxATERIRNhIREhIRNRI1EhIQNhI1ERISNRA3ETUSNRI1ETYQExE2ERIREhISERIRExATEDcQExA3ETURExATERMQExESETYREhETEDYRNhI1EDYRrI6SETYQExE2EDcQExATETUSEhETEDYRExATETYQNxATEDcQNhETEDYRNhE2EDcQNhE2EBMSNRATERMQExESERMQExE2EBMSNRA3EBMQExISERISERE2ERIRExE2ETURNhA3EAANBQAAAAAAAA=="
           {% endif %}
 
-bedroom_ac_warm_low_script:
+bedroom_ac_heat_low_script:
   sequence:
     - service: script.bedroom_rm_mini_send_packet
       data_template:
@@ -339,7 +339,7 @@ bedroom_ac_warm_low_script:
           {% elif (selected_temp == "30") %} "JgDKAI6SETYQExE2EjUQExATETYREhETEDcQExATETYQNxATEDcQNhETEBMRNhA2ETYRNhA3EBMQNxA2ERMQExETEBMQExE2EBMRNhA3ETURNhATERMQExE2EBMRExATERIRNhA3EKyOkhE2EhERNhA3ExAREhE2EhERExA3EBMQExE2EDcREhA3ETUTERESETYQNxE1EDcSNRIRETYRNRISEBMSEhATEBMTNBESETYRNhA2EjURExATDxQRNhATEhIQExATETYQNhMADQUAAAAAAAAAAAAAAAAAAA=="
           {% endif %}
 
-bedroom_ac_warm_medium_script:
+bedroom_ac_heat_medium_script:
   sequence:
     - service: script.bedroom_rm_mini_send_packet
       data_template:
@@ -360,7 +360,7 @@ bedroom_ac_warm_medium_script:
           {% elif (selected_temp == "30") %} "JgDKAI6SETURExE1ETYRExATEDcQExATEjUQExETEDYRNhESETYRExA2ERMQNhE2EDcQNhE2ETQSExE2EBMRExATEBMSEhA2ERMQNxA2ETYQNxATEBMRExA2ERMQExESERMRNRE2EayOkhE2EBMQNxA2ERMREhA3EBMREhE2EhIQExA3EDYRExA2ERMPNxETEDcQNhE2EDcQNhE2ERIRNhETEBMQExETEBMQNxATEDcQNhE2ETYREhETEBMQNxESEBMRExATETYQNhEADQUAAAAAAAAAAAAAAAAAAA=="
           {% endif %}
 
-bedroom_ac_warm_high_script:
+bedroom_ac_heat_high_script:
   sequence:
     - service: script.bedroom_rm_mini_send_packet
       data_template:
@@ -381,7 +381,7 @@ bedroom_ac_warm_high_script:
           {% elif (selected_temp == "30") %} "JgDKAI6SEDYRExE2EDYRExATETQSExETETURExATEDcQNhETEDcQExATETYQNxA2ETYQNxA2ETYRNhESERMQExATERMQExE2EBMRNhA3EDYRNhATEhIQExA3ERIQExMRERIRNhE1EquOkhI0ExERNhA2ERMQExE2EBMRExA2ERMQExA3EDYSEhA2EBQQExE2ETUSNRE2ETYQNhI1EDcREhESERMQExETEBMQNhETEDcQNhE2EDcQExESERMQNhETEBMREhETEDYRNhEADQUAAAAAAAAAAAAAAAAAAA=="
           {% endif %}
 
-bedroom_ac_warm_auto_script:
+bedroom_ac_heat_auto_script:
   sequence:
     - service: script.bedroom_rm_mini_send_packet
       data_template:

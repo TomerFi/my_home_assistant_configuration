@@ -355,7 +355,7 @@
     above: 30
   condition:
     condition: template
-    value_template: "{{ states.variable.tomer_low_batt_notification_sent.state == 'true' }}"
+    value_template: "{{ states.variable.tomer_low_batt_notification_sent.state.lower() == 'true' }}"
   action:
     service: variable.set_variable
     data:
@@ -395,7 +395,7 @@
     above: 30
   condition:
     condition: template
-    value_template: "{{ states.variable.hava_low_batt_notification_sent.state == 'true' }}"
+    value_template: "{{ states.variable.hava_low_batt_notification_sent.state.lower() == 'true' }}"
   action:
     service: variable.set_variable
     data:

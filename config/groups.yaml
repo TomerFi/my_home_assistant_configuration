@@ -310,7 +310,28 @@ shabbat_reminder_settings:
     - cover.shabbat_notify_minutes_start
     - input_boolean.send_shabbat_notification_hava
     - input_boolean.send_shabbat_notification_tomer
+
+qnap_homenas_group:
+  name: qnap_homenas_group
+  entities:
+    - sensor.homenas_status
+    - sensor.qnap_homenas_uptime
+    - sensor.homenas_system_temperature
+    - sensor.homenas_cpu_usage
+    - sensor.homenas_cpu_temperature
+    - sensor.homenas_memory_usage
+    - sensor.homenas_memory_available
+    - sensor.homenas_memory_used
+    - sensor.homenas_network_link_eth0
+    - sensor.homenas_network_down_eth0
+    - sensor.homenas_network_up_eth0
+    - sensor.homenas_smart_status_drive_01
+    - sensor.homenas_temperature_drive_01
+    - sensor.homenas_volume_used_datavol1
+    - sensor.homenas_free_space_datavol1
+    - sensor.homenas_used_space_datavol1
     
+
 ##########################################
 ################# Views ##################
 ##########################################
@@ -399,6 +420,7 @@ tech_support_view:
     - group.user_tomer_devices
     - group.user_hava_devices
     - group.ha_statistics
+    - group.qnap_homenas_group
     - group.ha_operations
     - group.nmap_alexa_trackers
     - group.nmap_remotes_trackers
@@ -407,7 +429,7 @@ tech_support_view:
     - group.nmap_phones_tracker
     - group.nmap_lights_tracker
     - group.nmap_various_trackers
-
+    
 tomer_testing:
   name: tomer_testing
   view: true

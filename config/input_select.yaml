@@ -38,30 +38,30 @@ tv_led_theme:
 lr_ac_state:
   name: lr_ac_state
   options :
-    - Cool
-    - Warm
+    - COOL
+    - HEAT
 
 lr_ac_fan:
   name: lr_ac_fan
   options:
-    - Low
-    - Medium
-    - High
-    - Auto
+    - LOW
+    - MED
+    - HIGH
+    - AUTO
     
 bedroom_ac_state:
   name: bedroom_ac_state
   options :
-    - Cool
-    - Warm
+    - COOL
+    - HEAT
 
 bedroom_ac_fan:
   name: bedroom_ac_fan
   options:
-    - Low
-    - Medium
-    - High
-    - Auto
+    - LOW
+    - MED
+    - HIGH
+    - AUTO
 
 select_shabbat_city:
   name: select_shabbat_city

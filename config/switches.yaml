@@ -57,7 +57,7 @@
       command_on: "6QpCAN8JFgkWCRYJFgkJFgkWCRYJFhYJFgkWCQkWCRYWCRYJCRYJFhYJFgkWCQkWCRYWCQkWCRYJFhYJCRYJFgkWFgkWCQ=="
       command_off: "6QpCAN8JFgkWCRYJCRYWCQkWFgkJFhYJFgkWCQkWFgkJFgkWFgkJFhYJCRYJFhYJFgkWCQkWCRYJFgkWCRYJFhYJFgkJFg=="
     guest_bathroom_light:
-      friendly_name: "small_bathroom_light"
+      friendly_name: "small_bathroom_light_fixed"
       command_on: "6QpCAN8JFgkJFhYJFgkWCRYJFgkJFhYJCRYJFgkWFgkJFhYJFgkJFgkWFgkJFhYJCRYWCQkWCRYWCQkWCRYJFhYJCRYWCQ=="
       command_off: "6QpCAN8JFgkJFgkWCRYWCQkWCRYWCRYJCRYJFgkWFgkWCRYJCRYJFgkWFgkWCRYJCRYWCQkWCRYWCRYJFgkWCQkWFgkJFg=="
     shower_light:
@@ -154,5 +154,24 @@
           domain_name: "switch"
           service_name: "turn_off"
           data_details: {"entity_id": "switch.main_hallway_light_fixed"}
+          delay_seconds: 1
+          loop_count: 2
+    small_bathroom_light:
+      friendly_name: "small_bathroom_light_fixed"
+      value_template: "{{ states.switch.small_bathroom_light_fixed.state }}"
+      turn_on:
+        service: python_script.service_call_loop
+        data_template:
+          domain_name: "switch"
+          service_name: "turn_on"
+          data_details: {"entity_id": "switch.small_bathroom_light_fixed"}
+          delay_seconds: 1
+          loop_count: 2
+      turn_off:
+        service: python_script.service_call_loop
+        data_template:
+          domain_name: "switch"
+          service_name: "turn_off"
+          data_details: {"entity_id": "switch.small_bathroom_light_fixed"}
           delay_seconds: 1
           loop_count: 2  

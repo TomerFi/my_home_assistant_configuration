@@ -72,6 +72,8 @@ mqtt:
 logger:
   default: warning
 #  logs:
+#    homeassistant.components.alexa: debug
+#    homeassistant.components.intent_script: debug
 #    custom_components.date_notifier: debug
 #    homeassistant.components.notify: debug
 #    homeassistant.components.python_script: debug
@@ -94,6 +96,16 @@ emulated_hue:
     - scene
 
 alexa:
+
+#israel_rails:
+#  rosh_haayin_zafon_to_ta_university:
+#    name: Home To School
+#    from_station: '8800'
+#    to_station: '3600'
+#  ta_university_to_rosh_haayin_zafon:
+#    name: School To Home
+#    from_station: '3600'
+#    to_station: '8800'
 
 ##########################################
 ################ Includes ################

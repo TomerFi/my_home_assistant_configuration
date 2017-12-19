@@ -1,27 +1,78 @@
 ##########################################
 ########## One Time Reminders ############
 ##########################################
+build_google_actions_meetup:
+  name: build_google_actions_meetup
+  hour: 18
+  day: 18
+  month: 12
+  year: 2017
+  message: "Build Google Actions Meetup in Tel-Aviv at 18:00 with Matan"
+  days_notice: 1
+  notifier: "ios_tomers_iphone6s"
+  
+tomer_tooth_removal:
+  name: tomer_tooth_removal
+  hour: 15
+  day: 19
+  month: 12
+  year: 2017
+  message: "Upper tooth removal appointment at 15:00 in rishon lezion clinic with dr Hussa"
+  days_notice: 2
+  notifier: "ios_tomers_iphone6s"
+
+tomer_tooth_fix:
+  name: tomer_tooth_fix
+  hour: 14
+  minute: 30
+  day: 4
+  month: 1
+  year: 2018
+  message: "Bottom tooth fix appointment at 14:30 in rishon lezion clinic with dr Ziv-Alon"
+  days_notice: 2
+  notifier: "ios_tomers_iphone6s"
+
+tomer_dental_ct:
+  name: tomer_dental_ct
+  hour: 10
+  day: 1
+  month: 3
+  year: 2018
+  message: "Dental CT in Dent-Or in rishon lezion, remmeber to take apropriate papers"
+  days_notice: 2
+  notifier: "ios_tomers_iphone6s"
+  
 tomer_dental_hygienist:
   name: tomer_dental_hygienist
   hour: 16
   day: 13
   month: 3
   year: 2018
-  message: "Dental hygienist appointment at 16:0 in rishon lezion"
-  days_notice: 7
+  message: "Dental hygienist appointment at 16:00 in rishon lezion clinic with ms Sabbag"
+  days_notice: 2
   notifier: "ios_tomers_iphone6s"
 
-tomer_dental_doctor:
-  name: tomer_dental_doctor
+tomer_dental_ct_examination:
+  name: tomer_dental_ct_examination
   hour: 9
-  minute: 30
-  day: 5
-  month: 12
-  year: 2017
-  message: "Dental doctor check out appointment at 09:30 in rishon lezion"
-  days_notice: 1
+  day: 14
+  month: 3
+  year: 2018
+  message: "Dental CT examination appointment at 09:00 in rishon lezion clinic with dr Shoaht"
+  days_notice: 2
   notifier: "ios_tomers_iphone6s"
 
+tomer_dental_tooth_implent:
+  name: tomer_dental_tooth_implent
+  hour: 11
+  minute: 30
+  day: 28
+  month: 3
+  year: 2018
+  message: "Upper tooth implent appointment at 11:30 in rishon lezion clinic with dr Shoaht"
+  days_notice: 2
+  notifier: "ios_tomers_iphone6s"
+  
 rafis_memorial_date:
   name: rafis_memorial_date
   hour: 10

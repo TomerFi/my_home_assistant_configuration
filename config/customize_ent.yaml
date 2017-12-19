@@ -42,6 +42,8 @@ switch.main_hallway_light:
   assumed_state: true
   emulated_hue_name: "Main Hallway Light"
   emulated_hue_hidden: false
+switch.small_bathroom_light_fixed:
+  hidden: true
 switch.small_bathroom_light:
   friendly_name: "Small Bathroom Light"
   emulated_hue_name: "Small Bathroom Light"
@@ -128,13 +130,13 @@ input_select.tv_led_theme:
   friendly_name: "Theme"
   icon: mdi:white-balance-iridescent
 input_select.lr_ac_state:
-  friendly_name: "State"
+  friendly_name: "Mode"
   icon: mdi:weather-windy-variant
 input_select.lr_ac_fan:
   friendly_name: "Fan"
   icon: mdi:fan
 input_select.bedroom_ac_state:
-  friendly_name: "State"
+  friendly_name: "Mode"
   icon: mdi:weather-windy-variant
 input_select.bedroom_ac_fan:
   friendly_name: "Fan"
@@ -397,6 +399,39 @@ sensor.ram_used_2:
   friendly_name: "RAM Used"
 sensor.last_boot:
   friendly_name: "Last Boot"
+sensor.homenas_status:
+  friendly_name: "Status"
+sensor.homenas_system_temperature:
+  friendly_name: "System Temperature"
+sensor.homenas_cpu_usage:
+  friendly_name: "CPU Usage"
+sensor.homenas_cpu_temperature:
+  friendly_name: "CPU Temperature"
+sensor.homenas_memory_usage:
+  friendly_name: "Memory Usage"
+sensor.homenas_memory_available:
+  friendly_name: "Memory Available"
+sensor.homenas_memory_used:
+  friendly_name: "Memory Used"
+sensor.homenas_network_link_eth0:
+  friendly_name: "Network Link (eth0)"
+sensor.homenas_network_down_eth0:
+  friendly_name: "Network Down (eth0)"
+sensor.homenas_network_up_eth0:
+  friendly_name: "Netword Up (eth0)"
+sensor.homenas_smart_status_drive_01:
+  friendly_name: "SMART Status (Drive 0:1)"
+sensor.homenas_temperature_drive_01:
+  friendly_name: "Temperature (Drive 0:1)"
+sensor.homenas_volume_used_datavol1:
+  friendly_name: "Volume Used (DataVol1)"
+sensor.homenas_free_space_datavol1:
+  friendly_name: "Free Space (DataVol1)"
+sensor.homenas_used_space_datavol1:
+  friendly_name: "Used Space (DataVol1)"
+sensor.qnap_homenas_uptime:
+  friendly_name: "Uptime"
+  icon: mdi:timelapse
 
 ##########################################
 ################# Scripts ################
@@ -417,13 +452,13 @@ script.living_room_ac_cool_high_script:
   hidden: true
 script.living_room_ac_cool_auto_script:
   hidden: true
-script.living_room_ac_warm_low_script:
+script.living_room_ac_heat_low_script:
   hidden: true
-script.living_room_ac_warm_medium_script:
+script.living_room_ac_heat_medium_script:
   hidden: true
-script.living_room_ac_warm_high_script:
+script.living_room_ac_heat_high_script:
   hidden: true
-script.living_room_ac_warm_auto_script:
+script.living_room_ac_heat_auto_script:
   hidden: true
 script.living_room_rm_pro_send_packet:
   hidden: true
@@ -437,13 +472,13 @@ script.bedroom_ac_cool_high_script:
   hidden: true
 script.bedroom_ac_cool_auto_script:
   hidden: true
-script.bedroom_ac_warm_low_script:
+script.bedroom_ac_heat_low_script:
   hidden: true
-script.bedroom_ac_warm_medium_script:
+script.bedroom_ac_heat_medium_script:
   hidden: true
-script.bedroom_ac_warm_high_script:
+script.bedroom_ac_heat_high_script:
   hidden: true
-script.bedroom_ac_warm_auto_script:
+script.bedroom_ac_heat_auto_script:
   hidden: true
 script.bedroom_rm_mini_send_packet:
   hidden: true
@@ -506,7 +541,7 @@ group.living_room_tv_led:
   friendly_name: "TV Back Led"
   control: hidden
 group.living_room_ac:
-  friendly_name: "Main AC"
+  friendly_name: "Living Room AC"
   control: hidden
 group.living_room_switches:
   friendly_name: "Lights"
@@ -638,6 +673,8 @@ group.shabbat_times:
 group.shabbat_reminder_settings:
   friendly_name: "Shabbat Reminder Settings"
   icon: mdi:message-settings-variant
+group.qnap_homenas_group:
+  friendly_name: "Home NAS"
 
 ##########################################
 ################# Views ##################
