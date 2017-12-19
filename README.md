@@ -35,7 +35,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**sensor/google_geocode**](config/custom_components/sensor/google_geocode.py) as instructed in [this post](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233).
 - [**sensor/shabbat_times**](config/custom_components/sensor/shabbat_times.py) made by myself, you can have a look [here](https://community.home-assistant.io/t/get-shabbat-times-from-hebcal-api-custom-sensor/32429) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#shabbat-times-custom-sensor).
 - [**media_player/broadlink**](config/custom_components/media_player/broadlink.py) as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are related to this component.
-- [**israel_rails**](config/custom_components/media_player/israel_rails.py). For Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
+- [**israel_rails**](config/custom_components/israel_rails.py). For Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
 
 #### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
