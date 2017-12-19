@@ -4,7 +4,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 **Environment**
 - Installation: Home Assistant **Hass.io**
-- Current Installed Version: 0.57.2
+- Current Installed Version: 0.58.1
 - Platform: Raspberry Pi 3
 
 **Table Of Contents**
@@ -20,6 +20,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
 - [Alexa Skills Configuration](#alexa-skills-configuration)
 - [Useful Tools and Applications](#useful-tools-and-applications)
+- [Future plans for my environment](#future-plans-for-my-environment)
 
 ## Home Assistant
 
@@ -34,6 +35,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**sensor/google_geocode**](config/custom_components/sensor/google_geocode.py) as instructed in [this post](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233).
 - [**sensor/shabbat_times**](config/custom_components/sensor/shabbat_times.py) made by myself, you can have a look [here](https://community.home-assistant.io/t/get-shabbat-times-from-hebcal-api-custom-sensor/32429) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#shabbat-times-custom-sensor).
 - [**media_player/broadlink**](config/custom_components/media_player/broadlink.py) as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are related to this component.
+- [**israel_rails**](config/custom_components/media_player/israel_rails.py). For Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
 
 #### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
@@ -113,7 +115,7 @@ I'll now cover the views I've created in my home assistant installation:
   - [Harmony](https://www.amazon.com/Logitech-Harmony/dp/B01M4LDPX3/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648428&sr=1-1&keywords=harmony) for controlling the entertainment center in the living room.
   - [LIFX Optimized for Smart Home](https://www.amazon.com/LIFX-Optimized-for-Smart-Home/dp/B01EIQSPOY/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1510648575&sr=1-1&keywords=lifx) for controling my led strip.
   - [Shabbat Times](https://www.amazon.com/Tomer-Figenblat-Shabbat-Times/dp/B072PRCHRD/ref=sr_1_2?s=digital-skills&ie=UTF8&qid=1510648624&sr=1-2&keywords=shabbat+times) for getting the start and end times for the shabbat.
-- Personal Skills:
+- Custom Skills:
   - [Ask My Pc](alexa_skills/ask_my_pc) the skill https endpoint is my home assistant installation, I use this skill to publish payloads to my computer through home assistant, you can have a look [here](https://www.youtube.com/watch?v=AQzD0TPG-xE).</br>
   The invocation name I use for this skil is *computer*, the phrase I use to invoke it is *Alexa, ask computer*.
   - [Home Assistant](alexa_skills/home_assistant) for controling my home assistant installation, I use it to run scripts, receive reports and retrieve data.</br>
@@ -124,7 +126,12 @@ I'll now cover the views I've created in my home assistant installation:
     - **Alexa, goodbye** will activate the *leaving_home* scene which will turn off all the lights, ac's and the living room television, leaving only the kitchen light on (for the dog).
     - **Alexa, let's watch a movie** will activate the *watch_tv* scene which will turn off all the light in the living room area, turn on a specific light scene for the lifx led strip behind the tv, and start the *Watch A Movie* activity on my harmony which will set my entertainment center towards my shield console.
     - **Alexa, let's watch tv** will activate the *watch_movie* scene which will turn off all the light in the living room area, turn on a specific light scene for the lifx led strip behind the tv, and start the *Watch A Movie* activity on my harmony which will set my entertainment center towards my yes stb.
-
+- Smart Skills:
+  - I wrote a special Smart Home Skill allowing me to "bind" 4 Home Assistant entities into one Smart Thermostat. With this skill I can natively ask alexa to control my IR controlled air-conditioner unit. You can check out the instructions for the skill in my [repository](https://github.com/TomerFi/home_assistant_custom_ac_alexa_smarthome_skill). Here are a couple of example utterances I can now use:
+    - Alexa, turn on my ac
+    - Alexa, set my ac to heat
+    - Alexa, decrease the temperature on my ac by 4
+    - Alexa, what is the temperature of my ac
 ## Useful Tools and Applications
 - [**Notepad++**](https://notepad-plus-plus.org/) I use it for editing *YAML* and *JSON* files.
 - [**Sublime Text**](https://www.sublimetext.com/) I use if for writing and editing *JavaScript* and *Python* scripts.
@@ -140,3 +147,7 @@ I'll now cover the views I've created in my home assistant installation:
 I also want to acknowledge a couple of builtin tools with home assistant that I use regularly. in the developer tools:
 - **Services** a very useful tool for testing service calls before integrating them into my yaml files.
 - **Templates** there is no way I'm even looking at a template in the yaml files without testing it with this tool first, amazing.
+## Future plans for my environment
+- I recently purchased the new Smarthings Link and it turned my Shield console into a Smarthings hub. I plan on purchasing a couple of sensors and devices and use my Home Assistant to control and manage the Smartthings hub.
+- I also recently purchased a Google Home Mini smart speaker and an Google Chromecast 2nd generation. So, I plan on playing around with those guys a little bit.
+- I started reading a bit about the wonderful Appdaemon. I don't any ideas or time to play with it, but I plan on doing so in the near future.
