@@ -12,18 +12,26 @@ homeassistant:
   customize_glob: !include customize_glob.yaml
 
 ##########################################
-################## HTTP ##################
+############### Web Stuff ################
 ##########################################
 http:
   base_url: !secret http_base_url
-  ssl_certificate: !secret http_ssl_certificate_path
-  ssl_key: !secret http_ssl_key_path
   api_password: !secret http_api_password
   server_port: !secret http_server_port
   cors_allowed_origins:
     - https://home-assistant.io
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_token
+  
+no_ip:
+  domain: !secret noip_dns
+  username: !secret noip_username
+  password: !secret noip_password
+  timeout: 15
 
 ##########################################
 ######### Components Configuration #######
@@ -70,8 +78,9 @@ mqtt:
   discovery: false
 
 logger:
-  default: warning
-#  logs:
+  default: error
+  logs:
+    homeassistant.components: error
 #    homeassistant.components.alexa: debug
 #    homeassistant.components.intent_script: debug
 #    custom_components.date_notifier: debug
@@ -107,6 +116,10 @@ alexa:
 #    from_station: '3600'
 #    to_station: '8800'
 
+recorder:
+  purge_interval: 2
+  purge_keep_days: 7
+
 ##########################################
 ################ Includes ################
 ##########################################
@@ -129,3 +142,4 @@ intent_script: !include alexa_intents.yaml
 scene: !include scenes.yaml
 notify: !include notifications.yaml
 date_notifier: !include date_notifiers.yaml
+#shell_command: !include shell_commands.yaml

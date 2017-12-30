@@ -85,11 +85,11 @@ havaezra:
 ##########################################
 ############# Nmap Devices ###############
 ##########################################
-den_pc:
+office_pc:
   hide_if_away: false
   icon:
-  mac: !secret den_pc_mac
-  name: "Den PC"
+  mac: !secret office_pc_mac
+  name: "Office PC"
   picture:
   track: true
   vendor: ASUSTek COMPUTER INC.
@@ -166,11 +166,11 @@ shield_console:
   track: true
   vendor: unknown
 
-den_dot:
+office_dot:
   hide_if_away: false
   icon:
-  mac: !secret den_echo_dot_mac
-  name: "Den Dot"
+  mac: !secret office_echo_dot_mac
+  name: "Office Dot"
   picture:
   track: true
   vendor: Amazon Technologies Inc.
@@ -292,15 +292,6 @@ havas_laptop:
   track: true
   vendor: Liteon Technology Corporation
 
-nexus_tablet:
-  hide_if_away: false
-  icon:
-  mac: !secret portable_nexus_tablet_mac
-  name: "Nexus Tablet"
-  picture:
-  track: true
-  vendor: ASUSTek COMPUTER INC.
-
 dash_wand:
   hide_if_away: false
   icon:
@@ -309,3 +300,12 @@ dash_wand:
   picture:
   track: true
   vendor: Amazon Technologies Inc.
+
+office_mini:
+  hide_if_away: false
+  icon:
+  mac: !secret office_ghome_mini_mac
+  name: 'Office Mini'
+  picture:
+  track: true
+  vendor: Google, Inc.

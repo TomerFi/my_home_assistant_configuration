@@ -110,8 +110,8 @@
           {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 0) %} mdi:battery-10
           {%endif%}
         {% endif%}
-    den_pc_nmap_tracker:
-      value_template: "{%if states.device_tracker.den_pc.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_pc_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_pc.state == 'home'%}Online{%else%}Offline{%endif%}"
     bedroom_yes_nmap_tracker:
       value_template: "{%if states.device_tracker.bedroom_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
     guest_room_yes_nmap_tracker:
@@ -128,8 +128,10 @@
       value_template: "{%if states.device_tracker.hallway_netgear_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
     shield_console_nmap_tracker:
       value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
-    den_dot_nmap_tracker:
-      value_template: "{%if states.device_tracker.den_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_dot_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_mini_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_bar_sp2_nmap_tracker:
       value_template: "{%if states.device_tracker.kitchen_bar_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
     living_room_rm_pro_nmap_tracker:
@@ -156,8 +158,6 @@
       value_template: "{%if states.device_tracker.tomers_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
     havas_laptop_nmap_tracker:
       value_template: "{%if states.device_tracker.havas_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
-    nexus_tablet_nmap_tracker:
-      value_template: "{%if states.device_tracker.nexus_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
     dash_wand_nmap_tracker:
       value_template: "{%if states.device_tracker.dash_wand.state == 'home'%}Online{%else%}Offline{%endif%}"
     run_speed_test_last_run:
@@ -197,11 +197,16 @@
   
 - platform: mqtt
   state_topic: "smarthome/mqtt_client/status_update"
-  name: "den_pc_mqtt_client_status"
+  name: "office_pc_mqtt_client_status"
   
 - platform: cert_expiry
   name: ha_duckdns_cert_expiry
-  host: !secret dns_name
+  host: !secret duckdns_dns
+  scan_interval: 86400
+  
+- platform: cert_expiry
+  name: ha_noip_cert_expiry
+  host: !secret noip_dns
   scan_interval: 86400
   
 - platform: speedtest
@@ -225,6 +230,12 @@
     - type: processor_use
     - type: last_boot
 
+- platform: command_line
+  name: "cpu_temp"
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round }}'
+  
 - platform: qnap
   host: !secret qnap_ip
   port: !secret qnap_port

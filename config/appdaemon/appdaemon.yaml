@@ -1,0 +1,10 @@
+AppDaemon:
+  logfile: STDOUT
+  errorfile: STDERR
+  threads: 10
+  app_dir: /config/appdaemon/apps
+  api_port: !secret api_port
+  api_key: !secret api_key
+HASS:
+  ha_url: !secret ha_url
+  ha_key: !secret ha_key

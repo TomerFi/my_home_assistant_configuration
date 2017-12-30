@@ -46,6 +46,7 @@ switch.small_bathroom_light_fixed:
   hidden: true
 switch.small_bathroom_light:
   friendly_name: "Small Bathroom Light"
+  assumed_state: true
   emulated_hue_name: "Small Bathroom Light"
   emulated_hue_hidden: false
 switch.shower_light:
@@ -144,6 +145,9 @@ input_select.bedroom_ac_fan:
 input_select.select_shabbat_city:
   friendly_name: "City"
   icon: mdi:city
+input_select.select_log_level:
+  friendly_name: "Log Level"
+  icon: mdi:alert-circle-outline
 
 ##########################################
 ############# Input Boolean ##############
@@ -270,6 +274,9 @@ sensor.tomer_icloud_battery_sensor:
 sensor.ha_duckdns_cert_expiry:
   friendly_name: "DuckDNS Certificate Days Left"
   icon: mdi:certificate
+sensor.ha_noip_cert_expiry:
+  friendly_name: "NO-IP Certificate Days Left"
+  icon: mdi:certificate
 sensor.speedtest_ping:
   friendly_name: "Speedtest Ping"
   icon: mdi:network
@@ -285,9 +292,12 @@ sensor.living_room_echo_one_nmap_tracker:
 sensor.bedroom_echo_nmap_tracker:
   friendly_name: "Bedroom Echo"
   icon: mdi:amazon
-sensor.den_dot_nmap_tracker:
-  friendly_name: "Den Dot"
+sensor.office_dot_nmap_tracker:
+  friendly_name: "Office Dot"
   icon: mdi:amazon
+sensor.office_mini_nmap_tracker:
+  friendly_name: "Office Mini"
+  icon: mdi:google-assistant
 sensor.bedroom_yes_nmap_tracker:
   friendly_name: "Bedroom Yes"
   icon: mdi:television-classic
@@ -297,8 +307,8 @@ sensor.guest_room_yes_nmap_tracker:
 sensor.living_room_yes_nmap_tracker:
   friendly_name: "Living Room Yes"
   icon: mdi:television-classic
-sensor.den_pc_nmap_tracker:
-  friendly_name: "Den Computer"
+sensor.office_pc_nmap_tracker:
+  friendly_name: "Office Computer"
   icon: mdi:windows
 sensor.tomers_laptop_nmap_tracker:
   friendly_name: "Tomer's Laptop"
@@ -306,9 +316,6 @@ sensor.tomers_laptop_nmap_tracker:
 sensor.havas_laptop_nmap_tracker:
   friendly_name: "Hava's Laptop"
   icon: mdi:windows
-sensor.nexus_tablet_nmap_tracker:
-  friendly_name: "Nexus Tablet"
-  icon: mdi:android
 sensor.shield_console_nmap_tracker:
   friendly_name: "Shield Console"
   icon: mdi:android
@@ -364,8 +371,8 @@ sensor.tomer_icloud_gecode:
   hidden: true
 sensor.hava_icloud_gecode:
   hidden: true
-sensor.den_pc_mqtt_client_status:
-  friendly_name: "Den Mqtt Client"
+sensor.office_pc_mqtt_client_status:
+  friendly_name: "Office Mqtt Client"
   icon: mdi:developer-board
 sensor.shabbat_times_il_haifa:
   hidden: true
@@ -384,19 +391,21 @@ sensor.shabbat_start_notification_status:
   friendly_name: "Reminder Set To"
   icon: mdi:mailbox
 sensor.cpu_used:
-  friendly_name: "CPU"
+  friendly_name: "CPU Usage"
+sensor.cpu_temp:
+  friendly_name: "CPU Temperature"
 sensor.disk_free_home:
   friendly_name: "Disk Free"
-sensor.disk_used_home:
-  friendly_name: "Disk Used"
 sensor.disk_used_home_2:
   friendly_name: "Disk Used Percentage"
+sensor.disk_used_home:
+  friendly_name: "Disk Used"
 sensor.ram_available:
   friendly_name: "RAM Free"
 sensor.ram_used:
-  friendly_name: "RAM Used Percentage"
-sensor.ram_used_2:
   friendly_name: "RAM Used"
+sensor.ram_used_2:
+  friendly_name: "RAM Used Percentage"
 sensor.last_boot:
   friendly_name: "Last Boot"
 sensor.homenas_status:
@@ -512,8 +521,8 @@ script.watch_living_room_tv:
   hidden: true
 script.leaving_home:
   hidden: true
-script.get_den_mqtt_client_status:
-  friendly_name: "Get Den Mqtt Status"
+script.get_office_mqtt_client_status:
+  friendly_name: "Get Office Mqtt Status"
   icon: mdi:developer-board
 script.sleep_time:
   hidden: true
@@ -638,9 +647,9 @@ group.ha_operations:
   friendly_name: "Activate Operaions"
   icon: mdi:script
   control: hidden
-group.nmap_alexa_trackers:
-  friendly_name: "Alexa Devices"
-  icon: mdi:amazon
+group.nmap_pa_trackers:
+  friendly_name: "Personal Assistants"
+  icon: mdi:assistant
   control: hidden
 group.nmap_remotes_trackers:
   friendly_name: "Remotes"
@@ -830,9 +839,11 @@ automation.tomer_low_batt_reset_variable:
   hidden: true
 automation.hava_low_batt_reset_variable:
   hidden: true
-automation.den_pc_update_mqtt_client_status:
+automation.office_pc_update_mqtt_client_status:
   hidden: true
 automation.shabbat_candle_lighting_time_reminder:
+  hidden: true
+automation.set_log_level:
   hidden: true
 
 ##########################################

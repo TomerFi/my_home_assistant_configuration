@@ -1,0 +1,148 @@
+home_control:
+  module: home_control
+  class: HomeControl
+  havaProfile: {
+    "update_script": "script.update_hava_devices",
+    "tracker_sensor": "sensor.hava_tracker_sensor",
+    "find_script": "script.icloud_find_hava_iphone",
+    "names": [
+      "hava",
+      "my wife"
+    ]
+  }
+  tomerProfile: {
+    "update_script": "script.update_tomer_devices",
+    "tracker_sensor": "sensor.tomer_tracker_sensor",
+    "find_script": "script.icloud_find_tomer_iphone",
+    "names": [
+      "tomer",
+      "my husband"
+    ]
+  }
+  doorSensors: [
+    "sensor.small_bathroom_door_sensor",
+    "sensor.main_bathroom_door_sensor",
+    "sensor.closet_room_door_sensor",
+    "sensor.service_room_door_sensor"
+  ]
+  startPhrases: [
+    "Hello gov'nor!",
+    "Top of the mornin’ to ya!",
+    "What’s crackin’?",
+    "‘Sup...",
+    "This call may be recorded for training purposes.",
+    "How you been, Jellybean?",
+    "Hello, my name is Inigo Montoya.",
+    "I'm Batman.",
+    "You know who this is.",
+    "Ghostbusters,",
+    "Yo!",
+    "Greetings and salutations!",
+    "Doctor.",
+    "Hello sunshine!",
+    "Howdy partner!",
+    "Hey, howdy, hi!",
+    "What’s kickin’... little chicken!",
+    "Peek-a-boo!",
+    "Howdy-doody!",
+    "Hey there.",
+    "Hi master!",
+    "I come in peace!",
+    "Ahoy matey!",
+    "Aloha!",
+    "Hola!",
+    "Que pasa!",
+    "Bonjour!",
+    "Konnichiwa!"
+  ]
+  endPhrases: [
+    "I've got your back! Let me know if you need anything.",
+    "Not all goodbyes are sad, for example: Goodbye Class!",
+    "It will not be the same without you. It will actually be better!",
+    "Farewell. Someone is really going to miss you. But, it is not going to be me!",
+    "It won't be the same without you here, work may actually get done!",
+    "I am looking forward to not keeping in touch with you! So long!",
+    "So long, and thanks for all the fish!",
+    "How lucky I am to have something that makes saying Goodbye so hard.",
+    "Good friends never say goodbye, they simply say: see you soon!",
+    "See ya in a while, crocodile.",
+    "Easy-peasy lemon squeezy!",
+    "Later, tater!",
+    "Elvis, has left the building!",
+    "So long, King Kong.",
+    "Take care, teddy bear.",
+    "Asta-lavista!",
+    "You'll be back. I know, you will...",
+    "I, am, outta here.",
+    "Don't be a stranger...",
+    "Take it easy.",
+    "Adios.",
+    "See you around.",
+    "Take care.",
+    "Bye-bye, for now...",
+    "Later...",
+    "Hurry back.",
+    "Till we meet again...",
+    "Keep in touch.",
+    "Arrivederci!",
+    "Ciao!",
+    "Nice talking to you.",
+    "So long buddy...",
+    "I'm here if you need me.",
+    "Oops, there I go.",
+    "Boom!",
+    "I am here for you! Unless you unplug me! In which case: I won't be here, at all!"
+  ]
+  system_sensors: {
+    "cpu_temp": "sensor.cpu_temp",
+    "cpu_used": "sensor.cpu_used",
+    "last_boot": "sensor.last_boot",
+    "disk_used": "sensor.disk_used_home_2",
+    "ram_used": "sensor.ram_used_2"
+  }
+  devices_sensors: [
+    "sensor.office_pc_mqtt_client_status",
+    "sensor.living_room_echo_one_nmap_tracker",
+    "sensor.bedroom_echo_nmap_tracker",
+    "sensor.office_dot_nmap_tracker",
+    "sensor.office_mini_nmap_tracker",
+    "sensor.dash_wand_nmap_tracker",
+    "sensor.living_room_rm_pro_nmap_tracker",
+    "sensor.bedroom_rm_mini_nmap_tracker",
+    "sensor.living_room_harmony_hub_nmap_tracker",
+    "sensor.living_room_yes_nmap_tracker",
+    "sensor.bedroom_yes_nmap_tracker",
+    "sensor.guest_room_yes_nmap_tracker",
+    "sensor.office_pc_nmap_tracker",
+    "sensor.shield_console_nmap_tracker",
+    "sensor.tomers_laptop_nmap_tracker",
+    "sensor.havas_laptop_nmap_tracker",
+    "sensor.tomers_phone_nmap_tracker",
+    "sensor.havas_phone_nmap_tracker",
+    "sensor.kitchen_bar_sp2_nmap_tracker",
+    "sensor.living_room_night_light_sp2_nmap_tracker",
+    "sensor.tv_lifxz_led_nmap_tracker",
+    "sensor.service_room_s1c_nmap_tracker",
+    "sensor.switcher_v2_nmap_tracker",
+    "sensor.hallway_netgear_hub_nmap_tracker",
+    "sensor.living_room_broadlink_a1_nmap_tracker",
+    "sensor.living_room_samsung_tv_nmap_tracker"
+  ]
+  network_profile: {
+    "last_speedtest": "sensor.run_speed_test_last_run",
+    "ping_result": "sensor.speedtest_ping",
+    "download_result": "sensor.speedtest_download",
+    "upload_result": "sensor.speedtest_upload",
+    "duckdns_cert": "sensor.ha_duckdns_cert_expiry",
+    "noip_cert": "sensor.ha_noip_cert_expiry"
+  }
+  storage_profile: {
+    "system_status": "sensor.homenas_status",
+    "system_temp": "sensor.homenas_system_temperature",
+    "cpu_usage": "sensor.homenas_cpu_usage",
+    "cpu_temp": "sensor.homenas_cpu_temperature",
+    "mem_usage": "sensor.homenas_memory_usage",
+    "drive_status": "sensor.homenas_smart_status_drive_01",
+    "drive_temp": "sensor.homenas_temperature_drive_01",
+    "vol_usage": "sensor.homenas_volume_used_datavol1"
+  }

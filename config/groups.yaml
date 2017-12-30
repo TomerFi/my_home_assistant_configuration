@@ -213,26 +213,29 @@ start_scenes:
 ha_statistics:
   name: ha_statistics
   entities:
+    - sensor.cpu_temp
     - sensor.cpu_used
     - sensor.ha_duckdns_cert_expiry
+    - sensor.ha_noip_cert_expiry
     - sensor.last_boot
     - sensor.disk_used_home_2
     - sensor.disk_used_home
     - sensor.disk_free_home
-    - sensor.ram_used
     - sensor.ram_used_2
+    - sensor.ram_used
     - sensor.ram_available
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.run_speed_test_last_run
-    - sensor.den_pc_mqtt_client_status
+    - sensor.office_pc_mqtt_client_status
     
 ha_operations:
   name: ha_operations
   entities:
+    - input_select.select_log_level
     - script.run_speed_test
-    - script.get_den_mqtt_client_status
+    - script.office_office_mqtt_client_status
     - script.restart_s1c_addon_script
     - script.update_all_devices
     
@@ -242,13 +245,14 @@ bedroom_ac_hidden_controls:
     - switch.bedroom_ac_light
     - switch.bedroom_ac_shutter
 
-nmap_alexa_trackers:
-  name: nmap_alexa_trackers
+nmap_pa_trackers:
+  name: nmap_pa_trackers
   entities:
     - sensor.living_room_echo_one_nmap_tracker
     - sensor.bedroom_echo_nmap_tracker
-    - sensor.den_dot_nmap_tracker
+    - sensor.office_dot_nmap_tracker
     - sensor.dash_wand_nmap_tracker
+    - sensor.office_mini_nmap_tracker
 
 nmap_remotes_trackers:
   name: nmap_remote_trackers
@@ -267,11 +271,10 @@ nmap_yes_stb_trackers:
 nmap_computers_tracker:
   name: nmap_computers_tracker
   entities:
-    - sensor.den_pc_nmap_tracker
+    - sensor.office_pc_nmap_tracker
     - sensor.shield_console_nmap_tracker
     - sensor.tomers_laptop_nmap_tracker
     - sensor.havas_laptop_nmap_tracker
-    - sensor.nexus_tablet_nmap_tracker
 
 nmap_phones_tracker:
   name: nmap_phones_tracker
@@ -422,7 +425,7 @@ tech_support_view:
     - group.ha_statistics
     - group.qnap_homenas_group
     - group.ha_operations
-    - group.nmap_alexa_trackers
+    - group.nmap_pa_trackers
     - group.nmap_remotes_trackers
     - group.nmap_yes_stb_trackers
     - group.nmap_computers_tracker

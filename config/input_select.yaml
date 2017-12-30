@@ -66,5 +66,18 @@ bedroom_ac_fan:
 select_shabbat_city:
   name: select_shabbat_city
   options:
-    - Haifa
     - Rishon LeZion
+    - Haifa
+    
+select_log_level:
+  name: select_log_level
+  options:
+    - critical
+    - fatal
+    - error
+    - warning
+    - warn
+    - info
+    - debug
+    - notset
+  initial: error

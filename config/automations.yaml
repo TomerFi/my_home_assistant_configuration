@@ -1,5 +1,5 @@
 ##########################################
-######### On Event Automations ###########
+########## System Automations ############
 ##########################################
 - id: on_start_event
   alias: on_start_event
@@ -15,11 +15,21 @@
     - service: script.turn_on
       entity_id: script.restart_s1c_addon_script
     - service: script.turn_on
-      entity_id: script.get_den_mqtt_client_status
+      entity_id: script.get_office_mqtt_client_status
     #- delay: '00:01:00'
     #- service: script.turn_on
     #  entity_id: script.update_all_devices
     #- delay: '00:01:00'
+    
+- id: set_log_level
+  alias: set_log_level
+  trigger:
+    platform: state
+    entity_id: input_select.select_log_level
+  action:
+    service: logger.set_level
+    data_template:
+      homeassistant.components: "{{ trigger.to_state.state }}"
 
 ##########################################
 ######### TV Led Automations #############
@@ -284,11 +294,11 @@
         {%else%}{{ trigger.to_state.state | title }}
         {%endif%}
 
-- id: den_pc_update_mqtt_client_status
-  alias: den_pc_update_mqtt_client_status
+- id: office_pc_update_mqtt_client_status
+  alias: office_pc_update_mqtt_client_status
   trigger:
     platform: state
-    entity_id: sensor.den_pc_nmap_tracker
+    entity_id: sensor.office_pc_nmap_tracker
     to: "Offline"
     for:
       minutes: 5
@@ -299,7 +309,7 @@
         payload: "Offline"
     - delay: '00:01:00'
     - service: script.turn_on
-      entity_id: script.get_den_mqtt_client_status
+      entity_id: script.get_office_mqtt_client_status
       
 #- id: hava_tracking_group_change_state
 #  alias: hava_tracking_group_change_state

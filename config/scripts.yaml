@@ -428,7 +428,7 @@ correct_objects_values:
         entity_id: input_text.shabbat_notify_minutes_start
         value: "{%if states.input_text.shabbat_notify_minutes_start == none%}30{%else%}{{ states.input_text.shabbat_notify_minutes_start.state }}{%endif%}"
 
-get_den_mqtt_client_status:
+get_office_mqtt_client_status:
   sequence:
     - service: mqtt.publish
       data:
