@@ -11,6 +11,8 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [Home Assistant](#home-assistant)
   - [Customization and modification](#customization-and-modification)
     - [Custom Addons](#custom-addons)
+    - [Addons by Others](#addons-by-others)
+    - [Addons from Hass.io](#addons-from-hassio)
     - [Custom Components](#custom-components)
     - [Python Scripts](#python-scripts)
   - [Themes](#themes)
@@ -28,6 +30,16 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 #### Custom Addons
 - [**s1c**](addons/s1c) build based on [this post](https://community.home-assistant.io/t/broadlink-s1c-kit-sensors-in-ha-using-python-and-mqtt/19886/23). The files in the [*share*](share) folder are related to this addon.
+
+#### Addons by Others
+- [**AppDaemon**](https://github.com/hassio-addons/addon-appdaemon) for runing *AppDaemon* python applications in *Home Assistant* provided with [this repository](https://github.com/hassio-addons/repository).
+- [**Caddy Proxy**](https://github.com/bestlibre/hassio-addons/tree/master/caddy_proxy) for proxy with virtual hosts capabilities for *Home Assistant* provided in [this repository](https://github.com/bestlibre/hassio-addons).
+- [**Bluetooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for using the bluetooth chip on my rpi 3.
+
+#### Addons from Hass.io
+- [**Mosquitto MQTT broker**](https://home-assistant.io/addons/mosquitto/) for handling mqtt messaging.
+- [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing my enviornment with SSH clients.
+- [**Samba**](https://home-assistant.io/addons/samba/) for accessing my configuration files with windows.
 
 #### Custom Components
 - [**variable**](config/custom_components/variable.py) as instructed in [this post](https://community.home-assistant.io/t/custom-component-to-declare-set-variables/25218).
@@ -120,6 +132,8 @@ I'll now cover the views I've created in my home assistant installation:
   The invocation name I use for this skil is *computer*, the phrase I use to invoke it is *Alexa, ask computer*.
   - [Home Assistant](alexa_skills/home_assistant) for controling my home assistant installation, I use it to run scripts, receive reports and retrieve data.</br>
   The invocation name I use for this skil is *home*, the phrase I use to invoke it is *Alexa, ask home*.
+  - [Home Assistant AppDaemon](alexa_skills/home_assistant_appdaemon) for controlling my home assistant installation with a multi step interactions. The *AppDaemon* application I wrote is not yet finished, but it is working. You can check out the skill in action [here](https://www.youtube.com/watch?v=g7Zq0ZpjCU0&t=29s) and check out the python code [here](https://github.com/TomerFi/appdaemon_hassio_alexa_custom_skill).</br>
+  The invocation name I use for this skil is *home assistant*, the phrase I use to invoke it is *Alexa, ask home assistant*.
 - Core Functionality
   - My Home Assistant installation acts as an  [Emulated Hue](https://home-assistant.io/components/emulated_hue/) platform making devices discoverable from alexa as Hue Lights. I use the emulated hue component from controlling most of my switches and all of my scenes. Using the eumlated hue devices, I created a couple of routins:
     - **Alexa, let's go to sleep** will activate my *sleep_time* scene which will turn of all the lights in my house besides one light which will be automaticly closed after 10 minutes, it will turn off my living room tv, turn on my bedroom tv and set the timer on it for 90 minutes.
@@ -150,4 +164,3 @@ I also want to acknowledge a couple of builtin tools with home assistant that I 
 ## Future plans for my environment
 - I recently purchased the new Smarthings Link and it turned my Shield console into a Smarthings hub. I plan on purchasing a couple of sensors and devices and use my Home Assistant to control and manage the Smartthings hub.
 - I also recently purchased a Google Home Mini smart speaker and an Google Chromecast 2nd generation. So, I plan on playing around with those guys a little bit.
-- I started reading a bit about the wonderful Appdaemon. I don't any ideas or time to play with it, but I plan on doing so in the near future.
