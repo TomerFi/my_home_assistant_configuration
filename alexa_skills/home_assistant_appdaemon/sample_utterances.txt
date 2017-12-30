@@ -1,0 +1,59 @@
+LocatePhoneIntent where's {Name}
+LocatePhoneIntent where is {Name}
+LocatePhoneIntent find {Name}
+LocatePhoneIntent locate {Name}
+IdentifyIntent who are you
+IdentifyIntent what can you do
+IdentifyIntent just chatting
+SensorsIntent sensors report
+SensorsIntent sensors status
+SensorsIntent status of the sensors
+SensorsIntent check the sensors
+SystemDataIntent system
+SystemDataIntent system data
+SystemDataIntent system information
+SystemDataIntent system report
+SystemDataIntent system status
+SystemDataIntent system statistics
+SystemDataIntent collect system
+SystemDataIntent collect system data
+SystemDataIntent collect system information
+SystemDataIntent collect system report
+SystemDataIntent collect system status
+SystemDataIntent collect system statistics
+NetworkDataIntent network
+NetworkDataIntent network data
+NetworkDataIntent network information
+NetworkDataIntent network report
+NetworkDataIntent network status
+NetworkDataIntent network statistics
+NetworkDataIntent collect network
+NetworkDataIntent collect network data
+NetworkDataIntent collect network information
+NetworkDataIntent collect network report
+NetworkDataIntent collect network status
+NetworkDataIntent collect network statistics
+StorageDataIntent storage
+StorageDataIntent storage data
+StorageDataIntent storage information
+StorageDataIntent storage report
+StorageDataIntent storage status
+StorageDataIntent storage statistics
+StorageDataIntent collect storage
+StorageDataIntent collect storage data
+StorageDataIntent collect storage information
+StorageDataIntent collect storage report
+StorageDataIntent collect storage status
+StorageDataIntent collect storage statistics
+DevicesDataIntent devices
+DevicesDataIntent devices data
+DevicesDataIntent devices information
+DevicesDataIntent devices report
+DevicesDataIntent devices status
+DevicesDataIntent devices statistics
+DevicesDataIntent collect devices
+DevicesDataIntent collect devices data
+DevicesDataIntent collect devices information
+DevicesDataIntent collect devices report
+DevicesDataIntent collect devices status
+DevicesDataIntent collect devices statistics

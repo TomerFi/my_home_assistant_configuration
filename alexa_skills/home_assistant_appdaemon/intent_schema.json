@@ -1,0 +1,46 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "Name",
+          "type": "Names"
+        }
+      ],
+      "intent": "LocatePhoneIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "IdentifyIntent"
+    },
+    {
+      "intent": "SensorsIntent"
+    },
+    {
+      "intent": "SystemDataIntent"
+    },
+    {
+      "intent": "NetworkDataIntent"
+    },
+    {
+      "intent": "StorageDataIntent"
+    },
+    {
+      "intent": "DevicesDataIntent"
+    }
+  ]
+}
