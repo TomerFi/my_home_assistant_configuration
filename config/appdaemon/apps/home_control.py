@@ -13,7 +13,11 @@ class HomeControl(appapi.AppDaemon):
         allowedUsers = []
 
         applicationId = data["context"]["System"]["application"]["applicationId"]
-        deviceId = data["context"]["System"]["device"]["deviceId"]
+        if ("deviceId" in data["context"]["System"]["device"]):
+            deviceId = data["context"]["System"]["device"]["deviceId"]
+        else:
+            deviceId = None
+
         userId = data["context"]["System"]["user"]["userId"]
 
         if (allowedApplications and applicationId not in allowedApplications):
@@ -50,7 +54,8 @@ class HomeControl(appapi.AppDaemon):
                 "SystemDataIntent": self.SystemDataIntent,
                 "NetworkDataIntent": self.NetworkDataIntent,
                 "StorageDataIntent": self.StorageDataIntent,
-                "DevicesDataIntent": self.DevicesDataIntent
+                "DevicesDataIntent": self.DevicesDataIntent,
+                "SystemOperationsIntent": self.SystemOperationsIntent
             }
 
             if intent in intents:
@@ -110,7 +115,13 @@ class HomeControl(appapi.AppDaemon):
         return response
 
     def CancelIntent(self, data):
-        return self.tellText(data, random.choice(self.args["endPhrases"]))
+        response = self.tellText(data, random.choice(self.args["endPhrases"]))
+        attributes = self.getSessionAttributes(data)
+        if ("previous_intent" in attributes):
+            if (attributes["previous_intent"] == "SystemOperationsIntent"):
+                response = self.askText(data, "You made the right decision! anything else?", "Anything you need me to do?")
+            
+        return response
 
     def HelpIntent(self, data):
         response = self.askSSML(data, "<speak>Try asking me to locate any member of your household, to give you a sensors report or collect hardware data for you. I can even restart home assistant for you.<break time='200ms'/>Go ahead, try me...</speak>",
@@ -122,44 +133,49 @@ class HomeControl(appapi.AppDaemon):
         return response
 
     def NoIntent(self, data):
+        response = self.tellText(data, "Hmmm... I'm not quite sure what are you refusing to...")
         attributes = self.getSessionAttributes(data)
         if ("previous_intent" in attributes):
             if (attributes["previous_intent"] in ["SensorsIntent", "NoIntent", "SystemDataIntent", "NetworkDataIntent", "StorageDataIntent", "DevicesDataIntent"]):
-                 return self.tellText(data, random.choice(self.args["endPhrases"]))
+                 response = self.tellText(data, random.choice(self.args["endPhrases"]))
             elif (attributes["previous_intent"] == "LocatePhoneIntent"):
                 response = self.askText(data, "Ok. anything else?", "Anything you need me to do?")
                 self.setSessionAttribute(response, "previous_intent", "NoIntent")
-                return response
-        else:
-            return self.tellText(data, "Hmmm... I'm not quite sure what are you refusing to...")
+            elif (attributes["previous_intent"] == "SystemOperationsIntent"):
+                response = self.askText(data, "whooshhh... dodged a bullet there! anything else?", "Anything you need me to do?")
+                self.setSessionAttribute(response, "previous_intent", "NoIntent")
+
+        return response
 
     def StopIntent(self, data):
         attributes = self.getSessionAttributes(data)
         if ("previous_intent" in attributes and attributes["previous_intent"] == "StopIntent"):
-            return self.tellText(data, random.choice(self.args["endPhrases"]))
+            response = self.tellText(data, random.choice(self.args["endPhrases"]))
         else:
             response = self.askText(data, "Got it! So... do you need me to do anything for you... or are we just chatting?",
                 "You know... I can help you... if you want... just ask me for help.")
-
             self.setSessionAttribute(response, "previous_intent", "StopIntent")
-            return response
+        
+        return response
 
 
     def YesIntent(self, data):
+        response = self.tellText(data, "Hmmm... I'm not quite sure what are you agreeing to...")
         attributes = self.getSessionAttributes(data)
         if ("previous_intent" in attributes):
             if (attributes["previous_intent"] == "LocatePhoneIntent"):
                 self.turn_on(attributes["person_profile"]["find_script"])
-                return self.tellText(data, "Ok. I've issued the find request. If it doesn't ring within the next couple of seconds, holler at me. We'll figure it out together.")
-            
+                response = self.tellText(data, "Ok. I've issued the find request. If it doesn't ring within the next couple of seconds, holler at me. We'll figure it out together.")
             elif (attributes["previous_intent"] == "SensorsIntent"):
-                return self.askText(data, "Ok. Let's go.", "I'm waiting...")
-
+                response = self.askText(data, "Ok. Let's go.", "I'm waiting...")
             elif (attributes["previous_intent"] in ["SystemDataIntent", "NetworkDataIntent", "StorageDataIntent", "DevicesDataIntent"]):
-                return self.askText(data, "What data do you want me to collect? system, network, storage, or devices data?", "Are you there?")
+                response = self.askText(data, "What data do you want me to collect? system, network, storage, or devices data?", "Are you there?")
+            elif (attributes["previous_intent"] == "SystemOperationsIntent"):
+                self.call_service("script/turn_on", entity_id = "script.alexa_restart_hass")
+                response = self.tellText(data, "OK. I've sent the restart request to Home Assistant... I'm crossing my fingers... If I won't make it... please tell my parents at Amazon, that I loved them! ")
+                self.setSimpleCard(response, "System Restart Request", "Home Assistant system restart request was sent.")
 
-        else:
-            return self.tellText(data, "Hmmm... I'm not quite sure what are you agreeing to...")
+        return response
 
     def IdentifyIntent(self, data):
         prompt = ("Let me tell you a little bit about myself. I'm a custom skill designed to help you control and monitor your Home Assistant environment." +
@@ -312,6 +328,19 @@ class HomeControl(appapi.AppDaemon):
 
         response = self.askSSML(data, prompt, reprompt)
         self.setSessionAttribute(response, "previous_intent", "DevicesDataIntent")
+        return response
+
+    def SystemOperationsIntent(self, data):
+        prompt = "hmmm... A System reboot?! are you sure?! If the system fails to restart, I won't be here to help you figure it out...</speak>"
+
+        if (data["session"]["new"]):
+            prompt = "<speak>" + random.choice(self.args["startPhrases"]) + " " + prompt
+        else:
+            prompt = "<speak>" + prompt
+
+        reprompt = "<speak>So... should I reboot? You can say no, I won't be mad.</speak>"
+        response = self.askSSML(data, prompt, reprompt)
+        self.setSessionAttribute(response, "previous_intent", "SystemOperationsIntent")
         return response
 
     #########################
