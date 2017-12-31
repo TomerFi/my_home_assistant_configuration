@@ -518,6 +518,14 @@ bedroom_tv_set_timer:
           {%else%}9
           {%endif%}
 
+alexa_restart_hass:
+  sequence:
+    - service: notify.ios_tomers_iphone6s
+      data:
+        message: "Restart Home Assistant was requested by alexa."
+        title: "System Restart Initiated"
+    - service: homeassistant.restart
+
 ####################################################
 ################## Scenes Scripts ##################
 ####################################################    

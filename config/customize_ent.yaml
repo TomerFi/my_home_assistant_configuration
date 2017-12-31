@@ -528,6 +528,8 @@ script.sleep_time:
   hidden: true
 script.bedroom_tv_set_timer:
   hidden: true
+script.alexa_restart_hass:
+  hidden: true
 
 ##########################################
 ################# Groups #################
