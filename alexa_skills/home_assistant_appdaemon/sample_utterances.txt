@@ -57,3 +57,12 @@ DevicesDataIntent collect devices information
 DevicesDataIntent collect devices report
 DevicesDataIntent collect devices status
 DevicesDataIntent collect devices statistics
+SystemOperationsIntent restart the system
+SystemOperationsIntent reboot the system
+SystemOperationsIntent restart home assistant
+SystemOperationsIntent reboot home assistant
+SystemOperationsIntent restart hass
+SystemOperationsIntent reboot hass
+AMAZON.YesIntent I'm sure
+AMAZON.YesIntent yes I am
+AMAZON.YesIntent do it
