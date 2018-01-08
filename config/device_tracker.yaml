@@ -21,11 +21,6 @@
   password: !secret icloud_hava_password
   account_name: "Havas iCloud"
   
-- platform: snmp
-  host: !secret office_pc_ip
-  community: !secret office_pc_snmp_community
-  baseoid: 1.3.6.1.2.1.1.5.0
-  
 - platform: nmap_tracker
   home_interval: 10
   consider_home: 0
@@ -57,3 +52,6 @@
     - !secret portable_hava_lp_ip
     - !secret living_room_dash_wand_ip
     - !secret office_ghome_mini_ip
+    - !secret office_chromecast_ip
+    - !secret office_broadlink_rm_mini_ip
+    - !secret office_xbox_360_ip

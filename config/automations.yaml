@@ -197,6 +197,21 @@
       entity_id: group.bedroom_ac_hidden_controls
       visible: false
 
+- id: office_fan_level_change
+  alias: office_fan_level_change
+  trigger:
+    platform: state
+    entity_id: input_select.office_ceiling_fan_level
+  action:
+    service: script.office_rm_mini_send_packet
+    data_template:
+      packet_code: >
+        {%if states.input_select.office_ceiling_fan_level.state == "LOW"%} "JgD0ACoNKg0OKQ4pDikOKQ4pDikOKQ4pDikOAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg4pDg0pDikOKSoNDikOKQ4pDikpDinpKg4pDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSkODikOKQ4pDigqDSoADQUAAAAA"
+        {%elif states.input_select.office_ceiling_fan_level.state == "MED"%} "JgACASoNKg0OKQ4pDikOKQ4pDikOKQ4pDikOAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDinpKg0qDQ4pDikOKQ4pDikOKQ4pKgwPKQ4AAQQqDSoLESgOKQ4pDikOKQ4pDikqDA8pDgABBCoNKg0PKA8oDikOKQ4pDikOKSkODikOAAEEKg0qDQ4pDikOKQ4pDikOKQ4pKQ4OKQ4AAQQqDSoNDikOKQ4pDikOKQ4pDikpDg4pDgABBCoNKg0OKQ4pDikOKQ4pDikOKSkODigPAAEEKg0qDQ4pDikOKQ4pDikOKQ4oKg0PKA8AAQQqDSoMDykOKQ4pDigPKA8oDygqDQ8oDgANBQAAAAAAAA=="
+        {%elif states.input_select.office_ceiling_fan_level.state == "HIGH"%} "JgD0ACoNKg0OKQ4pDikOKQ4pDikOKA8oDygPAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDSrpKg0qDQ8oDikOKQ4pDikOKQ4pDikOKSroKA8pDg0qDCsMKwwrDCsMKwwrDCsMKyjrJxAnEA4pDikMKw0qDigPKA4pDSoOKSrpKg0pDg4pDikOKQ4pDygOKQ4pDikOKSnpKg0qDQ4pDikPKA4pDikOKQ8oDikOKSnqKQ4pDQ4pDSoOKQ8oDikOKQ4pDygOKSrpJxApDQ0rDSkOKQwrDCsMKwwrDCsMKyjrKQ4pDg4pDigPKA8oDygPKA8oDygPKCoADQUAAAAA"
+        {%else%} "JgA2ASoNKg0PKA8oDygOKQ4pDikOKQ4pDikOAAEEKg0qDQ8oDikOKSoNKg0qDSoNKQ4qDSnpKg0qDQ4pDikOKQ4pDikqDQ4pDikOKQ4AAQQpDikODikNKg0qDikNKikODCsMKw0qDAABBioMKw0OKQ4pDikOKQ4pKA8MKwwrDCsMAAEGKA8oDwwrDCsMKwwrDCsnEAwrDCsMKwwAAQYoDygPDCsMKwwrDCsMKycQDCsMKwwrDAABBigPKA8MKwwrDCsMKw4pKQ4OKQ4pDikOAAEEKg0qDQ4pDikOKQ4pDikpDg4pDikOKQ4AAQQqDSoNDikOKQ4pDygOKSkODikOKQ4pDgABBCoNKg0MKw4pDCsMKwwrKA8MKwwrDCsMAAEGKQ8oDw4oDygPKA8oDygqDQ4pDikOKQ4ADQUAAA=="
+        {%endif%}
+      
 ###########################################
 ####### Door Sensors Automations ##########
 ###########################################

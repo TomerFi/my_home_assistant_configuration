@@ -418,15 +418,15 @@ correct_objects_values:
     - service: input_text.set_value
       data_template:
         entity_id: input_text.lr_ac_temp_text
-        value: "{%if states.input_text.lr_ac_temp_text == none%}25{%else%}{{ states.input_text.lr_ac_temp_text.state }}{%endif%}"
+        value: "{%if states.input_text.lr_ac_temp_text.state %}{{ states.input_text.lr_ac_temp_text.state }}{%else%}30{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.bedroom_ac_temp_text
-        value: "{%if states.input_text.bedroom_ac_temp_text == none%}25{%else%}{{ states.input_text.bedroom_ac_temp_text.state }}{%endif%}"
+        value: "{%if states.input_text.bedroom_ac_temp_text.state %}{{ states.input_text.bedroom_ac_temp_text.state }}{%else%}30{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.shabbat_notify_minutes_start
-        value: "{%if states.input_text.shabbat_notify_minutes_start == none%}30{%else%}{{ states.input_text.shabbat_notify_minutes_start.state }}{%endif%}"
+        value: "{%if states.input_text.shabbat_notify_minutes_start.state %}{{ states.input_text.shabbat_notify_minutes_start.state }}{%else%}15{%endif%}"
 
 get_office_mqtt_client_status:
   sequence:
@@ -445,6 +445,13 @@ living_room_rm_pro_send_packet:
 bedroom_rm_mini_send_packet:
   sequence:
     - service: broadlink.send_packet_192_168_0_130
+      data_template:
+        packet:
+          - '{{ packet_code }}'
+
+office_rm_mini_send_packet:
+  sequence:
+    - service: broadlink.send_packet_192_168_0_133
       data_template:
         packet:
           - '{{ packet_code }}'
@@ -525,7 +532,25 @@ alexa_restart_hass:
         message: "Restart Home Assistant was requested by alexa."
         title: "System Restart Initiated"
     - service: homeassistant.restart
+    
+set_office_ceiling_fan_timer_1h:
+  sequence:
+    - service: script.office_rm_mini_send_packet
+      data:
+        packet_code: "JgA2ASoNKg0OKQ4pDSoNKg4pDigPKA4pDygOAAEFKA8pDgwrDCsMKycQJxAnECcPKA8oDyrpKg0oDwwrDCsMKwwrJxAMKwwrDCsMKwwAAQYoDygPDCsMKwwrDCsoDwwrDCsMKwwrDAABBycQJxAMKwwqDSoNKigPDCsOKQwrDCsMAAEHKA8nEAwrDCsMKw4pJxAOKQwrDCsMKg8AAQQoDygPDCsMKwwrDikoDwwrDCsMKw4pDAABBioNKA8NKg4pDCsMKygPDCsMKwwrDCsMAAEHJxAnEAwrDCsMKwwrJw8NKg0qDSoOKQ4AAQUpDikMDyoNKg0qDikoDBEpDikOKQ4oDwABBCoLLA0OKQ4pDikOKSoNDikOKQ4pDikOAAEEKg0qDQ8oDygOKQ4pKg0OKQ4pDikOKQ4ADQUAAA=="
 
+set_office_ceiling_fan_timer_3h:
+  sequence:
+    - service: script.office_rm_mini_send_packet
+      data:
+        packet_code: "JgA2AScQJxAMKwwrDSoOKA8oDygOKQ4pDCsMAAEHKA8oDwwrDCsMKycQJxAnECcQJw8oDyjrKA8oDwwrDCsMKygPDCsMKwwrJxAnEAwAAQYoDygPDCsMKwwrKA8MKwwrDCsoDygPDAABBycQKQ4MKwwrDCooDw0qDSoMKygPKg0MAAEHKg0pDg4pDikOKSkODikOKQ4pKQ4pDgwAAQYqDSoNDikMKwwrKA8OKQ4pDikpDigPDgABBSkOKQ4MKw4oDikqDQ0qDikOKSgPKg0MAAEHKQ4oDw4pDikOKSkODikOKQ0qKQ0oDw4AAQUpDioNDCsOKQ4pKQ4OKQ4pDikpDikODgABBCoNKg0MKw4pDikqDQwrDCsOKScQJxAMAAEGKA8oDwwrDCsMKygPDCsMKwwrJxAnEAwADQUAAA=="
+        
+set_office_ceiling_fan_timer_6h:
+  sequence:
+    - service: script.office_rm_mini_send_packet
+      data:
+        packet_code: "JgBqASgPKA8NKgwrDCsMKwwrDCsMKwwrDCsMAAEHJxAoDwwqDCsNKikOKA8oDygPKQ4oDyjrJxAnEAwqDSoOKQ4pDCsMKw0qDSopDgwAAQcnECcQDSoMKwwrDSkOKQwrDCsNKigPDAABBykOKQ4MKw4pDSoMKwwqDikOKQwrKQ4MAAEHKA8nEAwrDCsMKwwrDCsMKwwrDCooDw0AAQYoDygPDSoMKwwrDCsOKQ0qDSoNKigPDgABBCoNKg0PKA8oDikOKQ4pDikOKQ4pKg0OAAEEKg4pDg4oDygPKA8oDygPKA8oDikqDQ4AAQUqDCsMDykOKQ4oDygPKA8oDygPKCoNDwABBCoNKg0OKQ4pDikOKQ4pDigPKA8oKg0PAAEEKg0qDQ4pDikOKQ4pDikOKQ4pDikpDg4AAQQqDSoLECkOKQ4pDikOKQ4pDikOKSkODgABBCoNKg0PKA4pDikOKQ4pDikOKQ4pKQ4OAA0FAAAAAAAAAAAAAAAAAAA="
+        
 ####################################################
 ################## Scenes Scripts ##################
 ####################################################    
@@ -569,6 +594,8 @@ watch_living_room_tv:
       entity_id: switch.service_room_light
     - service: switch.turn_off
       entity_id: switch.kitchen_island_light
+    - service: switch.turn_off
+      entity_id: switch.office_light
 
 leaving_home:
   sequence:
@@ -644,6 +671,8 @@ leaving_home:
         milliseconds: 500
     - service: switch.turn_off
       entity_id: switch.main_hallway_light
+    - service: switch.turn_off
+      entity_id: switch.office_light
 
       
 sleep_time:
@@ -723,8 +752,10 @@ sleep_time:
     - service: script.bedroom_tv_set_timer
       data_template:
         minutes: '90'
+    - service: switch.turn_off
+      entity_id: switch.office_light
     - delay:
-        minutes: 10
+        minutes: 5
     - service: switch.turn_off
       entity_id: switch.kitchen_island_light
       

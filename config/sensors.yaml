@@ -128,10 +128,14 @@
       value_template: "{%if states.device_tracker.hallway_netgear_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
     shield_console_nmap_tracker:
       value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_chromecast_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_chromecast.state == 'home'%}Online{%else%}Offline{%endif%}"
+    xbox_360_nmap_tracker:
+      value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_dot_nmap_tracker:
       value_template: "{%if states.device_tracker.office_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
-    office_mini_nmap_tracker:
-      value_template: "{%if states.device_tracker.office_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_ghome_mini_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_ghome_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_bar_sp2_nmap_tracker:
       value_template: "{%if states.device_tracker.kitchen_bar_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
     living_room_rm_pro_nmap_tracker:
@@ -160,6 +164,8 @@
       value_template: "{%if states.device_tracker.havas_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
     dash_wand_nmap_tracker:
       value_template: "{%if states.device_tracker.dash_wand.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_rm_mini_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
     run_speed_test_last_run:
       value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
     select_city_shabbat_start_time:
@@ -297,3 +303,21 @@
 
 - platform: shabbat_times
   geonames: "IL-Haifa,IL-Rishon LeZion"
+  
+- platform: snmp
+  name: "office_pc_uptime_ticks"
+  host: !secret office_pc_ip
+  community: !secret office_pc_snmp_community
+  baseoid: 1.3.6.1.2.1.25.1.1.0
+  accept_errors: true
+  default_value: 0
+  
+- platform: xbox_live
+  api_key: !secret xbox_api
+  xuid: !secret xbox_xuid
+  scan_interval: 60
+  
+#- platform: command_line
+#  name: "office_pc_uptime"
+#  command: python -c "import datetime; ticks = 31756065; seconds = ticks/100; datetime.timedelta(seconds = seconds); print datetime.timedelta(seconds = seconds);"
+

@@ -301,11 +301,38 @@ dash_wand:
   track: true
   vendor: Amazon Technologies Inc.
 
-office_mini:
+office_ghome_mini:
   hide_if_away: false
   icon:
   mac: !secret office_ghome_mini_mac
-  name: 'Office Mini'
+  name: 'Office G-Home Mini'
   picture:
   track: true
   vendor: Google, Inc.
+
+office_rm_mini:
+  hide_if_away: false
+  icon:
+  mac: !secret office_broadlink_rm_mini_mac
+  name: 'Office RM Mini'
+  picture:
+  track: true
+  vendor: HangZhou Gubei Electronics Technology Co.,Ltd
+
+office_chromecast:
+  hide_if_away: false
+  icon:
+  mac: !secret office_chromecast_mac
+  name: 'Office Google Chromecast'
+  picture:
+  track: true
+  vendor: Google, Inc.
+
+xbox_360:
+  hide_if_away: false
+  icon:
+  mac: !secret office_xbox_360_mac
+  name: 'Xbox 360'
+  picture:
+  track: true
+  vendor: unknown

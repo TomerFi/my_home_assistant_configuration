@@ -15,6 +15,17 @@
   mac: !secret service_room_light_broadlink_sc1_mac
   friendly_name: "service_room_light"
   type: sp2
+
+- platform: broadlink
+  host: !secret office_broadlink_rm_mini_ip
+  mac: !secret office_broadlink_rm_mini_mac
+  timeout: 15
+  type: rm_mini
+  switches:
+    office_fan_light:
+      friendly_name: "office_fan_light"
+      command_on: "JgDOACoNKg0OKQ4pDikOKQ4oDygPKA8oDygPAAEEKg0qDQ4pDikOKSkOKQ0qDSoNKg0qDSrpKg0qDQ4pDikOKQ4pDikOKSkODikOKA8AAQQqDSoNDikOKQ4pDikOKQ4pKg0OKQ4pDgABBCoNKg0PKA8oDygOKQ4pDikqDQ4pDikOAAEFKQ4pDg4pDikOKA8oDygPKCoNDikOKQ4AAQUqDSoNDikOKQ4pDikOKA8oKg4OKA8oDwABBCoNKg0OKQ4pDikOKQ4pDikpDg4oDygPAA0FAAAAAAAAAAAAAA=="
+      command_off: "JgDOACoNKg0OKQ4pDikOKQ4oDygPKA8oDygPAAEEKg0qDQ4pDikOKSkOKQ0qDSoNKg0qDSrpKg0qDQ4pDikOKQ4pDikOKSkODikOKA8AAQQqDSoNDikOKQ4pDikOKQ4pKg0OKQ4pDgABBCoNKg0PKA8oDygOKQ4pDikqDQ4pDikOAAEFKQ4pDg4pDikOKA8oDygPKCoNDikOKQ4AAQUqDSoNDikOKQ4pDikOKA8oKg4OKA8oDwABBCoNKg0OKQ4pDikOKQ4pDikpDg4oDygPAA0FAAAAAAAAAAAAAA=="
   
 - platform: broadlink
   host: !secret bedroom_broadlink_rm_mini_ip
@@ -96,6 +107,10 @@
       friendly_name: "small_hallway_light"
       command_on: "6QpCAN8JFgkWCQkWFgkWCQkWCRYJFgkWFgkJFgkWFgkJFgkWCRYJFhYJCRYWCQkWCRYWCRYJFgkWCRYJCRYWCRYJFgkWCQ=="
       command_off: "6QpCAN8JCRYJFgkWFgkWCRYJCRYJFhYJCRYWCRYJFgkJFgkWFgkWCQkWFgkWCRYJFgkJFhYJCRYWCQkWCRYWCQkWCRYWCQ=="
+    office_light:
+      friendly_name: "office_light"
+      command_on: "6QpCAN8JFgkWCRYJFgkWCQkWFgkJFhYJFgkWCRYJFgkWCQkWFgkWCQkWCRYWCRYJCRYWCRYJFgkWCRYJCRYWCRYJFgkWCQ=="
+      command_off: "6QpCAN8JCRYJFgkWFgkWCRYJCRYJFgkWFgkJFgkWCRYWCQkWCRYWCQkWFgkWCQkWFgkJFhYJFgkWCRYJCRYJFgkWCRYJFg=="
 
 - platform: template
   switches:
@@ -174,4 +189,4 @@
           service_name: "turn_off"
           data_details: {"entity_id": "switch.small_bathroom_light_fixed"}
           delay_seconds: 1
-          loop_count: 2  
+          loop_count: 2

@@ -91,6 +91,15 @@ switch.bedroom_ac_shutter:
 switch.bedroom_ac_light:
   friendly_name: "Panel Light"
   icon: mdi:spotlight
+switch.office_light:
+  friendly_name: "Office Light"
+  emulated_hue_name: "Office Light"
+  emulated_hue_hidden: false
+switch.office_fan_light:
+  friendly_name: "Fan Light"
+  emulated_hue_name: "Office Fan Light"
+  emulated_hue_hidden: false
+  icon: mdi:spotlight
   
 ##########################################
 ################# Lights #################
@@ -148,6 +157,9 @@ input_select.select_shabbat_city:
 input_select.select_log_level:
   friendly_name: "Log Level"
   icon: mdi:alert-circle-outline
+input_select.office_ceiling_fan_level:
+  friendly_name: "Fan"
+  icon: mdi:fan
 
 ##########################################
 ############# Input Boolean ##############
@@ -295,8 +307,8 @@ sensor.bedroom_echo_nmap_tracker:
 sensor.office_dot_nmap_tracker:
   friendly_name: "Office Dot"
   icon: mdi:amazon
-sensor.office_mini_nmap_tracker:
-  friendly_name: "Office Mini"
+sensor.office_ghome_mini_nmap_tracker:
+  friendly_name: "Office G-Home Mini"
   icon: mdi:google-assistant
 sensor.bedroom_yes_nmap_tracker:
   friendly_name: "Bedroom Yes"
@@ -319,6 +331,12 @@ sensor.havas_laptop_nmap_tracker:
 sensor.shield_console_nmap_tracker:
   friendly_name: "Shield Console"
   icon: mdi:android
+sensor.office_chromecast_nmap_tracker:
+  friendly_name: "Office Chromecast"
+  icon: mdi:android
+sensor.xbox_360_nmap_tracker:
+  friendly_name: "Xbox 360"
+  icon: mdi:windows
 sensor.tomers_phone_nmap_tracker:
   friendly_name: "Tomer's Phone"
   icon: mdi:cellphone-iphone
@@ -333,6 +351,9 @@ sensor.living_room_rm_pro_nmap_tracker:
   icon: mdi:remote
 sensor.bedroom_rm_mini_nmap_tracker:
   friendly_name: "Bedroom RM Mini"
+  icon: mdi:remote
+sensor.office_rm_mini_nmap_tracker:
+  friendly_name: "Office RM Mini"
   icon: mdi:remote
 sensor.hallway_netgear_hub_nmap_tracker:
   friendly_name: "Hallway Netgear Hub"
@@ -441,6 +462,8 @@ sensor.homenas_used_space_datavol1:
 sensor.qnap_homenas_uptime:
   friendly_name: "Uptime"
   icon: mdi:timelapse
+sensor.tomerfu:
+  friendly_name: "Xbox Live Account"
 
 ##########################################
 ################# Scripts ################
@@ -530,6 +553,17 @@ script.bedroom_tv_set_timer:
   hidden: true
 script.alexa_restart_hass:
   hidden: true
+script.set_office_ceiling_fan_timer_1h:
+  friendly_name: "1 Hour Timer"
+  icon: mdi:timer
+script.set_office_ceiling_fan_timer_3h:
+  friendly_name: "3 Hour Timer"
+  icon: mdi:timer
+script.set_office_ceiling_fan_timer_6h:
+  friendly_name: "6 Hour Timer"
+  icon: mdi:timer
+script.office_rm_mini_send_packet:
+  hidden: true
 
 ##########################################
 ################# Groups #################
@@ -577,6 +611,8 @@ group.empty_room_switches:
 group.guest_room_switches:
   friendly_name: "Lights"
 group.balcony_switches:
+  friendly_name: "Lights"
+group.office_switches:
   friendly_name: "Lights"
 group.living_room_google_wifi_point:
   friendly_name: "Living Room Access Point"
@@ -662,7 +698,7 @@ group.nmap_yes_stb_trackers:
   icon: mdi:movie
   control: hidden
 group.nmap_computers_tracker:
-  friendly_name: "Computers"
+  friendly_name: "Computers, Streamers & Consoles"
   icon: mdi:desktop-classic
   control: hidden
 group.nmap_phones_tracker:
@@ -686,6 +722,9 @@ group.shabbat_reminder_settings:
   icon: mdi:message-settings-variant
 group.qnap_homenas_group:
   friendly_name: "Home NAS"
+group.office_ceiling_fan:
+  friendly_name: "Ceiling Fan"
+  control: hidden
 
 ##########################################
 ################# Views ##################
@@ -710,6 +749,8 @@ group.guest_room_view:
   friendly_name: "Guest Room"
 group.balcony_view:
   friendly_name: "Balcony"
+group.office_view:
+  friendly_name: "Office"
 group.tech_support_view:
   friendly_name: "Tech Support"
 group.tomer_testing:
@@ -846,6 +887,8 @@ automation.office_pc_update_mqtt_client_status:
 automation.shabbat_candle_lighting_time_reminder:
   hidden: true
 automation.set_log_level:
+  hidden: true
+automation.office_fan_level_change:
   hidden: true
 
 ##########################################

@@ -87,6 +87,11 @@ balcony_switches:
   name: balcony_switches
   entities:
     - switch.balcony_light
+    
+office_switches:
+  name: office_switches
+  entities:
+    - switch.office_light
 
 living_room_google_wifi_point:
   name: living_room_google_wifi_point
@@ -252,13 +257,14 @@ nmap_pa_trackers:
     - sensor.bedroom_echo_nmap_tracker
     - sensor.office_dot_nmap_tracker
     - sensor.dash_wand_nmap_tracker
-    - sensor.office_mini_nmap_tracker
+    - sensor.office_ghome_mini_nmap_tracker
 
 nmap_remotes_trackers:
   name: nmap_remote_trackers
   entities:
     - sensor.living_room_rm_pro_nmap_tracker
     - sensor.bedroom_rm_mini_nmap_tracker
+    - sensor.office_rm_mini_nmap_tracker
     - sensor.living_room_harmony_hub_nmap_tracker
 
 nmap_yes_stb_trackers:
@@ -273,6 +279,8 @@ nmap_computers_tracker:
   entities:
     - sensor.office_pc_nmap_tracker
     - sensor.shield_console_nmap_tracker
+    - sensor.office_chromecast_nmap_tracker
+    - sensor.xbox_360_nmap_tracker
     - sensor.tomers_laptop_nmap_tracker
     - sensor.havas_laptop_nmap_tracker
 
@@ -297,6 +305,7 @@ nmap_various_trackers:
     - sensor.hallway_netgear_hub_nmap_tracker
     - sensor.living_room_broadlink_a1_nmap_tracker
     - sensor.living_room_samsung_tv_nmap_tracker
+    - sensor.tomerfu
 
 shabbat_times:
   name: shabbat_times
@@ -333,7 +342,15 @@ qnap_homenas_group:
     - sensor.homenas_volume_used_datavol1
     - sensor.homenas_free_space_datavol1
     - sensor.homenas_used_space_datavol1
-    
+
+office_ceiling_fan:
+  name: office_ceiling_fan
+  entities:
+    - input_select.office_ceiling_fan_level
+    - script.set_office_ceiling_fan_timer_1h
+    - script.set_office_ceiling_fan_timer_3h
+    - script.set_office_ceiling_fan_timer_6h
+    - switch.office_fan_light
 
 ##########################################
 ################# Views ##################
@@ -411,6 +428,13 @@ balcony_view:
   view: true
   entities:
     - group.balcony_switches
+    
+office_view:
+  name: office_view
+  view: true
+  entities:
+    - group.office_switches
+    - group.office_ceiling_fan
 
 tech_support_view:
   name: tech_support_view
