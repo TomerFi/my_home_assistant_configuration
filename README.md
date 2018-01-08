@@ -16,7 +16,6 @@ I will try to keep this repository updated with any changes I'll make in my work
     - [Custom Components](#custom-components)
     - [Python Scripts](#python-scripts)
   - [Themes](#themes)
-  - [Installed Hass.io Addons](#installed-hassio-addons)
   - [Frontend](#frontend)
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
@@ -34,12 +33,12 @@ I will try to keep this repository updated with any changes I'll make in my work
 #### Addons by Others
 - [**AppDaemon**](https://github.com/hassio-addons/addon-appdaemon) for runing *AppDaemon* python applications in *Home Assistant* provided with [this repository](https://github.com/hassio-addons/repository).
 - [**Caddy Proxy**](https://github.com/bestlibre/hassio-addons/tree/master/caddy_proxy) for proxy with virtual hosts capabilities for *Home Assistant* provided in [this repository](https://github.com/bestlibre/hassio-addons).
-- [**Bluetooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for using the bluetooth chip on my rpi 3.
 
 #### Addons from Hass.io
 - [**Mosquitto MQTT broker**](https://home-assistant.io/addons/mosquitto/) for handling mqtt messaging.
 - [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing my enviornment with SSH clients.
 - [**Samba**](https://home-assistant.io/addons/samba/) for accessing my configuration files with windows.
+- [**Bluetooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for using the bluetooth chip on my rpi 3.
 
 #### Custom Components
 - [**variable**](config/custom_components/variable.py) as instructed in [this post](https://community.home-assistant.io/t/custom-component-to-declare-set-variables/25218).
@@ -54,13 +53,6 @@ I will try to keep this repository updated with any changes I'll make in my work
  
 ### Themes
 - None of the [themes](config/themes) were made by myself, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
-
-### Installed Hass.io Addons
-- [**Bluthooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for use of the bluetooth device tracker.
-- [**DuckDNS**](https://home-assistant.io/addons/duckdns/) to update DuckDNS servers with my modem's ip address, the addon also uses the [Let's Encrypt Addon](https://home-assistant.io/addons/lets_encrypt/) for an ssl certificate.
-- [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing the system with putty.
-- [**Samba Share**](https://home-assistant.io/addons/samba/) for accessing my configuration files from a windows environment.
-- [**Mosquitto MQTT Broker**](https://home-assistant.io/addons/mosquitto/) for mqtt connectivity with home assistant, owntracks and my computer's local client.
 
 ### Frontend
 First of all, I want to acknowledge the theme I use, one of the best themes I saw for home assistant. Needles to say, it isn't my creation, I don't (and won't) do frontend. The theme is called *Solarized* and I got it [here](https://community.home-assistant.io/t/share-your-themes/22018/31).
@@ -87,6 +79,7 @@ I'll now cover the views I've created in my home assistant installation:
 - [EMPTY ROOM](frontend_pics/View_EMPTY_ROOM.jpg) nothing special here, just lights.
 - [GUEST ROOM](frontend_pics/View_GUEST_ROOM.jpg) nothing special here, just lights and sensors.
 - [BALCONY](frontend_pics/View_BALCONY.jpg) nothing special here, just lights.
+- [OFFICE](frontend_pics/View_OFFICE.jpg) controlling my office light and an ir ceiling fan.
 - [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT_1.jpg) now this is my favourite view, it's actually has to many object to fit in one picture, the bottom part is [here](frontend_pics/View_TECH_SUPPORT_2.jpg). It groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have a lot of automations an templating based on the values of the objects in this view.
 
 ## Network Gear
@@ -99,7 +92,10 @@ I'll now cover the views I've created in my home assistant installation:
 ## Smart Home Devices, Equipment and Endpoints
 - [**Home Assistant Hass.io**](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
 - **Windows MQTT Client** written in java by myself, with a controller for activating windows applications based on recived payloads. You can have a look [here](https://community.home-assistant.io/t/how-i-made-alexa-talk-to-my-computer-through-home-assistant/32448), see the client in action [here](https://www.youtube.com/watch?v=AQzD0TPG-xE) and get the instructions for how to use it [here](https://github.com/TomerFi/smathhome_computer_mqtt_client).
-- **5X** [**Amazon Alexa Enabled Devices**](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wans laying around the house.
+- **5X** [**Amazon Alexa Enabled Devices**](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wand laying around the house.
+- [**Google Home Mini**](https://store.google.com/us/product/google_home_mini?hl=en-US) in my office.
+- [**Google Chromecast**](https://store.google.com/us/product/chromecast_2015?hl=en-US) connected to a Metz TV in my office.
+- **Xbox 360** connected to a Metz TV in my office.
 - [**Lifx-Z 2 meters led strip**](https://www.amazon.com/gp/product/B01KY02NLY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) behind the living room's television.
 - [**Harmony Elite**](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controling the following devices:
   - Samsung Smart TV
@@ -114,10 +110,12 @@ I'll now cover the views I've created in my home assistant installation:
   - [Broadlink TC2 3Gang Switch US Standart](https://www.aliexpress.com/item/2016-New-Broadlink-TC2-Light-Touch-Switch-US-AU-110V-3Gang-Wall-Switch-Wireless-Remote-Control/32591265614.html?spm=a2g0s.9042311.0.0.1rwADH).
 - **2X** [**Broadlink SP2 Plugs**](https://www.aliexpress.com/item/Broadlink-16A-EU-US-wifi-power-socket-SP-CC-Home-Automation-Smart-plug-outlet-Wireless-Control/32639393902.html?spm=a2g0s.9042311.0.0.1rwADH) for a night lamp in the living room and a simple led strip in the kitchen.
 - [**Broadlink SC1 Outer Plug**](https://www.aliexpress.com/item/New-Broadlink-SC1-Wifi-Smart-Remote-Controlled-Power-Home-Automation-APP-Wireless-power-light-Switch-Via/32811421862.html?spm=a2g0s.9042311.0.0.1rwADH) for my service room light.
-- [**Broadlink RM Mini**](https://www.aliexpress.com/item/Original-Broadlink-RM-Mini3Black-bean-Smart-Home-Automation-Universal-Intelligent-WiFi-IR-4G-Wireless-Controller-by/32657100947.html?spm=a2g0s.9042311.0.0.1rwADH) controlling the following devices:
-  - Hisense Simple IR TV
-  - Yes STB
-  - Elco Air Conditioner
+- **2X** [**Broadlink RM Mini**](https://www.aliexpress.com/item/Original-Broadlink-RM-Mini3Black-bean-Smart-Home-Automation-Universal-Intelligent-WiFi-IR-4G-Wireless-Controller-by/32657100947.html?spm=a2g0s.9042311.0.0.1rwADH) controlling the following devices:
+  - Hisense simple IR TV in the bedroom.
+  - Yes STB in the bedroom.
+  - Elco Air Conditioner in the bedroom.
+  - Metz simple IR TV in the office.
+  - Hyundai Ceiling Fan in the office.
 - [**Broadlink S1c 1st generation Alarm Kit**](https://www.aliexpress.com/item/2015-New-Arrival-Broadlink-S1-S1C-SmartOne-Alarm-Security-Kit-For-Home-Smart-Home-Alarm-System/32523639274.html?spm=a2g0s.9042311.0.0.1rwADH) working with 4X [Broadlink magnetic sensors](https://www.aliexpress.com/item/Original-Broadlink-S1C-433Mhz-Door-Sensor-Contact-Wireless-Window-Magnet-Entry-Detector-Sensor-Smart-Home-Alarm/32694362268.html?spm=a2g0s.9042311.0.0.8GFN5e).
 - [**Broadlink A1 Sensor**](https://www.aliexpress.com/item/Broadlink-A1-E-air-wifi-Air-Quatily-Detector-Intelligent-Purifier-smart-home-Automation-phone-detect-Temperature/32614430027.html?spm=a2g0s.9042311.0.0.6NtFMx).
 
@@ -163,4 +161,3 @@ I also want to acknowledge a couple of builtin tools with home assistant that I 
 - **Templates** there is no way I'm even looking at a template in the yaml files without testing it with this tool first, amazing.
 ## Future plans for my environment
 - I recently purchased the new Smarthings Link and it turned my Shield console into a Smarthings hub. I plan on purchasing a couple of sensors and devices and use my Home Assistant to control and manage the Smartthings hub.
-- I also recently purchased a Google Home Mini smart speaker and an Google Chromecast 2nd generation. So, I plan on playing around with those guys a little bit.
