@@ -96,10 +96,10 @@ home_control:
   ]
   system_sensors: {
     "cpu_temp": "sensor.cpu_temp",
-    "cpu_used": "sensor.cpu_used",
+    "cpu_used": "sensor.processor_use",
     "last_boot": "sensor.last_boot",
-    "disk_used": "sensor.disk_used_home_2",
-    "ram_used": "sensor.ram_used_2"
+    "disk_used": "sensor.disk_use_percent_home",
+    "ram_used": "sensor.memory_use_percent"
   }
   devices_sensors: [
     "sensor.office_pc_mqtt_client_status",
