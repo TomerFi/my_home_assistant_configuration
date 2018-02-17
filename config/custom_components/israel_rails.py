@@ -73,18 +73,13 @@ def async_setup(hass, config):
 
     @asyncio.coroutine
     def async_update_rail_state_service(call):
-        for entity_id in component.entities:
-            entity = component.entities[entity_id]
-
-            if entity:
-                rails = [entity]
-                tasks = [rail.async_update_rail_state() for rail in rails]
-                if tasks:
-                    yield from asyncio.wait(tasks, loop=hass.loop)
-                else:
-                    _LOGGER.error('no tasks initialized for ' + entity_id)
+        for entity in component.entities:
+            rails = [entity]
+            tasks = [rail.async_update_rail_state() for rail in rails]
+            if tasks:
+                yield from asyncio.wait(tasks, loop=hass.loop)
             else:
-                _LOGGER.error('no entity found with the name ' + entity_id)
+                _LOGGER.error('no tasks initialized')
 
     async_track_time_interval(hass, async_update_rail_state_service, INTERVAL)
 
@@ -137,7 +132,11 @@ class IsraelRail(Entity):
         departure_time = None
 
         current_date = datetime.datetime.now().replace(second=0, microsecond=0)
-        api_url = 'http://www.rail.co.il/apiinfo/api/Plan/GetRoutes?OId=' + self._from_station + '&TId=' + self._to_station + '&Date=' + str(current_date.year) + str(current_date.month) + str(current_date.day) + '&Hour=2200'
+        year =  str(current_date.year)
+        month = ("0" + str(current_date.month))[-2:]
+        day = ("0" + str(current_date.day))[-2:]
+        date = year + month + day
+        api_url = 'http://www.rail.co.il/apiinfo/api/Plan/GetRoutes?OId=' + self._from_station + '&TId=' + self._to_station + '&Date=' + date + '&Hour=2200'
         api_response = requests.get(api_url)
         api_json_input = api_response.text
         api_decoded = json.loads(api_json_input)
