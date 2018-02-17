@@ -4,7 +4,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 **Environment**
 - Installation: Home Assistant **Hass.io**
-- Current Installed Version: 0.58.1
+- Current Installed Version: 0.63.2
 - Platform: Raspberry Pi 3
 
 **Table Of Contents**
