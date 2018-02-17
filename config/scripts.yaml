@@ -418,15 +418,15 @@ correct_objects_values:
     - service: input_text.set_value
       data_template:
         entity_id: input_text.lr_ac_temp_text
-        value: "{%if states.input_text.lr_ac_temp_text.state %}{{ states.input_text.lr_ac_temp_text.state }}{%else%}30{%endif%}"
+        value: "{%if states.input_text.lr_ac_temp_text.state != 'unknown' %}{{ states.input_text.lr_ac_temp_text.state }}{%else%}30{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.bedroom_ac_temp_text
-        value: "{%if states.input_text.bedroom_ac_temp_text.state %}{{ states.input_text.bedroom_ac_temp_text.state }}{%else%}30{%endif%}"
+        value: "{%if states.input_text.bedroom_ac_temp_text.state != 'unknown' %}{{ states.input_text.bedroom_ac_temp_text.state }}{%else%}30{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.shabbat_notify_minutes_start
-        value: "{%if states.input_text.shabbat_notify_minutes_start.state %}{{ states.input_text.shabbat_notify_minutes_start.state }}{%else%}15{%endif%}"
+        value: "{%if states.input_text.shabbat_notify_minutes_start.state != 'unknown' %}{{ states.input_text.shabbat_notify_minutes_start.state }}{%else%}15{%endif%}"
 
 get_office_mqtt_client_status:
   sequence:
@@ -437,21 +437,21 @@ get_office_mqtt_client_status:
 
 living_room_rm_pro_send_packet:
   sequence:
-    - service: broadlink.send_packet_192_168_0_122
+    - service: switch.broadlink_send_packet_192_168_0_122
       data_template:
         packet:
           - '{{ packet_code }}'
           
 bedroom_rm_mini_send_packet:
   sequence:
-    - service: broadlink.send_packet_192_168_0_130
+    - service: switch.broadlink_send_packet_192_168_0_130
       data_template:
         packet:
           - '{{ packet_code }}'
 
 office_rm_mini_send_packet:
   sequence:
-    - service: broadlink.send_packet_192_168_0_133
+    - service: switch.broadlink_send_packet_192_168_0_133
       data_template:
         packet:
           - '{{ packet_code }}'

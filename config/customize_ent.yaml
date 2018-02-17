@@ -333,10 +333,10 @@ sensor.shield_console_nmap_tracker:
   icon: mdi:android
 sensor.office_chromecast_nmap_tracker:
   friendly_name: "Office Chromecast"
-  icon: mdi:android
+  icon: mdi:google-chrome
 sensor.xbox_360_nmap_tracker:
   friendly_name: "Xbox 360"
-  icon: mdi:windows
+  icon: mdi:xbox
 sensor.tomers_phone_nmap_tracker:
   friendly_name: "Tomer's Phone"
   icon: mdi:cellphone-iphone
@@ -411,21 +411,21 @@ sensor.shabbat_notify_minutes_start:
 sensor.shabbat_start_notification_status:
   friendly_name: "Reminder Set To"
   icon: mdi:mailbox
-sensor.cpu_used:
+sensor.processor_use:
   friendly_name: "CPU Usage"
 sensor.cpu_temp:
   friendly_name: "CPU Temperature"
 sensor.disk_free_home:
   friendly_name: "Disk Free"
-sensor.disk_used_home_2:
+sensor.disk_use_percent_home:
   friendly_name: "Disk Used Percentage"
-sensor.disk_used_home:
+sensor.disk_use_home:
   friendly_name: "Disk Used"
-sensor.ram_available:
+sensor.memory_free:
   friendly_name: "RAM Free"
-sensor.ram_used:
+sensor.memory_use:
   friendly_name: "RAM Used"
-sensor.ram_used_2:
+sensor.memory_use_percent:
   friendly_name: "RAM Used Percentage"
 sensor.last_boot:
   friendly_name: "Last Boot"

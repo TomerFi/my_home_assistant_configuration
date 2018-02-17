@@ -219,16 +219,16 @@ ha_statistics:
   name: ha_statistics
   entities:
     - sensor.cpu_temp
-    - sensor.cpu_used
+    - sensor.processor_use
     - sensor.ha_duckdns_cert_expiry
     - sensor.ha_noip_cert_expiry
     - sensor.last_boot
-    - sensor.disk_used_home_2
-    - sensor.disk_used_home
+    - sensor.disk_use_percent_home
+    - sensor.disk_use_home
     - sensor.disk_free_home
-    - sensor.ram_used_2
-    - sensor.ram_used
-    - sensor.ram_available
+    - sensor.memory_use_percent
+    - sensor.memory_use
+    - sensor.memory_free
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload

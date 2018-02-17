@@ -1,37 +1,6 @@
 ##########################################
 ########## One Time Reminders ############
 ##########################################
-build_google_actions_meetup:
-  name: build_google_actions_meetup
-  hour: 18
-  day: 18
-  month: 12
-  year: 2017
-  message: "Build Google Actions Meetup in Tel-Aviv at 18:00 with Matan"
-  days_notice: 1
-  notifier: "ios_tomers_iphone6s"
-  
-tomer_tooth_removal:
-  name: tomer_tooth_removal
-  hour: 15
-  day: 19
-  month: 12
-  year: 2017
-  message: "Upper tooth removal appointment at 15:00 in rishon lezion clinic with dr Hussa"
-  days_notice: 2
-  notifier: "ios_tomers_iphone6s"
-
-tomer_tooth_fix:
-  name: tomer_tooth_fix
-  hour: 14
-  minute: 30
-  day: 4
-  month: 1
-  year: 2018
-  message: "Bottom tooth fix appointment at 14:30 in rishon lezion clinic with dr Ziv-Alon"
-  days_notice: 2
-  notifier: "ios_tomers_iphone6s"
-
 tomer_dental_ct:
   name: tomer_dental_ct
   hour: 10
