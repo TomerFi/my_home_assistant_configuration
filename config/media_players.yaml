@@ -6,7 +6,11 @@
   host: !secret living_room_samaung_tv_ip
   mac: !secret living_room_samaung_tv_mac
 
-# - platform: cast
+- platform: cast
+  host: !secret office_chromecast_ip
+  
+- platform: cast
+  host: !secret living_room_shield_ip
 
 - platform: broadlink
   name: bedroom_tv

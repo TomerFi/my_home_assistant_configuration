@@ -1,0 +1,71 @@
+project_id: !secret ha_ghome_project_id
+client_id: !secret ha_ghome_client_id
+access_token: !secret ha_ghome_access_token
+agent_user_id: !secret ha_ghome_agent_user_id
+api_key: !secret ha_ghome_api_key
+expose_by_default: false
+exposed_domains:
+  - switch
+entity_config:
+  switch.office_light:
+    name: "Office Light"
+    expose: true
+  switch.living_room_night_light:
+    name: "Living Room night light"
+    expose: true
+  switch.kitchen_bar_light:
+    name: "Bar light"
+    expose: true
+  switch.service_room_light:
+    name: "Service Room Light"
+    expose: true
+  switch.living_room_main_light:
+    name: "Living Room Main Light"
+    expose: true
+  switch.living_room_small_light:
+    name: "Living Room Small Light"
+    expose: true
+  switch.kitchen_main_light:
+    name: "Kitchen Main Light"
+    expose: true
+  switch.kitchen_island_light:
+    name: "Island Light"
+    expose: true
+  switch.main_hallway_light:
+    name: "Main Hallway Light"
+    expose: true
+  switch.small_bathroom_light:
+    name: "Small Bathroom Light"
+    expose: true
+  switch.shower_light:
+    name: "Shower Light"
+    expose: true
+  switch.closet_room_light:
+    name: "Closet Room Light"
+    expose: true
+  switch.empty_room_light:
+    name: "Empty Room Light"
+    expose: true
+  switch.bedroom_main_light:
+    name: "Bedroom Main Light"
+    expose: true
+  switch.guest_room_light:
+    name: "Guest Room Light"
+    expose: true
+  switch.balcony_light:
+    name: "Balcony Light"
+    expose: true
+  switch.entrance_light:
+    name: "Entrance Light"
+    expose: true
+  switch.main_bathroom_light:
+    name: "Main Bathroom Light"
+    expose: true
+  switch.small_hallway_light:
+    name: "Small Hallway Light"
+    expose: true
+  switch.office_fan_light:
+    name: "Office Fan Light"
+    expose: true
+    
+    

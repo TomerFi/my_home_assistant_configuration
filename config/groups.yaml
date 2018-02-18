@@ -464,3 +464,5 @@ tomer_testing:
     - media_player.samsung_tv_remote
     - remote.living_room_harmony_hub
     - media_player.bedroom_tv
+    - media_player.office_tv
+    - media_player.shield
