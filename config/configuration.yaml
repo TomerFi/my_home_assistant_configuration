@@ -81,6 +81,7 @@ logger:
   default: error
   logs:
     homeassistant.components: error
+#    custom_components.switcher: debug
 #    homeassistant.components.alexa: debug
 #    homeassistant.components.intent_script: debug
 #    custom_components.date_notifier: debug
@@ -116,7 +117,13 @@ alexa:
 #    from_station: '3600'
 #    to_station: '8800'
 
-media_extractor:
+#switcher:
+#  switcher_boiler:
+#    friendly_name: 'switcher_boiler'
+#    local_ip_addr: !secret hallways_switcher_ip
+#    phone_id: !secret switcher_phone_id
+#    device_id: !secret switcher_device_id
+#    device_password: !secret switcher_device_password 
 
 recorder:
   purge_interval: 2
