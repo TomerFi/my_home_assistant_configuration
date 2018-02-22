@@ -47,6 +47,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**sensor/shabbat_times**](config/custom_components/sensor/shabbat_times.py) made by myself, you can have a look [here](https://community.home-assistant.io/t/get-shabbat-times-from-hebcal-api-custom-sensor/32429) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#shabbat-times-custom-sensor).
 - [**media_player/broadlink**](config/custom_components/media_player/broadlink.py) as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are related to this component.
 - [**israel_rails**](config/custom_components/israel_rails.py). For Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
+- [**switch/switcher_heater**](config/custom_components/switch/switcher_heater.py). made by myself, you can have a look [here](https://community.home-assistant.io/t/switcher-v2-boiler-support-in-home-assistant/44318) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#switcher-v2-bolier).
 
 #### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
@@ -118,6 +119,7 @@ I'll now cover the views I've created in my home assistant installation:
   - Hyundai Ceiling Fan in the office.
 - [**Broadlink S1c 1st generation Alarm Kit**](https://www.aliexpress.com/item/2015-New-Arrival-Broadlink-S1-S1C-SmartOne-Alarm-Security-Kit-For-Home-Smart-Home-Alarm-System/32523639274.html?spm=a2g0s.9042311.0.0.1rwADH) working with 4X [Broadlink magnetic sensors](https://www.aliexpress.com/item/Original-Broadlink-S1C-433Mhz-Door-Sensor-Contact-Wireless-Window-Magnet-Entry-Detector-Sensor-Smart-Home-Alarm/32694362268.html?spm=a2g0s.9042311.0.0.8GFN5e).
 - [**Broadlink A1 Sensor**](https://www.aliexpress.com/item/Broadlink-A1-E-air-wifi-Air-Quatily-Detector-Intelligent-Purifier-smart-home-Automation-phone-detect-Temperature/32614430027.html?spm=a2g0s.9042311.0.0.6NtFMx).
+- [**Switcher V2 Boiler Switch**](https://www.switcher.co.il/%D7%9E%D7%95%D7%A6%D7%A8/%D7%A1%D7%95%D7%95%D7%99%D7%A6%D7%A8/?doing_wp_cron=1519315002.3308029174804687500000).
 
 ## Alexa Skills Configuration
 - Store Skills:
