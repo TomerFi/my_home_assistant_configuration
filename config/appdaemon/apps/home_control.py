@@ -2,6 +2,7 @@ import appdaemon.appapi as appapi
 import random
 import datetime
 
+
 class HomeControl(appapi.AppDaemon):
 
     def initialize(self):
@@ -25,11 +26,11 @@ class HomeControl(appapi.AppDaemon):
             return "", 404
 
         if (allowedDevices and deviceId and deviceId not in allowedDevices):
-            self.log("unauthorized applicationId {}.".format(applicationId))
+            self.log("unauthorized deviceId {}.".format(deviceId))
             return "", 404
 
         if (allowedUsers and userId not in allowedUsers):
-            self.log("unauthorized applicationId {}.".format(applicationId))
+            self.log("unauthorized userId {}.".format(userId))
             return "", 404
 
 
@@ -55,7 +56,8 @@ class HomeControl(appapi.AppDaemon):
                 "NetworkDataIntent": self.NetworkDataIntent,
                 "StorageDataIntent": self.StorageDataIntent,
                 "DevicesDataIntent": self.DevicesDataIntent,
-                "SystemOperationsIntent": self.SystemOperationsIntent
+                "SystemOperationsIntent": self.SystemOperationsIntent,
+                "BoilerRequestsIntent": self.BoilerRequestsIntent
             }
 
             if intent in intents:
@@ -124,7 +126,7 @@ class HomeControl(appapi.AppDaemon):
         return response
 
     def HelpIntent(self, data):
-        response = self.askSSML(data, "<speak>Try asking me to locate any member of your household, to give you a sensors report or collect hardware data for you. I can even restart home assistant for you.<break time='200ms'/>Go ahead, try me...</speak>",
+        response = self.askSSML(data, "<speak>Try asking me to locate any member of your household, to give you a sensors report or collect hardware data for you. I can turn the boiler on or off. I can even restart home assistant for you.<break time='200ms'/>Go ahead, try me...</speak>",
             "<speak>If you need help configuring what can I do for you, please check Tomer <say-as interpret-as='spell-out'>fi</say-as> github repository for further instructions."+
             " The link is in a card in your alexa app.</speak>")
 
@@ -136,7 +138,7 @@ class HomeControl(appapi.AppDaemon):
         response = self.tellText(data, "Hmmm... I'm not quite sure what are you refusing to...")
         attributes = self.getSessionAttributes(data)
         if ("previous_intent" in attributes):
-            if (attributes["previous_intent"] in ["SensorsIntent", "NoIntent", "SystemDataIntent", "NetworkDataIntent", "StorageDataIntent", "DevicesDataIntent"]):
+            if (attributes["previous_intent"] in ["SensorsIntent", "NoIntent", "SystemDataIntent", "NetworkDataIntent", "StorageDataIntent", "DevicesDataIntent", "HandleBoilerRequests"]):
                  response = self.tellText(data, random.choice(self.args["endPhrases"]))
             elif (attributes["previous_intent"] == "LocatePhoneIntent"):
                 response = self.askText(data, "Ok. anything else?", "Anything you need me to do?")
@@ -174,6 +176,8 @@ class HomeControl(appapi.AppDaemon):
                 self.call_service("script/turn_on", entity_id = "script.alexa_restart_hass")
                 response = self.tellText(data, "OK. I've sent the restart request to Home Assistant... I'm crossing my fingers... If I won't make it... please tell my parents at Amazon, that I loved them! ")
                 self.setSimpleCard(response, "System Restart Request", "Home Assistant system restart request was sent.")
+            elif (attributes["previous_intent"] == "HandleBoilerRequests"):
+                response = self.askText(data, "What is it you need me to do?", "Take your time...")
 
         return response
 
@@ -343,9 +347,98 @@ class HomeControl(appapi.AppDaemon):
         self.setSessionAttribute(response, "previous_intent", "SystemOperationsIntent")
         return response
 
+    def BoilerRequestsIntent(self, data):
+        boiler_switch = self.args["water_heater_switch"]
+        attributes = self.getSessionAttributes(data)
+        duration = self.get_alexa_slot_value(data, "Duration")
+        action = self.get_alexa_slot_value(data, "Action")
+
+        if ("previous_intent" in attributes and attributes["previous_intent"] == "HandleBoilerRequests" and action is None):
+            action = "start"
+        else:
+            action = action.lower()
+
+        if action is None:
+            prompt = "hmmm... I'not quite sure what you are asking me to do. Try asking me to turn on, off, start or stop the boiler.</speak>"
+            if (data["session"]["new"]):
+                prompt = "<speak>" + random.choice(self.args["startPhrases"]) + " " + prompt
+            else:
+                prompt = "<speak>" + prompt
+
+            reprompt = "<speak>Hello... Are you there?</speak>"
+            response = self.askSSML(data, prompt, reprompt)
+            self.setSessionAttribute(response, "previous_intent", "HandleBoilerRequests")
+            return response
+
+        if (action == "stop" or action == "off" or action == "close"):
+            self.call_service("switch/turn_off", entity_id = boiler_switch)
+            response = self.askText(data, "Done. Anything else I can do for you?", "hmmm... are you gonna... or should I, just...")
+            self.setSessionAttribute(response, "previous_intent", "HandleBoilerRequests")
+            return response
+
+        if duration is None:
+            response = self.askText(data, "For how long?", "I can turn on the boiler for any number of minutes up to 60, how long do you want me to turn on the boiler for?")
+            self.setSessionAttribute(response, "previous_intent", "HandleBoilerRequests")
+            return response
+
+        seconds = self.convertISODurationToSeconds(duration)
+
+        if (seconds < 10 and seconds > 3600):
+            response = self.askText(data, "I can schedule the boiler to turn off anywhere between 1 and 60 minutes. How long do you want me to turn it on for?", "I can turn on the boiler for any number of minutes up to 60, how long do you want me to turn on the boiler for?")
+            self.setSessionAttribute(response, "previous_intent", "HandleBoilerRequests")
+            return response
+
+        self.call_service("switch/turn_on", entity_id = boiler_switch)
+        self.run_in(self.scheduleBoilerTurnOff, seconds, entity_id=boiler_switch)
+
+        time = str(datetime.timedelta(seconds=seconds))
+
+        hours = int(time.split(':')[0])
+        minutes = int(time.split(':')[1])
+        seconds = int(time.split(':')[2])
+
+        timeSpeech = ""
+        
+        if hours == 1:
+            timeSpeech = "one hour"
+        elif hours > 1:
+            timeSpeech = str(hours) + " hours"
+
+        if minutes == 1:
+            if timeSpeech == "":
+                timeSpeech = "one minute"
+            else:
+                timeSpeech = timeSpeech + " and one minute"
+        elif minutes > 1:
+            if timeSpeech == "":
+                timeSpeech = str(minutes) + " minutes"
+            else:
+                timeSpeech = timeSpeech + " and " + str(minutes) + " minutes"
+
+        if seconds == 1:
+            if timeSpeech == "":
+                timeSpeech = "one second"
+            else:
+                timeSpeech = timeSpeech + " and one second"
+        elif seconds > 1:
+            if timeSpeech == "":
+                timeSpeech = str(seconds) + " seconds"
+            else:
+                timeSpeech = timeSpeech + " and " + str(seconds) + " seconds"
+
+
+        response = self.tellSSML(data, "<speak>Done. The boiler is turned on. I'll turn it off in " + timeSpeech + ". " + random.choice(self.args["endPhrases"]) + "</speak>")
+        self.setSimpleCard(response, "Boiler turned on", "Boiler turned on for " + time + ".")
+        return response
+
+
+
     #########################
     ######## Helpers ########
     #########################
+    def scheduleBoilerTurnOff(self, args):
+        self.call_service("switch/turn_off", entity_id = args["entity_id"])
+
     def getSessionAttributes(self, data):
         if ("attributes" not in data["session"]):
             return {}
@@ -452,3 +545,29 @@ class HomeControl(appapi.AppDaemon):
                 "response": response,
                 "sessionAttributes": sessionAttributes
             }
+
+    def convertISODurationToSeconds(self, duration):
+        seconds = 0
+        if not (duration.split('T')[0] == "P"):
+            return seconds
+
+        try:
+            dur = duration[2:]
+
+            idx = dur.find('H')
+            if idx > -1:
+                seconds = seconds + (int(dur[:idx]) * 3600)
+                dur = dur[idx+1:]
+
+            idx = dur.find('M')
+            if idx > -1:
+                seconds = seconds + (int(dur[:idx]) * 60)
+                dur = dur[idx+1:]
+
+            idx = dur.find('S')
+            if idx > -1:
+                seconds = seconds + int(dur[:idx])
+        except:
+            pass
+
+        return seconds
