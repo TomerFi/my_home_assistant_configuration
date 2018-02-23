@@ -150,3 +150,4 @@ home_control:
     "drive_temp": "sensor.homenas_temperature_drive_01",
     "vol_usage": "sensor.homenas_volume_used_datavol1"
   }
+    "water_heater_switch": "switch.heater_switch"
