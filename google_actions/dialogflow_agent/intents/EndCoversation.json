@@ -1,0 +1,40 @@
+{
+  "id": "91fbbac3-a20c-450a-a2ad-b1e0fbbba968",
+  "name": "EndCoversation",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "95a6f820-0f0e-4da7-aaf5-4afea0ec36db",
+          "required": false,
+          "name": "end_prompt",
+          "value": "#END_CONVERSATION.end_prompt",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "$end_prompt"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1519748198,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "END_CONVERSATION"
+    }
+  ]
+}

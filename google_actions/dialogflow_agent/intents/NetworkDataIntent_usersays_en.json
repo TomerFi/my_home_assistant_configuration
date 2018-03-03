@@ -1,0 +1,158 @@
+[
+  {
+    "id": "bac7eb9a-718d-4623-9a8a-86e095cdf098",
+    "data": [
+      {
+        "text": "collect network stats",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "59af4a5f-3547-45f7-b209-c5b5d16e78a0",
+    "data": [
+      {
+        "text": "network stats",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "fef29174-e12d-4748-90fb-3a572a2b5c8b",
+    "data": [
+      {
+        "text": "collect network statistics",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 1519905053
+  },
+  {
+    "id": "fd76d426-07d7-4d33-b7b9-ead49771aeff",
+    "data": [
+      {
+        "text": "collect network status",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "c04369de-b913-4087-bd12-f3682e0cb562",
+    "data": [
+      {
+        "text": "network status",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "97ce323a-31fd-44da-a0d8-b8a0177e7cb4",
+    "data": [
+      {
+        "text": "collect network report",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "3f71dd46-b9cd-40a9-a3df-2eecf28d6047",
+    "data": [
+      {
+        "text": "network report",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "2bffffbc-a91d-4ae6-8e12-19c41cd685f9",
+    "data": [
+      {
+        "text": "collect network information",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "700f4829-c850-4228-9985-a2dee5d75233",
+    "data": [
+      {
+        "text": "network information",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "e472f6a1-84bf-416a-86e4-179044719c51",
+    "data": [
+      {
+        "text": "collect network data",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "7c5a6b27-f33f-47cc-be38-7990b0f42439",
+    "data": [
+      {
+        "text": "network data",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "a08cb175-a1e9-4b71-879f-93f868e64105",
+    "data": [
+      {
+        "text": "collect network",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  },
+  {
+    "id": "9a0ad692-e7a3-472e-bca7-c5f5f03b4b2b",
+    "data": [
+      {
+        "text": "network",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519905053
+  }
+]

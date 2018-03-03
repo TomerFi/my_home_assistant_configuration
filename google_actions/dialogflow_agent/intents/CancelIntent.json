@@ -1,0 +1,51 @@
+{
+  "id": "0f02507e-e607-4f8b-aca2-0ca1a12317cf",
+  "name": "CancelIntent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "custom_data_context",
+          "parameters": {},
+          "lifespan": 10
+        }
+      ],
+      "parameters": [
+        {
+          "id": "bf2b9d1d-aa59-47a1-a10c-678badb70402",
+          "required": false,
+          "dataType": "@sys.any",
+          "name": "previous_intent",
+          "value": "#custom_data_context.previous_intent",
+          "isList": false
+        },
+        {
+          "id": "4e691ab8-f61d-4f36-b829-3d971f6b2b51",
+          "required": false,
+          "dataType": "@sys.any",
+          "name": "person_profile",
+          "value": "#custom_data_context.person_profile",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1520006569,
+  "fallbackIntent": false,
+  "events": []
+}

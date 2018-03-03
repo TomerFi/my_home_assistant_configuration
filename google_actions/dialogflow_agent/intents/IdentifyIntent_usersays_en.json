@@ -1,0 +1,50 @@
+[
+  {
+    "id": "79b6af4e-f880-414e-8cec-4fc0d81c8cb2",
+    "data": [
+      {
+        "text": "let\u0027s chat",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519904108
+  },
+  {
+    "id": "444a5ef2-31fd-4f0d-aad5-577156585392",
+    "data": [
+      {
+        "text": "just chatting",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519904108
+  },
+  {
+    "id": "7d08ca11-5bad-4bdf-85b7-983862ce66bd",
+    "data": [
+      {
+        "text": "what can you do",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519904108
+  },
+  {
+    "id": "5f812ad4-e8a7-4388-8b34-fe41b639c6d3",
+    "data": [
+      {
+        "text": "who are you",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519904108
+  }
+]

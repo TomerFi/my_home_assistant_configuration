@@ -1,0 +1,52 @@
+{
+  "id": "695739be-b9a8-419a-8846-181b976a4337",
+  "name": "LocatePhoneIntent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "custom_data_context",
+          "parameters": {},
+          "lifespan": 10
+        }
+      ],
+      "parameters": [
+        {
+          "id": "11c114d0-8c37-4aa7-ba63-cf06d84869de",
+          "required": true,
+          "dataType": "@Names",
+          "name": "name",
+          "value": "$name",
+          "isList": false
+        },
+        {
+          "id": "cec73c08-0368-4cad-aa9c-cba13dd37eb3",
+          "required": false,
+          "dataType": "@sys.any",
+          "name": "previous_intent",
+          "value": "#custom_data_context.previous_intent",
+          "isList": false
+        },
+        {
+          "id": "d80f7cb4-c536-43b8-9041-ec8e23c5802b",
+          "dataType": "@sys.any",
+          "name": "person_profile",
+          "value": "#custom_data_context.person_profile"
+        }
+      ],
+      "messages": [],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1519845335,
+  "fallbackIntent": false,
+  "events": []
+}

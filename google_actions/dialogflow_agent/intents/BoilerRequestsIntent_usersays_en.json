@@ -1,0 +1,372 @@
+[
+  {
+    "id": "fce48d79-45b2-45ab-b806-d5a53fcf3893",
+    "data": [
+      {
+        "text": "set",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " for ",
+        "userDefined": false
+      },
+      {
+        "text": "18 minutes",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "bb3eecfb-3967-49f9-9947-3f201fc3bd1d",
+    "data": [
+      {
+        "text": "37 minutes",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "167197c8-e875-493e-9e64-deece790a439",
+    "data": [
+      {
+        "text": "set",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "58 seconds",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": true
+      },
+      {
+        "text": " timer ",
+        "userDefined": false
+      },
+      {
+        "text": "on",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " the water heater",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "bac44462-cbc0-46c1-ac7e-112015fce626",
+    "data": [
+      {
+        "text": "set",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "10 seconds",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "on",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " the water heater",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "1ebd4d3a-f5df-4646-895e-20fa9ec9ac9a",
+    "data": [
+      {
+        "text": "start",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the water heater for ",
+        "userDefined": false
+      },
+      {
+        "text": "47 minutes",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "646caf33-9c64-4806-a201-7272a087af48",
+    "data": [
+      {
+        "text": "stop",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the water heater",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "617c1121-9862-4da2-96d0-e3c95e88a55f",
+    "data": [
+      {
+        "text": "turn ",
+        "userDefined": false
+      },
+      {
+        "text": "off",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the water heater",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "2f041f58-201d-42ec-ae36-c65e8b332846",
+    "data": [
+      {
+        "text": "turn ",
+        "userDefined": false
+      },
+      {
+        "text": "on",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the water heater for ",
+        "userDefined": false
+      },
+      {
+        "text": "30 minutes",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "a605eea0-d661-4507-9d70-ba2aceb6cdfb",
+    "data": [
+      {
+        "text": "set",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "58 seconds",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "on",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " the boiler",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "f113605d-02b2-43ed-844d-fedb01152ca4",
+    "data": [
+      {
+        "text": "set",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "10 seconds",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      },
+      {
+        "text": " timer ",
+        "userDefined": false
+      },
+      {
+        "text": "on",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " the boiler",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "e80f4425-b166-4a64-aa3f-620bae7506d2",
+    "data": [
+      {
+        "text": "start",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the boiler for ",
+        "userDefined": false
+      },
+      {
+        "text": "47 minutes",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "205be1e2-a9ac-48b5-a975-3dc9a5754ab2",
+    "data": [
+      {
+        "text": "stop",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the boiler",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "c8419c52-27cd-404e-929a-38d83f4d7154",
+    "data": [
+      {
+        "text": "turn ",
+        "userDefined": false
+      },
+      {
+        "text": "off",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the boiler",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  },
+  {
+    "id": "b2a58609-b2f7-47b0-b7b0-ac0f9e402329",
+    "data": [
+      {
+        "text": "turn ",
+        "userDefined": false
+      },
+      {
+        "text": "on",
+        "alias": "Action",
+        "meta": "@OnOff",
+        "userDefined": false
+      },
+      {
+        "text": " the boiler for ",
+        "userDefined": false
+      },
+      {
+        "text": "30 minutes",
+        "alias": "Duration",
+        "meta": "@sys.duration",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519908840
+  }
+]

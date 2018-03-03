@@ -1,0 +1,19 @@
+[
+  {
+    "value": "on",
+    "synonyms": [
+      "on",
+      "start",
+      "open",
+      "set"
+    ]
+  },
+  {
+    "value": "off",
+    "synonyms": [
+      "off",
+      "stop",
+      "close"
+    ]
+  }
+]

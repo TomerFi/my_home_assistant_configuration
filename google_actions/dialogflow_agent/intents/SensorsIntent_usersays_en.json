@@ -1,0 +1,98 @@
+[
+  {
+    "id": "20e361d0-3599-4115-b8da-4c401b906970",
+    "data": [
+      {
+        "text": "sensor state",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  },
+  {
+    "id": "74065e89-09a0-4815-bce7-7f0cb81ad3a4",
+    "data": [
+      {
+        "text": "sensor information",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  },
+  {
+    "id": "e586dc98-b63d-43bd-9d1a-e5ea8cb572d7",
+    "data": [
+      {
+        "text": "sensor data",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  },
+  {
+    "id": "6c96d670-a413-4b48-8c05-09ad264dfb03",
+    "data": [
+      {
+        "text": "sensor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  },
+  {
+    "id": "ddf0f9af-74b8-4dc7-845e-2e331fa81895",
+    "data": [
+      {
+        "text": "check the sensor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  },
+  {
+    "id": "7b766261-aed8-403a-a89d-a6fa47abb571",
+    "data": [
+      {
+        "text": "status of the sensor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  },
+  {
+    "id": "8caa3b23-2e7a-49d8-8104-a06b3e1d58ec",
+    "data": [
+      {
+        "text": "sensor status",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  },
+  {
+    "id": "9d29ec23-26c1-4fbc-a6e3-9f316b24a907",
+    "data": [
+      {
+        "text": "sensor report",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519997591
+  }
+]

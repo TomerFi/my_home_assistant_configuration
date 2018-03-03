@@ -1,0 +1,74 @@
+[
+  {
+    "id": "8e1c2fff-d760-4ade-8ae2-795cef83b0bf",
+    "data": [
+      {
+        "text": "locate ",
+        "userDefined": false
+      },
+      {
+        "text": "my husband",
+        "alias": "name",
+        "meta": "@Names",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519845335
+  },
+  {
+    "id": "5f316682-d0aa-4347-bcbc-eb0b6ce77bef",
+    "data": [
+      {
+        "text": "find ",
+        "userDefined": false
+      },
+      {
+        "text": "my wife",
+        "alias": "name",
+        "meta": "@Names",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519845335
+  },
+  {
+    "id": "c69f4803-f52a-4be9-afda-2fb3d7550f8f",
+    "data": [
+      {
+        "text": "where is ",
+        "userDefined": false
+      },
+      {
+        "text": "Tomer",
+        "alias": "name",
+        "meta": "@Names",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519845335
+  },
+  {
+    "id": "468784a9-3afe-497d-a632-dcad4b1e2435",
+    "data": [
+      {
+        "text": "where\u0027s ",
+        "userDefined": false
+      },
+      {
+        "text": "Hava",
+        "alias": "name",
+        "meta": "@Names",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1519845335
+  }
+]
