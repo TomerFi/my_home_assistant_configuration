@@ -149,7 +149,7 @@ I'll now cover the views I've created in my home assistant installation:
     - Alexa, what is the temperature of my ac
 ## Google Action Configuration
 - Custom Actions:
-  - [Home Assistant AppDaemon](google_actions/home_assistant_appdaemon) for controlling my home assistant installation with a multi step interactions. You can check out the action [here](https://www.youtube.com/watch?v=ucb5h4LkcNk) and check out the python code [here](https://github.com/TomerFi/home_assistant_appdaemon_alexa_google).</br>
+  - [Home Assistant AppDaemon](google_actions/dialogflow_agent) for controlling my home assistant installation with a multi step interactions. You can check out the action [here](https://www.youtube.com/watch?v=ucb5h4LkcNk) and check out the python code [here](https://github.com/TomerFi/home_assistant_appdaemon_alexa_google).</br>
   The invocation name I use for this action is *home assistance*, the phrase I use to invoke it is *Hey Google, talk to home assistance*.
 ## Useful Tools and Applications
 - [**Notepad++**](https://notepad-plus-plus.org/) I use it for editing *YAML* and *JSON* files.
