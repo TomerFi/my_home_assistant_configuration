@@ -39,6 +39,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing my enviornment with SSH clients.
 - [**Samba**](https://home-assistant.io/addons/samba/) for accessing my configuration files with windows.
 - [**Bluetooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for using the bluetooth chip on my rpi 3.
+- [**Dnsmasq**](https://home-assistant.io/addons/dnsmasq/) as a dns server for my whole lan.
 
 #### Custom Components
 - [**variable**](config/custom_components/variable.py) as instructed in [this post](https://community.home-assistant.io/t/custom-component-to-declare-set-variables/25218).
@@ -84,7 +85,7 @@ I'll now cover the views I've created in my home assistant installation:
 - [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT_1.jpg) now this is my favourite view, it's actually has to many object to fit in one picture, the bottom part is [here](frontend_pics/View_TECH_SUPPORT_2.jpg). It groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have a lot of automations an templating based on the values of the objects in this view.
 
 ## Network Gear
-- **D-Link DSL-G256DG** this is my main router and moded supllied by my ISP.
+- **Vrtech IAD604** this is my main router and modem supllied by my ISP.
 - **3X** [**Google Wifi Points**](https://www.amazon.com/gp/product/B01MAW2294/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1) spreaded as wifi access points, I'm not using the mesh network functionality becouse it's not supported in ap mode. But I did named all the ssid the same, and the handoff between them are great so I actually have one wifi network through out my house.
 - [**Netgear Prosafe 5 ports hub**](https://www.amazon.com/gp/product/B00HGLVZLY/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
 - [**Edimax 5 ports hub**](https://www.amazon.com/Edimax-ES-5500GV3-Gigabit-Ethernet-Switch/dp/B00H8XIZT0/ref=sr_1_12?s=electronics&ie=UTF8&qid=1510662309&sr=1-12&keywords=edimax+switch).
@@ -132,7 +133,7 @@ I'll now cover the views I've created in my home assistant installation:
   The invocation name I use for this skil is *computer*, the phrase I use to invoke it is *Alexa, ask computer*.
   - [Home Assistant](alexa_skills/home_assistant) for controling my home assistant installation, I use it to run scripts, receive reports and retrieve data.</br>
   The invocation name I use for this skil is *home*, the phrase I use to invoke it is *Alexa, ask home*.
-  - [Home Assistant AppDaemon](alexa_skills/home_assistant_appdaemon) for controlling my home assistant installation with a multi step interactions. The *AppDaemon* application I wrote is not yet finished, but it is working. You can check out the skill in action [here](https://www.youtube.com/watch?v=g7Zq0ZpjCU0&t=29s) and check out the python code [here](https://github.com/TomerFi/appdaemon_hassio_alexa_custom_skill).</br>
+  - [Home Assistant AppDaemon](alexa_skills/home_assistant_appdaemon) for controlling my home assistant installation with a multi step interactions. The *AppDaemon* application I wrote is not yet finished, but it is working. You can check out the skill in action [here](https://www.youtube.com/watch?v=g7Zq0ZpjCU0) and check out the python code [here](https://github.com/TomerFi/home_assistant_appdaemon_alexa_google).</br>
   The invocation name I use for this skil is *home assistant*, the phrase I use to invoke it is *Alexa, ask home assistant*.
 - Core Functionality
   - My Home Assistant installation acts as an  [Emulated Hue](https://home-assistant.io/components/emulated_hue/) platform making devices discoverable from alexa as Hue Lights. I use the emulated hue component from controlling most of my switches and all of my scenes. Using the eumlated hue devices, I created a couple of routins:
@@ -146,6 +147,10 @@ I'll now cover the views I've created in my home assistant installation:
     - Alexa, set my ac to heat
     - Alexa, decrease the temperature on my ac by 4
     - Alexa, what is the temperature of my ac
+## Google Action Configuration
+- Custom Actions:
+  - [Home Assistant AppDaemon](google_actions/home_assistant_appdaemon) for controlling my home assistant installation with a multi step interactions. You can check out the action [here](https://www.youtube.com/watch?v=ucb5h4LkcNk) and check out the python code [here](https://github.com/TomerFi/home_assistant_appdaemon_alexa_google).</br>
+  The invocation name I use for this action is *home assistance*, the phrase I use to invoke it is *Hey Google, talk to home assistance*.
 ## Useful Tools and Applications
 - [**Notepad++**](https://notepad-plus-plus.org/) I use it for editing *YAML* and *JSON* files.
 - [**Sublime Text**](https://www.sublimetext.com/) I use if for writing and editing *JavaScript* and *Python* scripts.
