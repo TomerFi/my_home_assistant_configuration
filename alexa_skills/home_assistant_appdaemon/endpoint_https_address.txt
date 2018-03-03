@@ -1,0 +1,1 @@
+https://[HA-DNS]/api/appdaemon/home_control_alexa?api_password=[HA-API-Password]
