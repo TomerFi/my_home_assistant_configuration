@@ -10,7 +10,6 @@ I will try to keep this repository updated with any changes I'll make in my work
 **Table Of Contents**
 - [Home Assistant](#home-assistant)
   - [Customization and modification](#customization-and-modification)
-    - [Custom Addons](#custom-addons)
     - [Addons by Others](#addons-by-others)
     - [Addons from Hass.io](#addons-from-hassio)
     - [Custom Components](#custom-components)
@@ -26,9 +25,6 @@ I will try to keep this repository updated with any changes I'll make in my work
 ## Home Assistant
 
 ### Customization and modification
-
-#### Custom Addons
-- [**s1c**](addons/s1c) build based on [this post](https://community.home-assistant.io/t/broadlink-s1c-kit-sensors-in-ha-using-python-and-mqtt/19886/23). The files in the [*share*](share) folder are related to this addon.
 
 #### Addons by Others
 - [**AppDaemon**](https://github.com/hassio-addons/addon-appdaemon) for runing *AppDaemon* python applications in *Home Assistant* provided with [this repository](https://github.com/hassio-addons/repository).
@@ -49,6 +45,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**media_player/broadlink**](config/custom_components/media_player/broadlink.py) as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are related to this component.
 - [**israel_rails**](config/custom_components/israel_rails.py). For Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
 - [**switch/switcher_heater**](config/custom_components/switch/switcher_heater.py). made by myself, you can have a look [here](https://community.home-assistant.io/t/switcher-v2-boiler-support-in-home-assistant/44318) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#switcher-v2-bolier).
+- [**sensor/broadlink_s1c**](config/custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components#broadlink-s1c-alarm-kit8).
 
 #### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
