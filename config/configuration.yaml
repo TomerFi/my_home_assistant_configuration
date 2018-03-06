@@ -81,6 +81,7 @@ logger:
   default: error
   logs:
     homeassistant.components: error
+#    custom_components.sensor.broadlink_s1c: debug
 #    custom_components.switcher: debug
 #    homeassistant.components.alexa: debug
 #    homeassistant.components.intent_script: debug
@@ -151,5 +152,5 @@ intent_script: !include alexa_intents.yaml
 scene: !include scenes.yaml
 notify: !include notifications.yaml
 date_notifier: !include date_notifiers.yaml
-#shell_command: !include shell_commands.yaml
+# shell_command: !include shell_commands.yaml
 google_assistant: !include google_assistant.yaml

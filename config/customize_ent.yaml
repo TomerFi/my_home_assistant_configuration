@@ -257,13 +257,13 @@ sensor.lr_ac_temp_sensor:
 sensor.bedroom_ac_temp_sensor:
   friendly_name: "Current Temperature"
   icon_template: mdi:thermometer
-sensor.small_bathroom_door_sensor:
+sensor.broadlink_s1c_small_bathroom:
   friendly_name: "Small Bathroom Door"
-sensor.main_bathroom_door_sensor:
+sensor.broadlink_s1c_main_bathroom:
   friendly_name: "Main Bathroom Door"
-sensor.closet_room_door_sensor:
+sensor.broadlink_s1c_closet_room:
   friendly_name: "Closet Room Door"
-sensor.service_room_door_sensor:
+sensor.broadlink_s1c_service_room:
   friendly_name: "Service Room Door"
 sensor.hava_ezra_battery_level:
   hidden: true

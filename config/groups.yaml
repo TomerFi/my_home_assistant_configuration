@@ -150,10 +150,10 @@ manage_automations:
 all_door_sensors:
   name: all_door_sensors
   entities:
-    - sensor.small_bathroom_door_sensor
-    - sensor.main_bathroom_door_sensor
-    - sensor.closet_room_door_sensor
-    - sensor.service_room_door_sensor
+    - sensor.broadlink_s1c_small_bathroom
+    - sensor.broadlink_s1c_main_bathroom
+    - sensor.broadlink_s1c_closet_room
+    - sensor.broadlink_s1c_service_room
 
 all_living_room_sensors:
   name: all_living_room_sensors
@@ -168,24 +168,24 @@ all_living_room_sensors:
 all_kitchen_sensors:
   name: all_kitchen_sensors
   entities:
-    - sensor.service_room_door_sensor
+    - sensor.broadlink_s1c_service_room
 
 all_bathrooms_sensors:
   name: all_bathrooms_sensors
   entities:
-    - sensor.small_bathroom_door_sensor
-    - sensor.main_bathroom_door_sensor
+    - sensor.broadlink_s1c_small_bathroom
+    - sensor.broadlink_s1c_main_bathroom
 
 all_service_room_sensors:
   name: all_service_room_sensors
   entities:
-    - sensor.service_room_door_sensor
+    - sensor.broadlink_s1c_service_room
 
 all_bedroom_sensors:
   name: all_bedroom_sensors
   entities:
     - sensor.google_wifi_bedroom_status
-    - sensor.closet_room_door_sensor
+    - sensor.broadlink_s1c_closet_room
 
 all_guest_room_sensors:
   name: all_guest_room_sensors
@@ -468,3 +468,4 @@ tomer_testing:
     - media_player.shield
     - media_player.office_speaker
     - switch.heater_switch
+    - sensor.broadlink_s1c_key_fob

@@ -13,9 +13,9 @@
     - service: script.turn_on
       entity_id: script.run_speed_test
     - service: script.turn_on
-      entity_id: script.restart_s1c_addon_script
-    - service: script.turn_on
       entity_id: script.get_office_mqtt_client_status
+    #- service: script.turn_on
+    #  entity_id: script.restart_s1c_addon_script
     #- delay: '00:01:00'
     #- service: script.turn_on
     #  entity_id: script.update_all_devices
@@ -219,9 +219,9 @@
   alias: small_bathroom_door_sensor_open
   trigger:
     platform: state
-    entity_id: sensor.small_bathroom_door_sensor
-    from: 'Closed'
-    to: 'Open'
+    entity_id: sensor.broadlink_s1c_small_bathroom
+    from: 'closed'
+    to: 'open'
   action:
     service: switch.turn_on
     entity_id: switch.small_bathroom_light
@@ -230,9 +230,9 @@
   alias: main_bathroom_door_sensor_open
   trigger:
     platform: state
-    entity_id: sensor.main_bathroom_door_sensor
-    from: 'Closed'
-    to: 'Open'
+    entity_id: sensor.broadlink_s1c_main_bathroom
+    from: 'closed'
+    to: 'open'
   action:
     service: switch.turn_on
     entity_id: switch.main_bathroom_light
@@ -241,9 +241,9 @@
   alias: closet_room_door_sensor_open
   trigger:
     platform: state
-    entity_id: sensor.closet_room_door_sensor
-    from: 'Closed'
-    to: 'Open'
+    entity_id: sensor.broadlink_s1c_closet_room
+    from: 'closed'
+    to: 'open'
   action:
     - service: switch.turn_on
       entity_id: switch.closet_room_light
@@ -254,9 +254,9 @@
   alias: service_room_door_sensor_open
   trigger:
     platform: state
-    entity_id: sensor.service_room_door_sensor
-    from: 'Closed'
-    to: 'Open'
+    entity_id: sensor.broadlink_s1c_service_room
+    from: 'closed'
+    to: 'open'
   action:
     service: switch.turn_on
     entity_id: switch.service_room_light
@@ -265,9 +265,9 @@
   alias: service_room_door_sensor_closed
   trigger:
     platform: state
-    entity_id: sensor.service_room_door_sensor
-    from: 'Open'
-    to: 'Closed'
+    entity_id: sensor.broadlink_s1c_service_room
+    from: 'open'
+    to: 'closed'
   action:
     service: switch.turn_off
     entity_id: switch.service_room_light

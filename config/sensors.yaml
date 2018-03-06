@@ -186,22 +186,6 @@
       value_template: "{{ states.sensor.homenas_status.attributes.Uptime }}"
     
 - platform: mqtt
-  state_topic: "sensors/s1c/small_bathroom"
-  name: "small_bathroom_door_sensor"
-  
-- platform: mqtt
-  state_topic: "sensors/s1c/main_bathroom"
-  name: "main_bathroom_door_sensor"
-
-- platform: mqtt
-  state_topic: "sensors/s1c/closet_room"
-  name: "closet_room_door_sensor"
-
-- platform: mqtt
-  state_topic: "sensors/s1c/service_room"
-  name: "service_room_door_sensor"
-  
-- platform: mqtt
   state_topic: "smarthome/mqtt_client/status_update"
   name: "office_pc_mqtt_client_status"
   
@@ -317,7 +301,6 @@
   xuid: !secret xbox_xuid
   scan_interval: 60
   
-#- platform: command_line
-#  name: "office_pc_uptime"
-#  command: python -c "import datetime; ticks = 31756065; seconds = ticks/100; datetime.timedelta(seconds = seconds); print datetime.timedelta(seconds = seconds);"
-
+- platform: broadlink_s1c
+  ip_address: !secret hallways_broadlink_s1c_ip
+  mac: !secret hallways_broadlink_s1c_mac
