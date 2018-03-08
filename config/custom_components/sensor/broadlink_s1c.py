@@ -3,8 +3,6 @@ Home Assistant Custom Component for Broadlink S1C Alarm kit integration as a Sen
 Build by TomerFi
 Please visit https://github.com/TomerFi/home-assistant-custom-components for more custom components
 
-Tested in HassIO 0.63.3 for Door Sensors, Motion Sensors and Key Fobs
-
 if error occures, raise the log level to debug mode and analyze the logs:
                     custom_components.sensor.broadlink_s1c: debug
 
@@ -13,6 +11,7 @@ place this file in the following folder and restart home assistant:
 /config/custom_components/sensor
 
 yaml configuration example:
+
 sensor:
   - platform: broadlink_s1c
     ip_address: "xxx.xxx.xxx.xxx" # set your s1c hub local ip address
@@ -39,9 +38,9 @@ from homeassistant.const import (CONF_IP_ADDRESS, CONF_MAC, CONF_TIMEOUT, STATE_
 from homeassistant.util.dt import now
 
 """current broadlink moudle in ha is of version 0.5 which doesn't supports s1c hubs, usuing version 0.6 from github"""
-REQUIREMENTS = [
-    'https://github.com/mjg59/python-broadlink/archive/master.zip'
-    'master.zip#broadlink==0.6']
+# REQUIREMENTS = ['https://github.com/mjg59/python-broadlink/archive/master.zip#broadlink==0.6']
+"""one of the broadlink 0.6 requirements is the pycrypto library which is blocked ever since HA 0.64.0, my forked repository of python-broadlink is working with its replacement pycryptodome"""
+REQUIREMENTS = ['https://github.com/TomerFi/python-broadlink/archive/master.zip#broadlink==0.6']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -274,7 +273,7 @@ class WatchSensors(threading.Thread):
         """max exceptions allowed in loop before exiting"""
         max_exceptions_before_stop = 10
         """max minutes to remmember the last excption"""
-        max_minutes_from_last_exception = 20
+        max_minutes_from_last_exception = 1
         
         current_dt = now()
         if not (self._last_exception_dt is None):
