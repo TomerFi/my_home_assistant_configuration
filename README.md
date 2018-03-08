@@ -39,13 +39,13 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 #### Custom Components
 - [**variable**](config/custom_components/variable.py) as instructed in [this post](https://community.home-assistant.io/t/custom-component-to-declare-set-variables/25218).
-- [**date_notifier**](config/custom_components/date_notifier.py) made by myself, you can have a look [here](https://community.home-assistant.io/t/custom-component-for-creating-yearly-monthly-daily-and-one-time-reminders/33097) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#date-notifier-custom-component).
+- [**date_notifier**](config/custom_components/date_notifier.py) made by myself, get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/date_notifier).
 - [**sensor/google_geocode**](config/custom_components/sensor/google_geocode.py) as instructed in [this post](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233).
-- [**sensor/shabbat_times**](config/custom_components/sensor/shabbat_times.py) made by myself, you can have a look [here](https://community.home-assistant.io/t/get-shabbat-times-from-hebcal-api-custom-sensor/32429) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#shabbat-times-custom-sensor).
+- [**sensor/shabbat_times**](config/custom_components/sensor/shabbat_times.py) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/shabbat_times).
 - [**media_player/broadlink**](config/custom_components/media_player/broadlink.py) as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are related to this component.
 - [**israel_rails**](config/custom_components/israel_rails.py). For Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
-- [**switch/switcher_heater**](config/custom_components/switch/switcher_heater.py). made by myself, you can have a look [here](https://community.home-assistant.io/t/switcher-v2-boiler-support-in-home-assistant/44318) and get the instructions for using it [here](https://github.com/TomerFi/home-assistant-custom-components#switcher-v2-bolier).
-- [**sensor/broadlink_s1c**](config/custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components#broadlink-s1c-alarm-kit8).
+- [**switch/switcher_heater**](config/custom_components/switch/switcher_heater.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_heater).
+- [**sensor/broadlink_s1c**](config/custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
 
 #### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
