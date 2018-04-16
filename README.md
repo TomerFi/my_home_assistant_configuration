@@ -4,8 +4,8 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 **Environment**
 - Installation: Home Assistant **Hass.io**
-- Current Installed Version: 0.63.2
-- Platform: Raspberry Pi 3
+- Current Installed Version: 0.65.5
+- Platform: Raspberry Pi 3 B
 
 **Table Of Contents**
 - [Home Assistant](#home-assistant)
@@ -28,14 +28,11 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 #### Addons by Others
 - [**AppDaemon**](https://github.com/hassio-addons/addon-appdaemon) for runing *AppDaemon* python applications in *Home Assistant* provided with [this repository](https://github.com/hassio-addons/repository).
-- [**Caddy Proxy**](https://github.com/bestlibre/hassio-addons/tree/master/caddy_proxy) for proxy with virtual hosts capabilities for *Home Assistant* provided in [this repository](https://github.com/bestlibre/hassio-addons).
 
 #### Addons from Hass.io
-- [**Mosquitto MQTT broker**](https://home-assistant.io/addons/mosquitto/) for handling mqtt messaging.
 - [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing my enviornment with SSH clients.
 - [**Samba**](https://home-assistant.io/addons/samba/) for accessing my configuration files with windows.
 - [**Bluetooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for using the bluetooth chip on my rpi 3.
-- [**Dnsmasq**](https://home-assistant.io/addons/dnsmasq/) as a dns server for my whole lan.
 
 #### Custom Components
 - [**variable**](config/custom_components/variable.py) as instructed in [this post](https://community.home-assistant.io/t/custom-component-to-declare-set-variables/25218).
@@ -44,7 +41,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**sensor/shabbat_times**](config/custom_components/sensor/shabbat_times.py) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/shabbat_times).
 - [**media_player/broadlink**](config/custom_components/media_player/broadlink.py) as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*config/ir_codes*](config/ir_codes) folder are related to this component.
 - [**israel_rails**](config/custom_components/israel_rails.py). For Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
-- [**switch/switcher_heater**](config/custom_components/switch/switcher_heater.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_heater).
+- [**switcher_aio**](config/custom_components/switcher_aio). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_aio).
 - [**sensor/broadlink_s1c**](config/custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
 
 #### Python Scripts
@@ -80,6 +77,7 @@ I'll now cover the views I've created in my home assistant installation:
 - [BALCONY](frontend_pics/View_BALCONY.jpg) nothing special here, just lights.
 - [OFFICE](frontend_pics/View_OFFICE.jpg) controlling my office light and an ir ceiling fan.
 - [TECH SUPPORT](frontend_pics/View_TECH_SUPPORT_1.jpg) now this is my favourite view, it's actually has to many object to fit in one picture, the bottom part is [here](frontend_pics/View_TECH_SUPPORT_2.jpg). It groups all the technical data that I love to observe and my wife doesn't really to need to know about. Needles to say I have a lot of automations an templating based on the values of the objects in this view.
+- [SWITCHER-V2](frontend_pics/View_SWITCHER-V2.jpg) for controlling and managing my Switcher V2 water heater.
 
 ## Network Gear
 - **Vrtech IAD604** this is my main router and modem supllied by my ISP.
@@ -89,7 +87,12 @@ I'll now cover the views I've created in my home assistant installation:
 - **4X Netowrk RJ45 to Coax Convertors** I've received from my cable supllier *Yes*, I used them to get the wired connectivity to different areas in my house.
 
 ## Smart Home Devices, Equipment and Endpoints
-- [**Home Assistant Hass.io**](https://home-assistant.io/hassio/) installed on a [raspberry pi 3](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
+- [**Home Assistant Hass.io**](https://home-assistant.io/hassio/) installed on a [raspberry pi 3 b](https://www.amazon.com/gp/product/B01C6EQNNK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
+- **Home Server** my home server is an installation of [RASPBIAN STRETCH LITE](https://www.raspberrypi.org/downloads/raspbian/) installed on a [raspberry pi 3 b+](https://www.amazon.com/gp/product/B07BC6WH7V/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) hosting the following services:
+  - NGINX as a reverse proxy.
+  - CERTBOT for managing my [Let's Encrypt](https://letsencrypt.org/) certificates.
+  - MOSQUITTO MQTT for passing payloads from my various services and devices to home assistant.
+  - DNSMASQ as a dns and dhcp servers.
 - **Windows MQTT Client** written in java by myself, with a controller for activating windows applications based on recived payloads. You can have a look [here](https://community.home-assistant.io/t/how-i-made-alexa-talk-to-my-computer-through-home-assistant/32448), see the client in action [here](https://www.youtube.com/watch?v=AQzD0TPG-xE) and get the instructions for how to use it [here](https://github.com/TomerFi/smathhome_computer_mqtt_client).
 - **5X** [**Amazon Alexa Enabled Devices**](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the living room and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the car), 1X Dash Wand laying around the house.
 - [**Google Home Mini**](https://store.google.com/us/product/google_home_mini?hl=en-US) in my office.
