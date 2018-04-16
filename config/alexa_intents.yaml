@@ -36,12 +36,6 @@ FindHavaIphoneIntent:
   speech:
     text: I've sent a Lost Phone Request to havas icloud. Please wait for it to ring.
 
-UpdateSensorsIntent:
-  action:
-    service: script.restart_s1c_addon_script
-  speech:
-    text: !include alexa_confirm.yaml
-    
 GetSensorsStatesIntent:
   speech:
     text: >

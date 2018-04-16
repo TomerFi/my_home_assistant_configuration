@@ -15,11 +15,7 @@
     - service: script.turn_on
       entity_id: script.get_office_mqtt_client_status
     #- service: script.turn_on
-    #  entity_id: script.restart_s1c_addon_script
-    #- delay: '00:01:00'
-    #- service: script.turn_on
     #  entity_id: script.update_all_devices
-    #- delay: '00:01:00'
     
 - id: set_log_level
   alias: set_log_level

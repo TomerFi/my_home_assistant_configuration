@@ -16,14 +16,13 @@
   friendly_name: "service_room_light"
   type: sp2
 
-- platform: switcher_heater
-  switches:
-    heater_switch:
-      friendly_name: 'heater_switch'
-      local_ip_addr: !secret hallways_switcher_ip
-      phone_id: !secret switcher_phone_id
-      device_id: !secret switcher_device_id
-      device_password: !secret switcher_device_password
+#- platform: switcher_heater
+#  switches:
+#    heater_switch:
+#      local_ip_addr: !secret hallways_switcher_ip
+#      phone_id: !secret switcher_phone_id
+#      device_id: !secret switcher_device_id
+#      device_password: !secret switcher_device_password
   
 - platform: broadlink
   host: !secret office_broadlink_rm_mini_ip

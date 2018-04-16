@@ -241,7 +241,6 @@ ha_operations:
     - input_select.select_log_level
     - script.run_speed_test
     - script.office_office_mqtt_client_status
-    - script.restart_s1c_addon_script
     - script.update_all_devices
     
 bedroom_ac_hidden_controls:
@@ -467,5 +466,5 @@ tomer_testing:
     - media_player.office_chromecast
     - media_player.shield
     - media_player.office_speaker
-    - switch.heater_switch
     - sensor.broadlink_s1c_key_fob
+    - input_boolean.tiles_test1

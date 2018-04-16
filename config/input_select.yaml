@@ -38,8 +38,8 @@ tv_led_theme:
 lr_ac_state:
   name: lr_ac_state
   options :
-    - HEAT
     - COOL
+    - HEAT
 
 lr_ac_fan:
   name: lr_ac_fan
@@ -52,8 +52,8 @@ lr_ac_fan:
 bedroom_ac_state:
   name: bedroom_ac_state
   options :
-    - HEAT
     - COOL
+    - HEAT
 
 bedroom_ac_fan:
   name: bedroom_ac_fan

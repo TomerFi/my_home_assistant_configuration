@@ -1,53 +1,12 @@
 ##########################################
 ########## One Time Reminders ############
 ##########################################
-tomer_dental_ct:
-  name: tomer_dental_ct
-  hour: 10
-  day: 1
-  month: 3
-  year: 2018
-  message: "Dental CT in Dent-Or in rishon lezion, remmeber to take apropriate papers"
-  days_notice: 2
-  notifier: "ios_tomers_iphone6s"
-  
-tomer_dental_hygienist:
-  name: tomer_dental_hygienist
-  hour: 16
-  day: 13
-  month: 3
-  year: 2018
-  message: "Dental hygienist appointment at 16:00 in rishon lezion clinic with ms Sabbag"
-  days_notice: 2
-  notifier: "ios_tomers_iphone6s"
-
-tomer_dental_ct_examination:
-  name: tomer_dental_ct_examination
-  hour: 9
-  day: 14
-  month: 3
-  year: 2018
-  message: "Dental CT examination appointment at 09:00 in rishon lezion clinic with dr Shoaht"
-  days_notice: 2
-  notifier: "ios_tomers_iphone6s"
-
-tomer_dental_tooth_implent:
-  name: tomer_dental_tooth_implent
-  hour: 11
-  minute: 30
-  day: 28
-  month: 3
-  year: 2018
-  message: "Upper tooth implent appointment at 11:30 in rishon lezion clinic with dr Shoaht"
-  days_notice: 2
-  notifier: "ios_tomers_iphone6s"
-  
 rafis_memorial_date:
   name: rafis_memorial_date
   hour: 10
-  day: 3
-  month: 3
-  year: 2018
+  day: 21
+  month: 2
+  year: 2019
   message: "Dad's memorial"
   days_notice: 7
   notifier: "ios_tomers_iphone6s"
@@ -151,7 +110,7 @@ tzilas_passing_date:
   hour: 10
   day: 1
   month: 8
-  message: "Mom's passing jewish date is the 25 of Elul, please set a new reminder with the gregorian date for the memorial"
+  message: "Mom's passing jewish date is the 25 of Elul 28/09/2016, please set a new reminder with the gregorian date for the memorial"
   days_notice: 0
   notifier: "ios_tomers_iphone6s"
   
@@ -160,7 +119,7 @@ rafis_passing_date:
   hour: 10
   day: 15
   month: 1
-  message: "Dad's passing jewish date is the 16 of Adar, please set a new reminder with the gregorian date for the memorial"
+  message: "Dad's passing jewish date is the 16 of Adar 16/02/2014, please set a new reminder with the gregorian date for the memorial"
   days_notice: 0
   notifier: "ios_tomers_iphone6s"
 

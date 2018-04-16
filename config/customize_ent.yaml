@@ -1,4 +1,11 @@
 ##########################################
+############# Switcher AIO ###############
+##########################################
+switcher_aio.control_device_switch:
+  emulated_hue_name: "Boiler"
+  emulated_hue_hidden: false
+
+##########################################
 ################ Switches ################
 ##########################################
 switch.living_room_night_light:
@@ -516,9 +523,6 @@ script.bedroom_rm_mini_send_packet:
   hidden: true
 script.tv_led_theme_select_script:
   hidden: true
-script.restart_s1c_addon_script:
-  friendly_name: "Update Sensors"
-  icon: mdi:surround-sound
 script.update_all_devices:
   friendly_name: "Update Devices"
   icon: mdi:cellphone-link
@@ -819,7 +823,27 @@ scene.sleep_time:
   friendly_name: "Sleep Time"
   emulated_hue_hidden: false
   emulated_hue_name: "Go To Sleep Scene"
-
+scene.turn_on_boiler_15_min:
+  hidden: true
+  emulated_hue_hidden: false
+  emulated_hue_name: "Boiler for 15 minutes"
+scene.turn_on_boiler_30_min:
+  hidden: true
+  emulated_hue_hidden: false
+  emulated_hue_name: "Boiler for 30 minutes"
+scene.turn_on_boiler_45_min:
+  hidden: true
+  emulated_hue_hidden: false
+  emulated_hue_name: "Boiler for 45 minutes"
+scene.turn_on_boiler_60_min:
+  hidden: true
+  emulated_hue_hidden: false
+  emulated_hue_name: "Boiler for 60 minutes"
+scene.turn_on_boiler_1_h:
+  hidden: true
+  emulated_hue_hidden: false
+  emulated_hue_name: "Boiler for 1 hour"
+  
 ##########################################
 ############### Automations ##############
 ##########################################

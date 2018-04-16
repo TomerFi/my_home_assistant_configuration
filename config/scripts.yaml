@@ -415,6 +415,10 @@ correct_objects_values:
       data_template:
         entity_id: group.bedroom_ac_hidden_controls
         visible: "{%if (states.input_boolean.bedroom_ac_status.state == 'on')%}true{%else%}false{%endif%}"
+    - service: group.set_visibility
+      data_template:
+        entity_id: group.switcher_power_consumption
+        visible: "{%if (states.switch.heater_switch.state == 'on')%}true{%else%}false{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.lr_ac_temp_text
@@ -456,12 +460,6 @@ office_rm_mini_send_packet:
         packet:
           - '{{ packet_code }}'
 
-restart_s1c_addon_script:
-  sequence:
-    - service: hassio.addon_restart
-      data:
-        addon: "local_s1c"
-        
 get_sensors_report_notificiation_from_leaving_home:
   sequence:
     - service: script.send_sensors_report_notification
@@ -491,7 +489,7 @@ send_sensors_report_notification:
   sequence:
     - service_template: >
         {% if destination.lower() == 'tomer' %}notify.ios_tomers_iphone6s
-        {% elif destination.lower() == 'hava' %}notify ios_hava_ezra
+        {% elif destination.lower() == 'hava' %}notify.ios_hava_ezra
         {% else %}notify.all_ios
         {% endif %}
       data_template:
@@ -854,3 +852,46 @@ tv_led_theme_select_script:
           {% elif (selected_theme == "Tranquil") %} scene.tranquil_lights
           {% elif (selected_theme == "Warming") %} scene.warming_lights
           {% endif %}
+
+####################################################
+################## Switcher AIO ####################
+####################################################
+turn_on_boiler_15_min:
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: switcher_aio.timer_minutes_input_select
+        option: "15"
+    - service: script.turn_on
+      data:
+        entity_id: switcher_aio.turn_on_timer_script
+        
+turn_on_boiler_30_min:
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: switcher_aio.timer_minutes_input_select
+        option: "30"
+    - service: script.turn_on
+      data:
+        entity_id: switcher_aio.turn_on_timer_script
+        
+turn_on_boiler_45_min:
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: switcher_aio.timer_minutes_input_select
+        option: "45"
+    - service: script.turn_on
+      data:
+        entity_id: switcher_aio.turn_on_timer_script
+        
+turn_on_boiler_60_min:
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: switcher_aio.timer_minutes_input_select
+        option: "60"
+    - service: script.turn_on
+      data:
+        entity_id: switcher_aio.turn_on_timer_script
