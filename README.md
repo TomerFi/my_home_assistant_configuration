@@ -46,7 +46,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**sensor/broadlink_s1c**](config/custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
 
 #### Custom UI
- - [**Script with Custom Text**](/config/www/custom_ui/state-card-script-custom-text.html) made by myself for change the "ACTIVATE" value of the script entities, you can get it [here[(https://github.com/TomerFi/home-assistant-custom-ui#script-with-custom-text)
+ - [**Script with Custom Text**](/config/www/custom_ui/state-card-script-custom-text.html) made by myself for change the "ACTIVATE" value of the script entities, you can get it [here](https://github.com/TomerFi/home-assistant-custom-ui#script-with-custom-text).
 
 #### Python Scripts
  - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
