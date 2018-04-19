@@ -10,6 +10,7 @@ homeassistant:
   time_zone: Asia/Jerusalem
   customize: !include customize_ent.yaml
   customize_glob: !include customize_glob.yaml
+  customize_domain: !include customize_domain.yaml
 
 ##########################################
 ############### Web Stuff ################
@@ -22,22 +23,17 @@ http:
     - https://home-assistant.io
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  use_x_forwarded_for: true
   
-duckdns:
-  domain: !secret duckdns_domain
-  access_token: !secret duckdns_token
-  
-no_ip:
-  domain: !secret noip_dns
-  username: !secret noip_username
-  password: !secret noip_password
-  timeout: 15
-
 ##########################################
 ######### Components Configuration #######
 ##########################################
 frontend:
   themes: !include_dir_merge_named themes
+  extra_html_url:
+    - /local/custom_ui/state-card-script-custom-text.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-script-custom-text-es5.html
 
 config:
 
@@ -80,7 +76,9 @@ mqtt:
 logger:
   default: error
   logs:
-    homeassistant.components: error
+    custom_components.sensor.il_red_alert: debug
+    homeassistant.components.frontend: debug
+#    custom_components.switcher_aio: debug
 #    custom_components.sensor.broadlink_s1c: debug
 #    custom_components.switcher: debug
 #    homeassistant.components.alexa: debug
@@ -105,6 +103,7 @@ emulated_hue:
   exposed_domains:
     - switch
     - scene
+    - switcher_aio
 
 alexa:
 
@@ -118,17 +117,17 @@ alexa:
 #    from_station: '3600'
 #    to_station: '8800'
 
-#switcher:
-#  switcher_boiler:
-#    friendly_name: 'switcher_boiler'
-#    local_ip_addr: !secret hallways_switcher_ip
-#    phone_id: !secret switcher_phone_id
-#    device_id: !secret switcher_device_id
-#    device_password: !secret switcher_device_password 
-
+switcher_aio:
+  phone_id: !secret switcher_phone_id
+  device_id: !secret switcher_device_id
+  device_password: !secret switcher_device_password
+    
 recorder:
   purge_interval: 2
   purge_keep_days: 7
+  include:
+    domains:
+      - switcher_aio
 
 ##########################################
 ################ Includes ################
@@ -154,3 +153,13 @@ notify: !include notifications.yaml
 date_notifier: !include date_notifiers.yaml
 # shell_command: !include shell_commands.yaml
 google_assistant: !include google_assistant.yaml
+# history_graph: !include history_graph.yaml
+    
+    
+    
+    
+    
+    
+    
+    
+    

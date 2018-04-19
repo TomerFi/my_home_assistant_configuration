@@ -478,9 +478,11 @@ sensor.tomerfu:
 script.icloud_find_hava_iphone:
   friendly_name: "Find Hava's iPhone"
   icon: mdi:magnify
+  custom_text: "FIND"
 script.icloud_find_tomer_iphone:
   friendly_name: "Find Tomer's iPhone"
   icon: mdi:magnify
+  custom_text: "FIND"
 script.living_room_ac_check_state_script:
   hidden: true
 script.living_room_ac_cool_low_script:
@@ -526,6 +528,7 @@ script.tv_led_theme_select_script:
 script.update_all_devices:
   friendly_name: "Update Devices"
   icon: mdi:cellphone-link
+  custom_text: "UPDATE"
 script.update_hava_devices:
   hidden: true
 script.update_tomer_devices:
@@ -537,11 +540,13 @@ script.get_sensors_report_notificiation_from_leaving_home:
 script.get_sensors_report_notificiation_from_ui:
   friendly_name: "Get Sensors Report"
   icon: mdi:file-chart
+  custom_text: "GET"
 script.get_sensors_report_notificiation_from_alexa:
   hidden: true
 script.run_speed_test:
   friendly_name: "Run Speedtest"
   icon: mdi:speedometer
+  custom_text: "RUN"
 script.correct_objects_values:
   hidden: true
 script.watch_living_room_tv:
@@ -551,6 +556,7 @@ script.leaving_home:
 script.get_office_mqtt_client_status:
   friendly_name: "Get Office Mqtt Status"
   icon: mdi:developer-board
+  custom_text: "SEND"
 script.sleep_time:
   hidden: true
 script.bedroom_tv_set_timer:
@@ -560,12 +566,15 @@ script.alexa_restart_hass:
 script.set_office_ceiling_fan_timer_1h:
   friendly_name: "1 Hour Timer"
   icon: mdi:timer
+  custom_text: "SET"
 script.set_office_ceiling_fan_timer_3h:
   friendly_name: "3 Hour Timer"
   icon: mdi:timer
+  custom_text: "SET"
 script.set_office_ceiling_fan_timer_6h:
   friendly_name: "6 Hour Timer"
   icon: mdi:timer
+  custom_text: "SET"
 script.office_rm_mini_send_packet:
   hidden: true
 
