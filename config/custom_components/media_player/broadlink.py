@@ -17,7 +17,7 @@ from homeassistant.const import (
 from configparser import ConfigParser
 from base64 import b64encode, b64decode
 
-REQUIREMENTS = ['broadlink==0.5']
+REQUIREMENTS = []
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -48,7 +48,7 @@ def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
     
     import broadlink
     
-    broadlink_device = broadlink.rm((ip_addr, 80), mac_addr)
+    broadlink_device = broadlink.rm((ip_addr, 80), mac_addr, None)
     broadlink_device.timeout = config.get(CONF_TIMEOUT)
 
     try:
