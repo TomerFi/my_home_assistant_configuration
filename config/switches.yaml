@@ -31,7 +31,6 @@
   type: rm_mini
   switches:
     office_fan_light:
-      friendly_name: "office_fan_light"
       command_on: "JgDOACoNKg0OKQ4pDikOKQ4oDygPKA8oDygPAAEEKg0qDQ4pDikOKSkOKQ0qDSoNKg0qDSrpKg0qDQ4pDikOKQ4pDikOKSkODikOKA8AAQQqDSoNDikOKQ4pDikOKQ4pKg0OKQ4pDgABBCoNKg0PKA8oDygOKQ4pDikqDQ4pDikOAAEFKQ4pDg4pDikOKA8oDygPKCoNDikOKQ4AAQUqDSoNDikOKQ4pDikOKA8oKg4OKA8oDwABBCoNKg0OKQ4pDikOKQ4pDikpDg4oDygPAA0FAAAAAAAAAAAAAA=="
       command_off: "JgDOACoNKg0OKQ4pDikOKQ4oDygPKA8oDygPAAEEKg0qDQ4pDikOKSkOKQ0qDSoNKg0qDSrpKg0qDQ4pDikOKQ4pDikOKSkODikOKA8AAQQqDSoNDikOKQ4pDikOKQ4pKg0OKQ4pDgABBCoNKg0PKA8oDygOKQ4pDikqDQ4pDikOAAEFKQ4pDg4pDikOKA8oDygPKCoNDikOKQ4AAQUqDSoNDikOKQ4pDikOKA8oKg4OKA8oDwABBCoNKg0OKQ4pDikOKQ4pDikpDg4oDygPAA0FAAAAAAAAAAAAAA=="
   
@@ -42,11 +41,9 @@
   type: rm_mini
   switches:
     bedroom_ac_light:
-      friendly_name: "bedroom_ac_light"
       command_on: "JgDKAI6SEDcQExE2EDYRExA3EBMQNhISETYQExMREDYRExA2ERMQNhE2ETYQNhISEDcQExA3EBMREhETEBMRNhATETYQExE2EBMRNhESERMQNhETEDYRExA3EBMQNxE1ERMQNhETEqqPkRE2ERMQNhE2EBMRNhATEzQREhE2ERMQExA3EBMRNhATEjUQNhE2ETYREhE2ERIRNhIRERMREhISETURExA2ERMRNRETETUSEg8UFTIQExE2ERITNBESEjURNhATETYSEREADQUAAAAAAAAAAAAAAAAAAA=="
       command_off: "JgDKAI6SEDcQExE2EDYRExA3EBMQNhISETYQExMREDYRExA2ERMQNhE2ETYQNhISEDcQExA3EBMREhETEBMRNhATETYQExE2EBMRNhESERMQNhETEDYRExA3EBMQNxE1ERMQNhETEqqPkRE2ERMQNhE2EBMRNhATEzQREhE2ERMQExA3EBMRNhATEjUQNhE2ETYREhE2ERIRNhIRERMREhISETURExA2ERMRNRETETUSEg8UFTIQExE2ERITNBESEjURNhATETYSEREADQUAAAAAAAAAAAAAAAAAAA=="
     bedroom_ac_shutter:
-      friendly_name: "bedroom_ac_shutter"
       command_on: "JgDKAI+SEjQTERI0EzQTERIREzQSERMQEzQTEBMREjQTNBMREjQTERI0EzQTEBM0ExATNBM0EjUSERIREjUSERI1EhIREhE0EzUSNRIREhIREhIREhIQExIREhIQNhI1EjURNhA2EayOkhE2EBMRNhA2ERMQExE2EBMSEhI0ExESERI1EjUTEBI1ExATMxM0ExESNBMREjUSMxQ0EhETERI0ExESNRIREhETNBI1EjQTERIREhETERIRExESERIREzQSNRI0EzQTNBIADQUAAAAAAAAAAAAAAAAAAA=="
       command_off: "JgDKAI+SEjQTERI0EzQTERIREzQSERMQEzQTEBMREjQTNBMREjQTERI0EzQTEBM0ExATNBM0EjUSERIREjUSERI1EhIREhE0EzUSNRIREhIREhIREhIQExIREhIQNhI1EjURNhA2EayOkhE2EBMRNhA2ERMQExE2EBMSEhI0ExESERI1EjUTEBI1ExATMxM0ExESNBMREjUSMxQ0EhETERI0ExESNRIREhETNBI1EjQTERIREhETERIRExESERIREzQSNRI0EzQTNBIADQUAAAAAAAAAAAAAAAAAAA=="
 
@@ -55,130 +52,57 @@
   mac: !secret living_room_broadlink_rm_pro_mac
   timeout: 15
   switches: 
-    main_lr_light: 
-      friendly_name: "living_room_main_light"
+    living_room_main_light: 
       command_on: "6QpCAN8JFgkJFgkWFgkWCQkWFgkWCQkWFgkJFgkWFgkWCRYJCRYWCQkWCRYWCRYJCRYWCRYJCRYJ FhYJCRYJFhYJCRYJFg=="
       command_off: "6QpCAN8JCRYJFgkWFgkJFgkWFgkJFhYJFgkWCQkWFgkWCRYJFgkJFgkWCRYWCQkWCRYWCRYJFgkW CRYJCRYJFgkWCRYJFg=="
-    small_lr_light: 
-      friendly_name: "living_room_small_light"
+    living_room_small_light: 
       command_on: "6QpCAN8JFgkJFgkWCRYJFhYJCRYWCRYJCRYWCQkWCRYJFhYJFgkJFgkWCRYJFhYJFgkWCQkWCRYW CRYJCRYWCQkWFgkWCQ=="
       command_off: "6QpCAN8JCRYJFgkWCRYJFgkWFgkWCRYJCRYJFhYJFgkWCQkWFgkWCRYJCRYWCRYJCRYWCRYJCRYJ FhYJCRYWCQkWFgkJFg=="
-    kitchen_light: 
-      friendly_name: "kitchen_main_light_fixed"
+    kitchen_main_light: 
       command_on: "6QpCAN8JCRYJFhYJCRYJFgkWFgkJFhYJCRYWCQkWFgkWCQkWCRYWCRYJCRYJFgkWFgkJFgkWCRYJFhYJFgkWCQkWCRYWCQ=="
       command_off: "6QpCAN8JCRYWCRYJCRYJFgkWFgkWCRYJFgkJFgkWCRYJFhYJFgkJFhYJFgkWCQkWFgkJFhYJFgkWCRYJCRYWCRYJCRYJFg=="
-    lsland_light: 
-      friendly_name: "kitchen_island_light_fixed"
+    kitchen_island_light: 
       command_on: "6QpCAN8JFgkWCQkWFgkJFhYJFgkWCQkWCRYWCRYJCRYJFhYJFgkWCQkWFgkWCRYJCRYWCQkWCRYJFhYJCRYWCQkWCRYJFg=="
       command_off: "6QpCAN8JCRYJFhYJCRYJFgkWCRYWCQkWFgkWCRYJFgkWCQkWFgkWCQkWCRYWCQkWCRYJFgkWFgkWCQkWFgkJFgkWFgkJFg=="
     main_hallway_light: 
-      friendly_name: "main_hallway_light_fixed"
       command_on: "6QpCAN8JFgkWCRYJFgkJFgkWCRYJFhYJFgkWCQkWCRYWCRYJCRYJFhYJFgkWCQkWCRYWCQkWCRYJFhYJCRYJFgkWFgkWCQ=="
       command_off: "6QpCAN8JFgkWCRYJCRYWCQkWFgkJFhYJFgkWCQkWFgkJFgkWFgkJFhYJCRYJFhYJFgkWCQkWCRYJFgkWCRYJFhYJFgkJFg=="
-    guest_bathroom_light:
-      friendly_name: "small_bathroom_light_fixed"
+    small_bathroom_light_fixed:
       command_on: "6QpCAN8JFgkJFhYJFgkWCRYJFgkJFhYJCRYJFgkWFgkJFhYJFgkJFgkWFgkJFhYJCRYWCQkWCRYWCQkWCRYJFhYJCRYWCQ=="
       command_off: "6QpCAN8JFgkJFgkWCRYWCQkWCRYWCRYJCRYJFgkWFgkWCRYJCRYJFgkWFgkWCRYJCRYWCQkWCRYWCRYJFgkWCQkWFgkJFg=="
     shower_light:
-      friendly_name: "shower_light"
       command_on: "6QpCAN8JCRYJFgkWFgkWCRYJCRYJFgkWFgkWCRYJCRYWCRYJFgkWCQkWFgkJFhYJFgkJFgkWFgkWCQkWFgkWCQkWFgkJFg=="
       command_off: "6QpCAN8JFgkWCRYJCRYWCQkWFgkWCQkWCRYWCRYJCRYWCQkWCRYWCQkWCRYJFgkWCRYJFhYJCRYJFhYJCRYJFgkWCRYWCQ=="
-    closet_light:
-      friendly_name: "closet_room_light"
+    closet_room_light:
       command_on: "6QpCAN8JFgkWCQkWFgkWCQkWFgkJFhYJCRYJFgkWCRYJFgkWCRYJFgkWCRYWCQkWFgkWCRYJCRYJFhYJCRYJFgkWFgkJFg=="
       command_off: "6QpCAN8JCRYWCRYJFgkWCQkWFgkJFhYJCRYJFhYJFgkWCRYJCRYWCRYJCRYWCRYJFgkWCRYJCRYWCQkWCRYWCQkWFgkWCQ=="
     empty_room_light:
-      friendly_name: "empty_room_light"
       command_on: "6QpCAN8JCRYWCRYJCRYJFgkWCRYWCRYJCRYWCRYJFgkJFhYJCRYWCQkWCRYWCRYJFgkWCRYJCRYJFhYJFgkWCQkWFgkWCQ=="
       command_off: "6QpCAN8JCRYWCQkWFgkJFgkWFgkWCQkWFgkJFhYJFgkJFgkWCRYWCQkWCRYWCQkWFgkWCQkWFgkJFhYJFgkJFgkWFgkJFg=="
     bedroom_main_light:
-      friendly_name: "bedroom_main_light"
       command_on: "6QpCAN8JFgkJFhYJCRYWCQkWCRYJFgkWCRYWCQkWFgkJFhYJFgkJFhYJFgkWCRYJFgkWCRYJFgkWCRYJCRYJFhYJFgkWCQ=="
       command_off: "6QpCAN8JCRYWCRYJFgkWCQkWCRYWCQkWFgkJFgkWFgkJFhYJFgkWCQkWFgkJFhYJFgkWCQkWFgkJFhYJCRYJFhYJFgkWCQ=="
-    guest_bedroom_light:
-      friendly_name: "guest_room_light"
+    guest_room_light:
       command_on: "6QpCAN8JCRYWCQkWCRYJFhYJFgkJFhYJCRYJFgkWFgkWCQkWCRYWCRYJCRYWCQkWFgkJFhYJCRYWCRYJFgkWCRYJCRYJFg=="
       command_off: "6QpCAN8JCRYWCRYJFgkWCRYJCRYJFhYJCRYWCQkWFgkJFhYJFgkJFhYJFgkJFgkWCRYJFgkWFgkJFgkWFgkWCQkWCRYJFg=="
     balcony_light:
-      friendly_name: "balcony_light"
       command_on: "6QpCAN8JCRYWCRYJCRYWCQkWCRYJFgkWCRYWCRYJFgkJFgkWCRYJFhYJCRYWCQkWCRYWCRYJCRYJFhYJFgkWCRYJFgkWCQ=="
       command_off: "6QpCAN8JFgkJFhYJCRYWCQkWFgkJFhYJFgkJFhYJCRYWCQkWCRYWCQkWCRYWCQkWFgkJFhYJFgkJFgkWFgkJFhYJCRYJFg=="
     entrance_light:
-      friendly_name: "entrance_light"
       command_on: "6QpCAN8JFgkWCQkWFgkWCQkWCRYJFgkWFgkJFgkWCRYWCRYJCRYJFgkWFgkJFhYJFgkWCRYJFgkJFgkWCRYWCRYJFgkJFg=="
       command_off: "6QpCAN8JCRYWCQkWFgkWCRYJCRYWCQkWFgkWCQkWCRYWCQkWFgkWCRYJCRYJFhYJFgkWCQkWFgkWCQkWCRYWCQkWFgkWCQ=="
     main_bathroom_light:
-      friendly_name: "main_bathroom_light"
       command_on: "6QpCAN8JCRYJFgkWFgkJFhYJFgkJFgkWFgkJFhYJCRYWCRYJCRYWCQkWCRYWCQkWCRYJFgkWFgkWCQkWFgkWCQkWFgkWCQ=="
       command_off: "6QpCAN8JFgkJFgkWFgkWCRYJCRYJFgkWCRYJFgkWCRYJFhYJCRYWCQkWCRYJFhYJFgkJFhYJCRYWCQkWFgkJFhYJCRYJFg=="
     small_hallway_light:
-      friendly_name: "small_hallway_light"
       command_on: "6QpCAN8JFgkWCQkWFgkWCQkWCRYJFgkWFgkJFgkWFgkJFgkWCRYJFhYJCRYWCQkWCRYWCRYJFgkWCRYJCRYWCRYJFgkWCQ=="
       command_off: "6QpCAN8JCRYJFgkWFgkWCRYJCRYJFhYJCRYWCRYJFgkJFgkWFgkWCQkWFgkWCRYJFgkJFhYJCRYWCQkWCRYWCQkWCRYWCQ=="
     office_light:
-      friendly_name: "office_light"
       command_on: "6QpCAN8JFgkWCRYJFgkWCQkWFgkJFhYJFgkWCRYJFgkWCQkWFgkWCQkWCRYWCRYJCRYWCRYJFgkWCRYJCRYWCRYJFgkWCQ=="
       command_off: "6QpCAN8JCRYJFgkWFgkWCRYJCRYJFgkWFgkJFgkWCRYWCQkWCRYWCQkWFgkWCQkWFgkJFhYJFgkWCRYJCRYJFgkWCRYJFg=="
 
 - platform: template
   switches:
-    kitchen_main_light:
-      friendly_name: "kitchen_main_light"
-      value_template: "{{ states.switch.kitchen_main_light_fixed.state }}"
-      turn_on:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_on"
-          data_details: {"entity_id": "switch.kitchen_main_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
-      turn_off:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_off"
-          data_details: {"entity_id": "switch.kitchen_main_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
-    kitchen_island_light:
-      friendly_name: "kitchen_island_light"
-      value_template: "{{ states.switch.kitchen_island_light_fixed.state }}"
-      turn_on:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_on"
-          data_details: {"entity_id": "switch.kitchen_island_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
-      turn_off:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_off"
-          data_details: {"entity_id": "switch.kitchen_island_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
-    main_hallway_light:
-      friendly_name: "main_hallway_light"
-      value_template: "{{ states.switch.main_hallway_light_fixed.state }}"
-      turn_on:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_on"
-          data_details: {"entity_id": "switch.main_hallway_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
-      turn_off:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_off"
-          data_details: {"entity_id": "switch.main_hallway_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
     small_bathroom_light:
       friendly_name: "small_bathroom_light_fixed"
       value_template: "{{ states.switch.small_bathroom_light_fixed.state }}"

@@ -75,9 +75,9 @@ mqtt:
 
 logger:
   default: error
-  logs:
-    custom_components.sensor.il_red_alert: debug
-    homeassistant.components.frontend: debug
+#  logs:
+#    custom_components.sensor.il_red_alert: debug
+#    homeassistant.components.frontend: debug
 #    custom_components.switcher_aio: debug
 #    custom_components.sensor.broadlink_s1c: debug
 #    custom_components.switcher: debug

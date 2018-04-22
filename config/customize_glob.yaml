@@ -6,6 +6,3 @@
   
 "sensor.*_door_sensor":
   icon: mdi:glassdoor
-  
-"date_notifier.*":
-  hidden: true

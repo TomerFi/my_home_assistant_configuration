@@ -28,22 +28,16 @@ switch.living_room_small_light:
   friendly_name: "Living Room Small Light"
   emulated_hue_name: "Living Room Small Light"
   emulated_hue_hidden: false
-switch.kitchen_main_light_fixed:
-  hidden: true
 switch.kitchen_main_light:
   friendly_name: "Kitchen Main Light"
   assumed_state: true
   emulated_hue_name: "Kitchen Main Light"
   emulated_hue_hidden: false
-switch.kitchen_island_light_fixed:
-  hidden: true
 switch.kitchen_island_light:
   friendly_name: "Island Light"
   assumed_state: true
   emulated_hue_name: "Island Light"
   emulated_hue_hidden: false
-switch.main_hallway_light_fixed:
-  hidden: true
 switch.main_hallway_light:
   friendly_name: "Main Hallway Light"
   assumed_state: true
