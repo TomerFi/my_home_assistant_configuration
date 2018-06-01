@@ -19,9 +19,9 @@ I will try to keep this repository updated with any changes I'll make in my work
   - [Frontend](#frontend)
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
+  - [DIY Projects](#diy-projects)
 - [Alexa Skills Configuration](#alexa-skills-configuration)
 - [Useful Tools and Applications](#useful-tools-and-applications)
-- [Future plans for my environment](#future-plans-for-my-environment)
 
 ## Home Assistant
 
@@ -44,6 +44,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**israel_rails**](config/custom_components/israel_rails.py). for Israel's railway information based on pickeld's [repository](https://github.com/pickeld/hassio_IsraelRails).
 - [**switcher_aio**](config/custom_components/switcher_aio). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_aio).
 - [**sensor/broadlink_s1c**](config/custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
+- [**smartthings_bridge**](config/custom_components/smartthings_bridge) as the bridge component and [**sensor/smartthings_bridge**](config/custom_components/sensor/smartthings_bridge.py) as the sensor entity. made by myself, you can get it [here](https://github.com/TomerFi/home_assistant_smartthings_bridge).
 
 #### Custom UI
  - [**Script with Custom Text**](/config/www/custom_ui/state-card-script-custom-text.html) made by myself for change the "ACTIVATE" value of the script entities, you can get it [here](https://github.com/TomerFi/home-assistant-custom-ui#script-with-custom-text).
@@ -87,6 +88,7 @@ I'll now cover the views I've created in my home assistant installation:
 - **Vrtech IAD604** this is my main router and modem supllied by my ISP.
 - **3X** [**Google Wifi Points**](https://www.amazon.com/gp/product/B01MAW2294/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1) spreaded as wifi access points, I'm not using the mesh network functionality becouse it's not supported in ap mode. But I did named all the ssid the same, and the handoff between them are great so I actually have one wifi network through out my house.
 - [**Netgear Prosafe 5 ports hub**](https://www.amazon.com/gp/product/B00HGLVZLY/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1).
+- [**Netgear 8 ports hub**](https://www.amazon.com/gp/product/B00KFD0SEA/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1).
 - [**Edimax 5 ports hub**](https://www.amazon.com/Edimax-ES-5500GV3-Gigabit-Ethernet-Switch/dp/B00H8XIZT0/ref=sr_1_12?s=electronics&ie=UTF8&qid=1510662309&sr=1-12&keywords=edimax+switch).
 - **4X Netowrk RJ45 to Coax Convertors** I've received from my cable supllier *Yes*, I used them to get the wired connectivity to different areas in my house.
 
@@ -125,6 +127,13 @@ I'll now cover the views I've created in my home assistant installation:
 - [**Broadlink S1c 1st generation Alarm Kit**](https://www.aliexpress.com/item/2015-New-Arrival-Broadlink-S1-S1C-SmartOne-Alarm-Security-Kit-For-Home-Smart-Home-Alarm-System/32523639274.html?spm=a2g0s.9042311.0.0.1rwADH) working with 4X [Broadlink magnetic sensors](https://www.aliexpress.com/item/Original-Broadlink-S1C-433Mhz-Door-Sensor-Contact-Wireless-Window-Magnet-Entry-Detector-Sensor-Smart-Home-Alarm/32694362268.html?spm=a2g0s.9042311.0.0.8GFN5e).
 - [**Broadlink A1 Sensor**](https://www.aliexpress.com/item/Broadlink-A1-E-air-wifi-Air-Quatily-Detector-Intelligent-Purifier-smart-home-Automation-phone-detect-Temperature/32614430027.html?spm=a2g0s.9042311.0.0.6NtFMx).
 - [**Switcher V2 Boiler Switch**](https://www.switcher.co.il/%D7%9E%D7%95%D7%A6%D7%A8/%D7%A1%D7%95%D7%95%D7%99%D7%A6%D7%A8/?doing_wp_cron=1519315002.3308029174804687500000).
+- [**RF Doorbell**](https://www.aliexpress.com/item/Plug-in-Wireless-Door-Bell-Waterproof-US-Plug-Push-Button-36-Chimes-1-Ourdoor-Transmitter-2/32326166816.html?spm=a2g0s.9042311.0.0.719e4c4dV4Xc1V).
+- [**RF Remote 1Gang**](https://www.aliexpress.com/item/VHOME-EU-UK-Smart-Home-433MHZ-RF-Smart-Remote-Control-transmitter-220V-Crystal-Panel-Touch-Wall/32755499771.html?spm=a2g0s.9042311.0.0.27424c4dKhoqUz).
+- [**RF Remote 2Gang**](https://www.aliexpress.com/item/Vhome-Smart-home-Wireless-433MHz-Wall-stickers-Remote-Control-transmitter-with-EU-UK-2gang-1-Way/32742594094.html?spm=a2g0s.9042311.0.0.27424c4dKhoqUz)
+
+### DIY Projects
+- [**ESP-MQTT-JSON-Multisensor**](https://github.com/bruhautomation/ESP-MQTT-JSON-Multisensor) Amazing and Simple. The DIY multi-sensor by the one and only BRUH. I've made only one so far, I use it in my office.
+- [**OpenMqttGateway**](https://github.com/1technophile/OpenMQTTGateway) A Perfect Project. RF >> MQTT, MQTT >> RF. I use this project to capture a RF packets from various remotes (and a doorbell) and and pass them to HA as mqtt topics.
 
 ## Alexa Skills Configuration
 - Store Skills:
@@ -170,5 +179,3 @@ I'll now cover the views I've created in my home assistant installation:
 I also want to acknowledge a couple of builtin tools with home assistant that I use regularly. in the developer tools:
 - **Services** a very useful tool for testing service calls before integrating them into my yaml files.
 - **Templates** there is no way I'm even looking at a template in the yaml files without testing it with this tool first, amazing.
-## Future plans for my environment
-- I recently purchased the new Smarthings Link and it turned my Shield console into a Smarthings hub. I plan on purchasing a couple of sensors and devices and use my Home Assistant to control and manage the Smartthings hub.
