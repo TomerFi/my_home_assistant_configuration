@@ -53,63 +53,69 @@
     tomer_tracker_sensor:
       value_template: "{%if states.sensor.tomers_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.tomer_last_state.state }}{%endif%}"
     hava_icloud_battery_sensor:
-      value_template: "{{ states.device_tracker.havaezra.attributes.battery | round }}"
+      value_template: "{%if states.device_tracker.havaezra.attributes.battery is defined %}{{ states.device_tracker.havaezra.attributes.battery | round }}{% else %}0{% endif %}"
       unit_of_measurement: '%'
       icon_template: >
-        {% if (states.device_tracker.havaezra.attributes.battery_status ==  "Charging") %}
-          {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery-charging-100
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-charging-90
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-charging-80
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-charging-80
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-charging-60
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-charging-60
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-charging-40
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-charging-30
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-charging-20
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-charging-20
-          {%endif%}
-        {% else %}
-          {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-90
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-80
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-70
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-60
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-50
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-40
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-30
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-20
-          {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-10
-          {%endif%}
-        {% endif%}
+        {%if states.device_tracker.havaezra.attributes.battery is defined %}
+          {% if (states.device_tracker.havaezra.attributes.battery_status ==  "Charging") %}
+            {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery-charging-100
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-charging-90
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-charging-80
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-charging-80
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-charging-60
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-charging-60
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-charging-40
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-charging-30
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-charging-20
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-charging-20
+            {%endif%}
+          {% else %}
+            {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-90
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-80
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-70
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-60
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-50
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-40
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-30
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-20
+            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-10
+            {%endif%}
+          {% endif%}
+        {% else %} mdi:battery-unknown
+        {% endif %}
     tomer_icloud_battery_sensor:
-      value_template: "{{ states.device_tracker.tomersiphone6s.attributes.battery | round }}"
+      value_template: "{%if states.device_tracker.tomersiphone6s.attributes.battery is defined %}{{ states.device_tracker.tomersiphone6s.attributes.battery | round }}{% else %}0{% endif %}"
       unit_of_measurement: '%'
       icon_template: >
-        {% if (states.device_tracker.tomersiphone6s.attributes.battery_status ==  "Charging") %}
-          {% if ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 90) %} mdi:battery-charging-100
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 80) %} mdi:battery-charging-90
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 70) %} mdi:battery-charging-80
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 60) %} mdi:battery-charging-80
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 50) %} mdi:battery-charging-60
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 40) %} mdi:battery-charging-60
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 30) %} mdi:battery-charging-40
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 20) %} mdi:battery-charging-30
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 10) %} mdi:battery-charging-20
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 0) %} mdi:battery-charging-20
-          {%endif%}
-        {% else %}
-          {% if ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 90) %} mdi:battery
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 80) %} mdi:battery-90
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 70) %} mdi:battery-80
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 60) %} mdi:battery-70
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 50) %} mdi:battery-60
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 40) %} mdi:battery-50
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 30) %} mdi:battery-40
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 20) %} mdi:battery-30
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 10) %} mdi:battery-20
-          {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 0) %} mdi:battery-10
-          {%endif%}
-        {% endif%}
+        {%if states.device_tracker.tomersiphone6s.attributes.battery is defined %}
+          {% if (states.device_tracker.tomersiphone6s.attributes.battery_status ==  "Charging") %}
+            {% if ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 90) %} mdi:battery-charging-100
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 80) %} mdi:battery-charging-90
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 70) %} mdi:battery-charging-80
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 60) %} mdi:battery-charging-80
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 50) %} mdi:battery-charging-60
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 40) %} mdi:battery-charging-60
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 30) %} mdi:battery-charging-40
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 20) %} mdi:battery-charging-30
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 10) %} mdi:battery-charging-20
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 0) %} mdi:battery-charging-20
+            {%endif%}
+          {% else %}
+            {% if ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 90) %} mdi:battery
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 80) %} mdi:battery-90
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 70) %} mdi:battery-80
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 60) %} mdi:battery-70
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 50) %} mdi:battery-60
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 40) %} mdi:battery-50
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 30) %} mdi:battery-40
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 20) %} mdi:battery-30
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 10) %} mdi:battery-20
+            {% elif ((states.device_tracker.tomersiphone6s.attributes.battery | round) > 0) %} mdi:battery-10
+            {%endif%}
+          {% endif%}
+        {% else %} mdi:battery-unknown
+        {% endif %}
     office_pc_nmap_tracker:
       value_template: "{%if states.device_tracker.office_pc.state == 'home'%}Online{%else%}Offline{%endif%}"
     bedroom_yes_nmap_tracker:
@@ -124,8 +130,10 @@
       value_template: "{%if states.device_tracker.bedroom_echo.state == 'home'%}Online{%else%}Offline{%endif%}"
     living_room_yes_nmap_tracker:
       value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
-    hallway_netgear_hub_nmap_tracker:
-      value_template: "{%if states.device_tracker.hallway_netgear_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
+    hallway_netgear_hub5_nmap_tracker:
+      value_template: "{%if states.device_tracker.hallway_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_netgear_hub5_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
     shield_console_nmap_tracker:
       value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_chromecast_nmap_tracker:
@@ -166,6 +174,8 @@
       value_template: "{%if states.device_tracker.dash_wand.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_rm_mini_nmap_tracker:
       value_template: "{%if states.device_tracker.office_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+    hallway_rf_gw_nmap_tracker:
+      value_template: "{%if states.device_tracker.rfgw_hallwayhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
     run_speed_test_last_run:
       value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
     select_city_shabbat_start_time:
@@ -184,6 +194,14 @@
       value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}{{ states.sensor.shabbat_notify_minutes_start.state }} Minutes Before Start{%else%}Off{%endif%}"
     qnap_homenas_uptime:
       value_template: "{{ states.sensor.homenas_status.attributes.Uptime }}"
+    office_pc_uptime_human:
+      value_template: >
+        {% set full = states.sensor.office_pc_uptime_ticks.state | int / 100 %}
+        {% set days = (full / 86400) | int %}
+        {% set hours = ((full % 86400) / 3600) | int %}
+        {% set minutes = ((full % 3600) / 60) | int %}
+        {% set seconds = (full % 60) | int %}
+        {{ days }}D,{{ hours }}H,{{ minutes }}M,{{ seconds }}S
     
 - platform: mqtt
   state_topic: "smarthome/mqtt_client/status_update"
@@ -304,3 +322,60 @@
 - platform: broadlink_s1c
   ip_address: !secret hallways_broadlink_s1c_ip
   mac: !secret hallways_broadlink_s1c_mac
+
+- platform: sql
+  db_url: !secret hass_db_url
+  queries:
+    - name: db_size
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: db_days_kept
+      query: 'SELECT DATEDIFF(CURRENT_DATE(), MIN(created)) AS "days_in_db" FROM homeassistant.events WHERE event_type != "state_changed"'
+      column: 'days_in_db'
+      unit_of_measurement: Days
+    - name: last_recorder_status
+      query: 'SELECT REPLACE(REPLACE(closed_incorrect, 0, "ok"), 1, "incorrect") AS "status" FROM homeassistant.recorder_runs WHERE run_id = (SELECT MAX(run_id) FROM homeassistant.recorder_runs WHERE end IS NOT NULL)'
+      column: 'status'
+  
+#- platform: il_red_alert
+
+#- platform: device_status
+#  scan_interval: 10
+#  devices:
+#    iphone:
+#      host: !secret devices_tomer_phone_ip
+#      name: "my iphone"
+
+########################################
+##### BRUH DIY MultiSensor Sensors #####
+########################################
+- platform: mqtt  
+  state_topic: "multisensor/officenode"  
+  name: "Office Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/officenode"  
+  name: "Office LDR"
+  ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
+  unit_of_measurement: "LUX"  
+  value_template: '{{ value_json.ldr }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/officenode"  
+  name: "Office PIR"  
+  value_template: '{{ value_json.motion }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/officenode"  
+  name: "Office Temperature"  
+  unit_of_measurement: "°F"  
+  value_template: '{{ value_json.temperature | round(1) }}'  
+
+- platform: mqtt
+  state_topic: "multisensor/officenode"
+  name: "Office Real Feel"
+  unit_of_measurement: "°F"
+  value_template: '{{ value_json.heatIndex | round(1) }}'

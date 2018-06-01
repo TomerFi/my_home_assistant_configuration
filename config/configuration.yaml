@@ -19,8 +19,6 @@ http:
   base_url: !secret http_base_url
   api_password: !secret http_api_password
   server_port: !secret http_server_port
-  cors_allowed_origins:
-    - https://home-assistant.io
   ip_ban_enabled: true
   login_attempts_threshold: 5
   use_x_forwarded_for: true
@@ -58,9 +56,6 @@ ios:
 #tts:
 #  - platform: google
   
-light:
-  - platform: lifx
-  
 hassio:
 
 python_script:
@@ -73,10 +68,15 @@ mqtt:
   password: !secret mosquitto_broker_password
   discovery: false
 
+#enable_loop_debug:
+  
 logger:
   default: error
 #  logs:
-#    custom_components.sensor.il_red_alert: debug
+#    homeassistant.components.recorder: debug
+#    homeassistant.components.recorder.purge: debug
+#    custom_components.smartthings_bridge: debug
+#    custom_components.sensor.smartthings_bridge: debug
 #    homeassistant.components.frontend: debug
 #    custom_components.switcher_aio: debug
 #    custom_components.sensor.broadlink_s1c: debug
@@ -122,16 +122,20 @@ switcher_aio:
   device_id: !secret switcher_device_id
   device_password: !secret switcher_device_password
     
-recorder:
-  purge_interval: 2
-  purge_keep_days: 7
-  include:
-    domains:
-      - switcher_aio
+smartthings_bridge:
+  url: !secret smartthings_bridge_url
+  token: !secret smartthings_bridge_token
+  
+#telegram_bot:
+#  - platform: polling
+#    api_key: !secret telegram_bot_api_key
+#    allowed_chat_ids:
+#      - !secret telegram_bot_chat_id
 
 ##########################################
 ################ Includes ################
 ##########################################
+recorder: !include recorder.yaml
 switch: !include switches.yaml
 remote: !include remotes.yaml
 media_player: !include media_players.yaml
@@ -154,12 +158,4 @@ date_notifier: !include date_notifiers.yaml
 # shell_command: !include shell_commands.yaml
 google_assistant: !include google_assistant.yaml
 # history_graph: !include history_graph.yaml
-    
-    
-    
-    
-    
-    
-    
-    
-    
+light: !include lights.yaml

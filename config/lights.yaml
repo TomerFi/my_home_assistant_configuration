@@ -1,0 +1,14 @@
+- platform: lifx
+
+#######################################
+##### BRUH DIY MultiSensor Lights #####
+#######################################
+- platform: mqtt_json  
+  name: "Office LED"  
+  state_topic: "multisensor/officenode"  
+  command_topic: "multisensor/officenode/set"  
+  brightness: true  
+  flash: true  
+  rgb: true  
+  optimistic: false  
+  qos: 0  

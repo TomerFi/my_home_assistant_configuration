@@ -3,3 +3,7 @@
   services:
     - service: ios_tomers_iphone6s
     - service: ios_hava_ezra
+    
+#- platform: telegram
+#  name: telegram
+#  chat_id: !secret telegram_bot_chat_id

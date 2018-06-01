@@ -39,7 +39,7 @@ FindHavaIphoneIntent:
 GetSensorsStatesIntent:
   speech:
     text: >
-      {% for sensor_name in states.group.all_door_sensors.attributes.entity_id %}{% set sensor_name = sensor_name.replace('sensor.', '') %}{%if loop.first %}Here are the sensors current states: the {% else %}the {% endif %}{{ states.sensor[sensor_name].attributes.friendly_name | lower }} is {{ states.sensor[sensor_name].state | lower }}{% if loop.last %}.{% else %},{% endif %}{% endfor %}
+      {% for sensor_name in states.group.all_s1c_sensors.attributes.entity_id %}{% set sensor_name = sensor_name.replace('sensor.', '') %}{%if loop.first %}Here are the sensors current states: the {% else %}the {% endif %}{{ states.sensor[sensor_name].attributes.friendly_name | lower }} is {{ states.sensor[sensor_name].state | lower }}{% if loop.last %}.{% else %},{% endif %}{% endfor %}
 
 UpdateDevicesIntent:
   action:

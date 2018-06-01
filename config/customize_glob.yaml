@@ -6,3 +6,9 @@
   
 "sensor.*_door_sensor":
   icon: mdi:glassdoor
+  
+"sensor.*":
+  force_update: true
+  
+"automation.*":
+  initial_state: true

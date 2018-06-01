@@ -146,14 +146,23 @@ manage_automations:
     - automation.closet_room_door_sensor_open
     - automation.service_room_door_sensor_open
     - automation.service_room_door_sensor_closed
+    - automation.shower_motion_sensor_motion_detected
+    - automation.shower_motion_sensor_no_motion
+    - automation.bedroom_sticker_switch
+    - automation.service_room_sticker_switch
+    - automation.kitchen_bar_light_sticker_switch
+    - automation.door_bell_ring
     
-all_door_sensors:
-  name: all_door_sensors
+all_s1c_sensors:
+  name: all_s1c_sensors
   entities:
     - sensor.broadlink_s1c_small_bathroom
     - sensor.broadlink_s1c_main_bathroom
     - sensor.broadlink_s1c_closet_room
+    - sensor.broadlink_s1c_shower_motion_sensor
     - sensor.broadlink_s1c_service_room
+    - sensor.broadlink_s1c_key_fob
+    - sensor.broadlink_s1c_balcony_door
 
 all_living_room_sensors:
   name: all_living_room_sensors
@@ -186,6 +195,7 @@ all_bedroom_sensors:
   entities:
     - sensor.google_wifi_bedroom_status
     - sensor.broadlink_s1c_closet_room
+    - sensor.broadlink_s1c_shower_motion_sensor
 
 all_guest_room_sensors:
   name: all_guest_room_sensors
@@ -198,6 +208,7 @@ activate_operations:
     - script.icloud_find_hava_iphone
     - script.icloud_find_tomer_iphone
     - script.get_sensors_report_notificiation_from_ui
+    - script.ring_the_doorbell
         
 household_summary:
   name: household_summary
@@ -220,6 +231,9 @@ ha_statistics:
   entities:
     - sensor.cpu_temp
     - sensor.processor_use
+    - sensor.db_size
+    - sensor.db_days_kept
+    - sensor.last_recorder_status
     - sensor.ha_duckdns_cert_expiry
     - sensor.ha_noip_cert_expiry
     - sensor.last_boot
@@ -242,6 +256,7 @@ ha_operations:
     - script.run_speed_test
     - script.office_office_mqtt_client_status
     - script.update_all_devices
+    - script.check_last_recorder_session
     
 bedroom_ac_hidden_controls:
   name: bedroom_ac_hidden_controls
@@ -276,6 +291,7 @@ nmap_yes_stb_trackers:
 nmap_computers_tracker:
   name: nmap_computers_tracker
   entities:
+    - sensor.hallway_rf_gw_nmap_tracker
     - sensor.office_pc_nmap_tracker
     - sensor.shield_console_nmap_tracker
     - sensor.office_chromecast_nmap_tracker
@@ -301,10 +317,12 @@ nmap_various_trackers:
   name: nmap_trackers
   entities:
     - sensor.switcher_v2_nmap_tracker
-    - sensor.hallway_netgear_hub_nmap_tracker
+    - sensor.hallway_netgear_hub5_nmap_tracker
+    - sensor.office_netgear_hub5_nmap_tracker
     - sensor.living_room_broadlink_a1_nmap_tracker
     - sensor.living_room_samsung_tv_nmap_tracker
     - sensor.tomerfu
+    - sensor.office_pc_uptime_human
 
 shabbat_times:
   name: shabbat_times
@@ -351,6 +369,29 @@ office_ceiling_fan:
     - script.set_office_ceiling_fan_timer_6h
     - switch.office_fan_light
 
+############################################
+############### Test Groups ################
+############################################
+st_test:
+  name: st_test
+  entities:
+    - sensor.st_bridge_contact_sensor_test
+    - sensor.st_bridge_motion_sensor_test
+    - sensor.st_bridge_tomers_iphone
+    - sensor.st_bridge_water_sensor_test
+    - sensor.st_bridge_havas_iphone
+    #- script.test_telegram
+    
+multisensor_office:  
+  name: MultiSensor Office
+  entities:  
+    - sensor.office_temperature
+    - sensor.office_real_feel
+    - sensor.office_humidity  
+    - sensor.office_ldr  
+    - sensor.office_pir  
+    - light.office_led
+
 ##########################################
 ################# Views ##################
 ##########################################
@@ -362,7 +403,7 @@ default_view:
     - group.manage_automations
     - group.start_scenes
     - group.activate_operations
-    - group.all_door_sensors
+    - group.all_s1c_sensors
     - media_player.spotify
 
 living_room_view:
@@ -432,6 +473,7 @@ office_view:
   name: office_view
   view: true
   entities:
+    - group.multisensor_office
     - group.office_switches
     - group.office_ceiling_fan
 
@@ -455,7 +497,10 @@ tech_support_view:
     - group.nmap_phones_tracker
     - group.nmap_lights_tracker
     - group.nmap_various_trackers
-    
+
+###########################################
+############### Test Views ################
+###########################################
 tomer_testing:
   name: tomer_testing
   view: true
@@ -466,5 +511,5 @@ tomer_testing:
     - media_player.office_chromecast
     - media_player.shield
     - media_player.office_speaker
-    - sensor.broadlink_s1c_key_fob
-    - input_boolean.tiles_test1
+    - group.st_test
+

@@ -264,8 +264,14 @@ sensor.broadlink_s1c_main_bathroom:
   friendly_name: "Main Bathroom Door"
 sensor.broadlink_s1c_closet_room:
   friendly_name: "Closet Room Door"
+sensor.broadlink_s1c_shower_motion_sensor:
+  friendly_name: "Shower Motion Sensor"
 sensor.broadlink_s1c_service_room:
   friendly_name: "Service Room Door"
+sensor.broadlink_s1c_key_fob:
+  friendly_name: "Key Fob"
+sensor.broadlink_s1c_balcony_door:
+  friendly_name: "Balcony Door"
 sensor.hava_ezra_battery_level:
   hidden: true
 sensor.hava_ezra_battery_state:
@@ -356,8 +362,11 @@ sensor.bedroom_rm_mini_nmap_tracker:
 sensor.office_rm_mini_nmap_tracker:
   friendly_name: "Office RM Mini"
   icon: mdi:remote
-sensor.hallway_netgear_hub_nmap_tracker:
-  friendly_name: "Hallway Netgear Hub"
+sensor.hallway_netgear_hub5_nmap_tracker:
+  friendly_name: "Hallway Netgear 5 Port Hub"
+  icon: mdi:access-point-network
+sensor.office_netgear_hub5_nmap_tracker:
+  friendly_name: "Office Netgear 5 Port Hub"
   icon: mdi:access-point-network
 sensor.kitchen_bar_sp2_nmap_tracker:
   friendly_name: "Kitchen Bar SP2"
@@ -382,6 +391,9 @@ sensor.living_room_broadlink_a1_nmap_tracker:
 sensor.dash_wand_nmap_tracker:
   friendly_name: "Dash Wand"
   icon: mdi:amazon
+sensor.hallway_rf_gw_nmap_tracker:
+  friendly_name: "Hallway RF Gateway"
+  icon: mdi:developer-board
 sensor.run_speed_test_last_run:
   friendly_name: "Last Speed Test"
   icon: mdi:timetable
@@ -465,6 +477,20 @@ sensor.qnap_homenas_uptime:
   icon: mdi:timelapse
 sensor.tomerfu:
   friendly_name: "Xbox Live Account"
+sensor.db_size:
+  friendly_name: "SQL Size"
+  icon: mdi:database
+sensor.db_days_kept:
+  friendly_name: "Days in DB"
+  icon: mdi:delta
+sensor.last_recorder_status:
+  friendly_name: "Last Recorder Session"
+  icon: mdi:history
+sensor.office_pc_uptime_human:
+  friendly_name: "Office PC Uptime"
+  icon: mdi:timelapse
+sensor.office_pc_uptime_ticks:
+  hidden: true
 
 ##########################################
 ################# Scripts ################
@@ -551,6 +577,10 @@ script.get_office_mqtt_client_status:
   friendly_name: "Get Office Mqtt Status"
   icon: mdi:developer-board
   custom_text: "SEND"
+script.check_last_recorder_session:
+  friendly_name: "Get Recorder Sesssion Status"
+  icon: mdi:history
+  custom_text: "GET"
 script.sleep_time:
   hidden: true
 script.bedroom_tv_set_timer:
@@ -571,6 +601,10 @@ script.set_office_ceiling_fan_timer_6h:
   custom_text: "SET"
 script.office_rm_mini_send_packet:
   hidden: true
+script.ring_the_doorbell:
+  friendly_name: "Ring The Doorbell"
+  icon: mdi:bell-ring
+  custom_text: "RING"
 
 ##########################################
 ################# Groups #################
@@ -644,8 +678,8 @@ group.user_hava_devices:
 group.manage_automations:
   friendly_name: "Manage Automations"
   icon: mdi:home-automation
-group.all_door_sensors:
-  friendly_name: "Door Sensors"
+group.all_s1c_sensors:
+  friendly_name: "S1C Sensors"
   icon: mdi:glassdoor
   control: hidden
 group.all_living_room_sensors:
@@ -727,6 +761,7 @@ group.shabbat_times:
 group.shabbat_reminder_settings:
   friendly_name: "Shabbat Reminder Settings"
   icon: mdi:message-settings-variant
+  control: hidden
 group.qnap_homenas_group:
   friendly_name: "Home NAS"
 group.office_ceiling_fan:
@@ -889,6 +924,12 @@ automation.service_room_door_sensor_open:
 automation.service_room_door_sensor_closed:
   friendly_name: "Service Room Closed: Light Off"
   icon: mdi:lightbulb-outline
+automation.shower_motion_sensor_motion_detected:
+  friendly_name: "Shower Motion Detected: Light On"
+  icon: mdi:lightbulb-on
+automation.shower_motion_sensor_no_motion:
+  friendly_name: "Shower No Motion 5 Min: Light Off"
+  icon: mdi:lightbulb-outline
 automation.on_start_event:
   hidden: true
 automation.hava_tracking_group_change_state:
@@ -917,6 +958,20 @@ automation.set_log_level:
   hidden: true
 automation.office_fan_level_change:
   hidden: true
+automation.office_light_off:
+  hidden: true
+automation.bedroom_sticker_switch:
+  friendly_name: "Bedroom Sticker Switch"
+  icon: mdi:remote
+automation.service_room_sticker_switch:
+  friendly_name: "Service Room Sticker Switch"
+  icon: mdi:remote
+automation.kitchen_bar_light_sticker_switch:
+  friendly_name: "Kitchen Bar Light Sticker Switch"
+  icon: mdi:remote
+automation.door_bell_ring:
+  friendly_name: "Door Bell Notification"
+  icon: mdi:message-alert
 
 ##########################################
 ################# Remotes ################

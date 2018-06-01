@@ -31,7 +31,8 @@
     - !secret guest_room_yes_ip
     - !secret bedroom_yes_ip
     - !secret living_room_yes_ip
-    - !secret hallways_netgear_switch_ip
+    - !secret hallways_netgear_switch5_ip
+    - !secret office_netgear_switch5_ip
     - !secret hallways_switcher_ip
     - !secret office_echo_dot_ip
     - !secret living_room_echo_one_ip
@@ -55,3 +56,4 @@
     - !secret office_chromecast_ip
     - !secret office_broadlink_rm_mini_ip
     - !secret office_xbox_360_ip
+    - !secret hallways_omg_ip

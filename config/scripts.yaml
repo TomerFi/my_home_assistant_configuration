@@ -4,13 +4,13 @@
 living_room_ac_check_state_script:
   sequence:
     - service_template: >
-        {% if (selecte_state.lower() == "cool") %}
+        {% if (selected_mode.lower() == "cool") %}
           {% if (selected_fan.lower() == "low") %} script.living_room_ac_cool_low_script
           {% elif (selected_fan.lower() == "med") %} script.living_room_ac_cool_medium_script
           {% elif (selected_fan.lower() == "high") %} script.living_room_ac_cool_high_script
           {% elif (selected_fan.lower() == "auto") %} script.living_room_ac_cool_auto_script
           {% endif %}
-        {%-elif (selecte_state.lower() == "heat") %}
+        {%-elif (selected_mode.lower() == "heat") %}
           {% if (selected_fan.lower() == "low") %} script.living_room_ac_heat_low_script
           {% elif (selected_fan.lower() == "med") %} script.living_room_ac_heat_medium_script
           {% elif (selected_fan.lower() == "high") %} script.living_room_ac_heat_high_script
@@ -218,13 +218,13 @@ living_room_ac_heat_auto_script:
 bedroom_ac_check_state_script:
   sequence:
     - service_template: >
-        {% if (selecte_state.lower() == "cool") %}
+        {% if (selected_mode.lower() == "cool") %}
           {% if (selected_fan.lower() == "low") %} script.bedroom_ac_cool_low_script
           {% elif (selected_fan.lower() == "med") %} script.bedroom_ac_cool_medium_script
           {% elif (selected_fan.lower() == "high") %} script.bedroom_ac_cool_high_script
           {% elif (selected_fan.lower() == "auto") %} script.bedroom_ac_cool_auto_script
           {% endif %}
-        {%-elif (selecte_state.lower() == "heat") %}
+        {%-elif (selected_mode.lower() == "heat") %}
           {% if (selected_fan.lower() == "low") %} script.bedroom_ac_heat_low_script
           {% elif (selected_fan.lower() == "med") %} script.bedroom_ac_heat_medium_script
           {% elif (selected_fan.lower() == "high") %} script.bedroom_ac_heat_high_script
@@ -415,10 +415,10 @@ correct_objects_values:
       data_template:
         entity_id: group.bedroom_ac_hidden_controls
         visible: "{%if (states.input_boolean.bedroom_ac_status.state == 'on')%}true{%else%}false{%endif%}"
-    - service: group.set_visibility
-      data_template:
-        entity_id: group.switcher_power_consumption
-        visible: "{%if (states.switch.heater_switch.state == 'on')%}true{%else%}false{%endif%}"
+    #- service: group.set_visibility
+      #data_template:
+        #entity_id: group.switcher_power_consumption
+        #visible: "{%if (states.switch.heater_switch.state == 'on')%}true{%else%}false{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.lr_ac_temp_text
@@ -494,7 +494,7 @@ send_sensors_report_notification:
         {% endif %}
       data_template:
         message: >
-          {% for sensor_name in states.group.all_door_sensors.attributes.entity_id %}{% set sensor_name = sensor_name.replace('sensor.', '') %}
+          {% for sensor_name in states.group.all_s1c_sensors.attributes.entity_id %}{% set sensor_name = sensor_name.replace('sensor.', '') %}
           
           {{ states.sensor[sensor_name].attributes.friendly_name }} is {{ states.sensor[sensor_name].state }}
           {% endfor %}
@@ -530,7 +530,17 @@ alexa_restart_hass:
         message: "Restart Home Assistant was requested by alexa."
         title: "System Restart Initiated"
     - service: homeassistant.restart
-    
+
+check_last_recorder_session:
+  sequence:
+    - service: notify.ios_tomers_iphone6s
+      data:
+        message: "Last ended session end status was {{ states.sensor.last_recorder_status.state }}"
+        title: "Recorder"
+
+####################################################
+################ Office fan Scripts ################
+####################################################    
 set_office_ceiling_fan_timer_1h:
   sequence:
     - service: script.office_rm_mini_send_packet
@@ -677,10 +687,14 @@ sleep_time:
   sequence:
     - service: media_player.turn_on
       entity_id: media_player.bedroom_tv
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.bedroom_ac_status
     - service: switch.turn_on
       entity_id: switch.kitchen_island_light
     - delay:
         milliseconds: 1500
+    - service: switch.turn_off
+      entity_id: switch.bedroom_ac_light
     - service: switch.turn_off
       entity_id: switch.living_room_night_light
     - service: switch.turn_off
@@ -752,6 +766,10 @@ sleep_time:
         minutes: '90'
     - service: switch.turn_off
       entity_id: switch.office_light
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lr_ac_status
+    - service: switch.turn_on
+      entity_id: switch.kitchen_island_light
     - delay:
         minutes: 5
     - service: switch.turn_off
@@ -895,3 +913,23 @@ turn_on_boiler_60_min:
     - service: script.turn_on
       data:
         entity_id: switcher_aio.turn_on_timer_script
+
+###################################
+##### OpenMqttGateway Scripts #####
+###################################
+ring_the_doorbell:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "omg/rfgw_hallway/commands/PLSL_450/433_1/RFBITS_24"
+        payload: "14878223"
+        
+####################################################
+################# Telegram Scripts #################
+####################################################   
+#test_telegram:
+#  sequence:
+#    - service: notify.telegram
+#      data:
+#        title: TEST MESSAGE
+#        message: "this is a test"
