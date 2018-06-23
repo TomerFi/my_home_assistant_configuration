@@ -1,7 +1,7 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hassapi
 import home_control as home_control
 
-class HomeControl(appapi.AppDaemon):
+class HomeControl(hassapi.Hass):
 
     def initialize(self):
         self.handler = self.register_endpoint(self.api_call)
@@ -26,7 +26,8 @@ class HomeControl(appapi.AppDaemon):
                 try:
                     func = getattr(self, intent)
                     response = func(data)
-                except:
+                except Exception as ex:
+                    print(ex)
                     response = self.tellText(data, home_control.handleUnknownIntentText(self, intent))
             elif (requestType == "SessionEndedRequest"):
                 if (data["request"]["reason"] == "error"):

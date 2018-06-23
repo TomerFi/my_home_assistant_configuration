@@ -1,7 +1,7 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hassapi
 import home_control as home_control
 
-class HomeControl(appapi.AppDaemon):
+class HomeControl(hassapi.Hass):
 
     def initialize(self):
         self.handler = self.register_endpoint(self.api_call)
