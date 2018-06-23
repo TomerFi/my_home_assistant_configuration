@@ -1,7 +1,0 @@
-home_control_google:
-  module: home_control_google
-  class: HomeControl
-
-home_control_alexa:
-  module: home_control_alexa
-  class: HomeControl
