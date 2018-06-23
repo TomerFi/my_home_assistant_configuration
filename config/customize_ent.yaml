@@ -33,23 +33,29 @@ switch.kitchen_main_light:
   assumed_state: true
   emulated_hue_name: "Kitchen Main Light"
   emulated_hue_hidden: false
+switch.kitchen_main_light_fixed:
+  hidden: true
 switch.kitchen_island_light:
   friendly_name: "Island Light"
   assumed_state: true
   emulated_hue_name: "Island Light"
   emulated_hue_hidden: false
+switch.kitchen_island_light_fixed:
+  hidden: true
 switch.main_hallway_light:
   friendly_name: "Main Hallway Light"
   assumed_state: true
   emulated_hue_name: "Main Hallway Light"
   emulated_hue_hidden: false
-switch.small_bathroom_light_fixed:
+switch.main_hallway_light_fixed:
   hidden: true
 switch.small_bathroom_light:
   friendly_name: "Small Bathroom Light"
   assumed_state: true
   emulated_hue_name: "Small Bathroom Light"
   emulated_hue_hidden: false
+switch.small_bathroom_light_fixed:
+  hidden: true
 switch.shower_light:
   friendly_name: "Shower Light"
   emulated_hue_name: "Shower Light"
@@ -91,6 +97,19 @@ switch.bedroom_ac_shutter:
   icon: mdi:blinds
 switch.bedroom_ac_light:
   friendly_name: "Panel Light"
+  emulated_hue_name: "Bedroom AC Panel Light"
+  emulated_hue_hidden: "false"
+  icon: mdi:spotlight
+switch.living_room_ac_updown_shutter:
+  friendly_name: "Up-down Shutter"
+  icon: mdi:blinds
+switch.living_room_ac_sides_shutter:
+  friendly_name: "Up-down Shutter"
+  icon: mdi:blinds
+switch.living_room_ac_panel_light:
+  friendly_name: "Panel Light"
+  emulated_hue_name: "Living Room AC Panel Light"
+  emulated_hue_hidden: "false"
   icon: mdi:spotlight
 switch.office_light:
   friendly_name: "Office Light"
@@ -101,6 +120,22 @@ switch.office_fan_light:
   emulated_hue_name: "Office Fan Light"
   emulated_hue_hidden: false
   icon: mdi:spotlight
+switch.office_fan_low_speed:
+  hidden: true
+  emulated_hue_name: "Office Fan low speed"
+  emulated_hue_hidden: false
+switch.office_fan_medium_speed:
+  hidden: true
+  emulated_hue_name: "Office Fan medium speed"
+  emulated_hue_hidden: false
+switch.office_fan_high_speed:
+  hidden: true
+  emulated_hue_name: "Office Fan high speed"
+  emulated_hue_hidden: false
+switch.office_fan:
+  hidden: true
+  emulated_hue_name: "Office Fan"
+  emulated_hue_hidden: false
   
 ##########################################
 ################# Lights #################
@@ -272,10 +307,6 @@ sensor.broadlink_s1c_key_fob:
   friendly_name: "Key Fob"
 sensor.broadlink_s1c_balcony_door:
   friendly_name: "Balcony Door"
-sensor.hava_ezra_battery_level:
-  hidden: true
-sensor.hava_ezra_battery_state:
-  hidden: true
 sensor.tomers_iphone6s_battery_level:
   hidden: true
 sensor.tomers_iphone6s_battery_state:
@@ -286,7 +317,7 @@ sensor.hava_tracker_sensor:
 sensor.tomer_tracker_sensor:
   friendly_name: "Tomer's Location"
   icon: mdi:account-location
-sensor.hava_icloud_battery_sensor:
+sensor.hava_owntracks_battery_sensor:
   friendly_name: "Hava's Battery"
 sensor.tomer_icloud_battery_sensor:
   friendly_name: "Tomer's Battery"
@@ -394,6 +425,12 @@ sensor.dash_wand_nmap_tracker:
 sensor.hallway_rf_gw_nmap_tracker:
   friendly_name: "Hallway RF Gateway"
   icon: mdi:developer-board
+sensor.office_msensor_nmap_tracker:
+  friendly_name: "Office Multi-Sensor"
+  icon: mdi:developer-board
+sensor.bedroom_msensor_nmap_tracker:
+  friendly_name: "Bedroom Multi-Sensor"
+  icon: mdi:developer-board
 sensor.run_speed_test_last_run:
   friendly_name: "Last Speed Test"
   icon: mdi:timetable
@@ -402,8 +439,6 @@ sensor.tomer_owntracks_gecode:
 sensor.hava_owntracks_gecode:
   hidden: true
 sensor.tomer_icloud_gecode:
-  hidden: true
-sensor.hava_icloud_gecode:
   hidden: true
 sensor.office_pc_mqtt_client_status:
   friendly_name: "Office Mqtt Client"
@@ -495,10 +530,6 @@ sensor.office_pc_uptime_ticks:
 ##########################################
 ################# Scripts ################
 ##########################################
-script.icloud_find_hava_iphone:
-  friendly_name: "Find Hava's iPhone"
-  icon: mdi:magnify
-  custom_text: "FIND"
 script.icloud_find_tomer_iphone:
   friendly_name: "Find Tomer's iPhone"
   icon: mdi:magnify
@@ -645,6 +676,9 @@ group.bedroom_ac:
 group.bedroom_ac_hidden_controls:
   friendly_name: "Extra Controls"
   control: hidden
+group.living_room_ac_hidden_controls:
+  friendly_name: "Extra Controls"
+  control: hidden
 group.bedroom_switches:
   friendly_name: "Lights"
 group.empty_room_switches:
@@ -741,6 +775,10 @@ group.nmap_yes_stb_trackers:
 group.nmap_computers_tracker:
   friendly_name: "Computers, Streamers & Consoles"
   icon: mdi:desktop-classic
+  control: hidden
+group.nmap_diy_tracker:
+  friendly_name: "DIY Stuff"
+  icon: mdi:developer-board
   control: hidden
 group.nmap_phones_tracker:
   friendly_name: "Phones"
@@ -932,9 +970,7 @@ automation.shower_motion_sensor_no_motion:
   icon: mdi:lightbulb-outline
 automation.on_start_event:
   hidden: true
-automation.hava_tracking_group_change_state:
-  hidden: true
-automation.tomer_tracking_group_change_state:
+automation.update_tracker_devices:
   hidden: true
 automation.update_hava_last_state:
   hidden: true
@@ -960,6 +996,10 @@ automation.office_fan_level_change:
   hidden: true
 automation.office_light_off:
   hidden: true
+automation.office_light_on:
+  hidden: true
+automation.office_fan_off:
+  hidden: true
 automation.bedroom_sticker_switch:
   friendly_name: "Bedroom Sticker Switch"
   icon: mdi:remote
@@ -972,6 +1012,10 @@ automation.kitchen_bar_light_sticker_switch:
 automation.door_bell_ring:
   friendly_name: "Door Bell Notification"
   icon: mdi:message-alert
+automation.living_room_ac_show_extra_controls_on:
+  hidden: true
+automation.living_room_ac_show_extra_controls_off:
+  hidden: true
 
 ##########################################
 ################# Remotes ################

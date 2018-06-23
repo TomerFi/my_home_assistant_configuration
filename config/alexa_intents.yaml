@@ -30,12 +30,6 @@ FindTomerIphoneIntent:
   speech:
     text: I've sent a Lost Phone Request to tomers icloud. Please wait for it to ring.
 
-FindHavaIphoneIntent:
-  action:
-    service: script.icloud_find_hava_iphone
-  speech:
-    text: I've sent a Lost Phone Request to havas icloud. Please wait for it to ring.
-
 GetSensorsStatesIntent:
   speech:
     text: >
@@ -59,7 +53,7 @@ StartAction:
   action:
     service: mqtt.publish
     data_template:
-      topic: "smarthome/mqtt_client/askmypc_action"
+      topic: "smarthome/askmypc/action"
       payload: '{{ Action | lower }}'
       qos: 0
   speech:

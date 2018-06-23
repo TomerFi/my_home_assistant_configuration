@@ -16,11 +16,6 @@
   password: !secret icloud_tomer_password
   account_name: 'Tomers iCloud'
 
-- platform: icloud
-  username: !secret icloud_hava_username
-  password: !secret icloud_hava_password
-  account_name: "Havas iCloud"
-  
 - platform: nmap_tracker
   home_interval: 10
   consider_home: 0
@@ -57,3 +52,5 @@
     - !secret office_broadlink_rm_mini_ip
     - !secret office_xbox_360_ip
     - !secret hallways_omg_ip
+    - !secret office_multisensor_ip
+    - !secret bedroom_multisensor_ip

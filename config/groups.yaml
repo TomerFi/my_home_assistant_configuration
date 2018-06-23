@@ -18,6 +18,7 @@ living_room_ac:
     - cover.lr_ac_temp_cover
     - input_select.lr_ac_state
     - input_select.lr_ac_fan
+    - group.living_room_ac_hidden_controls
 
 living_room_switches:
   name: living_room_switches
@@ -127,15 +128,15 @@ user_tomer_devices:
     - device_tracker.tomer_bluetooth
     - device_tracker.tomers_iphone6s
     - device_tracker.tomersiphone6s
+    - device_tracker.tomers_phone
 
 user_hava_devices:
   name: user_hava_devices
   entities:
     - device_tracker.havaphone_hpowntracks
     - device_tracker.hava_bluetooth
-    - device_tracker.hava_ezra
-    - device_tracker.havaezra
-  
+    - device_tracker.havas_phone
+
 manage_automations:
   name: manage_automations
   entities:
@@ -205,7 +206,6 @@ all_guest_room_sensors:
 activate_operations:
   name: activate_operations
   entities:
-    - script.icloud_find_hava_iphone
     - script.icloud_find_tomer_iphone
     - script.get_sensors_report_notificiation_from_ui
     - script.ring_the_doorbell
@@ -214,7 +214,7 @@ household_summary:
   name: household_summary
   entities:
     - sensor.hava_tracker_sensor
-    - sensor.hava_icloud_battery_sensor
+    - sensor.hava_owntracks_battery_sensor
     - sensor.tomer_tracker_sensor
     - sensor.tomer_icloud_battery_sensor
 
@@ -263,6 +263,13 @@ bedroom_ac_hidden_controls:
   entities:
     - switch.bedroom_ac_light
     - switch.bedroom_ac_shutter
+    
+living_room_ac_hidden_controls:
+  name: bedroom_ac_hidden_controls
+  entities:
+    - switch.living_room_ac_panel_light
+    - switch.living_room_ac_updown_shutter
+    - switch.living_room_ac_sides_shutter
 
 nmap_pa_trackers:
   name: nmap_pa_trackers
@@ -287,11 +294,17 @@ nmap_yes_stb_trackers:
     - sensor.living_room_yes_nmap_tracker
     - sensor.bedroom_yes_nmap_tracker
     - sensor.guest_room_yes_nmap_tracker
+
+nmap_diy_tracker:
+  name: nmap_diy_tracker
+  entities:
+    - sensor.hallway_rf_gw_nmap_tracker
+    - sensor.office_msensor_nmap_tracker
+    - sensor.bedroom_msensor_nmap_tracker
       
 nmap_computers_tracker:
   name: nmap_computers_tracker
   entities:
-    - sensor.hallway_rf_gw_nmap_tracker
     - sensor.office_pc_nmap_tracker
     - sensor.shield_console_nmap_tracker
     - sensor.office_chromecast_nmap_tracker
@@ -379,18 +392,21 @@ st_test:
     - sensor.st_bridge_motion_sensor_test
     - sensor.st_bridge_tomers_iphone
     - sensor.st_bridge_water_sensor_test
-    - sensor.st_bridge_havas_iphone
-    #- script.test_telegram
+    - sensor.st_bridge_havas_s9
     
 multisensor_office:  
   name: MultiSensor Office
   entities:  
     - sensor.office_temperature
-    - sensor.office_real_feel
     - sensor.office_humidity  
-    - sensor.office_ldr  
-    - sensor.office_pir  
-    - light.office_led
+    - sensor.office_pir
+    
+multisensor_bedroom:  
+  name: MultiSensor Bedroom
+  entities:  
+    - sensor.bedroom_temperature
+    - sensor.bedroom_humidity  
+    - sensor.bedroom_pir  
 
 ##########################################
 ################# Views ##################
@@ -446,6 +462,7 @@ bedroom_view:
   name: bedroom_view
   view: true
   entities:
+    - group.multisensor_bedroom
     - group.all_bedroom_sensors
     - group.bedroom_ac
     - group.bedroom_switches
@@ -493,6 +510,7 @@ tech_support_view:
     - group.nmap_pa_trackers
     - group.nmap_remotes_trackers
     - group.nmap_yes_stb_trackers
+    - group.nmap_diy_tracker
     - group.nmap_computers_tracker
     - group.nmap_phones_tracker
     - group.nmap_lights_tracker

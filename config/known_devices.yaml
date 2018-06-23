@@ -30,7 +30,7 @@ tomer_bluetooth:
   picture:
   track: true
   vendor: Apple, Inc.
-
+  
 hava_bluetooth:
   hide_if_away: false
   icon: mdi:bluetooth
@@ -38,7 +38,30 @@ hava_bluetooth:
   name: "Hava Bluetooth"
   picture:
   track: true
-  vendor: Apple, Inc.
+  
+sabre_sb35_bt:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_sabre_sb35_bt_mac
+  name: "Sabre SB35 BT"
+  picture:
+  track: false
+
+shield_bt:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_shield_bt_mac
+  name: "Shield Bluetooth"
+  picture:
+  track: false
+
+samsung_tv_bt:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_samsung_tv_bt_mac
+  name: "Samsung TV BT"
+  picture:
+  track: false
 
 ##########################################
 ################## IOS ###################
@@ -52,15 +75,6 @@ tomers_iphone6s:
   track: true
   vendor:
 
-hava_ezra:
-  hide_if_away: false
-  icon: mdi:apple-ios
-  mac:
-  name: "Hava IOS"
-  picture:
-  track: true
-  vendor:
-
 ##########################################
 ################ iCloud ##################
 ##########################################
@@ -69,15 +83,6 @@ tomersiphone6s:
   icon: mdi:cellphone-iphone
   mac:
   name: "Tomer iCloud"
-  picture:
-  track: true
-  vendor:
-
-havaezra:
-  hide_if_away: false
-  icon: mdi:cellphone-iphone
-  mac:
-  name: "Hava iCloud"
   picture:
   track: true
   vendor:
@@ -346,10 +351,29 @@ xbox_360:
   track: true
   vendor: unknown
 
+##########################################
+################## DIY ###################
+##########################################
 rfgw_hallwayhomeserverlocal:
   hide_if_away: false
   icon:
   mac: !secret hallways_omg_mac
   name: "Hallway RF Gateway"
+  picture:
+  track: true
+
+office_sensorhomeserverlocal:
+  hide_if_away: false
+  icon:
+  mac: !secret office_multisensor_mac
+  name: "Office Multi-Sensor"
+  picture:
+  track: true
+
+bedroom_sensorhomeserverlocal:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_multisensor_mac
+  name: "Bedroom Multi-Sensor"
   picture:
   track: true

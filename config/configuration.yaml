@@ -73,6 +73,7 @@ mqtt:
 logger:
   default: error
 #  logs:
+#    homeassistant.components.telegram_bot: debug
 #    homeassistant.components.recorder: debug
 #    homeassistant.components.recorder.purge: debug
 #    custom_components.smartthings_bridge: debug
@@ -126,11 +127,12 @@ smartthings_bridge:
   url: !secret smartthings_bridge_url
   token: !secret smartthings_bridge_token
   
-#telegram_bot:
-#  - platform: polling
-#    api_key: !secret telegram_bot_api_key
-#    allowed_chat_ids:
-#      - !secret telegram_bot_chat_id
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret telegram_tomer_chat_id
+      - !secret telegram_hava_chat_id
 
 ##########################################
 ################ Includes ################

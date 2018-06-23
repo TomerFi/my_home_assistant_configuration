@@ -99,3 +99,21 @@ entity_config:
   scene.turn_on_boiler_1_h:
     expose: true
     name: "Boiler for 1 hour"
+  switch.bedroom_ac_light:
+    expose: true
+    name: "Bedroom AC Panel Light"
+  switch.living_room_ac_panel_light:
+    expose: true
+    name: "Living Room AC Panel Light"
+  switch.office_fan_low_speed:
+    expose: true
+    name: "Office Fan low speed"
+  switch.office_fan_medium_speed:
+    expose: true
+    name: "Office Fan medium speed"
+  switch.office_fan_high_speed:
+    expose: true
+    name: "Office Fan high speed"
+  switch.office_fan:
+    expose: true
+    name: "Office Fan"

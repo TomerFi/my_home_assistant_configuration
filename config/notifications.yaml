@@ -1,9 +1,13 @@
 - platform: group
-  name: all_ios
+  name: everyone
   services:
-    - service: ios_tomers_iphone6s
-    - service: ios_hava_ezra
+    - service: telegram_tomer_service
+    - service: telegram_hava_service
     
-#- platform: telegram
-#  name: telegram
-#  chat_id: !secret telegram_bot_chat_id
+- platform: telegram
+  name: telegram_tomer_service
+  chat_id: !secret telegram_tomer_chat_id
+  
+- platform: telegram
+  name: telegram_hava_service
+  chat_id: !secret telegram_hava_chat_id

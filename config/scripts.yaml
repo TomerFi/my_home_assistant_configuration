@@ -488,9 +488,9 @@ get_sensors_report_notificiation_from_alexa:
 send_sensors_report_notification:
   sequence:
     - service_template: >
-        {% if destination.lower() == 'tomer' %}notify.ios_tomers_iphone6s
-        {% elif destination.lower() == 'hava' %}notify.ios_hava_ezra
-        {% else %}notify.all_ios
+        {% if destination.lower() == 'tomer' %}notify.telegram_tomer_service
+        {% elif destination.lower() == 'hava' %}notify.telegram_hava_service
+        {% else %}notify.everyone
         {% endif %}
       data_template:
         message: >
@@ -525,7 +525,7 @@ bedroom_tv_set_timer:
 
 alexa_restart_hass:
   sequence:
-    - service: notify.ios_tomers_iphone6s
+    - service: notify.telegram_tomer_service
       data:
         message: "Restart Home Assistant was requested by alexa."
         title: "System Restart Initiated"
@@ -533,7 +533,7 @@ alexa_restart_hass:
 
 check_last_recorder_session:
   sequence:
-    - service: notify.ios_tomers_iphone6s
+    - service: notify.telegram_tomer_service
       data:
         message: "Last ended session end status was {{ states.sensor.last_recorder_status.state }}"
         title: "Recorder"
@@ -785,25 +785,16 @@ update_all_devices:
 
 update_hava_devices:
   sequence:
-    - service: device_tracker.icloud_update
-      data:
-        account_name: "Hava iCloud"
     - service: mqtt.publish
       data:
         topic: "owntracks/havaphone/hpowntracks/cmd"
         payload: '{"_type":"cmd","action":"reportLocation"}'
         qos: 2
-    - service: mqtt.publish
-      data:
-        topic: "owntracks/havaphone/hpowntracks/cmd"
-        payload: '{"_type":"cmd","action":"waypoints"}'
-        qos: 2
-    - service: notify.ios_hava_ezra
-      data:
-        message: "request_location_update"
-    - service: device_tracker.see
-      data:
-        dev_id: "hava_bluetooth"
+#    - service: mqtt.publish
+#      data:
+#        topic: "owntracks/havaphone/hpowntracks/cmd"
+#        payload: '{"_type":"cmd","action":"waypoints"}'
+#        qos: 2
 
 update_tomer_devices:
   sequence:
@@ -815,23 +806,14 @@ update_tomer_devices:
         topic: "owntracks/tomerphone/tpowntracks/cmd"
         payload: '{"_type":"cmd","action":"reportLocation"}'
         qos: 2
-    - service: mqtt.publish
-      data:
-        topic: "owntracks/tomerphone/tpowntracks/cmd"
-        payload: '{"_type":"cmd","action":"waypoints"}'
-        qos: 2
     - service: notify.ios_tomers_iphone6s
       data:
         message: "request_location_update"
-    - service: device_tracker.see
-      data:
-        dev_id: "tomer_bluetooth"
-
-icloud_find_hava_iphone:
-  sequence:
-    - service: device_tracker.icloud_lost_iphone
-      data:
-        account_name: "Havas iCloud"
+#    - service: mqtt.publish
+#      data:
+#        topic: "owntracks/tomerphone/tpowntracks/cmd"
+#        payload: '{"_type":"cmd","action":"waypoints"}'
+#        qos: 2
 
 icloud_find_tomer_iphone:
   sequence:
@@ -929,7 +911,7 @@ ring_the_doorbell:
 ####################################################   
 #test_telegram:
 #  sequence:
-#    - service: notify.telegram
+#    - service: notify.everyone
 #      data:
 #        title: TEST MESSAGE
 #        message: "this is a test"

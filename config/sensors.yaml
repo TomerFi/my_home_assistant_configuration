@@ -52,35 +52,21 @@
       value_template: "{%if states.sensor.havas_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.hava_last_state.state }}{%endif%}"
     tomer_tracker_sensor:
       value_template: "{%if states.sensor.tomers_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.tomer_last_state.state }}{%endif%}"
-    hava_icloud_battery_sensor:
-      value_template: "{%if states.device_tracker.havaezra.attributes.battery is defined %}{{ states.device_tracker.havaezra.attributes.battery | round }}{% else %}0{% endif %}"
+    hava_owntracks_battery_sensor:
+      value_template: "{%if states.device_tracker.havaphone_hpowntracks.attributes.battery is defined %}{{ states.device_tracker.havaphone_hpowntracks.attributes.battery | round }}{% else %}0{% endif %}"
       unit_of_measurement: '%'
       icon_template: >
-        {%if states.device_tracker.havaezra.attributes.battery is defined %}
-          {% if (states.device_tracker.havaezra.attributes.battery_status ==  "Charging") %}
-            {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery-charging-100
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-charging-90
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-charging-80
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-charging-80
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-charging-60
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-charging-60
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-charging-40
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-charging-30
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-charging-20
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-charging-20
-            {%endif%}
-          {% else %}
-            {% if ((states.device_tracker.havaezra.attributes.battery | round) > 90) %} mdi:battery
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 80) %} mdi:battery-90
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 70) %} mdi:battery-80
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 60) %} mdi:battery-70
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 50) %} mdi:battery-60
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 40) %} mdi:battery-50
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 30) %} mdi:battery-40
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 20) %} mdi:battery-30
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 10) %} mdi:battery-20
-            {% elif ((states.device_tracker.havaezra.attributes.battery | round) > 0) %} mdi:battery-10
-            {%endif%}
+        {%if states.device_tracker.havaphone_hpowntracks.attributes.battery is defined %}
+          {% if ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 90) %} mdi:battery
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 80) %} mdi:battery-90
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 70) %} mdi:battery-80
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 60) %} mdi:battery-70
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 50) %} mdi:battery-60
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 40) %} mdi:battery-50
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 30) %} mdi:battery-40
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 20) %} mdi:battery-30
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 10) %} mdi:battery-20
+          {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 0) %} mdi:battery-10
           {% endif%}
         {% else %} mdi:battery-unknown
         {% endif %}
@@ -176,6 +162,10 @@
       value_template: "{%if states.device_tracker.office_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
     hallway_rf_gw_nmap_tracker:
       value_template: "{%if states.device_tracker.rfgw_hallwayhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+    office_msensor_nmap_tracker:
+      value_template: "{%if states.device_tracker.office_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+    bedroom_msensor_nmap_tracker:
+      value_template: "{%if states.device_tracker.bedroom_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
     run_speed_test_last_run:
       value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
     select_city_shabbat_start_time:
@@ -201,7 +191,7 @@
         {% set hours = ((full % 86400) / 3600) | int %}
         {% set minutes = ((full % 3600) / 60) | int %}
         {% set seconds = (full % 60) | int %}
-        {{ days }}D,{{ hours }}H,{{ minutes }}M,{{ seconds }}S
+        {{ days }}D {{ hours }}H {{ minutes }}M {{ seconds }}S
     
 - platform: mqtt
   state_topic: "smarthome/mqtt_client/status_update"
@@ -296,13 +286,6 @@
   display_zone: hide
   api_key: !secret google_geocoding_api_key
   
-- platform: google_geocode
-  name: hava_icloud_gecode
-  origin: device_tracker.havaezra
-  options: street, city
-  display_zone: hide
-  api_key: !secret google_geocoding_api_key
-
 - platform: shabbat_times
   geonames: "IL-Haifa,IL-Rishon LeZion"
   
@@ -358,24 +341,28 @@
 
 - platform: mqtt  
   state_topic: "multisensor/officenode"  
-  name: "Office LDR"
-  ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
-  unit_of_measurement: "LUX"  
-  value_template: '{{ value_json.ldr }}'  
-
-- platform: mqtt  
-  state_topic: "multisensor/officenode"  
   name: "Office PIR"  
   value_template: '{{ value_json.motion }}'  
 
 - platform: mqtt  
   state_topic: "multisensor/officenode"  
   name: "Office Temperature"  
-  unit_of_measurement: "°F"  
+  unit_of_measurement: "°C"  
   value_template: '{{ value_json.temperature | round(1) }}'  
 
-- platform: mqtt
-  state_topic: "multisensor/officenode"
-  name: "Office Real Feel"
-  unit_of_measurement: "°F"
-  value_template: '{{ value_json.heatIndex | round(1) }}'
+- platform: mqtt  
+  state_topic: "multisensor/bedroomnode"  
+  name: "Bedroom Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/bedroomnode"  
+  name: "Bedroom PIR"  
+  value_template: '{{ value_json.motion }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/bedroomnode"  
+  name: "Bedroom Temperature"  
+  unit_of_measurement: "°C"  
+  value_template: '{{ value_json.temperature | round(1) }}'  

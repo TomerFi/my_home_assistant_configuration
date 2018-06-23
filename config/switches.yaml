@@ -33,6 +33,18 @@
     office_fan_light:
       command_on: "JgDOACoNKg0OKQ4pDikOKQ4oDygPKA8oDygPAAEEKg0qDQ4pDikOKSkOKQ0qDSoNKg0qDSrpKg0qDQ4pDikOKQ4pDikOKSkODikOKA8AAQQqDSoNDikOKQ4pDikOKQ4pKg0OKQ4pDgABBCoNKg0PKA8oDygOKQ4pDikqDQ4pDikOAAEFKQ4pDg4pDikOKA8oDygPKCoNDikOKQ4AAQUqDSoNDikOKQ4pDikOKA8oKg4OKA8oDwABBCoNKg0OKQ4pDikOKQ4pDikpDg4oDygPAA0FAAAAAAAAAAAAAA=="
       command_off: "JgDOACoNKg0OKQ4pDikOKQ4oDygPKA8oDygPAAEEKg0qDQ4pDikOKSkOKQ0qDSoNKg0qDSrpKg0qDQ4pDikOKQ4pDikOKSkODikOKA8AAQQqDSoNDikOKQ4pDikOKQ4pKg0OKQ4pDgABBCoNKg0PKA8oDygOKQ4pDikqDQ4pDikOAAEFKQ4pDg4pDikOKA8oDygPKCoNDikOKQ4AAQUqDSoNDikOKQ4pDikOKA8oKg4OKA8oDwABBCoNKg0OKQ4pDikOKQ4pDikpDg4oDygPAA0FAAAAAAAAAAAAAA=="
+    office_fan_low_speed:
+      command_on: "JgD0ACoNKg0OKQ4pDikOKQ4pDikOKQ4pDikOAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg4pDg0pDikOKSoNDikOKQ4pDikpDinpKg4pDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSkODikOKQ4pDigqDSoADQUAAAAA"
+      command_off: "JgA2ASoNKg0PKA8oDygOKQ4pDikOKQ4pDikOAAEEKg0qDQ8oDikOKSoNKg0qDSoNKQ4qDSnpKg0qDQ4pDikOKQ4pDikqDQ4pDikOKQ4AAQQpDikODikNKg0qDikNKikODCsMKw0qDAABBioMKw0OKQ4pDikOKQ4pKA8MKwwrDCsMAAEGKA8oDwwrDCsMKwwrDCsnEAwrDCsMKwwAAQYoDygPDCsMKwwrDCsMKycQDCsMKwwrDAABBigPKA8MKwwrDCsMKw4pKQ4OKQ4pDikOAAEEKg0qDQ4pDikOKQ4pDikpDg4pDikOKQ4AAQQqDSoNDikOKQ4pDygOKSkODikOKQ4pDgABBCoNKg0MKw4pDCsMKwwrKA8MKwwrDCsMAAEGKQ8oDw4oDygPKA8oDygqDQ4pDikOKQ4ADQUAAA=="
+    office_fan_medium_speed:
+      command_on: "JgACASoNKg0OKQ4pDikOKQ4pDikOKQ4pDikOAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDinpKg0qDQ4pDikOKQ4pDikOKQ4pKgwPKQ4AAQQqDSoLESgOKQ4pDikOKQ4pDikqDA8pDgABBCoNKg0PKA8oDikOKQ4pDikOKSkODikOAAEEKg0qDQ4pDikOKQ4pDikOKQ4pKQ4OKQ4AAQQqDSoNDikOKQ4pDikOKQ4pDikpDg4pDgABBCoNKg0OKQ4pDikOKQ4pDikOKSkODigPAAEEKg0qDQ4pDikOKQ4pDikOKQ4oKg0PKA8AAQQqDSoMDykOKQ4pDigPKA8oDygqDQ8oDgANBQAAAAAAAA=="
+      command_off: "JgA2ASoNKg0PKA8oDygOKQ4pDikOKQ4pDikOAAEEKg0qDQ8oDikOKSoNKg0qDSoNKQ4qDSnpKg0qDQ4pDikOKQ4pDikqDQ4pDikOKQ4AAQQpDikODikNKg0qDikNKikODCsMKw0qDAABBioMKw0OKQ4pDikOKQ4pKA8MKwwrDCsMAAEGKA8oDwwrDCsMKwwrDCsnEAwrDCsMKwwAAQYoDygPDCsMKwwrDCsMKycQDCsMKwwrDAABBigPKA8MKwwrDCsMKw4pKQ4OKQ4pDikOAAEEKg0qDQ4pDikOKQ4pDikpDg4pDikOKQ4AAQQqDSoNDikOKQ4pDygOKSkODikOKQ4pDgABBCoNKg0MKw4pDCsMKwwrKA8MKwwrDCsMAAEGKQ8oDw4oDygPKA8oDygqDQ4pDikOKQ4ADQUAAA=="
+    office_fan_high_speed:
+      command_on: "JgD0ACoNKg0OKQ4pDikOKQ4pDikOKA8oDygPAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDSrpKg0qDQ8oDikOKQ4pDikOKQ4pDikOKSroKA8pDg0qDCsMKwwrDCsMKwwrDCsMKyjrJxAnEA4pDikMKw0qDigPKA4pDSoOKSrpKg0pDg4pDikOKQ4pDygOKQ4pDikOKSnpKg0qDQ4pDikPKA4pDikOKQ8oDikOKSnqKQ4pDQ4pDSoOKQ8oDikOKQ4pDygOKSrpJxApDQ0rDSkOKQwrDCsMKwwrDCsMKyjrKQ4pDg4pDigPKA8oDygPKA8oDygPKCoADQUAAAAA"
+      command_off: "JgA2ASoNKg0PKA8oDygOKQ4pDikOKQ4pDikOAAEEKg0qDQ8oDikOKSoNKg0qDSoNKQ4qDSnpKg0qDQ4pDikOKQ4pDikqDQ4pDikOKQ4AAQQpDikODikNKg0qDikNKikODCsMKw0qDAABBioMKw0OKQ4pDikOKQ4pKA8MKwwrDCsMAAEGKA8oDwwrDCsMKwwrDCsnEAwrDCsMKwwAAQYoDygPDCsMKwwrDCsMKycQDCsMKwwrDAABBigPKA8MKwwrDCsMKw4pKQ4OKQ4pDikOAAEEKg0qDQ4pDikOKQ4pDikpDg4pDikOKQ4AAQQqDSoNDikOKQ4pDygOKSkODikOKQ4pDgABBCoNKg0MKw4pDCsMKwwrKA8MKwwrDCsMAAEGKQ8oDw4oDygPKA8oDygqDQ4pDikOKQ4ADQUAAA=="
+    office_fan:
+      command_on: "JgD0ACoNKg0OKQ4pDikOKQ4pDikOKQ4pDikOAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg4pDg0pDikOKSoNDikOKQ4pDikpDinpKg4pDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSkODikOKQ4pDigqDSoADQUAAAAA"
+      command_off: "JgA2ASoNKg0PKA8oDygOKQ4pDikOKQ4pDikOAAEEKg0qDQ8oDikOKSoNKg0qDSoNKQ4qDSnpKg0qDQ4pDikOKQ4pDikqDQ4pDikOKQ4AAQQpDikODikNKg0qDikNKikODCsMKw0qDAABBioMKw0OKQ4pDikOKQ4pKA8MKwwrDCsMAAEGKA8oDwwrDCsMKwwrDCsnEAwrDCsMKwwAAQYoDygPDCsMKwwrDCsMKycQDCsMKwwrDAABBigPKA8MKwwrDCsMKw4pKQ4OKQ4pDikOAAEEKg0qDQ4pDikOKQ4pDikpDg4pDikOKQ4AAQQqDSoNDikOKQ4pDygOKSkODikOKQ4pDgABBCoNKg0MKw4pDCsMKwwrKA8MKwwrDCsMAAEGKQ8oDw4oDygPKA8oDygqDQ4pDikOKQ4ADQUAAA=="
   
 - platform: broadlink
   host: !secret bedroom_broadlink_rm_mini_ip
@@ -52,19 +64,28 @@
   mac: !secret living_room_broadlink_rm_pro_mac
   timeout: 15
   switches: 
+    living_room_ac_updown_shutter:
+      command_on: "JgDYAAABKZYROhA6EBYRFxAWEhYQOhM5EhUTFBIVEzgTFBMUFBQUOBAWERYROhEWExUSOhA6ETsQFhIWEBYSFhAWEhYQFxEWERYSFhAWEBYRFhE6EToSFhIWEhUSFhEWEhYRFhEWEhYSFhEWERYSFhEWEToQFhIWERYRFhEWERYRFhEWERYRFxAWEhYQFhIWEBcRFhEWERYRFhAWEBYRFhEWEzoPFxEWERYRFhEWERYRFhIWEBYSFhEWEToRFhEWEhYSFhEWERcROhAWERYRFhE6ERYROhE6FAANBQ=="
+      command_off: "JgDYAAABKZYROhA6EBYRFxAWEhYQOhM5EhUTFBIVEzgTFBMUFBQUOBAWERYROhEWExUSOhA6ETsQFhIWEBYSFhAWEhYQFxEWERYSFhAWEBYRFhE6EToSFhIWEhUSFhEWEhYRFhEWEhYSFhEWERYSFhEWEToQFhIWERYRFhEWERYRFhEWERYRFxAWEhYQFhIWEBcRFhEWERYRFhAWEBYRFhEWEzoPFxEWERYRFhEWERYRFhIWEBYSFhEWEToRFhEWEhYSFhEWERcROhAWERYRFhE6ERYROhE6FAANBQ=="
+    living_room_ac_sides_shutter:
+      command_on: "JgDYAAABKpUSOBI4FBMVFBMUFBMUOBI4FBMVFBMUEzgSFBQUEhQUOBMUExQUOBIUFBQSFBQUEhUTOBMUExQUFBQUExQTFBQUFBMUFBMUFBQTFBM4EjgUFBQUFBMUFBMUFBQTFBMUFBQUFBMUExQUFBMUEzgSFBQUExQTFBMUExQTFBMUExQTFRIUFBQSFBQUEhUTFBIVExQTFBMUFRQUFBMUEzkRFRMUExQTFBMUExUSFBMVEhQTFRI4FDgSFRMUEhUTFBMUExQTOBM4ExQUFBI4FDgSOBQ4FgANBQ=="
+      command_off: "JgDYAAABKpUSOBI4FBMVFBMUFBMUOBI4FBMVFBMUEzgSFBQUEhQUOBMUExQUOBIUFBQSFBQUEhUTOBMUExQUFBQUExQTFBQUFBMUFBMUFBQTFBM4EjgUFBQUFBMUFBMUFBQTFBMUFBQUFBMUExQUFBMUEzgSFBQUExQTFBMUExQTFBMUExQTFRIUFBQSFBQUEhUTFBIVExQTFBMUFRQUFBMUEzkRFRMUExQTFBMUExUSFBMVEhQTFRI4FDgSFRMUEhUTFBMUExQTOBM4ExQUFBI4FDgSOBQ4FgANBQ=="
+    living_room_ac_panel_light:
+      command_on: "JgDYAAABKpUSOBI4FRMUFBMUFBMUOBI4ExQTFBQUFDgRFBQUExQTOBMUExQVNxIUFBQSFBQUExQTOBMUExQVExQUExQUFBMUFBQTFBQTFBQTFBQ4ETgUFBUTFBQTFBQUExQTFBQUExQUFBMUFBQTFBMUFDgSFBMUExQUExMUFBMTFBQUEhQVFBIUEhQTFBMUFRMUFBMUFBQUExQUExQUExQUEzgSFBQUExQTFBMUExQTFBMUExQTFBM4FBMVOBIUEzgTFBMUFBUTOBIUEzgUFBMUFBMUFBMUFgANBQ=="
+      command_off: "JgDYAAABKpUSOBI4FRMUFBMUFBMUOBI4ExQTFBQUFDgRFBQUExQTOBMUExQVNxIUFBQSFBQUExQTOBMUExQVExQUExQUFBMUFBQTFBQTFBQTFBQ4ETgUFBUTFBQTFBQUExQTFBQUExQUFBMUFBQTFBMUFDgSFBMUExQUExMUFBMTFBQUEhQVFBIUEhQTFBMUFRMUFBMUFBQUExQUExQUExQUEzgSFBQUExQTFBMUExQTFBMUExQTFBM4FBMVOBIUEzgTFBMUFBUTOBIUEzgUFBMUFBMUFBMUFgANBQ=="
     living_room_main_light: 
       command_on: "6QpCAN8JFgkJFgkWFgkWCQkWFgkWCQkWFgkJFgkWFgkWCRYJCRYWCQkWCRYWCRYJCRYWCRYJCRYJ FhYJCRYJFhYJCRYJFg=="
       command_off: "6QpCAN8JCRYJFgkWFgkJFgkWFgkJFhYJFgkWCQkWFgkWCRYJFgkJFgkWCRYWCQkWCRYWCRYJFgkW CRYJCRYJFgkWCRYJFg=="
     living_room_small_light: 
       command_on: "6QpCAN8JFgkJFgkWCRYJFhYJCRYWCRYJCRYWCQkWCRYJFhYJFgkJFgkWCRYJFhYJFgkWCQkWCRYW CRYJCRYWCQkWFgkWCQ=="
       command_off: "6QpCAN8JCRYJFgkWCRYJFgkWFgkWCRYJCRYJFhYJFgkWCQkWFgkWCRYJCRYWCRYJCRYWCRYJCRYJ FhYJCRYWCQkWFgkJFg=="
-    kitchen_main_light: 
+    kitchen_main_light_fixed: 
       command_on: "6QpCAN8JCRYJFhYJCRYJFgkWFgkJFhYJCRYWCQkWFgkWCQkWCRYWCRYJCRYJFgkWFgkJFgkWCRYJFhYJFgkWCQkWCRYWCQ=="
       command_off: "6QpCAN8JCRYWCRYJCRYJFgkWFgkWCRYJFgkJFgkWCRYJFhYJFgkJFhYJFgkWCQkWFgkJFhYJFgkWCRYJCRYWCRYJCRYJFg=="
-    kitchen_island_light: 
+    kitchen_island_light_fixed: 
       command_on: "6QpCAN8JFgkWCQkWFgkJFhYJFgkWCQkWCRYWCRYJCRYJFhYJFgkWCQkWFgkWCRYJCRYWCQkWCRYJFhYJCRYWCQkWCRYJFg=="
       command_off: "6QpCAN8JCRYJFhYJCRYJFgkWCRYWCQkWFgkWCRYJFgkWCQkWFgkWCQkWCRYWCQkWCRYJFgkWFgkWCQkWFgkJFgkWFgkJFg=="
-    main_hallway_light: 
+    main_hallway_light_fixed: 
       command_on: "6QpCAN8JFgkWCRYJFgkJFgkWCRYJFhYJFgkWCQkWCRYWCRYJCRYJFhYJFgkWCQkWCRYWCQkWCRYJFhYJCRYJFgkWFgkWCQ=="
       command_off: "6QpCAN8JFgkWCRYJCRYWCQkWFgkJFhYJFgkWCQkWFgkJFgkWFgkJFhYJCRYJFhYJFgkWCQkWCRYJFgkWCRYJFhYJFgkJFg=="
     small_bathroom_light_fixed:
@@ -104,21 +125,86 @@
 - platform: template
   switches:
     small_bathroom_light:
-      friendly_name: "small_bathroom_light_fixed"
+      friendly_name: "small_bathroom_light"
       value_template: "{{ states.switch.small_bathroom_light_fixed.state }}"
       turn_on:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_on"
-          data_details: {"entity_id": "switch.small_bathroom_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
+        - service: switch.turn_on
+          data:
+            entity_id: switch.small_bathroom_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_on
+          data:
+            entity_id: switch.small_bathroom_light_fixed
       turn_off:
-        service: python_script.service_call_loop
-        data_template:
-          domain_name: "switch"
-          service_name: "turn_off"
-          data_details: {"entity_id": "switch.small_bathroom_light_fixed"}
-          delay_seconds: 1
-          loop_count: 2
+        - service: switch.turn_off
+          data:
+            entity_id: switch.small_bathroom_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_off
+          data:
+            entity_id: switch.small_bathroom_light_fixed
+    kitchen_main_light:
+      friendly_name: "kitchen_main_light"
+      value_template: "{{ states.switch.kitchen_main_light_fixed.state }}"
+      turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.kitchen_main_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_on
+          data:
+            entity_id: switch.kitchen_main_light_fixed
+      turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.kitchen_main_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_off
+          data:
+            entity_id: switch.kitchen_main_light_fixed
+    kitchen_island_light:
+      friendly_name: "kitchen_island_light"
+      value_template: "{{ states.switch.kitchen_island_light_fixed.state }}"
+      turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.kitchen_island_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_on
+          data:
+            entity_id: switch.kitchen_island_light_fixed
+      turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.kitchen_island_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_off
+          data:
+            entity_id: switch.kitchen_island_light_fixed
+    main_hallway_light:
+      friendly_name: "main_hallway_light"
+      value_template: "{{ states.switch.main_hallway_light_fixed.state }}"
+      turn_on:
+        - service: switch.turn_on
+          data:
+            entity_id: switch.main_hallway_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_on
+          data:
+            entity_id: switch.main_hallway_light_fixed
+      turn_off:
+        - service: switch.turn_off
+          data:
+            entity_id: switch.main_hallway_light_fixed
+        - delay:
+            seconds: 1
+        - service: switch.turn_off
+          data:
+            entity_id: switch.main_hallway_light_fixed

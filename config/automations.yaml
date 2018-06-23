@@ -16,9 +16,7 @@
       entity_id: script.get_office_mqtt_client_status
     - service: script.turn_on
       entity_id: script.check_last_recorder_session
-    #- service: script.turn_on
-    #  entity_id: script.update_all_devices
-    
+
 - id: set_log_level
   alias: set_log_level
   trigger:
@@ -38,13 +36,13 @@
     platform: state
     entity_id: input_select.office_ceiling_fan_level
   action:
-    service: script.office_rm_mini_send_packet
+    service_template: '{%if states.input_select.office_ceiling_fan_level.state == "OFF_"%}switch.turn_off{%else%}switch.turn_on{%endif%}'
     data_template:
-      packet_code: >
-        {%if states.input_select.office_ceiling_fan_level.state == "LOW"%} "JgD0ACoNKg0OKQ4pDikOKQ4pDikOKQ4pDikOAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDinpKg4pDg0pDikOKSoNDikOKQ4pDikpDinpKg4pDQ4pDikOKSoNDikOKQ4pDikpDinpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSoNDikOKQ4pDikpDSrpKg0qDQ4pDikOKSkODikOKQ4pDigqDSoADQUAAAAA"
-        {%elif states.input_select.office_ceiling_fan_level.state == "MED"%} "JgACASoNKg0OKQ4pDikOKQ4pDikOKQ4pDikOAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDinpKg0qDQ4pDikOKQ4pDikOKQ4pKgwPKQ4AAQQqDSoLESgOKQ4pDikOKQ4pDikqDA8pDgABBCoNKg0PKA8oDikOKQ4pDikOKSkODikOAAEEKg0qDQ4pDikOKQ4pDikOKQ4pKQ4OKQ4AAQQqDSoNDikOKQ4pDikOKQ4pDikpDg4pDgABBCoNKg0OKQ4pDikOKQ4pDikOKSkODigPAAEEKg0qDQ4pDikOKQ4pDikOKQ4oKg0PKA8AAQQqDSoMDykOKQ4pDigPKA8oDygqDQ8oDgANBQAAAAAAAA=="
-        {%elif states.input_select.office_ceiling_fan_level.state == "HIGH"%} "JgD0ACoNKg0OKQ4pDikOKQ4pDikOKA8oDygPAAEEKg0qDQ4pDikOKSoNKg0qDSoNKQ4pDSrpKg0qDQ8oDikOKQ4pDikOKQ4pDikOKSroKA8pDg0qDCsMKwwrDCsMKwwrDCsMKyjrJxAnEA4pDikMKw0qDigPKA4pDSoOKSrpKg0pDg4pDikOKQ4pDygOKQ4pDikOKSnpKg0qDQ4pDikPKA4pDikOKQ8oDikOKSnqKQ4pDQ4pDSoOKQ8oDikOKQ4pDygOKSrpJxApDQ0rDSkOKQwrDCsMKwwrDCsMKyjrKQ4pDg4pDigPKA8oDygPKA8oDygPKCoADQUAAAAA"
-        {%else%} "JgA2ASoNKg0PKA8oDygOKQ4pDikOKQ4pDikOAAEEKg0qDQ8oDikOKSoNKg0qDSoNKQ4qDSnpKg0qDQ4pDikOKQ4pDikqDQ4pDikOKQ4AAQQpDikODikNKg0qDikNKikODCsMKw0qDAABBioMKw0OKQ4pDikOKQ4pKA8MKwwrDCsMAAEGKA8oDwwrDCsMKwwrDCsnEAwrDCsMKwwAAQYoDygPDCsMKwwrDCsMKycQDCsMKwwrDAABBigPKA8MKwwrDCsMKw4pKQ4OKQ4pDikOAAEEKg0qDQ4pDikOKQ4pDikpDg4pDikOKQ4AAQQqDSoNDikOKQ4pDygOKSkODikOKQ4pDgABBCoNKg0MKw4pDCsMKwwrKA8MKwwrDCsMAAEGKQ8oDw4oDygPKA8oDygqDQ4pDikOKQ4ADQUAAA=="
+      entity_id: >
+        {%if states.input_select.office_ceiling_fan_level.state == "LOW"%}switch.office_fan_low_speed
+        {%elif states.input_select.office_ceiling_fan_level.state == "MED"%}switch.office_fan_medium_speed
+        {%elif states.input_select.office_ceiling_fan_level.state == "HIGH"%}switch.office_fan_high_speed
+        {%else%}switch.office_fan
         {%endif%}
       
 - id: office_light_off
@@ -54,10 +52,59 @@
     entity_id: switch.office_light
     to: 'off'
   action:
-    service: input_select.select_option
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.office_ceiling_fan_level
+        option: 'OFF_'
+    - service: python_script.set_entity_state
+      data:
+        state: 'off'
+        entity_id:
+        - switch.office_fan_light
+        - switch.office_fan_low_speed
+        - switch.office_fan_medium_speed
+        - switch.office_fan_high_speed
+        - switch.office_fan
+
+- id: office_light_on
+  alias: office_light_on
+  trigger:
+    platform: state
+    entity_id: switch.office_light
+    to: 'on'
+  action:
+    service: python_script.set_entity_state
     data:
-      entity_id: input_select.office_ceiling_fan_level
-      option: 'OFF_'
+      state: 'on'
+      entity_id: switch.office_fan_light
+
+- id: office_fan_off
+  alias: office_fan_off
+  trigger:
+    - platform: state
+      entity_id: switch.office_light
+      to: 'off'
+    - platform: state
+      entity_id: switch.office_fan_low_speed
+      to: 'off'
+    - platform: state
+      entity_id: switch.office_fan_medium_speed
+      to: 'off'
+    - platform: state
+      entity_id: switch.office_fan_high_speed
+      to: 'off'
+    - platform: state
+      entity_id: switch.office_fan
+      to: 'off'
+  action:
+    service: python_script.set_entity_state
+    data:
+      state: 'off'
+      entity_id:
+        - switch.office_fan_low_speed
+        - switch.office_fan_medium_speed
+        - switch.office_fan_high_speed
+        - switch.office_fan
 
 ##########################################
 ######### TV Led Automations #############
@@ -153,6 +200,30 @@
     data:
       packet_code:
         - "JgDYAAABKpUTNxI4ExQTExQUFBQUNxI5EzgTOBM4ExQTFBMUFDcTOBUUEzgTNxMUFBMVOBI3FDgTOBQTFTgSExQUExQTFBMUFBMTFBQTExQUExM4FDgSFRMUExQTFBMUExQTFBMVExQUExMUFBMTFBQUEjgUFBQUFBQTFBMUFBQTFBQUExQTFRMUExQUFBMUFBQTFBMUFBQUExQUExQUFBMUExQUFBMUFBQTFBQUExQTFBQUExQTFBQ3FRQROBUUExQUExQUExUTFBM4EhQUNxM4FDgTOBM4FgANBQ=="
+
+- id: living_room_ac_show_extra_controls_on
+  alias: living_room_ac_show_extra_controls_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.lr_ac_status
+    to: 'on'
+  action:
+    service: group.set_visibility
+    data:
+      entity_id: group.living_room_ac_hidden_controls
+      visible: true
+      
+- id: living_room_ac_show_extra_controls_off
+  alias: living_room_ac_show_extra_controls_off
+  trigger:
+    platform: state
+    entity_id: input_boolean.lr_ac_status
+    to: 'off'
+  action:
+    service: group.set_visibility
+    data:
+      entity_id: group.living_room_ac_hidden_controls
+      visible: false
 
 ##########################################
 ######### Bedroom AC Automations #########
@@ -315,15 +386,13 @@
   trigger:
     - platform: state
       entity_id: device_tracker.havaphone_hpowntracks
-    - platform: state
-      entity_id: device_tracker.havaezra
   action:
     service: input_text.set_value
     data_template:
       entity_id: input_text.hava_last_state
       value: >
         {% if trigger.to_state.state == 'not_home' %}
-          {%if trigger.entity_id == 'device_tracker.havaphone_hpowntracks' %}{{ states.sensor.hava_owntracks_gecode.state }}{%else%}{{ states.sensor.hava_icloud_gecode.state }}{%endif%}
+          {{ states.sensor.hava_owntracks_gecode.state }}
         {%else%}{{ trigger.to_state.state | title }}
         {%endif%}
 
@@ -360,24 +429,16 @@
     - delay: '00:01:00'
     - service: script.turn_on
       entity_id: script.get_office_mqtt_client_status
-      
-#- id: hava_tracking_group_change_state
-#  alias: hava_tracking_group_change_state
-#  trigger:
-#    platform: state
-#    entity_id: sensor.hava_tracker_sensor
-#  action:
-#    service: script.turn_on
-#    entity_id: script.update_hava_devices
 
-#- id: tomer_tracking_group_change_state
-#  alias: tomer_tracking_group_change_state
-#  trigger:
-#    platform: state
-#    entity_id: sensor.tomer_tracker_sensor
-#  action:
-#    service: script.turn_on
-#    entity_id: script.update_tomer_devices
+- id: update_tracker_devices
+  alias: update_tracker_devices
+  trigger:
+    - platform: time
+      minutes: '/20'
+      seconds: 00
+  action:
+    service: script.turn_on
+    entity_id: script.update_all_devices
 
 ###########################################
 ###### Notifications Automations ##########
@@ -401,7 +462,7 @@
       data:
         variable: tomer_low_batt_notification_sent
         value: true
-    - service: notify.ios_tomers_iphone6s
+    - service: notify.telegram_tomer_service
       data:
         message: "Battery level at or below 30%, please connect charger."
         title: "Battery Low Notification"
@@ -426,7 +487,7 @@
   alias: hava_low_batt_notify
   trigger:
     platform: numeric_state
-    entity_id: sensor.hava_icloud_battery_sensor
+    entity_id: sensor.hava_owntracks_battery_sensor
     value_template: "{{ state.state }}"
     below: 31
   condition:
@@ -434,8 +495,6 @@
     conditions:
       - condition: template
         value_template: "{{ states.variable.hava_low_batt_notification_sent.state | lower == 'false' }}"
-      - condition: template
-        value_template: "{{ states.device_tracker.havaezra.attributes.battery_status ==  'NotCharging' }}"
   action:
     - service: variable.set_variable
       data:
@@ -450,7 +509,7 @@
   alias: hava_low_batt_reset_variable
   trigger:
     platform: numeric_state
-    entity_id: sensor.hava_icloud_battery_sensor
+    entity_id: sensor.hava_owntracks_battery_sensor
     value_template: "{{ state.state }}"
     above: 30
   condition:
@@ -482,9 +541,9 @@
         {{ (shabbat_time.split(':')[0] | int * 60 + shabbat_time.split(':')[1] | int) - (cur_time.split(':')[0] | int * 60 + cur_time.split(':')[1] | int ) == states.sensor.shabbat_notify_minutes_start.state | int }}
   action:
     - service_template: >
-        {% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' and states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.all_ios
-        {% elif states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify ios_hava_ezra
-        {% elif states.input_boolean.send_shabbat_notification_tomer.state == 'on' %}notify.ios_tomers_iphone6s
+        {% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' and states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.everyone
+        {% elif states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.telegram_hava_service
+        {% elif states.input_boolean.send_shabbat_notification_tomer.state == 'on' %}notify.telegram_tomer_service
         {% endif %}
       data_template:
         title: "Shabbat Times"
@@ -536,7 +595,7 @@
       topic: omg/rfgw_hallway/433toMQTT
       payload: '14878223'
   action:
-    - service: notify.all_ios
+    - service: notify.everyone
       data:
         title: "Door Bell"
         message: "The main entrance door bell was activated"
