@@ -1,10 +1,19 @@
-AppDaemon:
-  logfile: STDOUT
-  errorfile: STDERR
+secrets: /config/secrets.yaml
+
+log:
+  accessfile: /config/appdaemon/logs/access.log
+  logfile: /config/appdaemon/logs/appdaemon.log
+  errorfile: /config/appdaemon/logs/error.log
+  log_generations: 5
+  log_size: 1024
+
+appdaemon:
   threads: 10
   app_dir: /config/appdaemon/apps
-  api_port: !secret api_port
-  api_key: !secret api_key
-HASS:
-  ha_url: !secret ha_url
-  ha_key: !secret ha_key
+  api_port: !secret appdaemon_api_port
+  api_key: !secret http_api_password
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret http_base_url
+      ha_key: !secret http_api_password
