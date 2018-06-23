@@ -500,7 +500,7 @@
       data:
         variable: hava_low_batt_notification_sent
         value: true
-    - service: notify.ios_hava_ezra
+    - service: notify.telegram_hava_service
       data:
         message: "Battery level at or below 30%, please connect charger."
         title: "Battery Low Notification"
