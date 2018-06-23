@@ -93,10 +93,15 @@ tomer_profile = {
 }
 
 door_sensors = [
-    "sensor.small_bathroom_door_sensor",
-    "sensor.main_bathroom_door_sensor",
-    "sensor.closet_room_door_sensor",
-    "sensor.service_room_door_sensor"
+    "sensor.broadlink_s1c_closet_room",
+    "sensor.broadlink_s1c_main_bathroom",
+    "sensor.broadlink_s1c_service_room",
+    "sensor.broadlink_s1c_small_bathroom",
+    "sensor.broadlink_s1c_balcony_door"
+]
+
+motion_sensors = [
+    "sensor.broadlink_s1c_shower_motion_sensor"
 ]
 
 system_sensors = {
@@ -134,9 +139,13 @@ devices_sensors = [
     "sensor.tv_lifxz_led_nmap_tracker",
     "sensor.service_room_s1c_nmap_tracker",
     "sensor.switcher_v2_nmap_tracker",
-    "sensor.hallway_netgear_hub_nmap_tracker",
+    "sensor.hallway_netgear_hub5_nmap_tracker",
+    "sensor.office_netgear_hub5_nmap_tracker",
     "sensor.living_room_broadlink_a1_nmap_tracker",
-    "sensor.living_room_samsung_tv_nmap_tracker"
+    "sensor.living_room_samsung_tv_nmap_tracker",
+    "sensor.hallway_rf_gw_nmap_tracker",
+    "sensor.office_msensor_nmap_tracker",
+    "sensor.bedroom_msensor_nmap_tracker"
 ]
 
 network_profile = {
@@ -306,12 +315,22 @@ def handleSensorsText(api, is_new=False):
 
     for sensor in door_sensors:
         if (api.get_state(sensor).lower() == "open"):
-            prompt = prompt + "The " + api.get_state(sensor, "friendly_name") + ", "
+            prompt = prompt + "The " + api.get_state(sensor, attribute="friendly_name") + ", "
     
     if (prompt != ""):
-        prompt = "The following sensors appear to be open: " + prompt[:-2] + ". And... well, that's it! " + reprompt
+        prompt = "The following door sensors appear to be open: " + prompt[:-2] + " "
     else:
-        prompt = "All the sensors appear to be closed. " + reprompt
+        prompt = "All the door sensors appear to be closed. "
+
+    motion_sensor_prompt = ""
+    for sensor in motion_sensors:
+    	if (api.get_state(sensor).lower() == "motion_detected"):
+    		motion_sensor_prompt = motion_sensor_prompt = "" +  api.get_state(sensor, attribute="friendly_name") + ", "
+
+    if (motion_sensor_prompt != ""):
+        prompt = prompt + ". The following motion sensors are detecting motion: " + motion_sensor_prompt[:-2] + ". And... well, that's it! " + reprompt
+    else:
+        prompt = prompt + ". There is no motion detected in any of the motion sensors. " + reprompt
     
     if (is_new):
         prompt = random.choice(start_phrases) + " " + prompt
@@ -412,7 +431,7 @@ def handleDevicesSsml(api, is_new=False):
     for sensor in devices_sensors:
         if (api.get_state(sensor).lower() != "online"):
             count = count + 1
-            prompt = prompt + api.get_state(sensor, "friendly_name") + ", "
+            prompt = prompt + api.get_state(sensor, attribute="friendly_name") + ", "
 
     if (count == 0):
         prompt = "Everything is Online, we're good! anything else you want me to check?"
@@ -481,7 +500,7 @@ def handleBoilerCardSsml(api, attributes, action, duration, is_new=False, is_iso
             seconds = convertObjectDurationToSeconds(duration)
 
         api.log(str(seconds))
-        if (seconds < 60 or seconds > 3600):
+        if (seconds < 10 or seconds > 3600):
             prompt =  "<speak>I can schedule the boiler to turn off anywhere between 1 and 60 minutes. How long do you want me to turn it on for?</speak>"
             reprompt = "<speak>I can turn on the boiler for any number of minutes up to 60, how long do you want me to turn on the boiler for?</speak>"
         else:
