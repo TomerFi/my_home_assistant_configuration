@@ -4,7 +4,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 **Environment**
 - Installation: Home Assistant **Hass.io**
-- Current Installed Version: 0.65.5
+- Current Installed Version: 0.68.1
 - Platform: Raspberry Pi 3 B
 
 **Table Of Contents**
@@ -28,12 +28,13 @@ I will try to keep this repository updated with any changes I'll make in my work
 ### Customization and modification
 
 #### Addons by Others
-- [**AppDaemon**](https://github.com/hassio-addons/addon-appdaemon) for runing *AppDaemon* python applications in *Home Assistant* provided with [this repository](https://github.com/hassio-addons/repository).
+- [**AppDaemon**](https://github.com/hassio-addons/addon-appdaemon3) for runing *AppDaemon* python applications in *Home Assistant* provided with [this repository](https://github.com/hassio-addons/repository).
 
 #### Addons from Hass.io
 - [**SSH Server**](https://home-assistant.io/addons/ssh/) for accessing my enviornment with SSH clients.
 - [**Samba**](https://home-assistant.io/addons/samba/) for accessing my configuration files with windows.
 - [**Bluetooth BCM43xx**](https://home-assistant.io/addons/bluetooth_bcm43xx/) for using the bluetooth chip on my rpi 3.
+- [**MariaDB**](https://www.home-assistant.io/addons/mariadb/) for using the bluetooth chip on my rpi 3.
 
 #### Custom Components
 - [**variable**](config/custom_components/variable.py) as instructed in [this post](https://community.home-assistant.io/t/custom-component-to-declare-set-variables/25218).
@@ -50,7 +51,7 @@ I will try to keep this repository updated with any changes I'll make in my work
  - [**Script with Custom Text**](/config/www/custom_ui/state-card-script-custom-text.html) made by myself for change the "ACTIVATE" value of the script entities, you can get it [here](https://github.com/TomerFi/home-assistant-custom-ui#script-with-custom-text).
 
 #### Python Scripts
- - [**service_call_loop.py**](config/python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
+ - [**set_entity_state.py**](config/python_scripts/set_entity_state.py) a simple python script I made for changing entities states without launchin a state change event, meaning the state will change but no action will occur.
  
 ### Themes
 - None of the [themes](config/themes) were made by myself, I'm not a frontend man. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).
