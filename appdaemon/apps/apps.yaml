@@ -1,0 +1,214 @@
+# global data, use as global_dependencies when needed
+global_modules:
+  - home_control
+  - global_data
+  - ir_packets
+  - alexa_request
+  - alexa_response_error
+  - alexa_response_success
+  - user_secrets
+
+##############################
+######### API Access #########
+##############################
+home_control_google:
+  module: home_control_google
+  class: HomeControl
+  global_dependencies:
+    - home_control
+    - user_secrets
+
+home_control_alexa:
+  module: home_control_alexa
+  class: HomeControl
+  global_dependencies:
+    - home_control
+    - user_secrets
+
+smarthome_custom_ac:
+  module: smarthome_custom_ac
+  class: AlexaCustomAC
+  climate_entities: 
+    - climate.nursery_ac
+  global_dependencies:
+    - alexa_requests
+    - alexa_response_error
+    - alexa_response_success
+
+#####################################
+### Data Manipulation Automations ###
+#####################################
+nursery_panel_extract_attributes_for_battery:
+  module: automations
+  class: WallPanelsExtractAttributesFromMessage
+  sensor_entity: 'sensor.wallpanel_nursery_battery'
+  sensor_type: 'battery'
+  sensor_topic: 'wallpanel/nursery_dash/sensor/battery'
+
+nursery_panel_extract_attributes_for_screen_on:
+  module: automations
+  class: WallPanelsExtractAttributesFromMessage
+  sensor_entity: 'sensor.wallpanel_nursery_screen_on'
+  sensor_type: 'state'
+  sensor_topic: 'wallpanel/nursery_dash/state'
+
+#####################################
+###### Notification Automations #####
+#####################################
+nursery_panel_low_battery_notification:
+  module: automations
+  class: BatteryLowSendNotification
+  sensor_entity: 'sensor.wallpanel_nursery_battery'
+  notify_service: 'notify.telegram_tomer_service'
+  threshold_precent: 20
+  device_name: "Nursery Tablet"
+  
+tomer_mi_a2_low_battery_notification:
+  module: automations
+  class: BatteryLowSendNotification
+  sensor_entity: 'sensor.tomer_owntracks_battery_sensor'
+  notify_service: 'notify.telegram_tomer_service'
+  threshold_precent: 30
+  device_name: "Tomer's MI A2"
+  
+hava_galaxy_low_battery_notification:
+  module: automations
+  class: BatteryLowSendNotification
+  sensor_entity: 'sensor.hava_owntracks_battery_sensor'
+  notify_service: 'notify.telegram_hava_service'
+  threshold_precent: 30
+  device_name: "Hava's Galaxy S9"
+
+###########################################
+######## Door Sensor Automations ##########
+###########################################
+small_bathroom_door_control_switch:
+  module: automations
+  class: SensorsControlSwitches
+  sensor_entity: 'sensor.broadlink_s1c_small_bathroom'
+  switch_entities: 'switch.small_bathroom_light'
+  turn_on_closed_to_open: True
+  turn_off_open_to_closed: False
+  global_dependencies: global_data
+  
+main_bathroom_door_control_switch:
+  module: automations
+  class: SensorsControlSwitches
+  sensor_entity: 'sensor.broadlink_s1c_main_bathroom'
+  switch_entities: 'switch.main_bathroom_light'
+  turn_on_closed_to_open: True
+  turn_off_open_to_closed: False
+  global_dependencies: global_data
+
+closet_room_door_control_switch:
+  module: automations
+  class: SensorsControlSwitches
+  sensor_entity: 'sensor.broadlink_s1c_closet_room'
+  switch_entities:
+    - 'switch.closet_room_light'
+    - 'switch.shower_light'
+  turn_on_closed_to_open: True
+  turn_off_open_to_closed: False
+  global_dependencies: global_data
+  
+service_door_control_switch:
+  module: automations
+  class: SensorsControlSwitches
+  sensor_entity: 'sensor.broadlink_s1c_service_room'
+  switch_entities: 'switch.service_room_light'
+  turn_on_closed_to_open: True
+  turn_off_open_to_closed: True
+  global_dependencies: global_data
+
+###########################################
+##### Nursery Ceiling Fan Automations #####
+###########################################
+nursery_ceiling_fan_off:
+  module: automations
+  class: CeilingFanMqttMessageToIRPacket
+  topic: 'tomerfi_custom_fan/nursery/command'
+  payload: 'off'
+  room: 'nursery'
+  command: 'off'
+  global_dependencies: ir_packets
+  
+nursery_ceiling_fan_on:
+  module: automations
+  class: CeilingFanMqttMessageToIRPacket
+  topic: 'tomerfi_custom_fan/nursery/command'
+  payload: 'on'
+  room: 'nursery'
+  command: 'low'
+  global_dependencies: ir_packets
+  
+nursery_ceiling_set_speed_low:
+  module: automations
+  class: CeilingFanMqttMessageToIRPacket
+  topic: 'tomerfi_custom_fan/nursery/speed'
+  payload: 'low'
+  room: 'nursery'
+  command: 'low'
+  global_dependencies: ir_packets
+  
+nursery_ceiling_set_speed_medium:
+  module: automations
+  class: CeilingFanMqttMessageToIRPacket
+  topic: 'tomerfi_custom_fan/nursery/speed'
+  payload: 'medium'
+  room: 'nursery'
+  command: 'medium'
+  global_dependencies: ir_packets
+  
+nursery_ceiling_set_speed_high:
+  module: automations
+  class: CeilingFanMqttMessageToIRPacket
+  topic: 'tomerfi_custom_fan/nursery/speed'
+  payload: 'high'
+  room: 'nursery'
+  command: 'high'
+  global_dependencies: ir_packets
+  
+#######################################
+##### OpenMqttGateway Automations #####
+#######################################
+bedroom_sticker_switch_toggle:
+  module: automations
+  class: CallServiceOnMqttMessage
+  topic: 'omg/rfgw_hallway/433toMQTT'
+  payload: '9127250'
+  service: 'switch.toggle'
+  data:
+    entity_id: "switch.bedroom_main_light"
+
+service_room_sticker_switch_toggle:
+  module: automations
+  class: CallServiceOnMqttMessage
+  topic: 'omg/rfgw_hallway/433toMQTT'
+  payload: '99041'
+  service: 'switch.toggle'
+  data:
+    entity_id: "switch.service_room_light"
+        
+kitchen_bar_light_sticker_switch_toggle:
+  module: automations
+  class: CallServiceOnMqttMessage
+  topic: 'omg/rfgw_hallway/433toMQTT'
+  payload: '99044'
+  service: 'switch.toggle'
+  data:
+    entity_id: "switch.kitchen_bar_light"
+        
+door_bell_ring_notification:
+  module: automations
+  class: CallServiceOnMqttMessage
+  topic: 'omg/rfgw_hallway/433toMQTT'
+  payload: '14878223'
+  service: 'notify.everyone'
+  data:
+    title: "Door Bell"
+    message: "The main entrance door bell was activated"
+    
+#test:
+#  module: automations
+#  class: HandleMqttACUnit
+  

@@ -1,0 +1,28 @@
+# not necessary
+*secrets.yaml
+*ip_bans.yaml
+*appdaemon/apps/user_secrets.py
+*.c9*
+*.cloud*
+*.storage*
+*/__pycache__/*
+*.pyc
+*deps/*
+*tts/*
+*.HA_VERSION
+*spotify-token-cache
+*uuid
+*ui-lovelace.yaml
+*.log
+*.conf
+
+# not mine to share
+*custom_components/media_player/*
+*custom_components/sensor/google_geocode.py
+*themes/*
+*www/device_pics/*
+*www/custom_ui/state-card-tiles.html
+*www/custom_ui/state-card-tiles_es5.html
+*appdaemon/custom_css/*
+*appdaemon/custom_widgets/*
+*appdaemon/compiled/*

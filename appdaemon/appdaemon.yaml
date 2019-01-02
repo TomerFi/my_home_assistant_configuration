@@ -1,0 +1,36 @@
+secrets: /home/homeassistant/.homeassistant/secrets.yaml
+
+log:
+  accessfile: /var/log/appdaemon/access.log
+  logfile: /var/log/appdaemon/appdaemon.log
+  errorfile: /var/log/appdaemon/error.log
+  log_generations: 5
+  log_size: 1024
+
+appdaemon:
+  threads: 10
+  app_dir: /home/homeassistant/.homeassistant/appdaemon/apps
+  api_port: !secret appdaemon_api_port
+  api_key: !secret appdaemon_api_key
+  plugins:
+    HASS:
+      namespace: default
+      type: hass
+      ha_url: !secret http_base_url
+      token: !secret appdaemon_ha_access_token
+    MQTT:
+      namespace: mqtt
+      type: mqtt
+      verbose: false
+      client_host: !secret mosquitto_broker_ip
+      client_port: !secret mosquitto_broker_port
+      client_id: !secret mosquitto_appdaemon_client_id
+      client_user: !secret mosquitto_appdaemon_user
+      client_password: !secret mosquitto_appdaemon_password
+
+hadashboard:
+  dash_url: !secret appdaemon_dash_url
+  dash_password: !secret appdaemon_dash_password
+  dash_force_compile: 1
+  dash_compile_on_start: 1
+  dashboard_dir: /home/homeassistant/.homeassistant/appdaemon/dashboards

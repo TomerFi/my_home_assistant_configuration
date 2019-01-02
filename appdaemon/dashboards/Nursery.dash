@@ -1,0 +1,175 @@
+title: Daria's Room
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [1, 1]
+rows: 5
+columns: 8
+scalable: false
+global_parameters:
+  use_comma: 0
+  precision: 1
+  use_hass_icon: 0
+
+layout:
+  - clock_show(2x1), title_label(4x1), weather_sum(2x1)
+  - hue_ambiance(5x1), ac_switch, ac_operation_mode, ac_fan_level
+  - hue_ambiance_temp(5x1), ac_climate(3x1)
+  - hue_lightstrip, hue_lightstrip_temp(5x1), fan_off_speed, fan_low_speed
+  - hue_bloom, hue_bloom_temp(5x1), fan_medium_speed, fan_high_speed
+
+title_label:
+  widget_type: label
+  title2: "Daria's Room"
+  title2_style: "margin-top: 20px; font-size: 350%; color: Orchid;"
+
+#reload_button:
+#  widget_type: reload
+
+clock_show:
+  widget_type: clock
+  time_format: "24hr"
+  show_seconds: 1
+  date_format_country: "il"
+  date_format_options:
+    weekday: "long"
+    day: "numeric"
+    month: "numeric"
+    year: "numeric"
+  time_style: "color: White;"
+
+#weather_show:
+#  widget_type: weather
+#  title: Today
+#  show_forecast: 1
+#  prefer_icons: 1
+#  forecast_title: Tomorrow
+#  sensors:
+#    icon: sensor.dark_sky_icon
+#    temperature: sensor.dark_sky_temperature
+#    apparent_temperature: sensor.dark_sky_apparent_temperature
+#    humidity: sensor.dark_sky_humidity
+#    precip_probability: sensor.dark_sky_precip_probability
+#    precip_intensity: sensor.dark_sky_precip_intensity
+#    precip_type: sensor.dark_sky_precip
+#    pressure: sensor.dark_sky_pressure
+#    wind_speed: sensor.dark_sky_wind_speed
+#    wind_bearing: sensor.dark_sky_wind_bearing
+#    forecast_icon: sensor.dark_sky_icon_1
+#    forecast_temperature_min: sensor.dark_sky_overnight_low_temperature_1
+#    forecast_temperature_max: sensor.dark_sky_daytime_high_temperature_1
+#    forecast_precip_probability: sensor.dark_sky_precip_probability_1
+#    forecast_precip_type: sensor.dark_sky_precip_1
+
+weather_sum:
+  widget_type: weather_summary
+  entity: sensor.dark_sky_summary
+    
+hue_ambiance:
+  widget_type: light_with_brightness
+  entity: light.nursery_main_light
+  icon_on: mdi-lightbulb-on
+  icon_off: mdi-lightbulb-outline
+  widget_style: "background-color: SlateGrey;"
+
+hue_ambiance_temp:
+  widget_type: input_number
+  entity: input_number.nursery_ambiance_color_temperature
+  widget_style: "background-color: SlateGrey;"
+  #minvalue_style: "color: SlateGrey;"
+  #maxvalue_style: "color: SlateGrey;"
+  #value_style: "color: SlateGrey; font-weight: bold;"
+  #slider_style: "background-color: SlateGrey;"
+  #slidercontainer_style: "background-color: Red;"
+
+hue_lightstrip:
+  widget_type: light_with_colorpicker
+  entity: light.nursery_dresser_light
+  widget_style: "background-color: Silver;"
+
+hue_lightstrip_temp:
+  widget_type: input_number
+  entity: input_number.nursery_lightstrip_brightness
+  widget_style: "background-color: Silver;"
+
+hue_bloom:
+  widget_type: light_with_colorpicker
+  entity: light.nursery_chair_light
+  widget_style: "background-color: RosyBrown;"
+  
+hue_bloom_temp:
+  widget_type: input_number
+  entity: input_number.nursery_bloom_brightness
+  widget_style: "background-color: RosyBrown;"
+
+ac_climate:
+  widget_type: climate
+  title: "currently"
+  entity: climate.nursery_ac
+  step: 1
+  unit: "°C"
+  unit2: "°C"
+  precision: 1
+  icon_up: fas-plus-circle
+  icon_down: fas-minus-circle
+  title_style: "color: White;"
+  level_style: "margin-top:-100px; color: Gray; font-weight: bold;"
+  unit_style: "margin-top:-100px; color: Gray; font-weight: bold;"
+  level2_style: "font-size: 200%; color: Gray"
+  unit2_style: "font-size: 200%; color: Gray"
+  level_down_style: "font-size: 150%; color: Gray;"
+  level_up_style: "font-size: 150%; color: Gray; margin-left:-15px;"
+  widget_style: "background-color: Thistle"
+
+ac_switch:
+  widget_type: input_boolean
+  entity: switch.nursery_ac_toggle
+  icon_on: fas-toggle-on
+  icon_off: fas-toggle-off
+  widget_style: "background-color: Thistle"
+
+ac_operation_mode:
+  widget_type: input_select
+  entity: input_select.nursery_ac_operation_mode
+  select_style: "color: Black;"
+  widget_style: "background-color: Thistle"
+  
+ac_fan_level:
+  widget_type: input_select
+  entity: input_select.nursery_ac_fan_level
+  widget_style: "background-color: Thistle"
+  
+fan_low_speed:
+  widget_type: script
+  entity: script.set_nursery_ceiling_fan_low
+  icon_on: mdi-alpha-l
+  icon_off: mdi-alpha-l
+  widget_style: "background-color: Tan;"
+  icon_style_active: "color: White;"
+  icon_style_inactive: "color: White;"
+
+fan_medium_speed:
+  widget_type: script
+  entity: script.set_nursery_ceiling_fan_medium
+  icon_on: mdi-alpha-m
+  icon_off: mdi-alpha-m
+  widget_style: "background-color: Tan;"
+  icon_style_active: "color: White;"
+  icon_style_inactive: "color: White;"
+
+fan_high_speed:
+  widget_type: script
+  entity: script.set_nursery_ceiling_fan_high
+  icon_on: mdi-alpha-h
+  icon_off: mdi-alpha-h
+  widget_style: "background-color: Tan;"
+  icon_style_active: "color: White;"
+  icon_style_inactive: "color: White;"
+
+fan_off_speed:
+  widget_type: script
+  entity: script.set_nursery_ceiling_fan_off
+  icon_on: mdi-fan-off
+  icon_off: mdi-fan-off
+  widget_style: "background-color: Tan;"
+  icon_style_active: "color: White;"
+  icon_style_inactive: "color: White;"

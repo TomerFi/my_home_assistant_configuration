@@ -1,0 +1,135 @@
+##########################################
+############## Home Assistant ############
+##########################################
+homeassistant:
+  name: Home
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  elevation: !secret homeassistant_elevation
+  unit_system: metric
+  time_zone: Asia/Jerusalem
+  customize: !include customize_ent.yaml
+  customize_glob: !include customize_glob.yaml
+  customize_domain: !include customize_domain.yaml
+
+##########################################
+############### Web Stuff ################
+##########################################
+http:
+  base_url: !secret http_base_url
+  api_password: !secret http_api_password
+  server_port: !secret http_server_port
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - !secret trusted_proxy
+
+##########################################
+################ Includes ################
+##########################################
+recorder: !include recorder.yaml
+switch: !include switches.yaml
+remote: !include remotes.yaml
+media_player: !include media_players.yaml
+input_number: !include input_number.yaml
+input_select: !include input_select.yaml
+input_boolean: !include input_boolean.yaml
+input_text: !include input_text.yaml
+cover: !include covers.yaml
+sensor: !include sensors.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+device_tracker: !include device_tracker.yaml
+zone: !include zones.yaml
+intent_script: !include alexa_intents.yaml
+scene: !include scenes.yaml
+notify: !include notifications.yaml
+date_notifier: !include date_notifiers.yaml
+alexa: !include alexa.yaml
+google_assistant: !include google_assistant.yaml
+cast: !include cast.yaml
+climate: !include climate.yaml
+fan: !include fan.yaml
+amcrest: !include amcrest.yaml
+camera: !include camera.yaml
+
+##########################################
+######### Components Configuration #######
+##########################################
+frontend:
+  themes: !include_dir_merge_named themes
+  javascript_version: latest
+  extra_html_url:
+    - /local/custom_ui/state-card-script-custom-text.html
+    - /local/custom_ui/state-card-tiles.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-script-custom-text-es5.html
+    - /local/custom_ui/state-card-tiles_es5.html
+
+config:
+
+updater:
+  reporting: false
+
+history:
+
+logbook:
+
+owntracks:
+  max_gps_accuracy: 100
+  track_new_devices: false
+
+python_script:
+
+mqtt:
+  broker: !secret mosquitto_broker_ip
+  port: !secret mosquitto_broker_port
+  client_id: !secret mosquitto_ha_client_id
+  username: !secret mosquitto_ha_user
+  password: !secret mosquitto_ha_password
+  discovery: false
+
+#enable_loop_debug:
+
+logger:
+  default: error
+#  logs:
+#    homeassistant.components.automation: debug
+#    homeassistant.components.script: debug
+#    homeassistant.helpers.service: debug
+#    homeassistant.components.switch.broadlink: debug
+#    custom_components.smartthings_bridge: debug
+
+switcher_aio:
+  phone_id: !secret switcher_phone_id
+  device_id: !secret switcher_device_id
+  device_password: !secret switcher_device_password
+    
+smartthings_bridge:
+  url: !secret smartthings_bridge_url
+  token: !secret smartthings_bridge_token
+  
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret telegram_tomer_chat_id
+      - !secret telegram_hava_chat_id
+
+lifx:
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+
+#weather:
+#  - platform: darksky
+#    api_key: !secret darksky_api_key
+
+hue:
+  bridges:
+    - host: !secret living_room_hue_bridge_ip
+      allow_unreachable: true
+      allow_hue_groups: true
