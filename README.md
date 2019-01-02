@@ -14,7 +14,6 @@ I will try to keep this repository updated with any changes I'll make in my work
     - [Custom UI](#custom-ui)
     - [Python Scripts](#python-scripts)
   - [Themes](#themes)
-  - [Frontend](#frontend)
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
   - [DIY Projects](#diy-projects)
@@ -33,7 +32,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 - **sensor/google_geocode** as instructed in [this post](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233).
 - [**sensor/shabbat_times**](custom_components/sensor/shabbat_times.py) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/shabbat_times).
 - **media_player/broadlink** as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*ir_codes*](ir_codes) folder are related to this component.
-- [**switcher_aio**](custom_components/switcher_aio). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_aio).
+- [**switcher_aio**](custom_components/switcher_aio) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_aio).
 - [**sensor/broadlink_s1c**](custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
 - [**smartthings_bridge**](custom_components/smartthings_bridge) as the bridge component and [**sensor/smartthings_bridge**](custom_components/sensor/smartthings_bridge.py) as the sensor entity. made by myself, you can get it [here](https://github.com/TomerFi/home_assistant_smartthings_bridge).
 
@@ -65,7 +64,7 @@ I will try to keep this repository updated with any changes I'll make in my work
   - CERTBOT for managing my [Let's Encrypt](https://letsencrypt.org/) certificates.
   - MOSQUITTO MQTT for passing payloads from my various services and devices to home assistant.
   - DNSMASQ as a dns and dhcp servers.
-- **Windows MQTT Client** written in java by myself, with a controller for activating windows applications based on recived payloads. You can have a look [here](https://community.home-assistant.io/t/how-i-made-alexa-talk-to-my-computer-through-home-assistant/32448), see the client in action [here](https://www.youtube.com/watch?v=AQzD0TPG-xE) and get the instructions for how to use it [here](https://github.com/TomerFi/smathhome_computer_mqtt_client).
+- **Windows MQTT Client** written in java by myself, with a controller for activating windows applications based on received payloads. You can have a look [here](https://community.home-assistant.io/t/how-i-made-alexa-talk-to-my-computer-through-home-assistant/32448), see the client in action [here](https://www.youtube.com/watch?v=AQzD0TPG-xE) and get the instructions for how to use it [here](https://github.com/TomerFi/smathhome_computer_mqtt_client).
 - **6X** [**Amazon Alexa Enabled Devices**](https://www.amazon.com/Amazon-Echo-And-Alexa-Devices/b/ref=nav_shopall_1_ods_ha_echo_cp?ie=UTF8&node=9818047011), 2X Echo 1st generation (1 in the kitchen and 1 in the bedroom), 2X Echo Dot 2nd generation (1 in the den and 1 in the living room), 1X Echo Dot 3rd generation in the nursery and 1X Dash Wand laying around the house.
 - [**Google Home Mini**](https://store.google.com/us/product/google_home_mini?hl=en-US) in my office.
 - [**Google Chromecast**](https://store.google.com/us/product/chromecast_2015?hl=en-US) connected to a Metz TV in my office.
@@ -78,16 +77,16 @@ I will try to keep this repository updated with any changes I'll make in my work
   - [Philips Hue White and Color Ambiance LightStrip Plus](https://www.amazon.com/gp/product/B0167H33DU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1) behind the dresser in the nursery.
   - [Philips Hue Bloom](https://www.amazon.com/gp/product/B07BNRYGYX/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1) behind the feeding chair in the nursery.
 - [**Fire HD 8 Tablet**](https://www.amazon.com/gp/product/B0794RHPZD/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1) mounted on nursery wall running [WallPanel](https://github.com/WallPanel-Project/wallpanel-android) to display an [AppDaemon Dashboard](#dashboards).
-- [**SmartThings Link for Nvidia Shield](https://www.amazon.com/gp/product/B071GSVP6Z/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) connected to my [Nvidia Shield](https://www.amazon.com/gp/product/B01N1NT9Y6/ref=oh_aui_detailpage_o06_s00?ie=UTF8&psc=1) amd used as a [SmartThings Hub](https://www.smartthings.com/).
-- [**Harmony Elite**](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controling the following devices:
+- [**SmartThings Link for Nvidia Shield**](https://www.amazon.com/gp/product/B071GSVP6Z/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) connected to my [Nvidia Shield](https://www.amazon.com/gp/product/B01N1NT9Y6/ref=oh_aui_detailpage_o06_s00?ie=UTF8&psc=1) amd used as a [SmartThings Hub](https://www.smartthings.com/).
+- [**Harmony Elite**](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controlling the following devices:
   - Samsung Smart TV
   - Yes STB
   - [Nvidia Shield Console](https://www.amazon.com/gp/product/B01N1NT9Y6/ref=oh_aui_detailpage_o02_s00?ie=UTF8&th=1).
   - [Harman Kardon Sabre SB35](https://www.amazon.com/Harman-Kardon-SABRE-SB35-Entertainment/dp/B00F9HTX7U/ref=sr_1_1?s=electronics&ie=UTF8&qid=1510609535&sr=1-1&keywords=sabre+sb35).
   - [Lifx-Z led strip](https://www.amazon.com/gp/product/B01KY02NLY/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1).
-- [**Broadlink RM Pro**](https://www.aliexpress.com/item/Broadlink-RM2-RM-Pro-Smart-home-Automation-Universal-Intelligent-wireless-remote-control-WIFI-IR-RF-switch/32738344424.html?spm=a2g0s.9042311.0.0.elfcCR) in the living room controling the following devices:
+- [**Broadlink RM Pro**](https://www.aliexpress.com/item/Broadlink-RM2-RM-Pro-Smart-home-Automation-Universal-Intelligent-wireless-remote-control-WIFI-IR-RF-switch/32738344424.html?spm=a2g0s.9042311.0.0.elfcCR) in the living room controlling the following devices:
   - Electra Classic 35 Air Conditioner in the living room.
-  - 9X [Broadlink TC2 1Gang Switches EU Standart](https://www.aliexpress.com/item/2016-New-Arrival-Broadlink-TC2-Light-Touch-Switch-EU-220V-1Gang-Wall-Switch-White-Touch-Panel/32592935925.html?spm=a2g0s.9042311.0.0.elfcCR).
+  - 8X [Broadlink TC2 1Gang Switches EU Standart](https://www.aliexpress.com/item/2016-New-Arrival-Broadlink-TC2-Light-Touch-Switch-EU-220V-1Gang-Wall-Switch-White-Touch-Panel/32592935925.html?spm=a2g0s.9042311.0.0.elfcCR).
   - 2X [Broadlink TC2 2Gang Switches EU Standart](https://www.aliexpress.com/item/2016-New-Arrival-Broadlink-TC2-Touch-Switches-2Gang-EU-220V-Remote-Control-Wall-Light-Switch-Smart/32592959665.html?spm=a2g0s.9042311.0.0.elfcCR).
   - [Broadlink TC2 3Gang Switch US Standart](https://www.aliexpress.com/item/2016-New-Broadlink-TC2-Light-Touch-Switch-US-AU-110V-3Gang-Wall-Switch-Wireless-Remote-Control/32591265614.html?spm=a2g0s.9042311.0.0.1rwADH).
 - [**Broadlink SP2 Plug**](https://www.aliexpress.com/item/Broadlink-16A-EU-US-wifi-power-socket-SP-CC-Home-Automation-Smart-plug-outlet-Wireless-Control/32639393902.html?spm=a2g0s.9042311.0.0.1rwADH) controlling a simple led strip in the kitchen.
@@ -99,7 +98,7 @@ I will try to keep this repository updated with any changes I'll make in my work
   - Elco Air Conditioner in the nursery.
   - Metz simple IR TV in the office.
   - Hyundai Ceiling Fan in the office.
-- [**Broadlink S1c 1st generation Alarm Kit**](https://www.aliexpress.com/item/2015-New-Arrival-Broadlink-S1-S1C-SmartOne-Alarm-Security-Kit-For-Home-Smart-Home-Alarm-System/32523639274.html?spm=a2g0s.9042311.0.0.1rwADH) working with 4X [Broadlink magnetic sensors](https://www.aliexpress.com/item/Original-Broadlink-S1C-433Mhz-Door-Sensor-Contact-Wireless-Window-Magnet-Entry-Detector-Sensor-Smart-Home-Alarm/32694362268.html?spm=a2g0s.9042311.0.0.8GFN5e).
+- [**Broadlink S1c 1st generation Alarm Kit**](https://www.aliexpress.com/item/2015-New-Arrival-Broadlink-S1-S1C-SmartOne-Alarm-Security-Kit-For-Home-Smart-Home-Alarm-System/32523639274.html?spm=a2g0s.9042311.0.0.1rwADH) working with 5X [Broadlink magnetic sensors](https://www.aliexpress.com/item/Original-Broadlink-S1C-433Mhz-Door-Sensor-Contact-Wireless-Window-Magnet-Entry-Detector-Sensor-Smart-Home-Alarm/32694362268.html?spm=a2g0s.9042311.0.0.8GFN5e), 1X [Broadlink PIR mostion sensor](https://www.aliexpress.com/item/Original-BroadLink-Smart-Home-Wireless-Intelligent-Infrared-PIR-Motion-Sensor-Anti-theft-for-Home-Security-S1/32757643751.html?spm=2114.search0104.3.8.3fc8a236izI5LU&ws_ab_test=searchweb0_0,searchweb201602_3_10065_10068_319_10059_10884_317_10887_10696_100031_321_322_10084_453_10083_454_10103_10618_10307_537_536,searchweb201603_51,ppcSwitch_0&algo_expid=126dccf7-f4b5-4a2b-b329-a0c6626a8846-1&algo_pvid=126dccf7-f4b5-4a2b-b329-a0c6626a8846) and 1X [Broadlink Key Fob remote control](https://www.aliexpress.com/item/Original-Broadlink-S1C-S1-S2-Key-Fob-Remote-Control-Activate-Select-Sensors-For-S1-S1C-SmartONE/32842170690.html?spm=2114.search0104.3.94.45e06ef7elLUke&ws_ab_test=searchweb0_0,searchweb201602_3_10065_10068_319_10059_10884_317_10887_10696_100031_321_322_10084_453_10083_454_10103_10618_10307_537_536,searchweb201603_51,ppcSwitch_0&algo_expid=5b984a39-8673-41e1-96b9-2a3d74a7c7df-14&algo_pvid=5b984a39-8673-41e1-96b9-2a3d74a7c7df).
 - [**Broadlink A1 Sensor**](https://www.aliexpress.com/item/Broadlink-A1-E-air-wifi-Air-Quatily-Detector-Intelligent-Purifier-smart-home-Automation-phone-detect-Temperature/32614430027.html?spm=a2g0s.9042311.0.0.6NtFMx).
 - [**Switcher V2 Boiler Switch**](https://www.switcher.co.il/%D7%9E%D7%95%D7%A6%D7%A8/%D7%A1%D7%95%D7%95%D7%99%D7%A6%D7%A8/?doing_wp_cron=1519315002.3308029174804687500000).
 - [**RF Doorbell**](https://www.aliexpress.com/item/Plug-in-Wireless-Door-Bell-Waterproof-US-Plug-Push-Button-36-Chimes-1-Ourdoor-Transmitter-2/32326166816.html?spm=a2g0s.9042311.0.0.719e4c4dV4Xc1V).
