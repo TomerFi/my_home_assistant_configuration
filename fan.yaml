@@ -1,0 +1,28 @@
+- platform: mqtt
+  name: "nursery_ceiling_fan"
+  command_topic: "tomerfi_custom_fan/nursery/command"
+  #state_topic:
+  payload_on: "on"
+  payload_off: "off"
+  #state_value_template:
+  qos: 0
+  #optimistic: true
+  retain: false
+  #oscillation_state_topic:
+  #oscillation_command_topic:
+  #payload_oscillation_on:
+  #payload_oscillation_off:
+  #oscillation_value_template:
+  #speed_state_topic:
+  speed_command_topic: "tomerfi_custom_fan/nursery/speed"
+  payload_low_speed: "low"
+  payload_medium_speed: "medium"
+  payload_high_speed: "high"
+  #speed_value_template:
+  speeds:
+    - "low"
+    - "medium"
+    - "high"
+  #availability_topic:
+  #payload_available:
+  #payload_not_available:

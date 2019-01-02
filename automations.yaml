@@ -1,0 +1,687 @@
+##########################################
+########## System Automations ############
+##########################################
+- id: on_start_event
+  alias: on_start_event
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: '00:01:00'
+    - service: script.turn_on
+      entity_id: script.correct_objects_values
+    - service: script.turn_on
+      entity_id: script.run_speed_test
+    - service: script.turn_on
+      entity_id: script.get_workstation_mqtt_client_status
+    - service: script.turn_on
+      entity_id: script.check_last_recorder_session
+
+- id: set_log_level
+  alias: set_log_level
+  trigger:
+    platform: state
+    entity_id: input_select.select_log_level
+  action:
+    service: logger.set_level
+    data_template:
+      homeassistant.components: "{{ trigger.to_state.state }}"
+
+##########################################
+#### Office Ceiling Fan Automations ######
+##########################################
+- id: office_fan_level_change_on
+  alias: office_fan_level_change_on
+  trigger:
+    platform: state
+    entity_id: input_select.office_ceiling_fan_level
+    from: "OFF_"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.office_light
+    - service: switch.turn_on
+      data_template:
+        entity_id: >
+          {%if trigger.to_state.state == "LOW"%}switch.office_fan_low_speed
+          {%elif trigger.to_state.state == "MED"%}switch.office_fan_medium_speed
+          {%elif trigger.to_state.state == "HIGH"%}switch.office_fan_high_speed
+          {%else%}switch.office_fan
+          {%endif%}
+
+- id: office_fan_level_change_off
+  alias: office_fan_level_change_off
+  trigger:
+    platform: state
+    entity_id: input_select.office_ceiling_fan_level
+    to: "OFF_"
+  action:
+    service: switch.turn_off
+    data:
+      entity_id: switch.office_fan
+
+- id: office_light_off
+  alias: office_light_off
+  trigger:
+    platform: state
+    entity_id: switch.office_light
+    to: 'off'
+  action:
+    - service: python_script.set_entity_state
+      data:
+        state: 'OFF_'
+        entity_id: input_select.office_ceiling_fan_level
+    - service: python_script.set_entity_state
+      data:
+        state: 'off'
+        entity_id:
+        - switch.office_fan_light
+        - switch.office_fan_low_speed
+        - switch.office_fan_medium_speed
+        - switch.office_fan_high_speed
+        - switch.office_fan
+
+- id: office_light_on
+  alias: office_light_on
+  trigger:
+    platform: state
+    entity_id: switch.office_light
+    to: 'on'
+  action:
+    service: python_script.set_entity_state
+    data:
+      state: 'on'
+      entity_id: switch.office_fan_light
+
+- id: office_fan_off
+  alias: office_fan_off
+  trigger:
+    - platform: state
+      entity_id: switch.office_fan_low_speed
+      to: 'off'
+    - platform: state
+      entity_id: switch.office_fan_medium_speed
+      to: 'off'
+    - platform: state
+      entity_id: switch.office_fan_high_speed
+      to: 'off'
+    - platform: state
+      entity_id: switch.office_fan
+      to: 'off'
+  action:
+    - service: python_script.set_entity_state
+      data:
+        state: 'off'
+        entity_id:
+          - switch.office_fan_low_speed
+          - switch.office_fan_medium_speed
+          - switch.office_fan_high_speed
+          - switch.office_fan
+    - service: python_script.set_entity_state
+      data:
+        state: 'OFF_'
+        entity_id: input_select.office_ceiling_fan_level
+
+- id: office_fan_on
+  alias: office_fan_on
+  trigger:
+    - platform: state
+      entity_id: switch.office_fan_low_speed
+      to: 'on'
+    - platform: state
+      entity_id: switch.office_fan_medium_speed
+      to: 'on'
+    - platform: state
+      entity_id: switch.office_fan_high_speed
+      to: 'on'
+    - platform: state
+      entity_id: switch.office_fan
+      to: 'on'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.office_light
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.office_ceiling_fan_level
+        option: >
+          {%if trigger.entity_id == "switch.office_fan_low_speed" %}LOW
+          {%elif trigger.entity_id == "switch.office_fan_medium_speed" %}MED
+          {%elif trigger.entity_id == "switch.office_fan_high_speed" %}HIGH
+          {%else%}OFF_
+          {%endif%}
+
+- id: office_fan_light_on
+  alias: office_fan_light_on
+  trigger:
+    platform: state
+    entity_id: switch.office_fan_light
+    to: 'on'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.office_light
+
+##########################################
+######### TV Led Automations #############
+##########################################
+- id: change_tv_led_brightness
+  alias: change_tv_led_brightness
+  trigger:
+    platform: state
+    entity_id: input_number.tv_led_brightness
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.tv_lights
+      brightness_pct: '{{ states.input_number.tv_led_brightness.state | int }}'
+
+- id: change_tv_led_temperature
+  alias: change_tv_led_temperature
+  trigger:
+    platform: state
+    entity_id: input_number.tv_led_temperature
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.tv_lights
+      color_temp: '{{ states.input_number.tv_led_temperature.state | int }}'
+      brightness_pct: '{{ states.input_number.tv_led_brightness.state | int }}'
+
+- id: change_tv_led_color
+  alias: change_tv_led_color
+  trigger:
+    platform: state
+    entity_id: input_select.tv_led_color
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.tv_lights
+      color_name: '{{ states.input_select.tv_led_color.state | string }}'
+      brightness_pct: '{{ states.input_number.tv_led_brightness.state | int }}'
+
+- id: change_tv_led_theme
+  alias: change_tv_led_theme
+  trigger:
+    platform: state
+    entity_id: input_select.tv_led_theme
+  action:
+    service: script.tv_led_theme_select_script
+    data_template:
+      selected_theme: '{{ states.input_select.tv_led_theme.state }}'
+
+##########################################
+##### Living Room AC Automations #########
+##########################################
+- id: lr_ac_changes
+  alias: lr_ac_changes
+  trigger:
+    - platform: state
+      entity_id: sensor.lr_ac_temp_sensor
+    - platform: state
+      entity_id: input_select.lr_ac_state
+    - platform: state
+      entity_id: input_select.lr_ac_fan
+  action:
+    - condition: state
+      entity_id: input_boolean.lr_ac_status
+      state: 'on'
+    - service: script.living_room_ac_check_state_script
+      data_template:
+        selected_mode: '{{ states.input_select.lr_ac_state.state }}'
+        selected_fan: '{{ states.input_select.lr_ac_fan.state }}'
+        selected_temp: '{{ states.sensor.lr_ac_temp_sensor.state }}'
+
+- id: lr_ac_status_on
+  alias: lr_ac_status_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.lr_ac_status
+    to: 'on'
+  action:
+    service: script.living_room_ac_check_state_script
+    data_template:
+      selected_mode: '{{ states.input_select.lr_ac_state.state }}'
+      selected_fan: '{{ states.input_select.lr_ac_fan.state }}'
+      selected_temp: '{{ states.sensor.lr_ac_temp_sensor.state }}'
+          
+- id: lr_ac_status_off
+  alias: lr_ac_status_off
+  trigger:
+    platform: state
+    entity_id: input_boolean.lr_ac_status
+    to: 'off'
+  action:
+    service: script.living_room_rm_pro_send_packet
+    data:
+      packet_code:
+        - "JgDYAAABKpUTNxI4ExQTExQUFBQUNxI5EzgTOBM4ExQTFBMUFDcTOBUUEzgTNxMUFBMVOBI3FDgTOBQTFTgSExQUExQTFBMUFBMTFBQTExQUExM4FDgSFRMUExQTFBMUExQTFBMVExQUExMUFBMTFBQUEjgUFBQUFBQTFBMUFBQTFBQUExQTFRMUExQUFBMUFBQTFBMUFBQUExQUExQUFBMUExQUFBMUFBQTFBQUExQTFBQUExQTFBQ3FRQROBUUExQUExQUExUTFBM4EhQUNxM4FDgTOBM4FgANBQ=="
+
+- id: living_room_ac_show_extra_controls_on
+  alias: living_room_ac_show_extra_controls_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.lr_ac_status
+    to: 'on'
+  action:
+    service: group.set_visibility
+    data:
+      entity_id: group.living_room_ac_hidden_controls
+      visible: true
+      
+- id: living_room_ac_show_extra_controls_off
+  alias: living_room_ac_show_extra_controls_off
+  trigger:
+    platform: state
+    entity_id: input_boolean.lr_ac_status
+    to: 'off'
+  action:
+    service: group.set_visibility
+    data:
+      entity_id: group.living_room_ac_hidden_controls
+      visible: false
+
+##########################################
+######### Bedroom AC Automations #########
+##########################################
+- id: bedroom_ac_changes
+  alias: bedroom_ac_changes
+  trigger:
+    - platform: state
+      entity_id: sensor.bedroom_ac_temp_sensor
+    - platform: state
+      entity_id: input_select.bedroom_ac_state
+    - platform: state
+      entity_id: input_select.bedroom_ac_fan
+  action:
+    - condition: state
+      entity_id: input_boolean.bedroom_ac_status
+      state: 'on'
+    - service: script.bedroom_ac_check_state_script
+      data_template:
+        selected_mode: '{{ states.input_select.bedroom_ac_state.state }}'
+        selected_fan: '{{ states.input_select.bedroom_ac_fan.state }}'
+        selected_temp: '{{ states.sensor.bedroom_ac_temp_sensor.state }}'
+
+- id: bedroom_ac_status_on
+  alias: bedroom_ac_status_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.bedroom_ac_status
+    to: 'on'
+  action:
+    service: script.bedroom_ac_check_state_script
+    data_template:
+      selected_mode: '{{ states.input_select.bedroom_ac_state.state }}'
+      selected_fan: '{{ states.input_select.bedroom_ac_fan.state }}'
+      selected_temp: '{{ states.sensor.bedroom_ac_temp_sensor.state }}'
+          
+- id: bedroom_ac_status_off
+  alias: bedroom_ac_status_off
+  trigger:
+    platform: state
+    entity_id: input_boolean.bedroom_ac_status
+    to: 'off'
+  action:
+    service: script.bedroom_rm_mini_send_packet
+    data:
+      packet_code:
+        - "JgDKAJCMFzQSERM0EjQUEBMQEzQTEBMREjQVDxIREzQTMxMREjUSERI1EjQTNBM0ERISNRE2EDYRExATERIRExA2ERMQExE2EDcSNBQQEhESERMREhESEhATEBMRNhA3EDYRNhE2EKyPkhA2ERMQNhE2EBMRExA2ERMQExE2EBMRExA2ETYREhE2ERMQNhE2EDcQNhETEDYRNhE2EBMRExATERIRNhESERMQNxA2ETYREhETEBMREhETEBMSEhIREDcSNBE2ETYSNRIADQUAAAAAAAAAAAAAAAAAAA=="
+        
+- id: bedroom_ac_show_extra_controls_on
+  alias: bedroom_ac_show_extra_controls_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.bedroom_ac_status
+    to: 'on'
+  action:
+    service: group.set_visibility
+    data:
+      entity_id: group.bedroom_ac_hidden_controls
+      visible: true
+      
+- id: bedroom_ac_show_extra_controls_off
+  alias: bedroom_ac_show_extra_controls_off
+  trigger:
+    platform: state
+    entity_id: input_boolean.bedroom_ac_status
+    to: 'off'
+  action:
+    service: group.set_visibility
+    data:
+      entity_id: group.bedroom_ac_hidden_controls
+      visible: false
+
+##########################################
+######### Nursery AC Automations #########
+##########################################
+- id: nursery_ac_mode_off
+  alias: "nursery_ac_mode_off"
+  trigger:
+    platform: mqtt
+    topic: tomerfi_custom_ac/nursery/mode
+    payload: "off"
+  action:
+    service: script.nursery_rm_mini_send_packet
+    data:
+      packet_code:
+        - "JgDKAJCMFzQSERM0EjQUEBMQEzQTEBMREjQVDxIREzQTMxMREjUSERI1EjQTNBM0ERISNRE2EDYRExATERIRExA2ERMQExE2EDcSNBQQEhESERMREhESEhATEBMRNhA3EDYRNhE2EKyPkhA2ERMQNhE2EBMRExA2ERMQExE2EBMRExA2ETYREhE2ERMQNhE2EDcQNhETEDYRNhE2EBMRExATERIRNhESERMQNxA2ETYREhETEBMREhETEBMSEhIREDcSNBE2ETYSNRIADQUAAAAAAAAAAAAAAAAAAA=="
+
+- id: nursery_ac_mode_on
+  alias: "nursery_ac_mode_on"
+  trigger:
+    platform: mqtt
+    topic: tomerfi_custom_ac/nursery/mode
+  condition:
+    condition: template
+    value_template: "{{ states.climate.nursery_ac.attributes.operation_mode != 'off' }}"
+  action:
+    service: script.nursery_ac_check_state_script
+    data_template:
+      selected_mode: '{{ trigger.payload }}'
+      selected_fan: '{{ states.climate.nursery_ac.attributes.fan_mode }}'
+      selected_temp: '{{ states.climate.nursery_ac.attributes.temperature }}'    
+
+- id: nursery_ac_fan_change
+  alias: "nursery_ac_fan_change"
+  trigger:
+    platform: mqtt
+    topic: tomerfi_custom_ac/nursery/fan
+  action:
+    service: script.nursery_ac_check_state_script
+    data_template:
+      selected_mode: '{{ states.climate.nursery_ac.attributes.operation_mode }}'
+      selected_fan: '{{ trigger.payload }}'
+      selected_temp: '{{ states.climate.nursery_ac.attributes.temperature }}' 
+
+- id: nursery_ac_temp_change
+  alias: "nursery_ac_temp_change"
+  trigger:
+    platform: mqtt
+    topic: tomerfi_custom_ac/nursery/temperature
+  action:
+    service: script.nursery_ac_check_state_script
+    data_template:
+      selected_mode: '{{ states.climate.nursery_ac.attributes.operation_mode }}'
+      selected_fan: '{{ states.climate.nursery_ac.attributes.fan_mode }}'
+      selected_temp: '{{ trigger.payload }}' 
+      
+- id: nursery_ac_operation_mode_input_select
+  alias: nursery_ac_operation_mode_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.nursery_ac_operation_mode
+  action:
+    service: climate.set_operation_mode
+    data_template:
+      entity_id: climate.nursery_ac
+      operation_mode: "{{ trigger.to_state.state }}"
+
+- id: nursery_ac_fan_level_input_select
+  alias: nursery_ac_fan_level_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.nursery_ac_fan_level
+  action:
+    service: climate.set_fan_mode
+    data_template:
+      entity_id: climate.nursery_ac
+      fan_mode: "{{ trigger.to_state.state }}"
+      
+- id: nursery_ac_temperature_input_number
+  alias: nursery_ac_temperature_input_number
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_ac_temperature_select
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.nursery_ac
+      temperature: "{{ trigger.to_state.state | int }}"
+      
+- id: nursery_current_temperature_updated
+  alias: "nursery_current_temperature_updated"
+  trigger:
+    platform: state
+    entity_id: sensor.nursery_broadlink_a1_temperature
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "smartthings/nursery/broadlink_a1"
+      payload_template: "{{ trigger.to_state.state | round(1) }}"
+
+###########################################
+###### Motion Sensors Automations #########
+###########################################
+- id: shower_motion_sensor_motion_detected
+  alias: shower_motion_sensor_motion_detected
+  trigger:
+    platform: state
+    entity_id: sensor.broadlink_s1c_shower_motion_sensor
+    to: 'motion_detected'
+  action:
+    service: switch.turn_on
+    entity_id: switch.shower_light
+
+- id: shower_motion_sensor_no_motion
+  alias: shower_motion_sensor_no_motion
+  trigger:
+    platform: state
+    entity_id: sensor.broadlink_s1c_shower_motion_sensor
+    to: 'no_motion'
+    for: 
+      minutes: 5
+  action:
+    service: switch.turn_off
+    entity_id: switch.shower_light
+    
+###########################################
+######### Tracking Automations ############
+###########################################
+- id: update_hava_last_state
+  alias: update_hava_last_state
+  trigger:
+    - platform: state
+      entity_id: device_tracker.havaphone_hpowntracks
+  action:
+    service: input_text.set_value
+    data_template:
+      entity_id: input_text.hava_last_state
+      value: >
+        {% if trigger.to_state.state == 'not_home' %}
+          {{ states.sensor.hava_owntracks_gecode.state }}
+        {%else%}{{ trigger.to_state.state | title }}
+        {%endif%}
+
+- id: update_tomer_last_state
+  alias: update_tomer_last_state
+  trigger:
+    - platform: state
+      entity_id: device_tracker.tomerphone_tpowntracks
+  action:
+    service: input_text.set_value
+    data_template:
+      entity_id: input_text.tomer_last_state
+      value: >
+        {% if trigger.to_state.state == 'not_home' %}
+          {{ states.sensor.tomer_owntracks_gecode.state }}
+        {%else%}{{ trigger.to_state.state | title }}
+        {%endif%}
+
+- id: home_workstation_update_mqtt_client_status
+  alias: home_workstation_update_mqtt_client_status
+  trigger:
+    platform: state
+    entity_id: sensor.home_workstation_nmap_tracker
+    to: "Offline"
+    for:
+      minutes: 5
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "smarthome/mqtt_client/status_update"
+        payload: "Offline"
+    - delay: '00:01:00'
+    - service: script.turn_on
+      entity_id: script.get_workstation_mqtt_client_status
+
+- id: update_tracker_devices
+  alias: update_tracker_devices
+  trigger:
+    - platform: time
+      minutes: '/20'
+      seconds: 00
+  action:
+    service: script.turn_on
+    entity_id: script.update_all_devices
+
+###########################################
+###### Notifications Automations ##########
+###########################################
+- id: shabbat_candle_lighting_time_reminder
+  alias: shabbat_candle_lighting_time_reminder
+  trigger:
+    - platform: time
+      minutes: '/1'
+      seconds: 00
+  condition:
+    - condition: time
+      weekday: fri
+    - condition: template
+      value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}true{%else%}false{%endif%}"
+    - condition: template
+      value_template: "{{ as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%y-%m-%d') == now().strftime('%y-%m-%d') }}"
+    - condition: template
+      value_template: >
+        {% set shabbat_time = states.sensor.select_city_shabbat_start_time.state.split(" ")[1] %}
+        {% set cur_time = now().strftime('%H:%M') %}
+        {{ (shabbat_time.split(':')[0] | int * 60 + shabbat_time.split(':')[1] | int) - (cur_time.split(':')[0] | int * 60 + cur_time.split(':')[1] | int ) == states.sensor.shabbat_notify_minutes_start.state | int }}
+  action:
+    - service_template: >
+        {% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' and states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.everyone
+        {% elif states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.telegram_hava_service
+        {% elif states.input_boolean.send_shabbat_notification_tomer.state == 'on' %}notify.telegram_tomer_service
+        {% endif %}
+      data_template:
+        title: "Shabbat Times"
+        message: >
+          Shabbat in {{ states.input_select.select_shabbat_city.state }} starts at {{ (as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%H:%M')) }}.
+          
+          You have {{ states.sensor.shabbat_notify_minutes_start.state }} minutes left for candle lighting.
+
+###########################################
+###### Nursery Lights Automations #########
+###########################################
+- id: nursery_main_color_temp_input_select
+  alias: "nursery_main_color_temp_input_select"
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_ambiance_color_temperature
+  condition:
+    condition: template
+    value_template: "{{ states.light.nursery_main_light.state != 'off'}}"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.nursery_main_light
+      color_temp: "{{ trigger.to_state.state | int}}"
+
+- id: nursery_lightstrip_brightness_input_select
+  alias: "nursery_lightstrip_brightness_input_select"
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_lightstrip_brightness
+  condition:
+    condition: template
+    value_template: "{{ states.light.nursery_dresser_light.state != 'off'}}"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.nursery_dresser_light
+      brightness: "{{ trigger.to_state.state | int}}"
+
+- id: nursery_bloom_brightness_input_select
+  alias: "nursery_bloom_brightness_input_select"
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_bloom_brightness
+  condition:
+    condition: template
+    value_template: "{{ states.light.nursery_chair_light.state != 'off'}}"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.nursery_chair_light
+      brightness: "{{ trigger.to_state.state | int}}"
+
+- id: nursery_main_light_on
+  alias: nursery_main_light_on
+  trigger:
+    platform: state
+    entity_id: light.nursery_main_light
+    to: "on"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.nursery_ambiance_color_temperature
+      value: "{{ states.light.nursery_main_light.attributes.color_temp | int}}"
+
+- id: nursery_lightstrip_on
+  alias: nursery_lightstrip_on
+  trigger:
+    platform: state
+    entity_id: light.nursery_dresser_light
+    to: "on"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.nursery_lightstrip_brightness
+      value: "{{ states.light.nursery_dresser_light.attributes.brightness | int}}"
+      
+- id: nursery_bloom_on
+  alias: nursery_bloom_on
+  trigger:
+    platform: state
+    entity_id: light.nursery_chair_light
+    to: "on"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.nursery_bloom_brightness
+      value: "{{ states.light.nursery_chair_light.attributes.brightness | int}}"
+
+- id: nursery_main_off
+  alias: nursery_main_off
+  trigger:
+    platform: state
+    entity_id: light.nursery_main_light
+    to: "off"
+  action:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.nursery_ambiance_color_temperature
+      value: 153
+      
+- id: nursery_lightstrip_off
+  alias: nursery_lightstrip_off
+  trigger:
+    platform: state
+    entity_id: light.nursery_dresser_light
+    to: "off"
+  action:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.nursery_lightstrip_brightness
+      value: 0
+
+- id: nursery_bloom_off
+  alias: nursery_bloom_off
+  trigger:
+    platform: state
+    entity_id: light.nursery_chair_light
+    to: "off"
+  action:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.nursery_bloom_brightness
+      value: 0

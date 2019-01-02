@@ -1,0 +1,5 @@
+script:
+  custom_ui_state_card: state-card-script-custom-text
+
+date_notifier:
+  hidden: true

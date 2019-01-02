@@ -1,0 +1,377 @@
+##########################################
+############### Owntracks ################
+##########################################
+tomerphone_tpowntracks:
+  hide_if_away: false
+  icon: mdi:map
+  mac:
+  name: "Tomer Owntracks"
+  picture:
+  track: true
+  vendor:
+
+havaphone_hpowntracks:
+  hide_if_away: false
+  icon: mdi:map
+  mac:
+  name: "Hava Owntracks"
+  picture:
+  track: true
+  vendor:
+
+##########################################
+############### Bluetooth ################
+##########################################
+tomer_bluetooth:
+  hide_if_away: false
+  icon:
+  mac: !secret tomer_phone_bluetooth_mac
+  name: "Tomer Bluetooth"
+  picture:
+  track: true
+  
+hava_bluetooth:
+  hide_if_away: false
+  icon: mdi:bluetooth
+  mac: !secret hava_phone_bluetooth_mac
+  name: "Hava Bluetooth"
+  picture:
+  track: true
+  
+sabre_sb35_bt:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_sabre_sb35_bt_mac
+  name: "Sabre SB35 BT"
+  picture:
+  track: false
+
+shield_bt:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_shield_bt_mac
+  name: "Shield Bluetooth"
+  picture:
+  track: false
+
+samsung_tv_bt:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_samsung_tv_bt_mac
+  name: "Samsung TV BT"
+  picture:
+  track: false
+
+##########################################
+############# Nmap Devices ###############
+##########################################
+home_workstation:
+  hide_if_away: false
+  icon:
+  mac: !secret home_workstation_mac
+  name: "Home Workstation"
+  picture:
+  track: true
+
+bedroom_yes:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_yes_mac
+  name: "Bedroom Yes STB"
+  picture:
+  track: true
+  vendor: UEC COMMERCIAL
+
+guest_room_yes:
+  hide_if_away: false
+  icon:
+  mac: !secret guest_room_yes_mac
+  name: "Guest Room Yes STB"
+  picture:
+  track: true
+  vendor: UEC COMMERCIAL
+
+kitchen_echo_one:
+  hide_if_away: false
+  icon:
+  mac: !secret kitchen_echo_one_mac
+  name: "Kitchen Echo One"
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+living_room_dot:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_echo_dot_mac
+  name: "Living Room Dot"
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+switcher_v2:
+  hide_if_away: false
+  icon:
+  mac: !secret switcher_mac
+  name: "Switcher Water Heater"
+  picture:
+  track: true
+  vendor: Shenzhen Ogemray Technology Co., Ltd.
+
+bedroom_echo:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_echo_one_mac
+  name: "Bedroom Echo One"
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+living_room_yes:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_yes_mac
+  name: "Living Room Yes STB"
+  picture:
+  track: true
+  vendor: Advanced Digital Broadcast SA
+
+hallway_netgear_hub5:
+  hide_if_away: false
+  icon:
+  mac: !secret hallways_netgear_switch5_mac
+  name: "Hallways Netgear 5 Port Hub"
+  picture:
+  track: true
+  vendor: NETGEAR
+  
+office_netgear_hub5:
+  hide_if_away: false
+  icon:
+  mac: !secret office_netgear_switch5_mac
+  name: "Office Netgear 5 Port Hub"
+  picture:
+  track: true
+  vendor: NETGEAR
+
+shield_console:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_shield_mac
+  name: "nVidia Shield Console"
+  picture:
+  track: true
+  vendor: unknown
+
+office_dot:
+  hide_if_away: false
+  icon:
+  mac: !secret office_echo_dot_mac
+  name: "Office Dot"
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+kitchen_bar_sp2:
+  hide_if_away: false
+  icon:
+  mac: !secret kitchen_bar_light_broadlink_sp2_mac
+  name: "Kitchen Bar SP2"
+  picture:
+  track: true
+  vendor: Broadlink Pty Ltd
+
+living_room_rm_pro:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_broadlink_rm_pro_mac
+  name: "Living Room RM Pro"
+  picture:
+  track: true
+  vendor: Broadlink Pty Ltd
+
+bedroom_rm_mini:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_broadlink_rm_mini_mac
+  name: "Bedroom RM Mini"
+  picture:
+  track: true
+  vendor: unknown
+
+nursery_broadlink_a1:
+  hide_if_away: false
+  icon:
+  mac: !secret nursery_broadlink_a1_mac
+  name: "Office Broadlink A1"
+  picture:
+  track: true
+  vendor: unknown
+
+service_room_s1c:
+  hide_if_away: false
+  icon:
+  mac: !secret service_room_light_broadlink_sc1_mac
+  name: "Service Room S1C"
+  picture:
+  track: true
+  vendor: HangZhou Gubei Electronics Technology Co.,Ltd
+
+living_room_harmony_hub:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_logitech_harmony_hub_mac
+  name: "Living Room Harmony Hub"
+  picture:
+  track: true
+  vendor: Slim Devices, Inc.
+
+tv_lifxz_led:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_tv_lifx_z_mac
+  name: "TV LifxZ Led"
+  picture:
+  track: true
+  vendor: LIFI LABS MANAGEMENT PTY LTD
+
+living_room_samsung_tv:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_samaung_tv_mac
+  name: "Living Room Samsung TV"
+  picture:
+  track: true
+  vendor: Samsung Electronics Co.,Ltd
+
+tomers_phone:
+  hide_if_away: false
+  icon:
+  mac: !secret tomer_phone_mac
+  name: "Tomer's Phone"
+  picture:
+  track: true
+  vendor: unknown
+
+havas_phone:
+  hide_if_away: false
+  icon:
+  mac: !secret hava_phone_mac
+  name: "Hava's Phone"
+  picture:
+  track: true
+  vendor: Apple, Inc.
+
+tomers_laptop:
+  hide_if_away: false
+  icon:
+  mac: !secret tomer_work_dell_mac
+  name: "Tomer's Laptop"
+  picture:
+  track: true
+  vendor: Intel Corporate
+
+havas_laptop:
+  hide_if_away: false
+  icon:
+  mac: !secret hava_lenovo_mac
+  name: "Hava's Laptop"
+  picture:
+  track: true
+  vendor: Liteon Technology Corporation
+
+dash_wand:
+  hide_if_away: false
+  icon:
+  mac: !secret dash_wand_mac
+  name: 'Dash Wand'
+  picture:
+  track: true
+  vendor: Amazon Technologies Inc.
+
+living_room_ghome_mini:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_ghome_mini_mac
+  name: 'Living Room G-Home Mini'
+  picture:
+  track: true
+  vendor: Google, Inc.
+
+office_rm_mini:
+  hide_if_away: false
+  icon:
+  mac: !secret office_broadlink_rm_mini_mac
+  name: 'Office RM Mini'
+  picture:
+  track: true
+  vendor: HangZhou Gubei Electronics Technology Co.,Ltd
+
+office_chromecast:
+  hide_if_away: false
+  icon:
+  mac: !secret office_chromecast_mac
+  name: 'Office Google Chromecast'
+  picture:
+  track: true
+  vendor: Google, Inc.
+
+xbox_360:
+  hide_if_away: false
+  icon:
+  mac: !secret office_xbox_360_mac
+  name: 'Xbox 360'
+  picture:
+  track: true
+  vendor: unknown
+
+hue_bridgehomeserverlocal:
+  hide_if_away: false
+  icon:
+  mac: !secret living_room_hue_bridge_mac
+  name: "Hue Bridge"
+  picture:
+  track: true
+
+fire_8_tablet:
+  hide_if_away: false
+  icon:
+  mac: !secret nursery_fire8_mac
+  name: "Fire 8 Tablet"
+  picture:
+  track: true
+
+nursery_echo_dot:
+  hide_if_away: false
+  icon:
+  mac: !secret nursery_echo_dot_mac
+  name: "Nursery Echo Dot"
+  picture:
+  track: true
+
+##########################################
+################## DIY ###################
+##########################################
+rfgw_hallwayhomeserverlocal:
+  hide_if_away: false
+  icon:
+  mac: !secret hallways_omg_mac
+  name: "Hallway RF Gateway"
+  picture:
+  track: true
+
+office_sensorhomeserverlocal:
+  hide_if_away: false
+  icon:
+  mac: !secret office_multisensor_mac
+  name: "Office Multi-Sensor"
+  picture:
+  track: true
+
+bedroom_sensorhomeserverlocal:
+  hide_if_away: false
+  icon:
+  mac: !secret bedroom_multisensor_mac
+  name: "Bedroom Multi-Sensor"
+  picture:
+  track: true

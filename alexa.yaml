@@ -1,0 +1,219 @@
+smart_home:
+  filter:
+    include_entities:
+      - switcher_aio.control_device_switch
+      - switch.kitchen_bar_light
+      - switch.service_room_light
+      - switch.living_room_main_light
+      - switch.living_room_small_light
+      - switch.kitchen_main_light
+      - switch.kitchen_island_light
+      - switch.main_hallway_light
+      - switch.small_bathroom_light
+      - switch.shower_light
+      - switch.closet_room_light
+      - switch.bedroom_main_light
+      - switch.guest_room_light
+      - switch.balcony_light
+      - switch.entrance_light
+      - switch.main_bathroom_light
+      - switch.small_hallway_light
+      - switch.office_light
+      - switch.bedroom_ac_light
+      - switch.living_room_ac_panel_light
+      - switch.office_fan_light
+      - switch.office_fan_low_speed
+      - switch.office_fan_medium_speed
+      - switch.office_fan_high_speed
+      - switch.office_fan
+      - scene.leaving_home
+      - scene.watch_tv
+      - scene.watch_movie
+      - scene.sleep_time
+      - scene.turn_on_boiler_15_min
+      - scene.turn_on_boiler_30_min
+      - scene.turn_on_boiler_45_min
+      - scene.turn_on_boiler_60_min
+      - scene.turn_on_boiler_1_h
+      - sensor.broadlink_s1c_balcony_door
+      - sensor.broadlink_s1c_closet_room
+      - sensor.broadlink_s1c_main_bathroom
+      - sensor.broadlink_s1c_service_room
+      - sensor.broadlink_s1c_small_bathroom
+      - sensor.broadlink_s1c_shower_motion_sensor
+      - sensor.bedroom_temperature
+      - sensor.office_temperature
+      - sensor.nursery_broadlink_a1_temperature
+  entity_config:
+    switcher_aio.control_device_switch:
+      name: "Boiler"
+      description: "Switcher V2 Boiler Control"
+      display_categories: "SWITCH"
+    switch.kitchen_bar_light:
+      name: "Bar Light"
+      description: "Broadlink SP2"
+      display_categories: "SMARTPLUG"
+    switch.service_room_light:
+      name: "Service Room Light"
+      description: "Broadlink SC1"
+      display_categories: "SMARTPLUG"
+    switch.living_room_main_light:
+      name: "Living Room Main Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.living_room_small_light:
+      name: "Living Room Small Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.kitchen_main_light:
+      name: "Kitchen Main Light"
+      description: "Broadlink TC2 3GANG"
+      display_categories: "SWITCH"
+    switch.kitchen_island_light:
+      name: "Island Light"
+      description: "Broadlink TC2 3GANG"
+      display_categories: "SWITCH"
+    switch.main_hallway_light:
+      name: "Main Hallway Light"
+      description: "Broadlink TC2 3GANG"
+      display_categories: "SWITCH"
+    switch.small_bathroom_light:
+      name: "Small Bathroom Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.shower_light:
+      name: "Shower Light"
+      description: "Broadlink TC2 2GANG"
+      display_categories: "SWITCH"
+    switch.closet_room_light:
+      name: "Closet Light"
+      description: "Broadlink TC2 2GANG"
+      display_categories: "SWITCH"
+    switch.bedroom_main_light:
+      name: "Bedroom Main Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.guest_room_light:
+      name: "Guest Room Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.balcony_light:
+      name: "Balcony Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.entrance_light:
+      name: "Entrance Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.main_bathroom_light:
+      name: "Main Bathroom Light"
+      description: "Broadlink TC2 2GANG"
+      display_categories: "SWITCH"
+    switch.small_hallway_light:
+      name: "Small Hallway Light"
+      description: "Broadlink TC2 2GANG"
+      display_categories: "SWITCH"
+    switch.office_light:
+      name: "Office Light"
+      description: "Broadlink TC2 1GANG"
+      display_categories: "SWITCH"
+    switch.bedroom_ac_light:
+      name: "Bedroom AC Panel Light"
+      description: "AC Unit Panel Light"
+      display_categories: "SWITCH"
+    switch.living_room_ac_panel_light:
+      name: "Living Room AC Panel Light"
+      description: "AC Unit Panel Light"
+      display_categories: "SWITCH"
+    switch.office_fan_light:
+      name: "Office Fan Light"
+      description: "Ceiling Fan Light"
+      display_categories: "SWITCH"
+    switch.office_fan_low_speed:
+      name: "Office Fan low speed"
+      description: "Ceiling Fan Speed"
+      display_categories: "ACTIVITY_TRIGGER"
+    switch.office_fan_medium_speed:
+      name: "Office Fan medium speed"
+      description: "Ceiling Fan Speed"
+      display_categories: "ACTIVITY_TRIGGER"
+    switch.office_fan_high_speed:
+      name: "Office Fan high speed"
+      description: "Ceiling Fan Speed"
+      display_categories: "ACTIVITY_TRIGGER"
+    switch.office_fan:
+      name: "Office Fan"
+      description: "Ceiling Fan Speed"
+      display_categories: "ACTIVITY_TRIGGER"
+    scene.leaving_home:
+      name: "Leaving Home Scene"
+      description: "Home Assistant Scene"
+      display_categories: "SCENE_TRIGGER"
+    scene.watch_tv:
+      name: "Watch TV Scene"
+      description: "Home Assistant Scene"
+      display_categories: "SCENE_TRIGGER"
+    scene.watch_movie:
+      name: "Watch A Movie Scene"
+      description: "Home Assistant Scene"
+      display_categories: "SCENE_TRIGGER"
+    scene.sleep_time:
+      name: "Go To Sleep Scene"
+      description: "Home Assistant Scene"
+      display_categories: "SCENE_TRIGGER"
+    scene.turn_on_boiler_15_min:
+      name: "Boiler for 15 minutes"
+      description: "Switcher V2 Boiler Timer"
+      display_categories: "ACTIVITY_TRIGGER"
+    scene.turn_on_boiler_30_min:
+      name: "Boiler for 30 minutes"
+      description: "Switcher V2 Boiler Timer"
+      display_categories: "ACTIVITY_TRIGGER"
+    scene.turn_on_boiler_45_min:
+      name: "Boiler for 45 minutes"
+      description: "Switcher V2 Boiler Timer"
+      display_categories: "ACTIVITY_TRIGGER"
+    scene.turn_on_boiler_60_min:
+      name: "Boiler for 60 minutes"
+      description: "Switcher V2 Boiler Timer"
+      display_categories: "ACTIVITY_TRIGGER"
+    scene.turn_on_boiler_1_h:
+      name: "Boiler for 1 hour"
+      description: "Switcher V2 Boiler Timer"
+      display_categories: "ACTIVITY_TRIGGER"
+    sensor.broadlink_s1c_balcony_door:
+      name: "Balcony Door"
+      description: "Broadlink S1C Security System"
+      display_categories: "DOOR"
+    sensor.broadlink_s1c_closet_room:
+      name: "Closet Room Door"
+      description: "Broadlink S1C Security System"
+      display_categories: "DOOR"
+    sensor.broadlink_s1c_main_bathroom:
+      name: "Main Bathroom Door"
+      description: "Broadlink S1C Security System"
+      display_categories: "DOOR"
+    sensor.broadlink_s1c_service_room:
+      name: "Service Room Door"
+      description: "Broadlink S1C Security System"
+      display_categories: "DOOR"
+    sensor.broadlink_s1c_small_bathroom:
+      name: "Small Bathroom Door"
+      description: "Broadlink S1C Security System"
+      display_categories: "DOOR"
+    sensor.broadlink_s1c_shower_motion_sensor:
+      name: "Shower Motion Sensor"
+      description: "Broadlink S1C Security System"
+      display_categories: "MOTION_SENSOR"
+    sensor.bedroom_temperature:
+      name: "Bedroom Temperature"
+      description: "BRUH DIY Sensor"
+      display_categories: "TEMPERATURE_SENSOR"
+    sensor.office_temperature:
+      name: "Office Temperature"
+      description: "BRUH DIY Sensor"
+      display_categories: "TEMPERATURE_SENSOR"
+    sensor.nursery_broadlink_a1_temperature:
+      name: "Nursery Temperature"
+      description: "Broadlink A1 Sensor"
+      display_categories: "TEMPERATURE_SENSOR"

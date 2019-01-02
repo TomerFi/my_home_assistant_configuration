@@ -1,0 +1,23 @@
+- name: home
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  radius: 100
+  icon: mdi:home
+
+- name: partner
+  latitude: !secret partner_latitude
+  longitude: !secret partner_longitude
+  radius: 200
+  icon: mdi:worker
+  
+- name: the_white_house
+  latitude: !secret the_white_house_latitude
+  longitude: !secret the_white_house_longitude
+  radius: 100
+  icon: mdi:home-heart
+  
+- name: bynet
+  latitude: !secret bynet_latitude
+  longitude: !secret bynet_longitude
+  radius: 200
+  icon: mdi:worker
