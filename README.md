@@ -10,8 +10,6 @@ I will try to keep this repository updated with any changes I'll make in my work
 **Table Of Contents**
 - [Home Assistant](#home-assistant)
   - [Customization and modification](#customization-and-modification)
-    - [Addons by Others](#addons-by-others)
-    - [Addons from Hass.io](#addons-from-hassio)
     - [Custom Components](#custom-components)
     - [Custom UI](#custom-ui)
     - [Python Scripts](#python-scripts)
