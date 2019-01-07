@@ -320,7 +320,8 @@ nmap_computers_tracker:
     - sensor.xbox_360_nmap_tracker
     - sensor.tomers_laptop_nmap_tracker
     - sensor.havas_laptop_nmap_tracker
-    - sensor.fire_8_tablet_nmap_tracker
+    - sensor.nursery_fire_8_tablet_nmap_tracker
+    - sensor.kitchen_fire_8_tablet_nmap_tracker
 
 nmap_phones_tracker:
   name: nmap_phones_tracker

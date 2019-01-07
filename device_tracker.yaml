@@ -45,3 +45,4 @@
     - !secret nursery_fire8_ip
     - !secret living_room_echo_dot_ip
     - !secret nursery_echo_dot_ip
+    - !secret kitchen_fire_8_ip

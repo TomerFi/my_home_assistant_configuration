@@ -119,7 +119,7 @@ class SetThermostatModeRequest(EndpointRequest):
 class PowerControlRequest(EndpointRequest):
   # object represnting the set the mode to to x request
   def __init__(self, request, init_namespace, init_name):
-     super(PowerControlRequest, self).__init__(request)
+     super(PowerControlRequest, self).__init__(request, init_namespace, init_name)
      self._powerState = True if self.name == 'TurnOn' else False
 
   @property

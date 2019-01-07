@@ -137,8 +137,10 @@
       value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
     hue_bridge_nmap_tracker:
       value_template: "{%if states.device_tracker.hue_bridgehomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
-    fire_8_tablet_nmap_tracker:
-      value_template: "{%if states.device_tracker.fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
+    nursery_fire_8_tablet_nmap_tracker:
+      value_template: "{%if states.device_tracker.nursery_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
+    kitchen_fire_8_tablet_nmap_tracker:
+      value_template: "{%if states.device_tracker.kitchen_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_dot_nmap_tracker:
       value_template: "{%if states.device_tracker.office_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
     living_room_ghome_mini_nmap_tracker:

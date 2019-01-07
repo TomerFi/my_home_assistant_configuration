@@ -1,4 +1,4 @@
-import global_data
+import little_helpers
 
 def get_ir_dict_hyundai_ceiling_fan():
   return {
@@ -312,35 +312,20 @@ def get_ir_dict_electra_classic_35():
     }
   }
 
-
-room_to_ac_packets_func = {
-  "nursery": get_ir_dict_elco_small,
-  "bedroom": get_ir_dict_elco_small,
-  "living_room": get_ir_dict_electra_classic_35
+ac_type_to_packet_func = {
+  "elco_small": get_ir_dict_elco_small,
+  "electra_classic_35": get_ir_dict_electra_classic_35
 }
 
-room_to_fan_packets_func = {
-  "nursery": get_ir_dict_hyundai_ceiling_fan,
-  "office": get_ir_dict_hyundai_ceiling_fan
+fan_type_to_packet_func = {
+  "hyundai_ceiling_fan": get_ir_dict_hyundai_ceiling_fan
 }
 
-room_to_ir_blaster_service = {
-  "nursery": "switch/broadlink_send_packet_192_168_0_170",
-  "bedroom": "switch/broadlink_send_packet_192_168_0_130",
-  "office": "switch/broadlink_send_packet_192_168_0_133",
-  "living_room": "switch/broadlink_send_packet_192_168_0_122"
-}
-
-
-def get_fan_service_and_packet(room, command):
-  if room in room_to_fan_packets_func.keys() and room in room_to_ir_blaster_service.keys():
-    return room_to_ir_blaster_service[room], room_to_fan_packets_func[room]()[command]
-  return None, None
-
-def get_ac_service_and_packet(room, mode, speed = None, temp = None):
-  if room in room_to_ac_packets_func.keys() and room in room_to_ir_blaster_service.keys():
-    if mode in global_data.false_strings:
-      return room_to_ir_blaster_service[room], room_to_ac_packets_func[room]()[mode]
-    else:
-      return room_to_ir_blaster_service[room], room_to_ac_packets_func[room]()[mode][speed]['temp_' + str(temp)]
-  return None, None
+def get_ac_packet(ac_type, mode, speed = None, temp = None):
+  if mode in little_helpers.false_strings:
+    return ac_type_to_packet_func[ac_type]()[mode]
+  else:
+    return ac_type_to_packet_func[ac_type]()[mode.lower()][speed.lower()]['temp_' + str(round(temp))]
+    
+def get_fan_packet(fan_type, command):
+  return fan_type_to_packet_func[fan_type]()[command.lower()]

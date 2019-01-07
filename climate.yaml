@@ -3,48 +3,20 @@
   qos: 0
   retain: false
   send_if_off: false
-  #initial: 25
-  #payload_on: "on"
-  #payload_off: "off"
-  #availability_topic: "tomerfi_custom_ac/nursery/availability"
-  #payload_available: "online"
-  #payload_not_available: "offline"
-  #value_template: "{{ value_json }}"
-  current_temperature_topic: "smartthings/nursery/broadlink_a1"
-  #current_temperature_template: '{{ value_json.temperature | round(1) }}'
-  power_command_topic: "tomerfi_custom_ac/nursery/power"
+  initial: 25
+  current_temperature_topic: "tomerfi_custom_ac/nursery/current_temperature"
   mode_command_topic: "tomerfi_custom_ac/nursery/mode"
-  #mode_state_topic:
-  #mode_state_template:
   modes:
     - "off"
     - "cool"
     - "heat"
   temperature_command_topic: "tomerfi_custom_ac/nursery/temperature"
-  #temperature_state_topic:
-  #temperature_state_template:
   fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
-  #fan_mode_state_topic:
-  #fan_mode_state_template:
   fan_modes:
     - "auto"
     - "low"
     - "medium"
     - "high"
-  #swing_mode_command_topic: "tomerfi_custom_ac/nursery/swing"
-  #swing_mode_state_topic:
-  #swing_mode_state_template:
-  #swing_modes:
-  #  - swing
-  #away_mode_command_topic:
-  #away_mode_state_topic:
-  #away_mode_state_template:
-  #hold_command_topic:
-  #hold_state_topic:
-  #hold_state_template:
-  #aux_command_topic:
-  #aux_state_topic:
-  #aux_state_template:
   min_temp: 17
   max_temp: 30
   temp_step: 1

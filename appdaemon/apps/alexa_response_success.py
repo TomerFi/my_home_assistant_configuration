@@ -1,103 +1,110 @@
-from datetime import datetime
-import uuid
+import little_helpers
 
 class DiscoveryResponse(object):
   # object represnting the discovery response, for errors in discovery use the success response with no endpoints
   def __init__(self, request_object, entities):
     self.response_header = {
-      'namespace': 'Alexa.Discovery',
-      'name': 'Discover.Response',
-      'messageId': str(uuid.uuid4()),
-      'payloadVersion': request_object.payloadVersion
+      "namespace": "Alexa.Discovery",
+      "name": "Discover.Response",
+      "messageId": little_helpers.get_uuid_str(),
+      "payloadVersion": "3"
     }
   
     self.response_payload = {
-      'endpoints': []
+      "endpoints": []
     }
-    
+
     for entity in entities:
-      self.response_payload['endpoints'].append({
-          'endpointId': entity['entity_id'],
-          'friendlyName': entity['friendly_name'],
-          'description': 'AC Custom Thermostat by TomerFi',
-          'manufacturerName': 'TomerFi',
-          'displayCategories': ['THERMOSTAT'],
-          'cookie': {
+      supported_modes = []
+      for mode in entity['attributes']['operation_list']:
+        supported_modes.append(mode.upper())
+      
+      self.response_payload["endpoints"].append({
+          "endpointId": little_helpers.entityId_to_endpointId(entity["entity_id"]),
+          "friendlyName": entity['attributes']["friendly_name"],
+          "description": "AC Custom Thermostat by TomerFi",
+          "manufacturerName": "TomerFi",
+          "displayCategories": ["THERMOSTAT", "TEMPERATURE_SENSOR"],
+          "cookie": {
           },
-          'capabilities': [
+          "capabilities": [
             {
-              'type': 'AlexaInterface',
-              'interface': '"Alexa.ThermostatController',
-              'version': '3',
-              'properties': {
-                'supported': [
+              "type": "AlexaInterface",
+              "interface": "Alexa.ThermostatController",
+              "version": "3",
+              "properties": {
+                "supported": [
                   {
-                    'name': 'targetSetpoint'
+                    "name": "targetSetpoint"
                   },
                   {
-                    'name': 'thermostatMode'
+                    "name": "thermostatMode"
                   }
                   ],
-                  'proactivelyReported': True,
-                  'retrievable': True
+                  "proactivelyReported": True,
+                  "retrievable": True
+              },
+              "configuration": {
+                "supportsScheduling": False,
+                "supportedModes": supported_modes
               }
             },
             {
-              'type': 'AlexaInterface',
-              'interface': 'Alexa.TemperatureSensor',
-              'version': '3',
-              'properties': {
-                'supported': [
+              "type": "AlexaInterface",
+              "interface": "Alexa.TemperatureSensor",
+              "version": "3",
+              "properties": {
+                "supported": [
                   {
-                    'name': 'temperature'
+                    "name": "temperature"
                   }
                   ],
-                  'proactivelyReported': True,
-                  'retrievable': True
+                  "proactivelyReported": True,
+                  "retrievable": True
               }
             },
             {
-              'type': 'AlexaInterface',
-              'interface': 'Alexa.PowerController',
-              'version': '3',
-              'properties': {
-                'supported': [
+              "type": "AlexaInterface",
+              "interface": "Alexa.PowerController",
+              "version": "3",
+              "properties": {
+                "supported": [
                   {
-                    'name': 'powerState'
+                    "name": "powerState"
                   }
                   ],
-                  'proactivelyReported': True,
-                  'retrievable': True
+                  "proactivelyReported": True,
+                  "retrievable": True
               }
             }
             ]
         })
 
-
   def create_response(self):
     return {
-      'event': {
-        'header': self.response_header,
-        'payload': self.response_payload
-      } 
+      "event": {
+        "header": self.response_header,
+        "payload": self.response_payload
+      }
     }
 
 
 class StateReportResponse(object):
   
-  def __init__(self, request_object, entity):
-    datetime_iso = str(datetime.utcnow().replace(microsecond=0).isoformat())   
-    
+  def __init__(self, request_object, entity, scale):
+    datetime_iso = little_helpers.get_iso_datetime_utc_tz_str()
+    uncertainty_milliseconds = little_helpers.get_elapsed_in_milliseconds(entity["last_updated"])
+
     self.response_header = {
       "namespace": "Alexa",
       "name": "StateReport",
-      "payloadVersion": request_object.payloadVersion,
-      "messageId": str(uuid.uuid4()),
+      "payloadVersion": "3",
+      "messageId": little_helpers.get_uuid_str(),
       "correlationToken": request_object.correlationToken
     }
     
     self.response_endpoint = {
-      "endpointId": entity["entity_id"]
+      "endpointId": little_helpers.entityId_to_endpointId(entity["entity_id"])
     }
     
     self.response_context = {
@@ -107,31 +114,34 @@ class StateReportResponse(object):
           "name": "targetSetpoint",
           "value": {
             "value": entity["attributes"]["temperature"],
-            "scale": "CELSIUS"
+            "scale": scale
           },
           "timeOfSample": datetime_iso,
-          "uncertaintyInMilliseconds": 100
+          "uncertaintyInMilliseconds": uncertainty_milliseconds
         },
         {
           "namespace": "Alexa.ThermostatController",
           "name": "thermostatMode",
-          "value": entity["attributes"]["operation_mode"] if entity["attributes"]["operation_mode"] != 'off' else 'heat',
+          "value": entity["state"].upper(),
           "timeOfSample": datetime_iso,
-          "uncertaintyInMilliseconds": 100
+          "uncertaintyInMilliseconds": uncertainty_milliseconds
         },
         {
           "namespace": "Alexa.TemperatureSensor",
           "name": "temperature",
-          "value": entity["attributes"]["current_temperature"],
+          "value": {
+            "value": entity["attributes"]["current_temperature"],
+            "scale": scale
+          },
           "timeOfSample":datetime_iso,
-          "uncertaintyInMilliseconds": 100
+          "uncertaintyInMilliseconds": uncertainty_milliseconds
         },
         {
           "namespace": "Alexa.PowerController",
           "name": "powerState",
-          "value": 'off' if entity["attributes"]["operation_mode"] == 'off' else 'on',
+          "value": "OFF" if entity["state"].upper() == "OFF" else "ON",
           "timeOfSample": datetime_iso,
-          "uncertaintyInMilliseconds": 100
+          "uncertaintyInMilliseconds": uncertainty_milliseconds
         }
         ]
     }
@@ -145,3 +155,98 @@ class StateReportResponse(object):
         "payload": {}
       }
     }
+    
+
+class PowerControlResponse(object):
+  
+  def __init__(self, request_object, entity):
+    datetime_iso = little_helpers.get_iso_datetime_utc_tz_str()
+    uncertainty_milliseconds = little_helpers.get_elapsed_in_milliseconds(entity["last_updated"])
+    
+    self.response_header = {
+      "namespace": "Alexa",
+      "name": "Response",
+      "payloadVersion": "3",
+      "messageId": little_helpers.get_uuid_str(),
+      "correlationToken": request_object.correlationToken
+    }
+    
+    self.response_endpoint = {
+      "endpoint": {
+        "scope": {
+          "type": request_object.tokenType,
+          "token": request_object.token
+        },
+        "endpointId": little_helpers.entityId_to_endpointId(entity["entity_id"])
+      }
+    }
+    
+    self.response_context = {
+      "properties": [{
+       "namespace": "Alexa.PowerController",
+       "name": "powerState",
+       "value": "OFF" if entity["state"].upper() == "OFF" else "ON",
+       "timeOfSample": datetime_iso,
+       "uncertaintyInMilliseconds": uncertainty_milliseconds
+      }]
+      
+    }
+    
+  def create_response(self):
+    return {
+    "context": self.response_context,
+    "event": {
+      "header": self.response_header,
+      "endpoint": self.response_endpoint,
+      "payload": {}
+    }
+  }
+  
+class ThermostatControlResponse(object):
+  
+  def __init__(self, request_object, entity, scale):
+    datetime_iso = little_helpers.get_iso_datetime_utc_tz_str()
+    uncertainty_milliseconds = little_helpers.get_elapsed_in_milliseconds(entity["last_updated"])
+    
+    self.response_context = {
+      "properties": [{
+        "namespace": "Alexa.ThermostatController",
+        "name": "targetSetpoint",
+        "value": {
+          "value": entity["attributes"]["temperature"],
+          "scale": scale
+        },
+        "timeOfSample": datetime_iso,
+        "uncertaintyInMilliseconds": uncertainty_milliseconds
+      },
+      {
+        "namespace": "Alexa.ThermostatController",
+        "name": "thermostatMode",
+        "value": entity["state"].upper(),
+        "timeOfSample": datetime_iso,
+        "uncertaintyInMilliseconds": uncertainty_milliseconds
+      }]
+    }
+    
+    self.response_header = {
+      "namespace": "Alexa",
+      "name": "Response",
+      "payloadVersion": "3",
+      "messageId": little_helpers.get_uuid_str(),
+      "correlationToken": request_object.correlationToken
+    }
+    
+    self.response_endpoint = {
+      "endpointId": little_helpers.entityId_to_endpointId(entity["entity_id"])
+    }
+  
+  def create_response(self):
+    return {
+    "context": self.response_context,
+    "event": {
+      "header": self.response_header,
+      "endpoint": self.response_endpoint,
+      "payload": {}
+    }
+  }
+  

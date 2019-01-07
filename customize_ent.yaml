@@ -230,7 +230,7 @@ cover.nursery_ac_target_temperature:
 ################ Climate #################
 ##########################################
 climate.nursery_ac:
-  friendly_name: "Nursery AC"
+  friendly_name: "Nursery Air Conditioner"
 
 ##########################################
 ################## Fan ###################
@@ -375,8 +375,11 @@ sensor.xbox_360_nmap_tracker:
 sensor.hue_bridge_nmap_tracker:
   friendly_name: "Living Room Hue Bridge"
   icon: mdi:lighthouse
-sensor.fire_8_tablet_nmap_tracker:
+sensor.nursery_fire_8_tablet_nmap_tracker:
   friendly_name: "Nursery Fire 8"
+  icon: mdi:amazon
+sensor.kitchen_fire_8_tablet_nmap_tracker:
+  friendly_name: "Kitchen Fire 8"
   icon: mdi:amazon
 sensor.tomers_phone_nmap_tracker:
   friendly_name: "Tomer's Phone"
@@ -981,14 +984,6 @@ automation.bedroom_ac_show_extra_controls_on:
   hidden: true
 automation.bedroom_ac_show_extra_controls_off:
   hidden: true
-automation.nursery_ac_mode_off:
-  hidden: true
-automation.nursery_ac_mode_on:
-  hidden: true
-automation.nursery_ac_fan_change:
-  hidden: true
-automation.nursery_ac_temp_change:
-  hidden: true
 automation.nursery_ac_operation_mode_input_select:
   hidden: true
 automation.nursery_ac_fan_level_input_select:
@@ -1050,8 +1045,6 @@ automation.nursery_bloom_on:
 automation.nursery_lightstrip_off:
   hidden: true
 automation.nursery_bloom_off:
-  hidden: true
-automation.nursery_current_temperature_updated:
   hidden: true
 
 ##########################################

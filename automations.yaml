@@ -355,57 +355,6 @@
 ##########################################
 ######### Nursery AC Automations #########
 ##########################################
-- id: nursery_ac_mode_off
-  alias: "nursery_ac_mode_off"
-  trigger:
-    platform: mqtt
-    topic: tomerfi_custom_ac/nursery/mode
-    payload: "off"
-  action:
-    service: script.nursery_rm_mini_send_packet
-    data:
-      packet_code:
-        - "JgDKAJCMFzQSERM0EjQUEBMQEzQTEBMREjQVDxIREzQTMxMREjUSERI1EjQTNBM0ERISNRE2EDYRExATERIRExA2ERMQExE2EDcSNBQQEhESERMREhESEhATEBMRNhA3EDYRNhE2EKyPkhA2ERMQNhE2EBMRExA2ERMQExE2EBMRExA2ETYREhE2ERMQNhE2EDcQNhETEDYRNhE2EBMRExATERIRNhESERMQNxA2ETYREhETEBMREhETEBMSEhIREDcSNBE2ETYSNRIADQUAAAAAAAAAAAAAAAAAAA=="
-
-- id: nursery_ac_mode_on
-  alias: "nursery_ac_mode_on"
-  trigger:
-    platform: mqtt
-    topic: tomerfi_custom_ac/nursery/mode
-  condition:
-    condition: template
-    value_template: "{{ states.climate.nursery_ac.attributes.operation_mode != 'off' }}"
-  action:
-    service: script.nursery_ac_check_state_script
-    data_template:
-      selected_mode: '{{ trigger.payload }}'
-      selected_fan: '{{ states.climate.nursery_ac.attributes.fan_mode }}'
-      selected_temp: '{{ states.climate.nursery_ac.attributes.temperature }}'    
-
-- id: nursery_ac_fan_change
-  alias: "nursery_ac_fan_change"
-  trigger:
-    platform: mqtt
-    topic: tomerfi_custom_ac/nursery/fan
-  action:
-    service: script.nursery_ac_check_state_script
-    data_template:
-      selected_mode: '{{ states.climate.nursery_ac.attributes.operation_mode }}'
-      selected_fan: '{{ trigger.payload }}'
-      selected_temp: '{{ states.climate.nursery_ac.attributes.temperature }}' 
-
-- id: nursery_ac_temp_change
-  alias: "nursery_ac_temp_change"
-  trigger:
-    platform: mqtt
-    topic: tomerfi_custom_ac/nursery/temperature
-  action:
-    service: script.nursery_ac_check_state_script
-    data_template:
-      selected_mode: '{{ states.climate.nursery_ac.attributes.operation_mode }}'
-      selected_fan: '{{ states.climate.nursery_ac.attributes.fan_mode }}'
-      selected_temp: '{{ trigger.payload }}' 
-      
 - id: nursery_ac_operation_mode_input_select
   alias: nursery_ac_operation_mode_input_select
   trigger:
@@ -438,17 +387,6 @@
     data_template:
       entity_id: climate.nursery_ac
       temperature: "{{ trigger.to_state.state | int }}"
-      
-- id: nursery_current_temperature_updated
-  alias: "nursery_current_temperature_updated"
-  trigger:
-    platform: state
-    entity_id: sensor.nursery_broadlink_a1_temperature
-  action:
-    service: mqtt.publish
-    data_template:
-      topic: "smartthings/nursery/broadlink_a1"
-      payload_template: "{{ trigger.to_state.state | round(1) }}"
 
 ###########################################
 ###### Motion Sensors Automations #########

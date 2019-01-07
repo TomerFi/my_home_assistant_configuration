@@ -333,11 +333,19 @@ hue_bridgehomeserverlocal:
   picture:
   track: true
 
-fire_8_tablet:
+nursery_fire_8_tablet:
   hide_if_away: false
   icon:
   mac: !secret nursery_fire8_mac
-  name: "Fire 8 Tablet"
+  name: "Nursery Fire 8 Tablet"
+  picture:
+  track: true
+
+kitchen_fire_8_tablet:
+  hide_if_away: false
+  icon:
+  mac: !secret kitchen_fire_8_mac
+  name: "Kitchen Fire 8 Tablet"
   picture:
   track: true
 

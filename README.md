@@ -9,11 +9,9 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 **Table Of Contents**
 - [Home Assistant](#home-assistant)
-  - [Customization and modification](#customization-and-modification)
-    - [Custom Components](#custom-components)
-    - [Custom UI](#custom-ui)
-    - [Python Scripts](#python-scripts)
-  - [Themes](#themes)
+  - [Custom Components](#custom-components)
+  - [Custom UI](#custom-ui)
+  - [Python Scripts](#python-scripts)
 - [Network Gear](#network-gear)
 - [Smart Home Devices, Equipment and Endpoints](#smart-home-devices-equipment-and-endpoints)
   - [DIY Projects](#diy-projects)
@@ -25,9 +23,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 ## Home Assistant
 
-### Customization and modification
-
-#### Custom Components
+### Custom Components
 - [**date_notifier**](custom_components/date_notifier.py) made by myself, get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/date_notifier).
 - **sensor/google_geocode** as instructed in [this post](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233).
 - [**sensor/shabbat_times**](custom_components/sensor/shabbat_times.py) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/shabbat_times).
@@ -36,16 +32,13 @@ I will try to keep this repository updated with any changes I'll make in my work
 - [**sensor/broadlink_s1c**](custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
 - [**smartthings_bridge**](custom_components/smartthings_bridge) as the bridge component and [**sensor/smartthings_bridge**](custom_components/sensor/smartthings_bridge.py) as the sensor entity. made by myself, you can get it [here](https://github.com/TomerFi/home_assistant_smartthings_bridge).
 
-#### Custom UI
+### Custom UI
  - [**Script with Custom Text**](www/custom_ui/state-card-script-custom-text.html) made by myself for change the "ACTIVATE" value of the script entities, you can get it [here](https://github.com/TomerFi/home-assistant-custom-ui#script-with-custom-text).
  - **Custom UI: Tiles** as instructed in [this post](https://community.home-assistant.io/t/custom-ui-tiles/29513).
 
-#### Python Scripts
+### Python Scripts
  - [**set_entity_state.py**](python_scripts/set_entity_state.py) a simple python script I made for changing entities states without launchin a state change event, meaning the state will change but no action will occur.
  - [**service_call_loop.py**](python_scripts/service_call_loop.py) a simple python script I made for performing the same service call multiple times.
- 
-### Themes
-- None of the themes I use were made by myself. All of the themes I use are downloaded from the [Share your Themes forum](https://community.home-assistant.io/t/share-your-themes/22018).</br> My favourite theme is called *Solarized* and I got it [here](https://community.home-assistant.io/t/share-your-themes/22018/31).
 
 ## Network Gear
 - **Vrtech IAD604** this is my main router and modem supllied by my ISP.
@@ -76,7 +69,7 @@ I will try to keep this repository updated with any changes I'll make in my work
   - 3X [Philips Hue White Ambiance Bulb](https://www.amazon.com/gp/product/B01F6T4R0S/ref=oh_aui_detailpage_o08_s00?ie=UTF8&th=1) two in the nursery's ceiling light and one in the living room night light.
   - [Philips Hue White and Color Ambiance LightStrip Plus](https://www.amazon.com/gp/product/B0167H33DU/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1) behind the dresser in the nursery.
   - [Philips Hue Bloom](https://www.amazon.com/gp/product/B07BNRYGYX/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1) behind the feeding chair in the nursery.
-- [**Fire HD 8 Tablet**](https://www.amazon.com/gp/product/B0794RHPZD/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1) mounted on nursery wall running [WallPanel](https://github.com/WallPanel-Project/wallpanel-android) to display an [AppDaemon Dashboard](#dashboards).
+- **2X** [**Fire HD 8 Tablet**](https://www.amazon.com/gp/product/B0794RHPZD/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1) one mounted on the nursery wall running [WallPanel](https://github.com/WallPanel-Project/wallpanel-android) to display an [AppDaemon Dashboard](#dashboards), and the other sits on the kitchen's island connected to a [Show Mode Charging Dock](https://www.amazon.com/dp/B07FQVQZKN/ref=fs_ods_tab_zskar).
 - [**SmartThings Link for Nvidia Shield**](https://www.amazon.com/gp/product/B071GSVP6Z/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) connected to my [Nvidia Shield](https://www.amazon.com/gp/product/B01N1NT9Y6/ref=oh_aui_detailpage_o06_s00?ie=UTF8&psc=1) amd used as a [SmartThings Hub](https://www.smartthings.com/).
 - [**Harmony Elite**](https://www.amazon.com/gp/product/B014PDFP9S/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1) in the living room controlling the following devices:
   - Samsung Smart TV

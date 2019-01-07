@@ -1,4 +1,4 @@
-import uuid
+import little_helpers
 
 class GenericErrorResponse(object):
   # object representing the base generic error response, do not use directly!
@@ -6,50 +6,52 @@ class GenericErrorResponse(object):
   # InvalidValueErrorResponse, BridgeUnreachableErrorResponse, NoSuchEndpointErrorResponse, InternalErrorResponse
   def __init__(self, request_object, error_type, error_message, namespace='Alexa', **kwargs):
     self.response_header = {
-      'namespace': namespace,
-      'name': 'ErrorResponse',
-      'messageId': str(uuid.uuid4()),
-      'correlationToken': request_object.correlationToken,
-      'payloadVersion': request_object.payloadVersion
+      "namespace": namespace,
+      "name": "ErrorResponse",
+      "messageId": little_helpers.get_uuid_str(),
+      "correlationToken": request_object.correlationToken,
+      "payloadVersion": "3"
     }
     
     self.response_endpoint = {
-      'endpointId': request_object.endpointId
+      "endpointId": request_object.endpointId
     }
     
     self.response_payload = {
-      'type': error_type,
-      'message': error_message
+      "type": error_type,
+      "message": error_message
     }
     
     if kwargs is not None:
-      for key, value in kwargs:
+      for key, value in kwargs.items():
         self.response_payload[str(key)] = value
-    
+
   def create_response(self):
     return {
-      'event': {
-        'header': self.response_header,
-        'endpoint': self.response_endpoint,
-        'payload': self.response_payload
+      "event": {
+        "header": self.response_header,
+        "endpoint": self.response_endpoint,
+        "payload": self.response_payload
       }
     }
 
 
 class TemperatureOutOfRangeErrorResponse(GenericErrorResponse):
   # object represnting the error response sent back when the requested temperature is out of range
-  def __init__(self, request_object, message, min_value, max_value, scale='CELSIUS'):
-    validRangePayload = {
-      'minimumValue': {
-        'value': min_value,
-        'scale': scale
-      },
-      'maximumValue': {
-        'value': max_value,
-        'scale': scale
+  def __init__(self, request_object, message, min_value, max_value, scale="CELSIUS"):
+    kwargs = {
+      "validRange": {
+        "minimumValue": {
+          "value": min_value,
+          "scale": scale
+        },
+        "maximumValue": {
+          "value": max_value,
+          "scale": scale
+        }
       }
     }
-    super(TemperatureOutOfRangeErrorResponse, self).__init(request_object, "TEMPERATURE_VALUE_OUT_OF_RANGE", message, 'Alexa', validRange=validRangePayload)
+    super(TemperatureOutOfRangeErrorResponse, self).__init__(request_object, "TEMPERATURE_VALUE_OUT_OF_RANGE", message, "Alexa", **kwargs)
 
 
 class ThermostatIsOffErrorResponse(GenericErrorResponse):

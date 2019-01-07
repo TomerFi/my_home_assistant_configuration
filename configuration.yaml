@@ -96,8 +96,8 @@ mqtt:
 logger:
   default: error
 #  logs:
-#    homeassistant.components.automation: debug
 #    homeassistant.components.script: debug
+#    homeassistant.components.automation: debug
 #    homeassistant.helpers.service: debug
 #    homeassistant.components.switch.broadlink: debug
 #    custom_components.smartthings_bridge: debug

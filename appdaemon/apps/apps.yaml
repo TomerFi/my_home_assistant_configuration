@@ -1,12 +1,12 @@
 # global data, use as global_dependencies when needed
 global_modules:
   - home_control
-  - global_data
-  - ir_packets
+  - ir_packets_manager
   - alexa_request
   - alexa_response_error
   - alexa_response_success
   - user_secrets
+  - little_helpers
 
 ##############################
 ######### API Access #########
@@ -28,25 +28,28 @@ home_control_alexa:
 smarthome_custom_ac:
   module: smarthome_custom_ac
   class: AlexaCustomAC
-  climate_entities: 
+  entities:
     - climate.nursery_ac
+  default_mode_for_on: "heat"
+  scale: "CELSIUS"
   global_dependencies:
     - alexa_requests
     - alexa_response_error
     - alexa_response_success
+    - little_helpers
 
-#####################################
-### Data Manipulation Automations ###
-#####################################
+####################################
+###### Wallpanels Automations ######
+####################################
 nursery_panel_extract_attributes_for_battery:
-  module: automations
+  module: wallpanels_project
   class: WallPanelsExtractAttributesFromMessage
   sensor_entity: 'sensor.wallpanel_nursery_battery'
   sensor_type: 'battery'
   sensor_topic: 'wallpanel/nursery_dash/sensor/battery'
 
 nursery_panel_extract_attributes_for_screen_on:
-  module: automations
+  module: wallpanels_project
   class: WallPanelsExtractAttributesFromMessage
   sensor_entity: 'sensor.wallpanel_nursery_screen_on'
   sensor_type: 'state'
@@ -89,7 +92,7 @@ small_bathroom_door_control_switch:
   switch_entities: 'switch.small_bathroom_light'
   turn_on_closed_to_open: True
   turn_off_open_to_closed: False
-  global_dependencies: global_data
+  global_dependencies: little_helpers
   
 main_bathroom_door_control_switch:
   module: automations
@@ -98,7 +101,7 @@ main_bathroom_door_control_switch:
   switch_entities: 'switch.main_bathroom_light'
   turn_on_closed_to_open: True
   turn_off_open_to_closed: False
-  global_dependencies: global_data
+  global_dependencies: little_helpers
 
 closet_room_door_control_switch:
   module: automations
@@ -109,7 +112,7 @@ closet_room_door_control_switch:
     - 'switch.shower_light'
   turn_on_closed_to_open: True
   turn_off_open_to_closed: False
-  global_dependencies: global_data
+  global_dependencies: little_helpers
   
 service_door_control_switch:
   module: automations
@@ -118,56 +121,82 @@ service_door_control_switch:
   switch_entities: 'switch.service_room_light'
   turn_on_closed_to_open: True
   turn_off_open_to_closed: True
-  global_dependencies: global_data
+  global_dependencies: little_helpers
 
 ###########################################
 ##### Nursery Ceiling Fan Automations #####
 ###########################################
 nursery_ceiling_fan_off:
-  module: automations
-  class: CeilingFanMqttMessageToIRPacket
+  module: ir_packets_control
+  class: HandleMqttFan
   topic: 'tomerfi_custom_fan/nursery/command'
   payload: 'off'
-  room: 'nursery'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_170
+  fan_type: "hyundai_ceiling_fan"
   command: 'off'
-  global_dependencies: ir_packets
+  global_dependencies: ir_packets_manager
   
 nursery_ceiling_fan_on:
-  module: automations
-  class: CeilingFanMqttMessageToIRPacket
+  module: ir_packets_control
+  class: HandleMqttFan
   topic: 'tomerfi_custom_fan/nursery/command'
   payload: 'on'
-  room: 'nursery'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_170
+  fan_type: "hyundai_ceiling_fan"
   command: 'low'
-  global_dependencies: ir_packets
+  global_dependencies: ir_packets_manager
   
 nursery_ceiling_set_speed_low:
-  module: automations
-  class: CeilingFanMqttMessageToIRPacket
+  module: ir_packets_control
+  class: HandleMqttFan
   topic: 'tomerfi_custom_fan/nursery/speed'
   payload: 'low'
-  room: 'nursery'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_170
+  fan_type: "hyundai_ceiling_fan"
   command: 'low'
-  global_dependencies: ir_packets
+  global_dependencies: ir_packets_manager
   
 nursery_ceiling_set_speed_medium:
-  module: automations
-  class: CeilingFanMqttMessageToIRPacket
+  module: ir_packets_control
+  class: HandleMqttFan
   topic: 'tomerfi_custom_fan/nursery/speed'
   payload: 'medium'
-  room: 'nursery'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_170
+  fan_type: "hyundai_ceiling_fan"
   command: 'medium'
-  global_dependencies: ir_packets
+  global_dependencies: ir_packets_manager
   
 nursery_ceiling_set_speed_high:
-  module: automations
-  class: CeilingFanMqttMessageToIRPacket
+  module: ir_packets_control
+  class: HandleMqttFan
   topic: 'tomerfi_custom_fan/nursery/speed'
   payload: 'high'
-  room: 'nursery'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_170
+  fan_type: "hyundai_ceiling_fan"
   command: 'high'
-  global_dependencies: ir_packets
+  global_dependencies: ir_packets_manager
+
+########################################
+######## Nursery AC Automations ########
+########################################
+nursery_ac_automation:
+  module: ir_packets_control
+  class: HandleMqttACUnit
+  room: "nursery"
+  climate_entity: climate.nursery_ac
+  ir_send_service: switch.broadlink_send_packet_192_168_0_170
+  ac_type: "elco_small"
+  default_mode_for_on: "heat"
+  mode_command_topic: "tomerfi_custom_ac/nursery/mode"
+  temperature_command_topic: "tomerfi_custom_ac/nursery/temperature"
+  fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
   
+temperature_sensor_to_mqtt:
+  module: ir_packets_control
+  class: TemperatureSensorToMqtt
+  sensor_entity: sensor.nursery_broadlink_a1_temperature
+  topic: "tomerfi_custom_ac/nursery/current_temperature"
+
 #######################################
 ##### OpenMqttGateway Automations #####
 #######################################
@@ -207,8 +236,3 @@ door_bell_ring_notification:
   data:
     title: "Door Bell"
     message: "The main entrance door bell was activated"
-    
-#test:
-#  module: automations
-#  class: HandleMqttACUnit
-  
