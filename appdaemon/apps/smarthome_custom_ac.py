@@ -12,7 +12,7 @@ class AlexaCustomAC(hassapi.Hass):
     self.default_mode_for_on = self.args["default_mode_for_on"] # default mode for 'alexa, turn on X, can either be heat or cool
     self.scale = self.args["scale"] if "scale" in self.args else "CELSIUS" # temperature unit for discovery directive
     
-    # register the api endpoint, the uri for this endpoint will be http://<your_ha_ip_or_name>/api/appdaemon/AlexaCustomAC
+    # register the api endpoint, the uri for this endpoint will be https://<your_ha_ip_or_name>/api/appdaemon/AlexaCustomAC
     # please note that as for appdaemon 3.0.2, legacy password is requierd, please add the parameter key 'api_password' with you configured password
     self.handler = self.register_endpoint(self.api_call, "AlexaCustomAC")
     

@@ -1,22 +1,23 @@
-- platform: mqtt
-  name: "nursery_ac"
-  qos: 0
-  retain: false
-  send_if_off: false
-  initial: 25
-  current_temperature_topic: "tomerfi_custom_ac/nursery/current_temperature"
-  mode_command_topic: "tomerfi_custom_ac/nursery/mode"
-  modes:
-    - "off"
-    - "cool"
-    - "heat"
-  temperature_command_topic: "tomerfi_custom_ac/nursery/temperature"
-  fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
-  fan_modes:
-    - "auto"
-    - "low"
-    - "medium"
-    - "high"
-  min_temp: 17
-  max_temp: 30
-  temp_step: 1
+climate:
+  - platform: mqtt
+    name: "nursery_ac"
+    qos: 0
+    retain: false
+    send_if_off: false
+    initial: 25
+    current_temperature_topic: "tomerfi_custom_ac/nursery/current_temperature"
+    mode_command_topic: "tomerfi_custom_ac/nursery/mode"
+    modes:
+      - "off"
+      - "cool"
+      - "heat"
+    temperature_command_topic: "tomerfi_custom_ac/nursery/temperature"
+    fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
+    fan_modes:
+      - "auto"
+      - "low"
+      - "medium"
+      - "high"
+    min_temp: 17
+    max_temp: 30
+    temp_step: 1

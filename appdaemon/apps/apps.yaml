@@ -182,7 +182,6 @@ nursery_ceiling_set_speed_high:
 nursery_ac_automation:
   module: ir_packets_control
   class: HandleMqttACUnit
-  room: "nursery"
   climate_entity: climate.nursery_ac
   ir_send_service: switch.broadlink_send_packet_192_168_0_170
   ac_type: "elco_small"
