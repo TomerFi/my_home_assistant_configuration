@@ -1,0 +1,74 @@
+homeassistant:
+  customize:
+    fan.nursery_ceiling_fan:
+      friendly_name: "Nursery Ceiling Fan"
+    script.set_nursery_ceiling_fan_low:
+      friendly_name: ""
+      custom_text: "LOW"
+    script.set_nursery_ceiling_fan_medium:
+      friendly_name: ""
+      custom_text: "MEDIUM"
+    script.set_nursery_ceiling_fan_high:
+      friendly_name: ""
+      custom_text: "HIGH"
+    script.set_nursery_ceiling_fan_off:
+      friendly_name: ""
+      custom_text: "OFF"
+    group.nursery_ceiling_fan:
+      friendly_name: "Ceiling Fan"
+      control: hidden
+    
+group:
+  nursery_ceiling_fan:
+    name: nursery_ceiling_fan
+    entities:
+      - script.set_nursery_ceiling_fan_off
+      - script.set_nursery_ceiling_fan_low
+      - script.set_nursery_ceiling_fan_medium
+      - script.set_nursery_ceiling_fan_high
+      - fan.nursery_ceiling_fan
+
+fan:
+  - platform: mqtt
+    name: "nursery_ceiling_fan"
+    command_topic: "tomerfi_custom_fan/nursery/command"
+    payload_on: "on"
+    payload_off: "off"
+    qos: 0
+    retain: false
+    speed_command_topic: "tomerfi_custom_fan/nursery/speed"
+    payload_low_speed: "low"
+    payload_medium_speed: "medium"
+    payload_high_speed: "high"
+    speeds:
+      - "low"
+      - "medium"
+      - "high"
+
+script:
+  set_nursery_ceiling_fan_low:
+    sequence:
+      - service: fan.set_speed
+        data:
+          entity_id: "fan.nursery_ceiling_fan"
+          speed: "low"
+  
+  set_nursery_ceiling_fan_medium:
+    sequence:
+      - service: fan.set_speed
+        data:
+          entity_id: "fan.nursery_ceiling_fan"
+          speed: "medium"
+  
+  set_nursery_ceiling_fan_high:
+    sequence:
+      - service: fan.set_speed
+        data:
+          entity_id: "fan.nursery_ceiling_fan"
+          speed: "high"
+  
+  set_nursery_ceiling_fan_off:
+    sequence:
+      - service: fan.turn_off
+        data:
+          entity_id: "fan.nursery_ceiling_fan"

@@ -1,0 +1,49 @@
+homeassistant:
+  customize:
+    sensor.wallpanel_nursery_screen_on:
+      friendly_name: "Screen ON"
+      icon: mdi:fullscreen
+    sensor.wallpanel_nursery_battery:
+      friendly_name: "Battery"
+      icon: mdi:battery
+    sensor.wallpanel_nursery_light:
+      friendly_name: "Light"
+      icon: mdi:brightness-4
+    sensor.wallpanel_nursery_motion:
+      friendly_name: "Motion"
+      icon: mdi:walk
+    group.nursery_wall_panel:
+      friendly_name: "Wall-Panel"
+      control: hidden
+
+group:
+  nursery_wall_panel:
+    name: nursery_wall_panel
+    entities:
+      - sensor.wallpanel_nursery_screen_on
+      - sensor.wallpanel_nursery_battery
+      - sensor.wallpanel_nursery_light
+      - sensor.wallpanel_nursery_motion
+      
+sensor:
+  - platform: mqtt
+    state_topic: "wallpanel/nursery_dash/state"
+    name: wallpanel_nursery_screen_on
+    value_template: "{{ value_json.screenOn }}"
+    
+  - platform: mqtt
+    state_topic: "wallpanel/nursery_dash/sensor/battery"
+    name: wallpanel_nursery_battery
+    unit_of_measurement: "%"
+    value_template: "{{ value_json.value }}"
+    
+  - platform: mqtt
+    state_topic: "wallpanel/nursery_dash/sensor/light"
+    name: wallpanel_nursery_light
+    unit_of_measurement: "lx"
+    value_template: "{{ value_json.value }}"
+    
+  - platform: mqtt
+    state_topic: "wallpanel/nursery_dash/sensor/motion"
+    name: wallpanel_nursery_motion
+    value_template: "{{ value_json.value }}"

@@ -67,35 +67,6 @@ bedroom_ac:
     - input_select.bedroom_ac_fan
     - group.bedroom_ac_hidden_controls
 
-nursery_ac:
-  name: nursery_ac
-  entities:
-    - climate.nursery_ac
-    - switch.nursery_ac_toggle
-    - input_number.nursery_ac_temperature_select
-    - cover.nursery_ac_target_temperature
-    - input_select.nursery_ac_operation_mode
-    - input_select.nursery_ac_fan_level
-
-nursery_ceiling_fan:
-  name: nursery_ceiling_fan
-  entities:
-    - script.set_nursery_ceiling_fan_off
-    - script.set_nursery_ceiling_fan_low
-    - script.set_nursery_ceiling_fan_medium
-    - script.set_nursery_ceiling_fan_high
-    - fan.nursery_ceiling_fan
-    
-nursery_lights:
-  name: nursery_lights
-  entities:
-    - light.nursery_dresser_light
-    - input_number.nursery_lightstrip_brightness
-    - light.nursery_chair_light
-    - input_number.nursery_bloom_brightness
-    - light.nursery_main_light
-    - input_number.nursery_ambiance_color_temperature
-
 bedroom_switches:
   name: bedroom_switches
   entities:
@@ -174,15 +145,6 @@ all_living_room_sensors:
   name: all_living_room_sensors
   entities:
     - sensor.google_wifi_living_room_status
-
-all_nursery_sensors:  
-  name: all_nursery_sensors
-  entities:  
-    - sensor.nursery_broadlink_a1_temperature
-    - sensor.nursery_broadlink_a1_humidity
-    - sensor.nursery_broadlink_a1_air_quality
-    - sensor.nursery_broadlink_a1_light
-    - sensor.nursery_broadlink_a1_noise
 
 all_kitchen_sensors:
   name: all_kitchen_sensors
@@ -393,14 +355,12 @@ office_ceiling_fan:
     - script.set_office_ceiling_fan_timer_6h
     - switch.office_fan_light
 
-
-nursery_wall_panel:
-  name: nursery_wall_panel
+qbittorent_client:
+  name: qbittorent_client
   entities:
-    - sensor.wallpanel_nursery_screen_on
-    - sensor.wallpanel_nursery_battery
-    - sensor.wallpanel_nursery_light
-    - sensor.wallpanel_nursery_motion
+    - sensor.qbittorrent_client_status
+    - sensor.qbittorrent_client_down_speed
+    - sensor.qbittorrent_client_up_speed
 
 ############################################
 ############### Test Groups ################
@@ -483,16 +443,6 @@ bedroom_view:
     - group.bedroom_ac
     - group.bedroom_switches
     
-nursery_view:
-  name: nursery_view
-  view: true
-  entities:
-    - group.all_nursery_sensors
-    - group.nursery_lights
-    - group.nursery_ac
-    - group.nursery_ceiling_fan
-    - group.nursery_wall_panel
-    
 guest_room_view:
   name: guest_room_view
   view: true
@@ -526,6 +476,7 @@ tech_support_view:
     - group.user_hava_devices
     - group.ha_statistics
     - group.qnap_homenas_group
+    - group.qbittorent_client
     - group.ha_operations
     - group.nmap_pa_trackers
     - group.nmap_remotes_trackers

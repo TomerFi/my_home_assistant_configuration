@@ -1,0 +1,27 @@
+homeassistant:
+  customize:
+    sensor.nursery_fire_8_tablet_nmap_tracker:
+      friendly_name: "Nursery Fire 8"
+      icon: mdi:amazon
+    sensor.nursery_broadlink_a1_nmap_tracker:
+      friendly_name: "Nursery A1"
+    group.nursery_view:
+      friendly_name: "Nursery"
+
+group:
+  nursery_view:
+    name: nursery_view
+    view: true
+    entities:
+      - group.all_nursery_sensors
+      - group.nursery_lights
+      - group.nursery_ac
+      - group.nursery_ceiling_fan
+      - group.nursery_wall_panel
+
+switch:
+  - platform: broadlink
+    host: !secret nursery_broadlink_rm_mini_ip
+    mac: !secret nursery_broadlink_rm_mini_mac
+    timeout: 15
+    type: rm_mini

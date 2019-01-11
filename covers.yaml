@@ -36,11 +36,3 @@
         data_template:
           entity_id: input_text.shabbat_notify_minutes_start
           value: "{{ [((states.input_text.shabbat_notify_minutes_start.state | int // 5 * 5) - 5), 0] | max }}"
-    nursery_ac_target_temperature:
-      position_template: "{{ states.climate.nursery_ac.attributes.temperature | int }}"
-      open_cover:
-        service: input_number.increment
-        entity_id: input_number.nursery_ac_temperature_select
-      close_cover:
-        service: input_number.decrement
-        entity_id: input_number.nursery_ac_temperature_select

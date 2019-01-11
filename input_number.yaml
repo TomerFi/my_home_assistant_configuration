@@ -19,27 +19,3 @@ shabbat_notify_minutes_start:
   max: 120
   step: 1
   mode: box
-  
-nursery_ac_temperature_select:
-  name: nursery_ac_temperature_select
-  min: 17
-  max: 30
-  step: 1
-  
-nursery_ambiance_color_temperature:
-  name: nursery_ambiance_color_temperature
-  min: 153
-  max: 454
-  step: 1
-  
-nursery_lightstrip_brightness:
-  name: nursery_lightstrip_brightness
-  min: 0
-  max: 255
-  step: 1
-  
-nursery_bloom_brightness:
-  name: nursery_bloom_brightness
-  min: 0
-  max: 255
-  step: 1

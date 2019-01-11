@@ -19,18 +19,6 @@
     - pressure
     - icon
 
-- platform: broadlink
-  name: nursery_broadlink_a1
-  update_interval: 30
-  host: !secret nursery_broadlink_a1_ip
-  mac: !secret nursery_broadlink_a1_mac
-  monitored_conditions:
-    - temperature
-    - humidity
-    - air_quality
-    - light
-    - noise
-
 - platform: google_wifi
   host: !secret living_room_google_wifi_ip
   name: google_wifi_living_room
@@ -117,8 +105,6 @@
       value_template: "{%if states.device_tracker.kitchen_echo_one.state == 'home'%}Online{%else%}Offline{%endif%}"
     living_room_dot_nmap_tracker:
       value_template: "{%if states.device_tracker.living_room_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
-    nursery_dot_nmap_tracker:
-      value_template: "{%if states.device_tracker.nursery_echo_dot == 'home'%}Online{%else%}Offline{%endif%}"
     switcher_v2_nmap_tracker:
       value_template: "{%if states.device_tracker.switcher_v2.state == 'home'%}Online{%else%}Offline{%endif%}"
     bedroom_echo_nmap_tracker:
@@ -137,8 +123,6 @@
       value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
     hue_bridge_nmap_tracker:
       value_template: "{%if states.device_tracker.hue_bridgehomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
-    nursery_fire_8_tablet_nmap_tracker:
-      value_template: "{%if states.device_tracker.nursery_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_fire_8_tablet_nmap_tracker:
       value_template: "{%if states.device_tracker.kitchen_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_dot_nmap_tracker:
@@ -151,8 +135,6 @@
       value_template: "{%if states.device_tracker.living_room_rm_pro.state == 'home'%}Online{%else%}Offline{%endif%}"
     bedroom_rm_mini_nmap_tracker:
       value_template: "{%if states.device_tracker.bedroom_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
-    nursery_broadlink_a1_nmap_tracker:
-      value_template: "{%if states.device_tracker.nursery_broadlink_a1.state == 'home'%}Online{%else%}Offline{%endif%}"
     service_room_s1c_nmap_tracker:
       value_template: "{%if states.device_tracker.service_room_s1c.state == 'home'%}Online{%else%}Offline{%endif%}"
     tv_lifxz_led_nmap_tracker:
@@ -322,7 +304,11 @@
       query: 'SELECT REPLACE(REPLACE(closed_incorrect, 0, "ok"), 1, "incorrect") AS "status" FROM homeassistant.recorder_runs WHERE run_id = (SELECT MAX(run_id) FROM homeassistant.recorder_runs WHERE end IS NOT NULL)'
       column: 'status'
   
-- platform: amcrest
+- platform: qbittorrent
+  url: !secret qbittorrent_webui_url
+  name: "qbittorrent_client"
+  username: !secret qbittorrent_webui_username
+  password: !secret qbittorrent_webui_password
 
 ########################################
 ##### BRUH DIY MultiSensor Sensors #####
@@ -360,29 +346,3 @@
   name: "Bedroom Temperature"  
   unit_of_measurement: "°C"  
   value_template: '{{ value_json.temperature | round(1) }}'  
-
-########################################
-########## Wall-Panel Sensors ##########
-########################################
-
-- platform: mqtt
-  state_topic: "wallpanel/nursery_dash/state"
-  name: wallpanel_nursery_screen_on
-  value_template: "{{ value_json.screenOn }}"
-  
-- platform: mqtt
-  state_topic: "wallpanel/nursery_dash/sensor/battery"
-  name: wallpanel_nursery_battery
-  unit_of_measurement: "%"
-  value_template: "{{ value_json.value }}"
-  
-- platform: mqtt
-  state_topic: "wallpanel/nursery_dash/sensor/light"
-  name: wallpanel_nursery_light
-  unit_of_measurement: "lx"
-  value_template: "{{ value_json.value }}"
-  
-- platform: mqtt
-  state_topic: "wallpanel/nursery_dash/sensor/motion"
-  name: wallpanel_nursery_motion
-  value_template: "{{ value_json.value }}"

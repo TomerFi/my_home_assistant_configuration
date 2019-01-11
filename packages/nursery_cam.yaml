@@ -1,0 +1,21 @@
+camera:
+  - platform: amcrest
+  
+sensor:
+  - platform: amcrest
+
+amcrest:
+  - host: !secret nursery_amcrest_cam_ip
+    username: !secret nursery_cam_username
+    password: !secret nursery_cam_password
+    name: 'Nursery Cam'
+    port: !secret nursery_cam_port
+    resolution: 'high'
+    stream_source: 'rtsp'
+    scan_interval: 3
+    sensors:
+      - motion_detector
+      - ptz_preset
+    switches:
+      - motion_detection
+      - motion_recording

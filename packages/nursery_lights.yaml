@@ -1,0 +1,195 @@
+homeassistant:
+  customize:
+    light.hue_ambiance_lamp_1: #this is actually the nursery main 1st buld, I preffer controlling it via its group light.nursery_main_light
+      hidden: true
+    light.hue_ambiance_lamp_1_2: #this is actually the nursery main 2nd buld, I preffer controlling it via its group light.nursery_main_light
+      hidden: true
+    light.nursery_main_light:
+      friendly_name: "Main Light"
+      supported_features: 43
+    light.hue_bloom_1: #this is actually the nursery chair light, I preffer controlling it via its group light.nursery_chair_light
+      hidden: true
+    light.nursery_chair_light:
+      friendly_name: "Chair Light"
+      supported_features: 61
+    light.hue_lightstrip_plus_1: #this is actually the nursery dresser strip, I preffer controlling it via its group light.nursery_dresser_light
+      hidden: true
+    light.nursery_dresser_light:
+      friendly_name: "Dresser Light"
+      supported_features: 63
+    input_number.nursery_ambiance_color_temperature:
+      friendly_name: "Color Temperature"
+      icon: mdi:oil-temperature
+    input_number.nursery_lightstrip_brightness:
+      friendly_name: "Brightness"
+      icon: mdi:brightness-6
+    input_number.nursery_bloom_brightness:
+      friendly_name: "Brightness"
+      icon: mdi:brightness-6
+    group.nursery_lights:
+      friendly_name: "Lights"
+      control: hidden
+    automation.nursery_main_color_temp_input_select:
+      hidden: true
+    automation.nursery_main_light_on:
+      hidden: true
+    automation.nursery_main_off:
+      hidden: true
+    automation.nursery_lightstrip_brightness_input_select:
+      hidden: true
+    automation.nursery_bloom_brightness_input_select:
+      hidden: true
+    automation.nursery_lightstrip_on:
+      hidden: true
+    automation.nursery_bloom_on:
+      hidden: true
+    automation.nursery_lightstrip_off:
+      hidden: true
+    automation.nursery_bloom_off:
+      hidden: true
+
+
+group:
+  nursery_lights:
+    name: nursery_lights
+    entities:
+      - light.nursery_dresser_light
+      - input_number.nursery_lightstrip_brightness
+      - light.nursery_chair_light
+      - input_number.nursery_bloom_brightness
+      - light.nursery_main_light
+      - input_number.nursery_ambiance_color_temperature
+
+automation:
+  - id: nursery_main_color_temp_input_select
+    alias: "nursery_main_color_temp_input_select"
+    trigger:
+      platform: state
+      entity_id: input_number.nursery_ambiance_color_temperature
+    condition:
+      condition: template
+      value_template: "{{ states.light.nursery_main_light.state != 'off'}}"
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: light.nursery_main_light
+        color_temp: "{{ trigger.to_state.state | int}}"
+  
+  - id: nursery_lightstrip_brightness_input_select
+    alias: "nursery_lightstrip_brightness_input_select"
+    trigger:
+      platform: state
+      entity_id: input_number.nursery_lightstrip_brightness
+    condition:
+      condition: template
+      value_template: "{{ states.light.nursery_dresser_light.state != 'off'}}"
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: light.nursery_dresser_light
+        brightness: "{{ trigger.to_state.state | int}}"
+  
+  - id: nursery_bloom_brightness_input_select
+    alias: "nursery_bloom_brightness_input_select"
+    trigger:
+      platform: state
+      entity_id: input_number.nursery_bloom_brightness
+    condition:
+      condition: template
+      value_template: "{{ states.light.nursery_chair_light.state != 'off'}}"
+    action:
+      service: light.turn_on
+      data_template:
+        entity_id: light.nursery_chair_light
+        brightness: "{{ trigger.to_state.state | int}}"
+  
+  - id: nursery_main_light_on
+    alias: nursery_main_light_on
+    trigger:
+      platform: state
+      entity_id: light.nursery_main_light
+      to: "on"
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.nursery_ambiance_color_temperature
+        value: "{{ states.light.nursery_main_light.attributes.color_temp | int}}"
+  
+  - id: nursery_lightstrip_on
+    alias: nursery_lightstrip_on
+    trigger:
+      platform: state
+      entity_id: light.nursery_dresser_light
+      to: "on"
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.nursery_lightstrip_brightness
+        value: "{{ states.light.nursery_dresser_light.attributes.brightness | int}}"
+        
+  - id: nursery_bloom_on
+    alias: nursery_bloom_on
+    trigger:
+      platform: state
+      entity_id: light.nursery_chair_light
+      to: "on"
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.nursery_bloom_brightness
+        value: "{{ states.light.nursery_chair_light.attributes.brightness | int}}"
+  
+  - id: nursery_main_off
+    alias: nursery_main_off
+    trigger:
+      platform: state
+      entity_id: light.nursery_main_light
+      to: "off"
+    action:
+      service: input_number.set_value
+      data:
+        entity_id: input_number.nursery_ambiance_color_temperature
+        value: 153
+        
+  - id: nursery_lightstrip_off
+    alias: nursery_lightstrip_off
+    trigger:
+      platform: state
+      entity_id: light.nursery_dresser_light
+      to: "off"
+    action:
+      service: input_number.set_value
+      data:
+        entity_id: input_number.nursery_lightstrip_brightness
+        value: 0
+  
+  - id: nursery_bloom_off
+    alias: nursery_bloom_off
+    trigger:
+      platform: state
+      entity_id: light.nursery_chair_light
+      to: "off"
+    action:
+      service: input_number.set_value
+      data:
+        entity_id: input_number.nursery_bloom_brightness
+        value: 0
+
+input_number:
+  nursery_ambiance_color_temperature:
+    name: nursery_ambiance_color_temperature
+    min: 153
+    max: 454
+    step: 1
+    
+  nursery_lightstrip_brightness:
+    name: nursery_lightstrip_brightness
+    min: 0
+    max: 255
+    step: 1
+    
+  nursery_bloom_brightness:
+    name: nursery_bloom_brightness
+    min: 0
+    max: 255
+    step: 1

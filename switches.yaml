@@ -338,12 +338,6 @@
       command_on: "6QpCAN8JCRYWCRYJCRYJFgkWCRYWCRYJCRYWCRYJFgkJFhYJCRYWCQkWCRYWCRYJFgkWCRYJCRYJFhYJFgkWCQkWFgkWCQ==" #"6QpCAN8JFgkJFhYJCRYWCRYJCRYJFhYJFgkJFhYJCRYWCRYJFgkJFgkWCRYJFgkWFgkWCRYJCRYJFgkWCRYJFgkWCRYJFg=="
       command_off: "6QpCAN8JCRYWCQkWFgkJFgkWFgkWCQkWFgkJFhYJFgkJFgkWCRYWCQkWCRYWCQkWFgkWCQkWFgkJFhYJFgkJFgkWFgkJFg==" #"6QpCAN8JCRYWCQkWFgkWCRYJFgkJFgkWFgkWCRYJCRYJFhYJCRYWCQkWCRYJFgkWCRYJFhYJFgkJFgkWFgkJFgkWFgkJFg=="
 
-- platform: broadlink
-  host: !secret nursery_broadlink_rm_mini_ip
-  mac: !secret nursery_broadlink_rm_mini_mac
-  timeout: 15
-  type: rm_mini
-
 - platform: template
   switches:
     small_bathroom_light:
@@ -430,16 +424,3 @@
         - service: switch.turn_off
           data:
             entity_id: switch.main_hallway_light_fixed
-    nursery_ac_toggle:
-      friendly_name: "nursery_ac_toggle"
-      value_template: "{%if states.climate.nursery_ac.state == 'off' %}off{%else%}on{%endif%}"
-      turn_on:
-        service: input_select.select_option
-        data:
-          entity_id: input_select.nursery_ac_operation_mode
-          option: "heat"
-      turn_off:
-        service: input_select.select_option
-        data:
-          entity_id: input_select.nursery_ac_operation_mode
-          option: "off"

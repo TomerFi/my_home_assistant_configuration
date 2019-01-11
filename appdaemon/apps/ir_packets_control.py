@@ -29,8 +29,11 @@ class HandleMqttACUnit(hass.Hass):
     self.ir_send_service = little_helpers.fix_service_domain(self.args["ir_send_service"])
     self.ac_type = self.args["ac_type"]
     self.mode_command_topic = self.args["mode_command_topic"]
+    self.mode_entity_for_update = self.args["mode_entity_for_update"] if self.args["mode_entity_for_update"] else None
     self.temperature_command_topic = self.args["temperature_command_topic"]
+    self.temperature_entity_for_update = self.args["temperature_entity_for_update"] if self.args["temperature_entity_for_update"] else None
     self.fan_mode_command_topic = self.args["fan_mode_command_topic"]
+    self.fan_mode_entity_for_update = self.args["fan_mode_entity_for_update"] if self.args["fan_mode_entity_for_update"] else None
     
     self.mode_command_handler = self.listen_event(self.on_mode_command, 'MQTT_MESSAGE', topic = self.mode_command_topic, namespace = 'mqtt')
     self.temperature_command_handler = self.listen_event(self.on_temperature_command, 'MQTT_MESSAGE', topic = self.temperature_command_topic, namespace = 'mqtt')
@@ -44,23 +47,34 @@ class HandleMqttACUnit(hass.Hass):
   def on_mode_command(self, event_name, data, kwargs):
     if data["payload"] in little_helpers.false_strings:
       packet = ir_packets_manager.get_ac_packet(self.ac_type, data["payload"])
-      
+
     else:
       entity_data = self.get_state(self.climate_entity, attribute="all")
       packet = ir_packets_manager.get_ac_packet(self.ac_type, data["payload"], entity_data["attributes"]["fan_mode"], entity_data["attributes"]["temperature"])
 
     self.send_packet(packet)
+    if (self.mode_entity_for_update):
+      self.update_internal_ha_state(self.mode_entity_for_update, data["payload"].lower())
 
   def on_temperature_command(self, event_name, data, kwargs):
     entity_data = self.get_state(self.climate_entity, attribute="all")
     self.send_packet(ir_packets_manager.get_ac_packet(self.ac_type, entity_data["state"], entity_data["attributes"]["fan_mode"], float(data["payload"])))
+    if (self.temperature_entity_for_update):
+        self.update_internal_ha_state(self.temperature_entity_for_update, float(data["payload"]))
   
   def on_fan_mode_command(self, event_name, data, kwargs):
     entity_data = self.get_state(self.climate_entity, attribute="all")
     self.send_packet(ir_packets_manager.get_ac_packet(self.ac_type, entity_data["state"], data["payload"], entity_data["attributes"]["temperature"]))
+    if (self.fan_mode_entity_for_update):
+        self.update_internal_ha_state(self.fan_mode_entity_for_update, data["payload"])
 
   def send_packet(self, packet):
     self.call_service(self.ir_send_service, packet = packet)
+    
+  def update_internal_ha_state(self, entity_id, to_state):
+    entity = self.get_state(entity_id, attribute="all")
+    if entity["state"] != to_state:
+      self.set_state(entity_id, state = to_state, attributes = entity["attributes"])
     
     
 class TemperatureSensorToMqtt(hass.Hass):

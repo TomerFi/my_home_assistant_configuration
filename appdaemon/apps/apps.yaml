@@ -187,8 +187,11 @@ nursery_ac_automation:
   ac_type: "elco_small"
   default_mode_for_on: "heat"
   mode_command_topic: "tomerfi_custom_ac/nursery/mode"
+  mode_entity_for_update: input_select.nursery_ac_operation_mode
   temperature_command_topic: "tomerfi_custom_ac/nursery/temperature"
+  temperature_entity_for_update: input_number.nursery_ac_temperature_select 
   fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
+  fan_mode_entity_for_update: input_select.nursery_ac_fan_level
   
 temperature_sensor_to_mqtt:
   module: ir_packets_control

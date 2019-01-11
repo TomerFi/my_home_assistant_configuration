@@ -73,37 +73,17 @@ switch.office_fan_high_speed:
   hidden: true
 switch.office_fan:
   hidden: true
-switch.nursery_ac_toggle:
-  friendly_name: "AC Power"
-  icon: mdi:power
 
 ##########################################
 ################# Lights #################
 ##########################################
 light.tv_lights:
   friendly_name: "TV Back Led"
-light.nursery_ambiance_1: #this is actually the living night light, I preffer controlling it via its group light.living_room_night_light
-  hidden: true
 light.living_room_night_light:
   friendly_name: "Night Light"
   supported_features: 43
-light.hue_ambiance_lamp_1: #this is actually the nursery main 1st buld, I preffer controlling it via its group light.nursery_main_light
+light.nursery_ambiance_1: #this is actually the living night light, I preffer controlling it via its group light.living_room_night_light
   hidden: true
-light.hue_ambiance_lamp_1_2: #this is actually the nursery main 2nd buld, I preffer controlling it via its group light.nursery_main_light
-  hidden: true
-light.nursery_main_light:
-  friendly_name: "Main Light"
-  supported_features: 43
-light.hue_bloom_1: #this is actually the nursery chair light, I preffer controlling it via its group light.nursery_chair_light
-  hidden: true
-light.nursery_chair_light:
-  friendly_name: "Chair Light"
-  supported_features: 61
-light.hue_lightstrip_plus_1: #this is actually the nursery dresser strip, I preffer controlling it via its group light.nursery_dresser_light
-  hidden: true
-light.nursery_dresser_light:
-  friendly_name: "Dresser Light"
-  supported_features: 63
 
 ##########################################
 ############# Media Players ##############
@@ -130,18 +110,6 @@ input_number.tv_led_brightness:
 input_number.tv_led_temperature:
   friendly_name: "Color Temperature"
   icon: mdi:oil-temperature
-input_number.nursery_ac_temperature_select:
-  friendly_name: "Target"
-  icon: mdi:temperature-celsius
-input_number.nursery_ambiance_color_temperature:
-  friendly_name: "Color Temperature"
-  icon: mdi:oil-temperature
-input_number.nursery_lightstrip_brightness:
-  friendly_name: "Brightness"
-  icon: mdi:brightness-6
-input_number.nursery_bloom_brightness:
-  friendly_name: "Brightness"
-  icon: mdi:brightness-6
 
 ##########################################
 ############# Input Select ###############
@@ -171,12 +139,6 @@ input_select.select_log_level:
   friendly_name: "Log Level"
   icon: mdi:alert-circle-outline
 input_select.office_ceiling_fan_level:
-  friendly_name: "Fan"
-  icon: mdi:fan
-input_select.nursery_ac_operation_mode:
-  friendly_name: "Mode"
-  icon: mdi:weather-windy-variant
-input_select.nursery_ac_fan_level:
   friendly_name: "Fan"
   icon: mdi:fan
 
@@ -222,39 +184,10 @@ cover.bedroom_ac_temp_cover:
 cover.shabbat_notify_minutes_start:
   friendly_name: "Adjust Minutes"
   icon: mdi:alarm-plus
-cover.nursery_ac_target_temperature:
-  friendly_name: "Temperature"
-  icon: test_icon #mdi:temperature-celsius
-
-##########################################
-################ Climate #################
-##########################################
-climate.nursery_ac:
-  friendly_name: "Nursery Air Conditioner"
-
-##########################################
-################## Fan ###################
-##########################################
-fan.nursery_ceiling_fan:
-  friendly_name: "Nursery Ceiling Fan"
 
 ##########################################
 ################# Sensors ################
 ##########################################
-sensor.nursery_broadlink_a1_temperature:
-  friendly_name: "Temperature"
-sensor.nursery_broadlink_a1_humidity:
-  friendly_name: "Humidity"
-  icon: mdi:water-percent
-sensor.nursery_broadlink_a1_air_quality:
-  friendly_name: "Air Quality"
-  icon: mdi:weather-windy
-sensor.nursery_broadlink_a1_light:
-  friendly_name: "Light"
-  icon: mdi:brightness-5
-sensor.nursery_broadlink_a1_noise:
-  friendly_name: "Noise"
-  icon: mdi:voice
 sensor.google_wifi_bedroom_status:
   friendly_name: "Access Point"
 sensor.google_wifi_bedroom_last_restart:
@@ -333,9 +266,6 @@ sensor.kitchen_echo_one_nmap_tracker:
 sensor.living_room_dot_nmap_tracker:
   friendly_name: "Living Room Dot"
   icon: mdi:amazon
-sensor.nursery_dot_nmap_tracker:
-  friendly_name: "Nursery Dot"
-  icon: mdi:amazon
 sensor.bedroom_echo_nmap_tracker:
   friendly_name: "Bedroom Echo"
   icon: mdi:amazon
@@ -375,9 +305,6 @@ sensor.xbox_360_nmap_tracker:
 sensor.hue_bridge_nmap_tracker:
   friendly_name: "Living Room Hue Bridge"
   icon: mdi:lighthouse
-sensor.nursery_fire_8_tablet_nmap_tracker:
-  friendly_name: "Nursery Fire 8"
-  icon: mdi:amazon
 sensor.kitchen_fire_8_tablet_nmap_tracker:
   friendly_name: "Kitchen Fire 8"
   icon: mdi:amazon
@@ -420,8 +347,6 @@ sensor.tv_lifxz_led_nmap_tracker:
 sensor.living_room_samsung_tv_nmap_tracker:
   friendly_name: "Living Room Samsung TV"
   icon: mdi:television
-sensor.nursery_broadlink_a1_nmap_tracker:
-  friendly_name: "Nursery A1"
 sensor.dash_wand_nmap_tracker:
   friendly_name: "Dash Wand"
   icon: mdi:amazon
@@ -527,18 +452,15 @@ sensor.home_workstation_uptime_human:
   icon: mdi:timelapse
 sensor.home_workstation_uptime_ticks:
   hidden: true
-sensor.wallpanel_nursery_screen_on:
-  friendly_name: "Screen ON"
-  icon: mdi:fullscreen
-sensor.wallpanel_nursery_battery:
-  friendly_name: "Battery"
-  icon: mdi:battery
-sensor.wallpanel_nursery_light:
-  friendly_name: "Light"
-  icon: mdi:brightness-4
-sensor.wallpanel_nursery_motion:
-  friendly_name: "Motion"
-  icon: mdi:walk
+sensor.qbittorrent_client_down_speed:
+  friendly_name: "Down Speed"
+  icon: mdi:download-network
+sensor.qbittorrent_client_status:
+  friendly_name: "Status"
+  icon: mdi:network
+sensor.qbittorrent_client_up_speed:
+  friendly_name: "Up Speed"
+  icon: mdi:upload-network
 
 ##########################################
 ################# Scripts ################
@@ -582,26 +504,6 @@ script.bedroom_ac_heat_high_script:
 script.bedroom_ac_heat_auto_script:
   hidden: true
 script.bedroom_rm_mini_send_packet:
-  hidden: true
-script.nursery_ac_check_state_script:
-  hidden: true
-script.nursery_ac_cool_low_script:
-  hidden: true
-script.nursery_ac_cool_medium_script:
-  hidden: true
-script.nursery_ac_cool_high_script:
-  hidden: true
-script.nursery_ac_cool_auto_script:
-  hidden: true
-script.nursery_ac_heat_low_script:
-  hidden: true
-script.nursery_ac_heat_medium_script:
-  hidden: true
-script.nursery_ac_heat_high_script:
-  hidden: true
-script.nursery_ac_heat_auto_script:
-  hidden: true
-script.nursery_rm_mini_send_packet:
   hidden: true
 script.tv_led_theme_select_script:
   hidden: true
@@ -665,18 +567,6 @@ script.ring_the_doorbell:
   friendly_name: "Ring The Doorbell"
   icon: mdi:bell-ring
   custom_text: "RING"
-script.set_nursery_ceiling_fan_low:
-  friendly_name: ""
-  custom_text: "LOW"
-script.set_nursery_ceiling_fan_medium:
-  friendly_name: ""
-  custom_text: "MEDIUM"
-script.set_nursery_ceiling_fan_high:
-  friendly_name: ""
-  custom_text: "HIGH"
-script.set_nursery_ceiling_fan_off:
-  friendly_name: ""
-  custom_text: "OFF"
 
 ##########################################
 ################# Groups #################
@@ -716,9 +606,6 @@ group.bedroom_ac:
   control: hidden
 group.bedroom_ac_hidden_controls:
   friendly_name: "Extra Controls"
-  control: hidden
-group.nursery_ac:
-  friendly_name: "Nursery AC"
   control: hidden
 group.living_room_ac_hidden_controls:
   friendly_name: "Extra Controls"
@@ -844,21 +731,11 @@ group.qnap_homenas_group:
 group.office_ceiling_fan:
   friendly_name: "Ceiling Fan"
   control: hidden
-group.nursery_ceiling_fan:
-  friendly_name: "Ceiling Fan"
-  control: hidden
 group.all_office_sensors:
   friendly_name: "Sensors"
   control: hidden
-group.nursery_lights:
-  friendly_name: "Lights"
-  control: hidden
-group.all_nursery_sensors:
-  friendly_name: "Sensors"
-  icon: mdi:surround-sound
-  control: hidden
-group.nursery_wall_panel:
-  friendly_name: "Wall-Panel"
+group.qbittorent_client:
+  friendly_name: "Qbittorrent"
   control: hidden
 
 ##########################################
@@ -878,8 +755,6 @@ group.service_room_view:
   friendly_name: "Service Room"
 group.bedroom_view:
   friendly_name: "Bedroom"
-group.nursery_view:
-  friendly_name: "Nursery"
 group.guest_room_view:
   friendly_name: "Guest Room"
 group.balcony_view:
@@ -984,12 +859,6 @@ automation.bedroom_ac_show_extra_controls_on:
   hidden: true
 automation.bedroom_ac_show_extra_controls_off:
   hidden: true
-automation.nursery_ac_operation_mode_input_select:
-  hidden: true
-automation.nursery_ac_fan_level_input_select:
-  hidden: true
-automation.nursery_ac_temperature_input_number:
-  hidden: true
 automation.shower_motion_sensor_motion_detected:
   friendly_name: "Shower Motion Detected: Light On"
   icon: mdi:lightbulb-on
@@ -1027,24 +896,6 @@ automation.office_fan_light_on:
 automation.living_room_ac_show_extra_controls_on:
   hidden: true
 automation.living_room_ac_show_extra_controls_off:
-  hidden: true
-automation.nursery_main_color_temp_input_select:
-  hidden: true
-automation.nursery_main_light_on:
-  hidden: true
-automation.nursery_main_off:
-  hidden: true
-automation.nursery_lightstrip_brightness_input_select:
-  hidden: true
-automation.nursery_bloom_brightness_input_select:
-  hidden: true
-automation.nursery_lightstrip_on:
-  hidden: true
-automation.nursery_bloom_on:
-  hidden: true
-automation.nursery_lightstrip_off:
-  hidden: true
-automation.nursery_bloom_off:
   hidden: true
 
 ##########################################

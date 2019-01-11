@@ -1,0 +1,150 @@
+homeassistant:
+  customize:
+    switch.nursery_ac_toggle:
+      friendly_name: "AC Power"
+      icon: mdi:power
+    input_number.nursery_ac_temperature_select:
+      friendly_name: "Target"
+      icon: mdi:temperature-celsius
+    input_select.nursery_ac_operation_mode:
+      friendly_name: "Mode"
+      icon: mdi:weather-windy-variant
+    input_select.nursery_ac_fan_level:
+      friendly_name: "Fan"
+      icon: mdi:fan
+    cover.nursery_ac_target_temperature:
+      friendly_name: "Temperature"
+      icon: test_icon #mdi:temperature-celsius
+    climate.nursery_ac:
+      friendly_name: "Nursery Air Conditioner"
+    group.nursery_ac:
+      friendly_name: "Nursery AC"
+      control: hidden
+    automation.nursery_ac_operation_mode_input_select:
+      hidden: true
+    automation.nursery_ac_fan_level_input_select:
+      hidden: true
+    automation.nursery_ac_temperature_input_number:
+      hidden: true
+
+group:
+  nursery_ac:
+    name: nursery_ac
+    entities:
+      - climate.nursery_ac
+      - switch.nursery_ac_toggle
+      - input_number.nursery_ac_temperature_select
+      - cover.nursery_ac_target_temperature
+      - input_select.nursery_ac_operation_mode
+      - input_select.nursery_ac_fan_level
+
+climate:
+  - platform: mqtt
+    name: "nursery_ac"
+    qos: 0
+    retain: false
+    send_if_off: false
+    initial: 25
+    current_temperature_topic: "tomerfi_custom_ac/nursery/current_temperature"
+    mode_command_topic: "tomerfi_custom_ac/nursery/mode"
+    modes:
+      - "off"
+      - "cool"
+      - "heat"
+    temperature_command_topic: "tomerfi_custom_ac/nursery/temperature"
+    fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
+    fan_modes:
+      - "auto"
+      - "low"
+      - "medium"
+      - "high"
+    min_temp: 17
+    max_temp: 30
+    temp_step: 1
+    
+automation:
+  - id: nursery_ac_operation_mode_input_select
+    alias: nursery_ac_operation_mode_input_select
+    trigger:
+      platform: state
+      entity_id: input_select.nursery_ac_operation_mode
+    action:
+      service: climate.set_operation_mode
+      data_template:
+        entity_id: climate.nursery_ac
+        operation_mode: "{{ trigger.to_state.state }}"
+  
+  - id: nursery_ac_fan_level_input_select
+    alias: nursery_ac_fan_level_input_select
+    trigger:
+      platform: state
+      entity_id: input_select.nursery_ac_fan_level
+    action:
+      service: climate.set_fan_mode
+      data_template:
+        entity_id: climate.nursery_ac
+        fan_mode: "{{ trigger.to_state.state }}"
+        
+  - id: nursery_ac_temperature_input_number
+    alias: nursery_ac_temperature_input_number
+    trigger:
+      platform: state
+      entity_id: input_number.nursery_ac_temperature_select
+    action:
+      service: climate.set_temperature
+      data_template:
+        entity_id: climate.nursery_ac
+        temperature: "{{ trigger.to_state.state | int }}"
+        
+cover:
+  - platform: template
+    covers:
+      nursery_ac_target_temperature:
+        position_template: "{{ states.climate.nursery_ac.attributes.temperature | int }}"
+        open_cover:
+          service: input_number.increment
+          entity_id: input_number.nursery_ac_temperature_select
+        close_cover:
+          service: input_number.decrement
+          entity_id: input_number.nursery_ac_temperature_select
+          
+          
+input_number:
+  nursery_ac_temperature_select:
+    name: nursery_ac_temperature_select
+    min: 17
+    max: 30
+    step: 1
+    
+input_select:
+  nursery_ac_operation_mode:
+    name: nursery_ac_operation_mode
+    options:
+      - "off"
+      - "cool"
+      - "heat"
+    
+  nursery_ac_fan_level:
+    name: nursery_ac_fan_level
+    options:
+      - "auto"
+      - "low"
+      - "medium"
+      - "high"
+      
+switch:
+  - platform: template
+    switches:
+      nursery_ac_toggle:
+        friendly_name: "nursery_ac_toggle"
+        value_template: "{%if states.climate.nursery_ac.state == 'off' %}off{%else%}on{%endif%}"
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.nursery_ac_operation_mode
+            option: "heat"
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.nursery_ac_operation_mode
+            option: "off"

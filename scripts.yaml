@@ -494,13 +494,6 @@ office_rm_mini_send_packet:
         packet:
           - '{{ packet_code }}'
 
-nursery_rm_mini_send_packet:
-  sequence:
-    - service: switch.broadlink_send_packet_192_168_0_170
-      data_template:
-        packet:
-          - '{{ packet_code }}'
-
 get_sensors_report_notificiation_from_leaving_home:
   sequence:
     - service: script.send_sensors_report_notification
@@ -599,36 +592,6 @@ set_office_ceiling_fan_timer_6h:
     - service: script.office_rm_mini_send_packet
       data:
         packet_code: "JgBqASgPKA8NKgwrDCsMKwwrDCsMKwwrDCsMAAEHJxAoDwwqDCsNKikOKA8oDygPKQ4oDyjrJxAnEAwqDSoOKQ4pDCsMKw0qDSopDgwAAQcnECcQDSoMKwwrDSkOKQwrDCsNKigPDAABBykOKQ4MKw4pDSoMKwwqDikOKQwrKQ4MAAEHKA8nEAwrDCsMKwwrDCsMKwwrDCooDw0AAQYoDygPDSoMKwwrDCsOKQ0qDSoNKigPDgABBCoNKg0PKA8oDikOKQ4pDikOKQ4pKg0OAAEEKg4pDg4oDygPKA8oDygPKA8oDikqDQ4AAQUqDCsMDykOKQ4oDygPKA8oDygPKCoNDwABBCoNKg0OKQ4pDikOKQ4pDigPKA8oKg0PAAEEKg0qDQ4pDikOKQ4pDikOKQ4pDikpDg4AAQQqDSoLECkOKQ4pDikOKQ4pDikOKSkODgABBCoNKg0PKA4pDikOKQ4pDikOKQ4pKQ4OAA0FAAAAAAAAAAAAAAAAAAA="
-
-####################################################
-############### Nursery fan Scripts ################
-#################################################### 
-set_nursery_ceiling_fan_low:
-  sequence:
-    - service: fan.set_speed
-      data:
-        entity_id: "fan.nursery_ceiling_fan"
-        speed: "low"
-
-set_nursery_ceiling_fan_medium:
-  sequence:
-    - service: fan.set_speed
-      data:
-        entity_id: "fan.nursery_ceiling_fan"
-        speed: "medium"
-
-set_nursery_ceiling_fan_high:
-  sequence:
-    - service: fan.set_speed
-      data:
-        entity_id: "fan.nursery_ceiling_fan"
-        speed: "high"
-
-set_nursery_ceiling_fan_off:
-  sequence:
-    - service: fan.turn_off
-      data:
-        entity_id: "fan.nursery_ceiling_fan"
 
 ####################################################
 ################## Scenes Scripts ##################

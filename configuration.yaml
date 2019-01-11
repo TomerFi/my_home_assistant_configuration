@@ -11,6 +11,7 @@ homeassistant:
   customize: !include customize_ent.yaml
   customize_glob: !include customize_glob.yaml
   customize_domain: !include customize_domain.yaml
+  packages: !include_dir_named packages
 
 ##########################################
 ############### Web Stuff ################
@@ -50,10 +51,6 @@ date_notifier: !include date_notifiers.yaml
 alexa: !include alexa.yaml
 google_assistant: !include google_assistant.yaml
 cast: !include cast.yaml
-climate: !include climate.yaml
-fan: !include fan.yaml
-amcrest: !include amcrest.yaml
-camera: !include camera.yaml
 
 ##########################################
 ######### Components Configuration #######
