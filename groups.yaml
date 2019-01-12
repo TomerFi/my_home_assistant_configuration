@@ -1,35 +1,6 @@
 ##########################################
 ################# Groups #################
 ##########################################
-living_room_tv_led:
-  name: living_room_tv_led
-  entities:
-    - light.tv_lights
-    - input_number.tv_led_brightness
-    - input_number.tv_led_temperature
-    - input_select.tv_led_color
-    - input_select.tv_led_theme
-
-living_room_ac:
-  name: living_room_ac
-  entities:
-    - input_boolean.lr_ac_status
-    - sensor.lr_ac_temp_sensor
-    - cover.lr_ac_temp_cover
-    - input_select.lr_ac_state
-    - input_select.lr_ac_fan
-    - group.living_room_ac_hidden_controls
-
-living_room_switches:
-  name: living_room_switches
-  entities:
-    - light.tv_lights
-    - light.living_room_night_light
-    - switch.living_room_main_light
-    - switch.living_room_small_light
-    - switch.balcony_light
-    - switch.entrance_light
-
 kitchen_switches:
   name: kitchen_switches
   entities:
@@ -72,15 +43,6 @@ office_switches:
   entities:
     - switch.office_light
 
-living_room_google_wifi_point:
-  name: living_room_google_wifi_point
-  entities:
-    - sensor.google_wifi_living_room_status
-    - sensor.google_wifi_living_room_last_restart
-    - sensor.google_wifi_living_room_uptime
-    - sensor.google_wifi_living_room_current_version
-    - sensor.google_wifi_living_room_new_version
-
 guest_room_google_wifi_point:
   name: guest_room_google_wifi_point
   entities:
@@ -114,11 +76,6 @@ all_s1c_sensors:
     - sensor.broadlink_s1c_service_room
     - sensor.broadlink_s1c_key_fob
     - sensor.broadlink_s1c_balcony_door
-
-all_living_room_sensors:
-  name: all_living_room_sensors
-  entities:
-    - sensor.google_wifi_living_room_status
 
 all_kitchen_sensors:
   name: all_kitchen_sensors
@@ -193,13 +150,6 @@ ha_operations:
     - script.office_office_mqtt_client_status
     - script.update_all_devices
     - script.check_last_recorder_session
-
-living_room_ac_hidden_controls:
-  name: living_room_ac_hidden_controls
-  entities:
-    - switch.living_room_ac_panel_light
-    - switch.living_room_ac_updown_shutter
-    - switch.living_room_ac_sides_shutter
 
 nmap_pa_trackers:
   name: nmap_pa_trackers
@@ -351,15 +301,6 @@ default_view:
     - group.activate_operations
     - group.all_s1c_sensors
     - media_player.spotify
-
-living_room_view:
-  name: living_room_view
-  view: true
-  entities:
-    - group.all_living_room_sensors
-    - group.living_room_ac
-    - group.living_room_tv_led
-    - group.living_room_switches
 
 kitchen_view:
   name: kitchen_view

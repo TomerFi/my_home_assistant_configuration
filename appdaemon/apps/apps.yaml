@@ -31,6 +31,7 @@ smarthome_custom_ac:
   entities:
     - climate.nursery_ac
     - climate.bedroom_ac
+    - climate.living_room_ac
   default_mode_for_on: "heat"
   scale: "CELSIUS"
   global_dependencies:
@@ -194,7 +195,7 @@ nursery_ac_automation:
   fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
   fan_mode_entity_for_update: input_select.nursery_ac_fan_level
   
-temperature_sensor_to_mqtt:
+nursery_temperature_sensor_to_mqtt:
   module: ir_packets_control
   class: TemperatureSensorToMqtt
   sensor_entity: sensor.nursery_broadlink_a1_temperature
@@ -217,11 +218,34 @@ bedroom_ac_automation:
   fan_mode_command_topic: "tomerfi_custom_ac/bedroom/fan"
   fan_mode_entity_for_update: input_select.bedroom_ac_fan_level
   
-temperature_sensor_to_mqtt:
+bedroom_temperature_sensor_to_mqtt:
   module: ir_packets_control
   class: TemperatureSensorToMqtt
   sensor_entity: sensor.bedroom_temperature
   topic: "tomerfi_custom_ac/bedroom/current_temperature"
+
+############################################
+######## Living Room AC Automations ########
+############################################
+living_room_ac_automation:
+  module: ir_packets_control
+  class: HandleMqttACUnit
+  climate_entity: climate.living_room_ac
+  ir_send_service: switch.broadlink_send_packet_192_168_0_122
+  ac_type: "electra_classic_35"
+  default_mode_for_on: "heat"
+  mode_command_topic: "tomerfi_custom_ac/living_room/mode"
+  mode_entity_for_update: input_select.living_room_ac_operation_mode
+  temperature_command_topic: "tomerfi_custom_ac/living_room/temperature"
+  temperature_entity_for_update: input_number.living_room_ac_temperature_select 
+  fan_mode_command_topic: "tomerfi_custom_ac/living_room/fan"
+  fan_mode_entity_for_update: input_select.living_room_ac_fan_level
+  
+living_room_temperature_sensor_to_mqtt:
+  module: ir_packets_control
+  class: TemperatureSensorToMqtt
+  sensor_entity: sensor.living_room_temperature
+  topic: "tomerfi_custom_ac/living_room/current_temperature"
 
 #######################################
 ##### OpenMqttGateway Automations #####

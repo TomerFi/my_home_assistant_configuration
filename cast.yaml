@@ -1,7 +1,2 @@
 office_chromecast:
   - host: !secret office_chromecast_ip
-living_room_shield:
-  - host: !secret living_room_shield_ip
-living_room_ghome_mini:
-  - host: !secret living_room_ghome_mini_ip
-

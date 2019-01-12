@@ -1,0 +1,89 @@
+homeassistant:
+  customize:
+    sensor.google_wifi_living_room_status:
+      friendly_name: "Access Point"
+    sensor.google_wifi_living_room_last_restart:
+      friendly_name: "Last Restart"
+    sensor.google_wifi_living_room_current_version:
+      friendly_name: "Current Version"
+    sensor.google_wifi_living_room_uptime:
+      friendly_name: "Uptime"
+    sensor.google_wifi_living_room_new_version:
+      friendly_name: "Version Status"
+    sensor.living_room_dot_nmap_tracker:
+      friendly_name: "Living Room Dot"
+      icon: mdi:amazon
+    sensor.living_room_ghome_mini_nmap_tracker:
+      friendly_name: "Living Room G-Home Mini"
+      icon: mdi:google-assistant
+    sensor.living_room_yes_nmap_tracker:
+      friendly_name: "Living Room Yes"
+      icon: mdi:television-classic
+    sensor.living_room_temperature:
+      friendly_name: "Living Room Temperature"
+      icon: mdi:temperature-celsius
+    sensor.shield_console_nmap_tracker:
+      friendly_name: "Shield Console"
+      icon: mdi:android
+    sensor.hue_bridge_nmap_tracker:
+      friendly_name: "Living Room Hue Bridge"
+      icon: mdi:lighthouse
+    sensor.living_room_rm_pro_nmap_tracker:
+      friendly_name: "Living Room RM Pro"
+      icon: mdi:remote
+    group.living_room_google_wifi_point:
+      friendly_name: "Living Room Access Point"
+      icon: mdi:access-point-network
+      control: hidden
+    group.all_living_room_sensors:
+      friendly_name: "Sensors"
+      icon: mdi:surround-sound
+      control: hidden
+      
+group:
+  living_room_google_wifi_point:
+    name: living_room_google_wifi_point
+    entities:
+      - sensor.google_wifi_living_room_status
+      - sensor.google_wifi_living_room_last_restart
+      - sensor.google_wifi_living_room_uptime
+      - sensor.google_wifi_living_room_current_version
+      - sensor.google_wifi_living_room_new_version
+  all_living_room_sensors:
+    name: all_living_room_sensors
+    entities:
+      - sensor.google_wifi_living_room_status
+      - sensor.living_room_temperature
+  
+sensor:
+  - platform: broadlink
+    host: !secret living_room_broadlink_rm_pro_ip
+    mac: !secret living_room_broadlink_rm_pro_mac
+    timeout: 15
+    name: "living_room"
+    monitored_conditions:
+        - temperature
+  - platform: google_wifi
+    host: !secret living_room_google_wifi_ip
+    name: google_wifi_living_room
+    monitored_conditions:
+      - current_version
+      - last_restart
+      - new_version
+      - status
+      - uptime
+  - platform: template
+    sensors:
+      living_room_dot_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
+      living_room_yes_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+      shield_console_nmap_tracker:
+        value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
+      hue_bridge_nmap_tracker:
+        value_template: "{%if states.device_tracker.hue_bridgehomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+      living_room_ghome_mini_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_ghome_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+      living_room_rm_pro_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_rm_pro.state == 'home'%}Online{%else%}Offline{%endif%}"
+      

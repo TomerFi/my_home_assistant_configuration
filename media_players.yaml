@@ -2,10 +2,6 @@
   client_id: !secret tomer_spotify_client_id
   client_secret: !secret tomer_spotify_client_secret
   
-- platform: samsungtv
-  host: !secret living_room_samaung_tv_ip
-  mac: !secret living_room_samaung_tv_mac
-
 - platform: broadlink
   name: office_tv
   host: !secret office_broadlink_rm_mini_ip

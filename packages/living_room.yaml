@@ -1,0 +1,20 @@
+homeassistant:
+  customize:
+    group.living_room_view:
+      friendly_name: "Living Room"
+
+cast:
+  living_room_shield:
+    - host: !secret living_room_shield_ip
+  living_room_ghome_mini:
+    - host: !secret living_room_ghome_mini_ip
+    
+group:
+  living_room_view:
+    name: living_room_view
+    view: true
+    entities:
+      - group.all_living_room_sensors
+      - group.living_room_ac
+      - group.living_room_tv_led
+      - group.living_room_switches

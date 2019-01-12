@@ -31,7 +31,6 @@ http:
 ##########################################
 recorder: !include recorder.yaml
 switch: !include switches.yaml
-remote: !include remotes.yaml
 media_player: !include media_players.yaml
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml

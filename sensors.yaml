@@ -1,11 +1,3 @@
-- platform: broadlink
-  host: !secret living_room_broadlink_rm_pro_ip
-  mac: !secret living_room_broadlink_rm_pro_mac
-  timeout: 15
-  name: "living_room"
-  monitored_conditions:
-      - temperature
-
 - platform: darksky
   api_key: !secret darksky_api_key
   forecast:
@@ -28,16 +20,6 @@
     - icon
 
 - platform: google_wifi
-  host: !secret living_room_google_wifi_ip
-  name: google_wifi_living_room
-  monitored_conditions:
-    - current_version
-    - last_restart
-    - new_version
-    - status
-    - uptime
-  
-- platform: google_wifi
   host: !secret guest_room_google_wifi_ip
   name: google_wifi_guest_room
   monitored_conditions:
@@ -49,8 +31,6 @@
   
 - platform: template
   sensors:
-    lr_ac_temp_sensor:
-      value_template: "{{ states.input_text.lr_ac_temp_text.state }}"
     hava_tracker_sensor:
       value_template: "{%if states.sensor.havas_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.hava_last_state.state }}{%endif%}"
     tomer_tracker_sensor:
@@ -97,42 +77,24 @@
       value_template: "{%if states.device_tracker.guest_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_echo_one_nmap_tracker:
       value_template: "{%if states.device_tracker.kitchen_echo_one.state == 'home'%}Online{%else%}Offline{%endif%}"
-    living_room_dot_nmap_tracker:
-      value_template: "{%if states.device_tracker.living_room_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
     switcher_v2_nmap_tracker:
       value_template: "{%if states.device_tracker.switcher_v2.state == 'home'%}Online{%else%}Offline{%endif%}"
-    living_room_yes_nmap_tracker:
-      value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
     hallway_netgear_hub5_nmap_tracker:
       value_template: "{%if states.device_tracker.hallway_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_netgear_hub5_nmap_tracker:
       value_template: "{%if states.device_tracker.office_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
-    shield_console_nmap_tracker:
-      value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_chromecast_nmap_tracker:
       value_template: "{%if states.device_tracker.office_chromecast.state == 'home'%}Online{%else%}Offline{%endif%}"
     xbox_360_nmap_tracker:
       value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
-    hue_bridge_nmap_tracker:
-      value_template: "{%if states.device_tracker.hue_bridgehomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_fire_8_tablet_nmap_tracker:
       value_template: "{%if states.device_tracker.kitchen_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_dot_nmap_tracker:
       value_template: "{%if states.device_tracker.office_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
-    living_room_ghome_mini_nmap_tracker:
-      value_template: "{%if states.device_tracker.living_room_ghome_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_bar_sp2_nmap_tracker:
       value_template: "{%if states.device_tracker.kitchen_bar_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
-    living_room_rm_pro_nmap_tracker:
-      value_template: "{%if states.device_tracker.living_room_rm_pro.state == 'home'%}Online{%else%}Offline{%endif%}"
     service_room_s1c_nmap_tracker:
       value_template: "{%if states.device_tracker.service_room_s1c.state == 'home'%}Online{%else%}Offline{%endif%}"
-    tv_lifxz_led_nmap_tracker:
-      value_template: "{%if states.device_tracker.tv_lifxz_led.state == 'home'%}Online{%else%}Offline{%endif%}"
-    living_room_harmony_hub_nmap_tracker:
-      value_template: "{%if states.device_tracker.living_room_harmony_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
-    living_room_samsung_tv_nmap_tracker:
-      value_template: "{%if states.device_tracker.living_room_samsung_tv.state == 'home'%}Online{%else%}Offline{%endif%}"
     tomers_phone_nmap_tracker:
       value_template: "{%if states.device_tracker.tomers_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
     havas_phone_nmap_tracker:

@@ -5,10 +5,6 @@ switch.kitchen_bar_light:
   friendly_name: "Bar light"
 switch.service_room_light:
   friendly_name: "Service Room Light"
-switch.living_room_main_light:
-  friendly_name: "Living Room Main Light"
-switch.living_room_small_light:
-  friendly_name: "Living Room Small Light"
 switch.kitchen_main_light:
   friendly_name: "Kitchen Main Light"
   assumed_state: true
@@ -33,21 +29,10 @@ switch.guest_room_light:
   friendly_name: "Guest Room Light"
 switch.balcony_light:
   friendly_name: "Balcony Light"
-switch.entrance_light:
-  friendly_name: "Entrance Light"
 switch.main_bathroom_light:
   friendly_name: "Main Bathroom Light"
 switch.small_hallway_light:
   friendly_name: "Small Hallway Light"
-switch.living_room_ac_updown_shutter:
-  friendly_name: "Up-down Shutter"
-  icon: mdi:blinds
-switch.living_room_ac_sides_shutter:
-  friendly_name: "Sides Shutter"
-  icon: mdi:blinds
-switch.living_room_ac_panel_light:
-  friendly_name: "Panel Light"
-  icon: mdi:spotlight
 switch.office_light:
   friendly_name: "Office Light"
 switch.office_fan_light:
@@ -63,54 +48,18 @@ switch.office_fan:
   hidden: true
 
 ##########################################
-################# Lights #################
-##########################################
-light.tv_lights:
-  friendly_name: "TV Back Led"
-light.living_room_night_light:
-  friendly_name: "Night Light"
-  supported_features: 43
-light.nursery_ambiance_1: #this is actually the living night light, I preffer controlling it via its group light.living_room_night_light
-  hidden: true
-
-##########################################
 ############# Media Players ##############
 ##########################################
-media_player.samsung_tv_remote:
-  friendly_name: "Living Room Samsung TV"
-  icon: mdi:television
 media_player.spotify:
   friendly_name: "Tomer's Spotify"
   icon: mdi:spotify
 media_player.office_tv:
   friendly_name: "Office Metz TV"
   icon: mdi:television
-  
-##########################################
-############# Input Number ###############
-##########################################
-input_number.tv_led_brightness:
-  friendly_name: "Brightness"
-  icon: mdi:brightness-6
-input_number.tv_led_temperature:
-  friendly_name: "Color Temperature"
-  icon: mdi:oil-temperature
 
 ##########################################
 ############# Input Select ###############
 ##########################################
-input_select.tv_led_color:
-  friendly_name: "Color"
-  icon: mdi:format-color-fill
-input_select.tv_led_theme:
-  friendly_name: "Theme"
-  icon: mdi:white-balance-iridescent
-input_select.lr_ac_state:
-  friendly_name: "Mode"
-  icon: mdi:weather-windy-variant
-input_select.lr_ac_fan:
-  friendly_name: "Fan"
-  icon: mdi:fan
 input_select.select_shabbat_city:
   friendly_name: "City"
   icon: mdi:city
@@ -124,9 +73,6 @@ input_select.office_ceiling_fan_level:
 ##########################################
 ############# Input Boolean ##############
 ##########################################
-input_boolean.lr_ac_status:
-  friendly_name: "Status"
-  icon: mdi:air-conditioner
 input_boolean.send_shabbat_notification_tomer:
   friendly_name: "Notify Tomer"
   icon: mdi:send
@@ -137,8 +83,6 @@ input_boolean.send_shabbat_notification_hava:
 ##########################################
 ############### Input Text ###############
 ##########################################
-input_text.lr_ac_temp_text:
-  name: lr_ac_temp_text
 input_text.hava_last_state:
   name: hava_last_state
 input_text.tomer_last_state:
@@ -149,9 +93,6 @@ input_text.shabbat_notify_minutes_start:
 ##########################################
 ################# Covers #################
 ##########################################
-cover.lr_ac_temp_cover:
-  friendly_name: "Change Temperature"
-  icon: mdi:temperature-celsius
 cover.shabbat_notify_minutes_start:
   friendly_name: "Adjust Minutes"
   icon: mdi:alarm-plus
@@ -169,19 +110,6 @@ sensor.google_wifi_guest_room_uptime:
   friendly_name: "Uptime"
 sensor.google_wifi_guest_room_new_version:
   friendly_name: "Version Status"  
-sensor.google_wifi_living_room_status:
-  friendly_name: "Access Point"
-sensor.google_wifi_living_room_last_restart:
-  friendly_name: "Last Restart"
-sensor.google_wifi_living_room_current_version:
-  friendly_name: "Current Version"
-sensor.google_wifi_living_room_uptime:
-  friendly_name: "Uptime"
-sensor.google_wifi_living_room_new_version:
-  friendly_name: "Version Status"
-sensor.lr_ac_temp_sensor:
-  friendly_name: "Current Temperature"
-  icon_template: mdi:thermometer
 sensor.broadlink_s1c_small_bathroom:
   friendly_name: "Small Bathroom Door"
 sensor.broadlink_s1c_service_room:
@@ -215,20 +143,11 @@ sensor.speedtest_upload:
 sensor.kitchen_echo_one_nmap_tracker:
   friendly_name: "Kitchen Echo"
   icon: mdi:amazon
-sensor.living_room_dot_nmap_tracker:
-  friendly_name: "Living Room Dot"
-  icon: mdi:amazon
 sensor.office_dot_nmap_tracker:
   friendly_name: "Office Dot"
   icon: mdi:amazon
-sensor.living_room_ghome_mini_nmap_tracker:
-  friendly_name: "Living Room G-Home Mini"
-  icon: mdi:google-assistant
 sensor.guest_room_yes_nmap_tracker:
   friendly_name: "Guest Room Yes"
-  icon: mdi:television-classic
-sensor.living_room_yes_nmap_tracker:
-  friendly_name: "Living Room Yes"
   icon: mdi:television-classic
 sensor.home_workstation_nmap_tracker:
   friendly_name: "Home Workstation"
@@ -239,18 +158,12 @@ sensor.tomers_laptop_nmap_tracker:
 sensor.havas_laptop_nmap_tracker:
   friendly_name: "Hava's Laptop"
   icon: mdi:windows
-sensor.shield_console_nmap_tracker:
-  friendly_name: "Shield Console"
-  icon: mdi:android
 sensor.office_chromecast_nmap_tracker:
   friendly_name: "Office Chromecast"
   icon: mdi:google-chrome
 sensor.xbox_360_nmap_tracker:
   friendly_name: "Xbox 360"
   icon: mdi:xbox
-sensor.hue_bridge_nmap_tracker:
-  friendly_name: "Living Room Hue Bridge"
-  icon: mdi:lighthouse
 sensor.kitchen_fire_8_tablet_nmap_tracker:
   friendly_name: "Kitchen Fire 8"
   icon: mdi:amazon
@@ -260,12 +173,6 @@ sensor.tomers_phone_nmap_tracker:
 sensor.havas_phone_nmap_tracker:
   friendly_name: "Hava's Phone"
   icon: mdi:cellphone-android
-sensor.living_room_harmony_hub_nmap_tracker:
-  friendly_name: "Living Room Harmony Hub"
-  icon: mdi:remote
-sensor.living_room_rm_pro_nmap_tracker:
-  friendly_name: "Living Room RM Pro"
-  icon: mdi:remote
 sensor.office_rm_mini_nmap_tracker:
   friendly_name: "Office RM Mini"
   icon: mdi:remote
@@ -284,12 +191,6 @@ sensor.service_room_s1c_nmap_tracker:
 sensor.switcher_v2_nmap_tracker:
   friendly_name: "Switcher Water Heater"
   icon: mdi:steam
-sensor.tv_lifxz_led_nmap_tracker:
-  friendly_name: "Living Room Lifx Strip"
-  icon: mdi:led-strip
-sensor.living_room_samsung_tv_nmap_tracker:
-  friendly_name: "Living Room Samsung TV"
-  icon: mdi:television
 sensor.dash_wand_nmap_tracker:
   friendly_name: "Dash Wand"
   icon: mdi:amazon
@@ -401,35 +302,10 @@ sensor.qbittorrent_client_status:
 sensor.qbittorrent_client_up_speed:
   friendly_name: "Up Speed"
   icon: mdi:upload-network
-sensor.living_room_temperature:
-  friendly_name: "Living Room Temperature"
-  icon: mdi:temperature-celsius
 
 ##########################################
 ################# Scripts ################
 ##########################################
-script.living_room_ac_check_state_script:
-  hidden: true
-script.living_room_ac_cool_low_script:
-  hidden: true
-script.living_room_ac_cool_medium_script:
-  hidden: true
-script.living_room_ac_cool_high_script:
-  hidden: true
-script.living_room_ac_cool_auto_script:
-  hidden: true
-script.living_room_ac_heat_low_script:
-  hidden: true
-script.living_room_ac_heat_medium_script:
-  hidden: true
-script.living_room_ac_heat_high_script:
-  hidden: true
-script.living_room_ac_heat_auto_script:
-  hidden: true
-script.living_room_rm_pro_send_packet:
-  hidden: true
-script.tv_led_theme_select_script:
-  hidden: true
 script.update_all_devices:
   friendly_name: "Update Devices"
   icon: mdi:cellphone-link
@@ -453,8 +329,6 @@ script.run_speed_test:
   icon: mdi:speedometer
   custom_text: "RUN"
 script.correct_objects_values:
-  hidden: true
-script.watch_living_room_tv:
   hidden: true
 script.leaving_home:
   hidden: true
@@ -492,28 +366,6 @@ script.ring_the_doorbell:
 ##########################################
 ################# Groups #################
 ##########################################
-group.all_automations:
-  hidden: true
-group.all_covers:
-  hidden: true
-group.all_devices:
-  hidden: true
-group.all_lights:
-  hidden: true
-group.all_remotes:
-  hidden: true
-group.all_scripts:
-  hidden: true
-group.all_switches:
-  hidden: true
-group.living_room_tv_led:
-  friendly_name: "TV Back Led"
-  control: hidden
-group.living_room_ac:
-  friendly_name: "Living Room AC"
-  control: hidden
-group.living_room_switches:
-  friendly_name: "Lights"
 group.kitchen_switches:
   friendly_name: "Lights"
 group.hallways_switches:
@@ -522,19 +374,12 @@ group.bathrooms_switches:
   friendly_name: "Lights"
 group.service_room_switches:
   friendly_name: "Lights"
-group.living_room_ac_hidden_controls:
-  friendly_name: "Extra Controls"
-  control: hidden
 group.guest_room_switches:
   friendly_name: "Lights"
 group.balcony_switches:
   friendly_name: "Lights"
 group.office_switches:
   friendly_name: "Lights"
-group.living_room_google_wifi_point:
-  friendly_name: "Living Room Access Point"
-  icon: mdi:access-point-network
-  control: hidden
 group.guest_room_google_wifi_point:
   friendly_name: "Guest Room Access Point"
   icon: mdi:access-point-network
@@ -550,10 +395,6 @@ group.user_hava_devices:
 group.all_s1c_sensors:
   friendly_name: "S1C Sensors"
   icon: mdi:glassdoor
-  control: hidden
-group.all_living_room_sensors:
-  friendly_name: "Sensors"
-  icon: mdi:surround-sound
   control: hidden
 group.all_kitchen_sensors:
   friendly_name: "Sensors"
@@ -648,8 +489,6 @@ group.qbittorent_client:
 ##########################################
 group.default_view:
   friendly_name: "Home"
-group.living_room_view:
-  friendly_name: "Living Room"
 group.kitchen_view:
   friendly_name: "Kitchen"
 group.hallways_view:
@@ -672,56 +511,8 @@ group.tomer_testing:
 ##########################################
 ################# Scenes #################
 ##########################################
-scene.blissful_lights:
-  hidden: true
-scene.cheerful_lights:
-  hidden: true
-scene.dream_lights:
-  hidden: true
-scene.energizing_lights:
-  hidden: true
-scene.epic_lights:
-  hidden: true
-scene.exciting_lights:
-  hidden: true
-scene.focusing_lights:
-  hidden: true
-scene.halloween_lights:
-  hidden: true
-scene.hanukkah_lights:
-  hidden: true
-scene.holy_lights:
-  hidden: true
-scene.independence_day_lights:
-  hidden: true
-scene.intense_lights:
-  hidden: true
-scene.mellow_lights:
-  hidden: true
-scene.peaceful_lights:
-  hidden: true
-scene.powerful_lights:
-  hidden: true
-scene.relaxing_lights:
-  hidden: true
-scene.santa_lights:
-  hidden: true
-scene.serene_lights:
-  hidden: true
-scene.soothing_lights:
-  hidden: true
-scene.sports_lights:
-  hidden: true
-scene.tranquil_lights:
-  hidden: true
-scene.warming_lights:
-  hidden: true
 scene.leaving_home:
   friendly_name: "Leaving Home"
-scene.watch_tv:
-  friendly_name: "Watch TV"
-scene.watch_movie:
-  friendly_name: "Watch A Movie"
 scene.sleep_time:
   friendly_name: "Sleep Time"
 scene.turn_on_boiler_15_min:
@@ -738,20 +529,6 @@ scene.turn_on_boiler_1_h:
 ##########################################
 ############### Automations ##############
 ##########################################
-automation.change_tv_led_brightness:
-  hidden: true
-automation.change_tv_led_temperature:
-  hidden: true
-automation.change_tv_led_color:
-  hidden: true
-automation.change_tv_led_theme:
-  hidden: true
-automation.lr_ac_changes:
-  hidden: true
-automation.lr_ac_status_on:
-  hidden: true
-automation.lr_ac_status_off:
-  hidden: true
 automation.on_start_event:
   hidden: true
 automation.update_tracker_devices:
@@ -780,17 +557,7 @@ automation.office_fan_on:
   hidden: true
 automation.office_fan_light_on:
   hidden: true
-automation.living_room_ac_show_extra_controls_on:
-  hidden: true
-automation.living_room_ac_show_extra_controls_off:
-  hidden: true
 
-##########################################
-################# Remotes ################
-##########################################
-remote.living_room_harmony_hub:
-  friendly_name: "Living Room Harmony Hub"
-  
 ##########################################
 ############# Custom UI Tiles ############
 ##########################################
