@@ -401,6 +401,9 @@ sensor.qbittorrent_client_status:
 sensor.qbittorrent_client_up_speed:
   friendly_name: "Up Speed"
   icon: mdi:upload-network
+sensor.living_room_temperature:
+  friendly_name: "Living Room Temperature"
+  icon: mdi:temperature-celsius
 
 ##########################################
 ################# Scripts ################

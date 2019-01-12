@@ -1,3 +1,11 @@
+- platform: broadlink
+  host: !secret living_room_broadlink_rm_pro_ip
+  mac: !secret living_room_broadlink_rm_pro_mac
+  timeout: 15
+  name: "living_room"
+  monitored_conditions:
+      - temperature
+
 - platform: darksky
   api_key: !secret darksky_api_key
   forecast:
