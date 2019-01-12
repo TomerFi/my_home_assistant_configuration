@@ -37,6 +37,9 @@ correct_objects_values:
     - service: script.turn_on
       data:
         entity_id: script.sync_bedroom_ac_entities
+    - service: script.turn_on
+      data:
+        entity_id: script.sync_living_room_ac_entities
 
 get_workstation_mqtt_client_status:
   sequence:

@@ -1,0 +1,4 @@
+homeassistant:
+  customize:
+    switch.guest_room_light:
+      friendly_name: "Guest Room Light" # switch configuration is in living_room_switches.yaml

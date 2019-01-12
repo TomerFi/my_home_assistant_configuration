@@ -142,7 +142,6 @@ devices_sensors = [
     "sensor.tv_lifxz_led_nmap_tracker",
     "sensor.service_room_s1c_nmap_tracker",
     "sensor.switcher_v2_nmap_tracker",
-    "sensor.hallway_netgear_hub5_nmap_tracker",
     "sensor.office_netgear_hub5_nmap_tracker",
     "sensor.nursery_broadlink_a1_nmap_tracker",
     "sensor.living_room_samsung_tv_nmap_tracker",

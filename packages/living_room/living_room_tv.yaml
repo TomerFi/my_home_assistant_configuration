@@ -3,6 +3,8 @@ homeassistant:
     media_player.samsung_tv_remote:
       friendly_name: "Living Room Samsung TV"
       icon: mdi:television
+    media_player.living_room_shield:
+      friendly_name: "Living Room Nvidie Shield"
     sensor.living_room_harmony_hub_nmap_tracker:
       friendly_name: "Living Room Harmony Hub"
       icon: mdi:remote
@@ -17,11 +19,21 @@ homeassistant:
       friendly_name: "Watch A Movie"
     remote.living_room_harmony_hub:
       friendly_name: "Living Room Harmony Hub"
-      
+    sensor.living_room_yes_nmap_tracker:
+      friendly_name: "Living Room Yes"
+      icon: mdi:television-classic
+    sensor.shield_console_nmap_tracker:
+      friendly_name: "Shield Console"
+      icon: mdi:android
+
 media_player:
   - platform: samsungtv
     host: !secret living_room_samaung_tv_ip
     mac: !secret living_room_samaung_tv_mac
+
+cast:
+  living_room_shield:
+    - host: !secret living_room_shield_ip
     
 remote:
   - platform: harmony
@@ -97,3 +109,7 @@ sensor:
         value_template: "{%if states.device_tracker.living_room_harmony_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
       living_room_samsung_tv_nmap_tracker:
         value_template: "{%if states.device_tracker.living_room_samsung_tv.state == 'home'%}Online{%else%}Offline{%endif%}"
+      living_room_yes_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+      shield_console_nmap_tracker:
+        value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"

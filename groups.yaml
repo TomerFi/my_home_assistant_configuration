@@ -28,11 +28,6 @@ service_room_switches:
   entities:
     - switch.service_room_light
 
-guest_room_switches:
-  name: guest_room_switches
-  entities:
-    - switch.guest_room_light
-    
 balcony_switches:
   name: balcony_switches
   entities:
@@ -42,15 +37,6 @@ office_switches:
   name: office_switches
   entities:
     - switch.office_light
-
-guest_room_google_wifi_point:
-  name: guest_room_google_wifi_point
-  entities:
-    - sensor.google_wifi_guest_room_status
-    - sensor.google_wifi_guest_room_last_restart
-    - sensor.google_wifi_guest_room_uptime
-    - sensor.google_wifi_guest_room_current_version
-    - sensor.google_wifi_guest_room_new_version
 
 user_tomer_devices:
   name: user_tomer_devices
@@ -93,11 +79,6 @@ all_service_room_sensors:
   entities:
     - sensor.broadlink_s1c_service_room
 
-all_guest_room_sensors:
-  name: all_guest_room_sensors
-  entities:
-    - sensor.google_wifi_guest_room_status
-    
 activate_operations:
   name: activate_operations
   entities:
@@ -214,28 +195,11 @@ nmap_various_trackers:
   name: nmap_trackers
   entities:
     - sensor.switcher_v2_nmap_tracker
-    - sensor.hallway_netgear_hub5_nmap_tracker
     - sensor.office_netgear_hub5_nmap_tracker
     - sensor.nursery_broadlink_a1_nmap_tracker
     - sensor.living_room_samsung_tv_nmap_tracker
     - sensor.tomerfu
     - sensor.home_workstation_uptime_human
-
-shabbat_times:
-  name: shabbat_times
-  entities:
-    - input_select.select_shabbat_city
-    - sensor.select_city_shabbat_start_time
-    - sensor.select_city_shabbat_end_time
-    - sensor.shabbat_start_notification_status
-
-shabbat_reminder_settings:
-  name: shabbat_reminder_settings
-  entities:
-    - sensor.shabbat_notify_minutes_start
-    - cover.shabbat_notify_minutes_start
-    - input_boolean.send_shabbat_notification_hava
-    - input_boolean.send_shabbat_notification_tomer
 
 qnap_homenas_group:
   name: qnap_homenas_group
@@ -329,13 +293,6 @@ service_room_view:
     - group.all_service_room_sensors
     - group.service_room_switches
     
-guest_room_view:
-  name: guest_room_view
-  view: true
-  entities:
-    - group.all_guest_room_sensors
-    - group.guest_room_switches
-
 balcony_view:
   name: balcony_view
   view: true

@@ -6,19 +6,15 @@ homeassistant:
       friendly_name: "Living Room Small Light"
     switch.entrance_light:
       friendly_name: "Entrance Light"
-    group.living_room_switches:
-      friendly_name: "Lights"
-
-group:
-  living_room_switches:
-    name: living_room_switches
-    entities:
-      - light.tv_lights
-      - light.living_room_night_light
-      - switch.living_room_main_light
-      - switch.living_room_small_light
-      - switch.balcony_light
-      - switch.entrance_light
+    switch.living_room_ac_updown_shutter:
+      friendly_name: "Living Room AC Updown Shutter"
+      hidden: true # haven't decided what to do with this switch yet
+    switch.living_room_ac_sides_shutter:
+      friendly_name: "Living Room AC Sides Shutter"
+      hidden: true # haven't decided what to do with this switch yet
+    switch.living_room_ac_panel_light:
+      friendly_name: "Living Room AC Panel Light"
+      hidden: true # haven't decided what to do with this switch yet
 
 switch:
   - platform: broadlink

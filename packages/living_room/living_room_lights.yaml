@@ -24,9 +24,6 @@ homeassistant:
       icon: mdi:led-strip
     script.tv_led_theme_select_script:
       hidden: true
-    group.living_room_tv_led:
-      friendly_name: "TV Back Led"
-      control: hidden
     scene.blissful_lights:
       hidden: true
     scene.cheerful_lights:
@@ -70,14 +67,6 @@ homeassistant:
     scene.tranquil_lights:
       hidden: true
     scene.warming_lights:
-      hidden: true
-    automation.change_tv_led_brightness:
-      hidden: true
-    automation.change_tv_led_temperature:
-      hidden: true
-    automation.change_tv_led_color:
-      hidden: true
-    automation.change_tv_led_theme:
       hidden: true
 
 automation:
@@ -126,16 +115,21 @@ automation:
       data_template:
         selected_theme: '{{ states.input_select.tv_led_theme.state }}'
         
-group:
-  living_room_tv_led:
-    name: living_room_tv_led
-    entities:
-      - light.tv_lights
-      - input_number.tv_led_brightness
-      - input_number.tv_led_temperature
-      - input_select.tv_led_color
-      - input_select.tv_led_theme
-      
+input_number:
+  tv_led_brightness:
+    name: tv_led_brightness
+    initial: 75
+    min: 0
+    max: 100
+    step: 5
+  
+  tv_led_temperature:
+    name: tv_led_temperature
+    initial: 300
+    min: 154
+    max: 500
+    step: 10
+  
 input_select:
   tv_led_color:
     name: tv_led_color
@@ -147,7 +141,6 @@ input_select:
       - Orange
       - Pink
       - Purple
-  
   tv_led_theme:
     name: tv_led_theme
     options:

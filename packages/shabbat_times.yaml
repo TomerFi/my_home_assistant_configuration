@@ -1,0 +1,152 @@
+homeassistant:
+  customize:
+    input_select.select_shabbat_city:
+      friendly_name: "City"
+      icon: mdi:city
+    input_boolean.send_shabbat_notification_tomer:
+      friendly_name: "Notify Tomer"
+      icon: mdi:send
+    input_boolean.send_shabbat_notification_hava:
+      friendly_name: "Notify Hava"
+      icon: mdi:send
+    input_text.shabbat_notify_minutes_start:
+      name: shabbat_notify_minutes_start
+    cover.shabbat_notify_minutes_start:
+      friendly_name: "Adjust Minutes"
+      icon: mdi:alarm-plus
+    sensor.shabbat_times_il_haifa:
+      hidden: true
+    sensor.shabbat_times_il_rishon_lezion:
+      hidden: true
+    sensor.select_city_shabbat_start_time:
+      friendly_name: "Shabbat Start"
+      icon: mdi:clock-start
+    sensor.select_city_shabbat_end_time:
+      friendly_name: "Shabbat End"
+      icon: mdi:clock-end
+    sensor.shabbat_notify_minutes_start:
+      friendly_name: "Notify Minutes Before Start"
+      icon: mdi:timer
+    sensor.shabbat_start_notification_status:
+      friendly_name: "Reminder Set To"
+      icon: mdi:mailbox
+    group.shabbat_times:
+      friendly_name: "Shabbat Times"
+      icon: mdi:timetable
+      control: hidden
+    group.shabbat_reminder_settings:
+      friendly_name: "Shabbat Reminder Settings"
+      icon: mdi:message-settings-variant
+      control: hidden
+
+automation:
+  - id: shabbat_candle_lighting_time_reminder
+    alias: shabbat_candle_lighting_time_reminder
+    trigger:
+      - platform: time
+        minutes: '/1'
+        seconds: 00
+    condition:
+      - condition: time
+        weekday: fri
+      - condition: template
+        value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}true{%else%}false{%endif%}"
+      - condition: template
+        value_template: "{{ as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%y-%m-%d') == now().strftime('%y-%m-%d') }}"
+      - condition: template
+        value_template: >
+          {% set shabbat_time = states.sensor.select_city_shabbat_start_time.state.split(" ")[1] %}
+          {% set cur_time = now().strftime('%H:%M') %}
+          {{ (shabbat_time.split(':')[0] | int * 60 + shabbat_time.split(':')[1] | int) - (cur_time.split(':')[0] | int * 60 + cur_time.split(':')[1] | int ) == states.sensor.shabbat_notify_minutes_start.state | int }}
+    action:
+      - service_template: >
+          {% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' and states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.everyone
+          {% elif states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.telegram_hava_service
+          {% elif states.input_boolean.send_shabbat_notification_tomer.state == 'on' %}notify.telegram_tomer_service
+          {% endif %}
+        data_template:
+          title: "Shabbat Times"
+          message: >
+            Shabbat in {{ states.input_select.select_shabbat_city.state }} starts at {{ (as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%H:%M')) }}.
+            
+            You have {{ states.sensor.shabbat_notify_minutes_start.state }} minutes left for candle lighting.
+            
+cover:
+  - platform: template
+    covers:
+      shabbat_notify_minutes_start:
+        position_template: "{% if states.sensor.shabbat_notify_minutes_start.state ==  none %}30{% else %}{{ states.sensor.shabbat_notify_minutes_start.state | int}}{% endif %}"
+        open_cover:
+          service: input_text.set_value
+          data_template:
+            entity_id: input_text.shabbat_notify_minutes_start
+            value: "{{ [((states.input_text.shabbat_notify_minutes_start.state | int // 5 * 5) + 5), 90] | min }}"
+        close_cover:
+          service: input_text.set_value
+          data_template:
+            entity_id: input_text.shabbat_notify_minutes_start
+            value: "{{ [((states.input_text.shabbat_notify_minutes_start.state | int // 5 * 5) - 5), 0] | max }}"
+            
+group:
+  shabbat_times:
+    name: shabbat_times
+    entities:
+      - input_select.select_shabbat_city
+      - sensor.select_city_shabbat_start_time
+      - sensor.select_city_shabbat_end_time
+      - sensor.shabbat_start_notification_status
+  
+  shabbat_reminder_settings:
+    name: shabbat_reminder_settings
+    entities:
+      - sensor.shabbat_notify_minutes_start
+      - cover.shabbat_notify_minutes_start
+      - input_boolean.send_shabbat_notification_hava
+      - input_boolean.send_shabbat_notification_tomer
+  
+input_boolean:
+  send_shabbat_notification_tomer:
+    name: "send_shabbat_notification_tomer"
+  send_shabbat_notification_hava:
+    name: "send_shabbat_notification_hava"
+    
+input_number:
+  shabbat_notify_minutes_start:
+    name: shabbat_notify_minutes_start
+    initial: -180
+    min: -200
+    max: 120
+    step: 1
+    mode: box
+
+input_select:
+  select_shabbat_city:
+    name: select_shabbat_city
+    options:
+      - Rishon LeZion
+      - Haifa
+    
+input_text:
+  shabbat_notify_minutes_start:
+    name: shabbat_notify_minutes_start
+    
+sensor:
+  - platform: template
+    sensors:
+      select_city_shabbat_start_time:
+        value_template: >
+          {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_start }}
+          {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_start }}
+          {%endif%}
+      select_city_shabbat_end_time:
+        value_template: >
+          {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_end }}
+          {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_end }}
+          {%endif%}
+      shabbat_notify_minutes_start:
+        value_template: "{{ states.input_text.shabbat_notify_minutes_start.state }}"
+      shabbat_start_notification_status:
+        value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}{{ states.sensor.shabbat_notify_minutes_start.state }} Minutes Before Start{%else%}Off{%endif%}"
+        
+  - platform: shabbat_times
+    geonames: "IL-Haifa,IL-Rishon LeZion"

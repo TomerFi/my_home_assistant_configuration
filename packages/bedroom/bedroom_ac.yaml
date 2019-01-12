@@ -17,28 +17,6 @@ homeassistant:
       icon: test_icon #mdi:temperature-celsius
     climate.bedroom_ac:
       friendly_name: "Bedroom Air Conditioner"
-    group.bedroom_ac:
-      friendly_name: "Bedroom AC"
-      control: hidden
-    automation.bedroom_ac_operation_mode_input_select:
-      hidden: true
-    automation.bedroom_ac_fan_level_input_select:
-      hidden: true
-    automation.bedroom_ac_temperature_input_number:
-      hidden: true
-    script.sync_bedroom_ac_entities:
-      hidden: true
-
-group:
-  bedroom_ac:
-    name: bedroom_ac
-    entities:
-      - climate.bedroom_ac
-      - switch.bedroom_ac_toggle
-      - input_number.bedroom_ac_temperature_select
-      - cover.bedroom_ac_target_temperature
-      - input_select.bedroom_ac_operation_mode
-      - input_select.bedroom_ac_fan_level
 
 climate:
   - platform: mqtt

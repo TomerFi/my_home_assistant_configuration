@@ -19,16 +19,6 @@
     - pressure
     - icon
 
-- platform: google_wifi
-  host: !secret guest_room_google_wifi_ip
-  name: google_wifi_guest_room
-  monitored_conditions:
-    - current_version
-    - last_restart
-    - new_version
-    - status
-    - uptime
-  
 - platform: template
   sensors:
     hava_tracker_sensor:
@@ -73,14 +63,10 @@
         {% endif %}
     home_workstation_nmap_tracker:
       value_template: "{%if states.device_tracker.home_workstation.state == 'home'%}Online{%else%}Offline{%endif%}"
-    guest_room_yes_nmap_tracker:
-      value_template: "{%if states.device_tracker.guest_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_echo_one_nmap_tracker:
       value_template: "{%if states.device_tracker.kitchen_echo_one.state == 'home'%}Online{%else%}Offline{%endif%}"
     switcher_v2_nmap_tracker:
       value_template: "{%if states.device_tracker.switcher_v2.state == 'home'%}Online{%else%}Offline{%endif%}"
-    hallway_netgear_hub5_nmap_tracker:
-      value_template: "{%if states.device_tracker.hallway_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_netgear_hub5_nmap_tracker:
       value_template: "{%if states.device_tracker.office_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_chromecast_nmap_tracker:
@@ -113,20 +99,6 @@
       value_template: "{%if states.device_tracker.office_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
     run_speed_test_last_run:
       value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
-    select_city_shabbat_start_time:
-      value_template: >
-        {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_start }}
-        {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_start }}
-        {%endif%}
-    select_city_shabbat_end_time:
-      value_template: >
-        {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_end }}
-        {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_end }}
-        {%endif%}
-    shabbat_notify_minutes_start:
-      value_template: "{{ states.input_text.shabbat_notify_minutes_start.state }}"
-    shabbat_start_notification_status:
-      value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}{{ states.sensor.shabbat_notify_minutes_start.state }} Minutes Before Start{%else%}Off{%endif%}"
     qnap_homenas_uptime:
       value_template: "{{ states.sensor.homenas_status.attributes.Uptime }}"
     home_workstation_uptime_human:
@@ -219,9 +191,6 @@
   display_zone: hide
   api_key: !secret google_geocoding_api_key
 
-- platform: shabbat_times
-  geonames: "IL-Haifa,IL-Rishon LeZion"
-  
 - platform: snmp
   name: "home_workstation_uptime_ticks"
   host: !secret home_workstation_ip

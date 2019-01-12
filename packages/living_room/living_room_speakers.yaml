@@ -1,0 +1,22 @@
+homeassistant:
+  customize:
+    media_player.living_room_ghome_mini:
+      friendly_name: "Living Room Google Mini"
+    sensor.living_room_dot_nmap_tracker:
+      friendly_name: "Living Room Dot"
+      icon: mdi:amazon
+    sensor.living_room_ghome_mini_nmap_tracker:
+      friendly_name: "Living Room G-Home Mini"
+      icon: mdi:google-assistant
+      
+cast:
+  living_room_ghome_mini:
+    - host: !secret living_room_ghome_mini_ip
+    
+sensor:
+  - platform: template
+    sensors:
+      living_room_dot_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
+      living_room_ghome_mini_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_ghome_mini.state == 'home'%}Online{%else%}Offline{%endif%}"

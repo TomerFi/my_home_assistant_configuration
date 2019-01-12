@@ -1,9 +1,3 @@
-select_shabbat_city:
-  name: select_shabbat_city
-  options:
-    - Rishon LeZion
-    - Haifa
-    
 select_log_level:
   name: select_log_level
   options:

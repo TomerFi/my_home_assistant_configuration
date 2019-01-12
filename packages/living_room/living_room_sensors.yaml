@@ -1,0 +1,28 @@
+homeassistant:
+  customize:
+    sensor.living_room_temperature:
+      friendly_name: "Living Room Temperature"
+      icon: mdi:temperature-celsius
+    sensor.hue_bridge_nmap_tracker:
+      friendly_name: "Living Room Hue Bridge"
+      icon: mdi:lighthouse
+    sensor.living_room_rm_pro_nmap_tracker:
+      friendly_name: "Living Room RM Pro"
+      icon: mdi:remote
+
+sensor:
+  - platform: broadlink
+    host: !secret living_room_broadlink_rm_pro_ip
+    mac: !secret living_room_broadlink_rm_pro_mac
+    timeout: 15
+    name: "living_room"
+    monitored_conditions:
+        - temperature
+
+  - platform: template
+    sensors:
+      hue_bridge_nmap_tracker:
+        value_template: "{%if states.device_tracker.hue_bridgehomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+      living_room_rm_pro_nmap_tracker:
+        value_template: "{%if states.device_tracker.living_room_rm_pro.state == 'home'%}Online{%else%}Offline{%endif%}"
+      

@@ -136,15 +136,6 @@ living_room_yes:
   track: true
   vendor: Advanced Digital Broadcast SA
 
-hallway_netgear_hub5:
-  hide_if_away: false
-  icon:
-  mac: !secret hallways_netgear_switch5_mac
-  name: "Hallways Netgear 5 Port Hub"
-  picture:
-  track: true
-  vendor: NETGEAR
-  
 office_netgear_hub5:
   hide_if_away: false
   icon:

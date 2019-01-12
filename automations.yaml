@@ -7,7 +7,7 @@
     - platform: homeassistant
       event: start
   action:
-    - delay: '00:01:00'
+    - delay: '00:00:30'
     - service: script.turn_on
       entity_id: script.correct_objects_values
     - service: script.turn_on
@@ -221,37 +221,3 @@
   action:
     service: script.turn_on
     entity_id: script.update_all_devices
-
-###########################################
-###### Notifications Automations ##########
-###########################################
-- id: shabbat_candle_lighting_time_reminder
-  alias: shabbat_candle_lighting_time_reminder
-  trigger:
-    - platform: time
-      minutes: '/1'
-      seconds: 00
-  condition:
-    - condition: time
-      weekday: fri
-    - condition: template
-      value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}true{%else%}false{%endif%}"
-    - condition: template
-      value_template: "{{ as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%y-%m-%d') == now().strftime('%y-%m-%d') }}"
-    - condition: template
-      value_template: >
-        {% set shabbat_time = states.sensor.select_city_shabbat_start_time.state.split(" ")[1] %}
-        {% set cur_time = now().strftime('%H:%M') %}
-        {{ (shabbat_time.split(':')[0] | int * 60 + shabbat_time.split(':')[1] | int) - (cur_time.split(':')[0] | int * 60 + cur_time.split(':')[1] | int ) == states.sensor.shabbat_notify_minutes_start.state | int }}
-  action:
-    - service_template: >
-        {% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' and states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.everyone
-        {% elif states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.telegram_hava_service
-        {% elif states.input_boolean.send_shabbat_notification_tomer.state == 'on' %}notify.telegram_tomer_service
-        {% endif %}
-      data_template:
-        title: "Shabbat Times"
-        message: >
-          Shabbat in {{ states.input_select.select_shabbat_city.state }} starts at {{ (as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%H:%M')) }}.
-          
-          You have {{ states.sensor.shabbat_notify_minutes_start.state }} minutes left for candle lighting.

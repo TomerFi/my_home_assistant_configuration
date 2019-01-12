@@ -1,0 +1,11 @@
+homeassistant:
+  customize:
+    sensor.bedroom_echo_nmap_tracker:
+      friendly_name: "Bedroom Echo"
+      icon: mdi:amazon
+      
+sensor:
+  - platform: template
+    sensors:
+      bedroom_echo_nmap_tracker:
+        value_template: "{%if states.device_tracker.bedroom_echo.state == 'home'%}Online{%else%}Offline{%endif%}"

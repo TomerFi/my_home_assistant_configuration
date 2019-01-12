@@ -1,6 +1,3 @@
-"sensor.google_wifi_*_status":
-  icon: mdi:wifi
-  
 "switch.*_light":
   icon: mdi:lightbulb
   
@@ -12,3 +9,4 @@
   
 "automation.*":
   initial_state: true
+  hidden: true

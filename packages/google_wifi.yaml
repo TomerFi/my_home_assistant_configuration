@@ -1,0 +1,103 @@
+homeassistant:
+  customize:
+    sensor.google_wifi_bedroom_status:
+      friendly_name: "Access Point"
+    sensor.google_wifi_bedroom_last_restart:
+      friendly_name: "Last Restart"
+    sensor.google_wifi_bedroom_current_version:
+      friendly_name: "Current Version"
+    sensor.google_wifi_bedroom_uptime:
+      friendly_name: "Uptime"
+    sensor.google_wifi_bedroom_new_version:
+      friendly_name: "Version Status"
+    group.bedroom_google_wifi_point:
+      friendly_name: "Bedroom Access Point"
+      icon: mdi:access-point-network
+      control: hidden
+    sensor.google_wifi_living_room_status:
+      friendly_name: "Access Point"
+    sensor.google_wifi_living_room_last_restart:
+      friendly_name: "Last Restart"
+    sensor.google_wifi_living_room_current_version:
+      friendly_name: "Current Version"
+    sensor.google_wifi_living_room_uptime:
+      friendly_name: "Uptime"
+    sensor.google_wifi_living_room_new_version:
+      friendly_name: "Version Status"
+    group.living_room_google_wifi_point:
+      friendly_name: "Living Room Access Point"
+      icon: mdi:access-point-network
+      control: hidden
+    sensor.google_wifi_guest_room_status:
+      friendly_name: "Accees Point"
+    sensor.google_wifi_guest_room_last_restart:
+      friendly_name: "Last Restart"
+    sensor.google_wifi_guest_room_current_version:
+      friendly_name: "Current Version"
+    sensor.google_wifi_guest_room_uptime:
+      friendly_name: "Uptime"
+    sensor.google_wifi_guest_room_new_version:
+      friendly_name: "Version Status"  
+    group.guest_room_google_wifi_point:
+      friendly_name: "Guest Room Access Point"
+      icon: mdi:access-point-network
+      control: hidden
+
+  customize_glob:
+    "sensor.google_wifi_*_status":
+      icon: mdi:wifi
+
+group:
+  bedroom_google_wifi_point:
+    name: bedroom_google_wifi_point
+    entities:
+      - sensor.google_wifi_bedroom_status
+      - sensor.google_wifi_bedroom_last_restart
+      - sensor.google_wifi_bedroom_uptime
+      - sensor.google_wifi_bedroom_current_version
+      - sensor.google_wifi_bedroom_new_version
+  living_room_google_wifi_point:
+    name: living_room_google_wifi_point
+    entities:
+      - sensor.google_wifi_living_room_status
+      - sensor.google_wifi_living_room_last_restart
+      - sensor.google_wifi_living_room_uptime
+      - sensor.google_wifi_living_room_current_version
+      - sensor.google_wifi_living_room_new_version
+  guest_room_google_wifi_point:
+    name: guest_room_google_wifi_point
+    entities:
+      - sensor.google_wifi_guest_room_status
+      - sensor.google_wifi_guest_room_last_restart
+      - sensor.google_wifi_guest_room_uptime
+      - sensor.google_wifi_guest_room_current_version
+      - sensor.google_wifi_guest_room_new_version
+      
+sensor:
+  - platform: google_wifi
+    host: !secret bedroom_google_wifi_ip
+    name: google_wifi_bedroom
+    monitored_conditions:
+      - current_version
+      - last_restart
+      - new_version
+      - status
+      - uptime
+  - platform: google_wifi
+    host: !secret living_room_google_wifi_ip
+    name: google_wifi_living_room
+    monitored_conditions:
+      - current_version
+      - last_restart
+      - new_version
+      - status
+      - uptime
+  - platform: google_wifi
+    host: !secret guest_room_google_wifi_ip
+    name: google_wifi_guest_room
+    monitored_conditions:
+      - current_version
+      - last_restart
+      - new_version
+      - status
+      - uptime

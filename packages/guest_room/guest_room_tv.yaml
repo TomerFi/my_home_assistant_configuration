@@ -1,0 +1,11 @@
+homeassistant:
+  customize:
+    sensor.guest_room_yes_nmap_tracker:
+      friendly_name: "Guest Room Yes"
+      icon: mdi:television-classic
+      
+sensor:
+  - platform: template
+    sensors:
+      guest_room_yes_nmap_tracker:
+        value_template: "{%if states.device_tracker.guest_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"

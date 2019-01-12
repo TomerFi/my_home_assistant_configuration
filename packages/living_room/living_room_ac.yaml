@@ -17,28 +17,6 @@ homeassistant:
       icon: test_icon #mdi:temperature-celsius
     climate.living_room_ac:
       friendly_name: "Living Room Air Conditioner"
-    group.living_room_ac:
-      friendly_name: "Living Room AC"
-      control: hidden
-    automation.living_room_ac_operation_mode_input_select:
-      hidden: true
-    automation.living_room_ac_fan_level_input_select:
-      hidden: true
-    automation.living_room_ac_temperature_input_number:
-      hidden: true
-    script.sync_living_room_ac_entities:
-      hidden: true
-
-group:
-  living_room_ac:
-    name: living_room_ac
-    entities:
-      - climate.living_room_ac
-      - switch.living_room_ac_toggle
-      - input_number.living_room_ac_temperature_select
-      - cover.living_room_ac_target_temperature
-      - input_select.living_room_ac_operation_mode
-      - input_select.living_room_ac_fan_level
 
 climate:
   - platform: mqtt
@@ -125,7 +103,6 @@ input_select:
       - "off"
       - "cool"
       - "heat"
-    
   living_room_ac_fan_level:
     name: living_room_ac_fan_level
     options:

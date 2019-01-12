@@ -1,0 +1,54 @@
+homeassistant:
+  customize:
+    group.bedroom_view:
+      friendly_name: "Bedroom"
+    group.multisensor_bedroom:
+      friendly_name: "MultiSensor"
+      control: hidden
+    group.all_bedroom_sensors:
+      friendly_name: "Sensors"
+      icon: mdi:surround-sound
+      control: hidden
+    group.bedroom_switches:
+      friendly_name: "Lights"
+    group.bedroom_ac:
+      friendly_name: "Bedroom AC"
+
+group:
+  bedroom_view:
+    name: bedroom_view
+    view: true
+    entities:
+      - group.multisensor_bedroom
+      - group.all_bedroom_sensors
+      - group.bedroom_switches
+      - group.bedroom_ac
+      - media_player.bedroom_tv
+  multisensor_bedroom:  
+    name: multisensor_bedroom
+    entities:  
+      - sensor.bedroom_temperature
+      - sensor.bedroom_humidity  
+      - sensor.bedroom_pir 
+  all_bedroom_sensors:
+    name: all_bedroom_sensors
+    entities:
+      - sensor.google_wifi_bedroom_status
+      - sensor.broadlink_s1c_closet_room
+      - sensor.broadlink_s1c_shower_motion_sensor
+  bedroom_switches:
+    name: bedroom_switches
+    entities:
+      - switch.closet_room_light
+      - switch.shower_light
+      - switch.bedroom_main_light
+  bedroom_ac:
+    name: bedroom_ac
+    control: hidden
+    entities:
+      - climate.bedroom_ac
+      - switch.bedroom_ac_toggle
+      - input_number.bedroom_ac_temperature_select
+      - cover.bedroom_ac_target_temperature
+      - input_select.bedroom_ac_operation_mode
+      - input_select.bedroom_ac_fan_level
