@@ -178,6 +178,59 @@ nursery_ceiling_set_speed_high:
   command: 'high'
   global_dependencies: ir_packets_manager
 
+###########################################
+##### Office Ceiling Fan Automations ######
+###########################################
+office_ceiling_fan_off:
+  module: ir_packets_control
+  class: HandleMqttFan
+  topic: 'tomerfi_custom_fan/office/command'
+  payload: 'off'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_133
+  fan_type: "hyundai_ceiling_fan"
+  command: 'off'
+  global_dependencies: ir_packets_manager
+  
+office_ceiling_fan_on:
+  module: ir_packets_control
+  class: HandleMqttFan
+  topic: 'tomerfi_custom_fan/office/command'
+  payload: 'on'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_133
+  fan_type: "hyundai_ceiling_fan"
+  command: 'low'
+  global_dependencies: ir_packets_manager
+  
+office_ceiling_set_speed_low:
+  module: ir_packets_control
+  class: HandleMqttFan
+  topic: 'tomerfi_custom_fan/office/speed'
+  payload: 'low'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_133
+  fan_type: "hyundai_ceiling_fan"
+  command: 'low'
+  global_dependencies: ir_packets_manager
+  
+office_ceiling_set_speed_medium:
+  module: ir_packets_control
+  class: HandleMqttFan
+  topic: 'tomerfi_custom_fan/office/speed'
+  payload: 'medium'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_133
+  fan_type: "hyundai_ceiling_fan"
+  command: 'medium'
+  global_dependencies: ir_packets_manager
+  
+office_ceiling_set_speed_high:
+  module: ir_packets_control
+  class: HandleMqttFan
+  topic: 'tomerfi_custom_fan/office/speed'
+  payload: 'high'
+  ir_send_service: switch.broadlink_send_packet_192_168_0_133
+  fan_type: "hyundai_ceiling_fan"
+  command: 'high'
+  global_dependencies: ir_packets_manager
+
 ########################################
 ######## Nursery AC Automations ########
 ########################################

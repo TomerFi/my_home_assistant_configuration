@@ -1,2 +1,0 @@
-office_chromecast:
-  - host: !secret office_chromecast_ip

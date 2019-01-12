@@ -1,0 +1,239 @@
+homeassistant:
+  customize:
+    input_text.hava_last_state:
+      name: hava_last_state
+    input_text.tomer_last_state:
+      name: tomer_last_state
+    sensor.hava_tracker_sensor:
+      friendly_name: "Hava's Location"
+      icon: mdi:account-location
+    sensor.tomer_tracker_sensor:
+      friendly_name: "Tomer's Location"
+      icon: mdi:account-location
+    sensor.hava_owntracks_battery_sensor:
+      friendly_name: "Hava's Battery"
+    sensor.tomer_owntracks_battery_sensor:
+      friendly_name: "Tomer's Battery"
+    sensor.tomers_phone_nmap_tracker:
+      friendly_name: "Tomer's Phone"
+      icon: mdi:cellphone-android
+    sensor.havas_phone_nmap_tracker:
+      friendly_name: "Hava's Phone"
+      icon: mdi:cellphone-android
+    sensor.tomer_owntracks_gecode:
+      hidden: true
+    sensor.hava_owntracks_gecode:
+      hidden: true
+    script.update_all_devices:
+      friendly_name: "Update Devices"
+      icon: mdi:cellphone-link
+      custom_text: "UPDATE"
+    script.update_hava_devices:
+      hidden: true
+    script.update_tomer_devices:
+      hidden: true
+    group.user_tomer_devices:
+      friendly_name: "Tomer's Devices"
+      icon: mdi:human-male
+      control: hidden
+    group.user_hava_devices:
+      friendly_name: "Hava's Devices"
+      icon: mdi:human-female
+      control: hidden
+    group.household_summary:
+      friendly_name: "Household"
+      icon: home-heart
+      control: hidden
+    group.nmap_phones_tracker:
+      friendly_name: "Phones"
+      icon: mdi:cellphone
+      control: hidden
+
+group:
+  user_tomer_devices:
+    name: user_tomer_devices
+    entities:
+      - device_tracker.tomerphone_tpowntracks
+      - device_tracker.tomer_bluetooth
+      - device_tracker.tomers_phone
+  
+  user_hava_devices:
+    name: user_hava_devices
+    entities:
+      - device_tracker.havaphone_hpowntracks
+      - device_tracker.hava_bluetooth
+      - device_tracker.havas_phone
+      
+  household_summary:
+    name: household_summary
+    entities:
+      - sensor.hava_tracker_sensor
+      - sensor.hava_owntracks_battery_sensor
+      - sensor.tomer_tracker_sensor
+      - sensor.tomer_owntracks_battery_sensor
+      
+  nmap_phones_tracker:
+    name: nmap_phones_tracker
+    entities:
+      - sensor.tomers_phone_nmap_tracker
+      - sensor.havas_phone_nmap_tracker
+
+owntracks:
+  max_gps_accuracy: 100
+  track_new_devices: false
+
+input_text:
+  hava_last_state:
+    name: hava_last_state
+  tomer_last_state:
+    name: tomer_last_state
+  
+automation:
+  - id: update_hava_last_state
+    alias: update_hava_last_state
+    trigger:
+      - platform: state
+        entity_id: device_tracker.havaphone_hpowntracks
+    action:
+      service: input_text.set_value
+      data_template:
+        entity_id: input_text.hava_last_state
+        value: >
+          {% if trigger.to_state.state == 'not_home' %}
+            {{ states.sensor.hava_owntracks_gecode.state }}
+          {%else%}{{ trigger.to_state.state | title }}
+          {%endif%}
+  
+  - id: update_tomer_last_state
+    alias: update_tomer_last_state
+    trigger:
+      - platform: state
+        entity_id: device_tracker.tomerphone_tpowntracks
+    action:
+      service: input_text.set_value
+      data_template:
+        entity_id: input_text.tomer_last_state
+        value: >
+          {% if trigger.to_state.state == 'not_home' %}
+            {{ states.sensor.tomer_owntracks_gecode.state }}
+          {%else%}{{ trigger.to_state.state | title }}
+          {%endif%}
+  
+  - id: update_tracker_devices
+    alias: update_tracker_devices
+    trigger:
+      - platform: time
+        minutes: '/20'
+        seconds: 00
+    action:
+      service: script.turn_on
+      entity_id: script.update_all_devices
+
+script:
+  update_all_devices:
+    sequence:
+      - service: script.update_hava_devices
+      - service: script.update_tomer_devices
+  
+  update_hava_devices:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "owntracks/havaphone/hpowntracks/cmd"
+          payload: '{"_type":"cmd","action":"reportLocation"}'
+          qos: 2
+  
+  update_tomer_devices:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "owntracks/tomerphone/tpowntracks/cmd"
+          payload: '{"_type":"cmd","action":"reportLocation"}'
+          qos: 2
+
+sensor:
+  - platform: google_geocode
+    name: tomer_owntracks_gecode
+    origin: device_tracker.tomerphone_tpowntracks
+    options: street, city
+    display_zone: hide
+    api_key: !secret google_geocoding_api_key
+    
+  - platform: google_geocode
+    name: hava_owntracks_gecode
+    origin: device_tracker.havaphone_hpowntracks
+    options: street, city
+    display_zone: hide
+    api_key: !secret google_geocoding_api_key
+
+  - platform: template
+    sensors:
+      hava_tracker_sensor:
+        value_template: "{%if states.sensor.havas_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.hava_last_state.state }}{%endif%}"
+      tomer_tracker_sensor:
+        value_template: "{%if states.sensor.tomers_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.tomer_last_state.state }}{%endif%}"
+      tomers_phone_nmap_tracker:
+        value_template: "{%if states.device_tracker.tomers_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
+      havas_phone_nmap_tracker:
+        value_template: "{%if states.device_tracker.havas_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
+      hava_owntracks_battery_sensor:
+        value_template: "{%if states.device_tracker.havaphone_hpowntracks.attributes.battery is defined %}{{ states.device_tracker.havaphone_hpowntracks.attributes.battery | round }}{% else %}0{% endif %}"
+        unit_of_measurement: '%'
+        icon_template: >
+          {%if states.device_tracker.havaphone_hpowntracks.attributes.battery is defined %}
+            {% if ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 90) %} mdi:battery
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 80) %} mdi:battery-90
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 70) %} mdi:battery-80
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 60) %} mdi:battery-70
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 50) %} mdi:battery-60
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 40) %} mdi:battery-50
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 30) %} mdi:battery-40
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 20) %} mdi:battery-30
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 10) %} mdi:battery-20
+            {% elif ((states.device_tracker.havaphone_hpowntracks.attributes.battery | round) > 0) %} mdi:battery-10
+            {% endif%}
+          {% else %} mdi:battery-unknown
+          {% endif %}
+      tomer_owntracks_battery_sensor:
+        value_template: "{%if states.device_tracker.tomerphone_tpowntracks.attributes.battery is defined %}{{ states.device_tracker.tomerphone_tpowntracks.attributes.battery | round }}{% else %}0{% endif %}"
+        unit_of_measurement: '%'
+        icon_template: >
+          {%if states.device_tracker.tomerphone_tpowntracks.attributes.battery is defined %}
+            {% if ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 90) %} mdi:battery
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 80) %} mdi:battery-90
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 70) %} mdi:battery-80
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 60) %} mdi:battery-70
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 50) %} mdi:battery-60
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 40) %} mdi:battery-50
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 30) %} mdi:battery-40
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 20) %} mdi:battery-30
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 10) %} mdi:battery-20
+            {% elif ((states.device_tracker.tomerphone_tpowntracks.attributes.battery | round) > 0) %} mdi:battery-10
+            {% endif%}
+          {% else %} mdi:battery-unknown
+          {% endif %}
+
+zone:
+  - name: home
+    latitude: !secret homeassistant_latitude
+    longitude: !secret homeassistant_longitude
+    radius: 100
+    icon: mdi:home
+  
+  - name: partner
+    latitude: !secret partner_latitude
+    longitude: !secret partner_longitude
+    radius: 200
+    icon: mdi:worker
+    
+  - name: the_white_house
+    latitude: !secret the_white_house_latitude
+    longitude: !secret the_white_house_longitude
+    radius: 100
+    icon: mdi:home-heart
+    
+  - name: bynet
+    latitude: !secret bynet_latitude
+    longitude: !secret bynet_longitude
+    radius: 200
+    icon: mdi:worker

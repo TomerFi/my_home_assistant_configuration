@@ -1,0 +1,14 @@
+homeassistant:
+  customize:
+    sensor.broadlink_s1c_service_room: # exists in s1c component
+      friendly_name: "Service Room Door"
+    sensor.service_room_s1c_nmap_tracker:
+      friendly_name: "Service Room SC1"
+      icon: mdi:power-socket-eu
+
+sensor:
+  - platform: template
+    sensors:
+      service_room_s1c_nmap_tracker:
+        value_template: "{%if states.device_tracker.service_room_s1c.state == 'home'%}Online{%else%}Offline{%endif%}"
+    

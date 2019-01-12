@@ -1,0 +1,17 @@
+homeassistant:
+  customize:
+    sensor.kitchen_fire_8_tablet_nmap_tracker:
+      friendly_name: "Kitchen Fire 8"
+      icon: mdi:amazon
+    sensor.kitchen_bar_sp2_nmap_tracker:
+      friendly_name: "Kitchen Bar SP2"
+      icon: mdi:power-socket-eu
+
+sensor:
+  - platform: template
+    sensors:
+      kitchen_fire_8_tablet_nmap_tracker:
+        value_template: "{%if states.device_tracker.kitchen_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
+      kitchen_bar_sp2_nmap_tracker:
+        value_template: "{%if states.device_tracker.kitchen_bar_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
+    

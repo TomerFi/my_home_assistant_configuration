@@ -1,0 +1,534 @@
+homeassistant:
+  
+  customize_domain:
+    script:
+      custom_ui_state_card: state-card-script-custom-text
+    date_notifier:
+      hidden: true
+  
+  customize_glob:
+    "switch.*_light":
+      icon: mdi:lightbulb
+    "sensor.*_door_sensor":
+      icon: mdi:glassdoor
+    "sensor.*":
+      force_update: true
+    "automation.*":
+      initial_state: true
+      hidden: true
+  
+  customize:
+    sensor.ha_duckdns_cert_expiry:
+      friendly_name: "DuckDNS Certificate Days Left"
+      icon: mdi:certificate
+    sensor.speedtest_ping:
+      friendly_name: "Speedtest Ping"
+      icon: mdi:network
+    sensor.speedtest_download:
+      friendly_name: "Speedtest Download"
+      icon: mdi:download-network
+    sensor.speedtest_upload:
+      friendly_name: "Speedtest Upload"
+      icon: mdi:upload-network
+    sensor.run_speed_test_last_run:
+      friendly_name: "Last Speed Test"
+      icon: mdi:timetable
+    sensor.processor_use:
+      friendly_name: "CPU Usage"
+    sensor.cpu_temp:
+      friendly_name: "CPU Temperature"
+    sensor.disk_free_home:
+      friendly_name: "Disk Free"
+    sensor.disk_use_percent_home:
+      friendly_name: "Disk Used Percentage"
+    sensor.disk_use_home:
+      friendly_name: "Disk Used"
+    sensor.memory_free:
+      friendly_name: "RAM Free"
+    sensor.memory_use:
+      friendly_name: "RAM Used"
+    sensor.memory_use_percent:
+      friendly_name: "RAM Used Percentage"
+    sensor.last_boot:
+      friendly_name: "Last Boot"
+    sensor.hallway_rf_gw_nmap_tracker:
+      friendly_name: "Hallway RF Gateway"
+      icon: mdi:developer-board
+    script.get_sensors_report_notificiation_from_ui:
+      friendly_name: "Get Sensors Report"
+      icon: mdi:file-chart
+      custom_text: "GET"
+    script.run_speed_test:
+      friendly_name: "Run Speedtest"
+      icon: mdi:speedometer
+      custom_text: "RUN"
+    script.correct_objects_values:
+      hidden: true
+    script.leaving_home:
+      hidden: true
+    script.get_workstation_mqtt_client_status:
+      friendly_name: "Get Workstation Mqtt Status"
+      icon: mdi:developer-board
+      custom_text: "SEND"
+    script.sleep_time:
+      hidden: true
+    script.alexa_restart_hass:
+      hidden: true
+    script.ring_the_doorbell:
+      friendly_name: "Ring The Doorbell"
+      icon: mdi:bell-ring
+      custom_text: "RING"
+    group.all_s1c_sensors:
+      friendly_name: "S1C Sensors"
+      icon: mdi:glassdoor
+      control: hidden
+    group.activate_operations:
+      friendly_name: "Activate Operations"
+      icon: mdi:script
+      control: hidden
+    group.start_scenes:
+      friendly_name: "Start Scenes"
+      icon: mdi:crop-landscape
+      control: hidden
+    group.ha_statistics:
+      friendly_name: "Home Assistant Pi"
+      icon: mdi:raspberrypi
+      control: hidden
+    group.ha_operations:
+      friendly_name: "Activate Operaions"
+      icon: mdi:script
+      control: hidden
+    group.tech_support_view:
+      friendly_name: "Tech Support"
+    scene.leaving_home:
+      friendly_name: "Leaving Home"
+    scene.sleep_time:
+      friendly_name: "Sleep Time"
+
+automation:
+  - id: on_start_event
+    alias: on_start_event
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - delay: '00:00:30'
+      - service: script.turn_on
+        entity_id: script.correct_objects_values
+      - service: script.turn_on
+        entity_id: script.run_speed_test
+      - service: script.turn_on
+        entity_id: script.get_workstation_mqtt_client_status
+      - service: script.turn_on
+        entity_id: script.check_last_recorder_session
+  
+  - id: home_workstation_update_mqtt_client_status
+    alias: home_workstation_update_mqtt_client_status
+    trigger:
+      platform: state
+      entity_id: sensor.home_workstation_nmap_tracker
+      to: "Offline"
+      for:
+        minutes: 5
+    action:
+      - service: mqtt.publish
+        data:
+          topic: "smarthome/mqtt_client/status_update"
+          payload: "Offline"
+      - delay: '00:01:00'
+      - service: script.turn_on
+        entity_id: script.get_workstation_mqtt_client_status
+
+group:
+  all_s1c_sensors:
+    name: all_s1c_sensors
+    entities:
+      - sensor.broadlink_s1c_small_bathroom
+      - sensor.broadlink_s1c_main_bathroom
+      - sensor.broadlink_s1c_closet_room
+      - sensor.broadlink_s1c_shower_motion_sensor
+      - sensor.broadlink_s1c_service_room
+      - sensor.broadlink_s1c_key_fob
+      - sensor.broadlink_s1c_balcony_door
+      
+  activate_operations:
+    name: activate_operations
+    entities:
+      - script.get_sensors_report_notificiation_from_ui
+      - script.ring_the_doorbell
+          
+  start_scenes:
+    name: start_scenes
+    entities:
+      - scene.watch_tv
+      - scene.watch_movie
+      - scene.leaving_home
+      - scene.sleep_time
+  
+  ha_statistics:
+    name: ha_statistics
+    entities:
+      - sensor.cpu_temp
+      - sensor.processor_use
+      - sensor.db_size
+      - sensor.db_days_kept
+      - sensor.last_recorder_status
+      - sensor.ha_duckdns_cert_expiry
+      - sensor.last_boot
+      - sensor.disk_use_percent_home
+      - sensor.disk_use_home
+      - sensor.disk_free_home
+      - sensor.memory_use_percent
+      - sensor.memory_use
+      - sensor.memory_free
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.run_speed_test_last_run
+      - sensor.home_workstation_update_mqtt_client_status
+      
+  ha_operations:
+    name: ha_operations
+    entities:
+      - input_select.select_log_level
+      - script.run_speed_test
+      - script.office_office_mqtt_client_status
+      - script.update_all_devices
+      - script.check_last_recorder_session
+
+  tech_support_view:
+    name: tech_support_view
+    view: true
+    entities:
+      - group.living_room_google_wifi_point
+      - group.guest_room_google_wifi_point
+      - group.bedroom_google_wifi_point
+      - group.shabbat_reminder_settings
+      - group.user_tomer_devices
+      - group.user_hava_devices
+      - group.ha_statistics
+      - group.qnap_homenas_group
+      - group.qbittorent_client
+      - group.ha_operations
+      - group.nmap_pa_trackers
+      - group.nmap_remotes_trackers
+      - group.nmap_yes_stb_trackers
+      - group.nmap_diy_tracker
+      - group.nmap_computers_tracker
+      - group.nmap_phones_tracker
+      - group.nmap_lights_tracker
+      - group.nmap_various_trackers
+      
+scene:
+  - name: leaving_home
+    entities:
+      script.leaving_home:
+        state: on
+  
+  - name: sleep_time
+    entities:
+      script.sleep_time:
+        state: on
+
+script:
+  ring_the_doorbell:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "omg/rfgw_hallway/commands/PLSL_450/433_1/RFBITS_24"
+          payload: "14878223"
+          
+  leaving_home:
+    sequence:
+      - service: remote.turn_off
+        entity_id: remote.living_room_harmony_hub
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.lr_ac_status
+      - service: light.turn_off
+        entity_id: light.tv_lights
+      - service: switch.turn_on
+        entity_id: switch.kitchen_main_light
+      - delay:
+          milliseconds: 1500
+      - service: light.turn_off
+        entity_id: light.living_room_night_light
+      - service: switch.turn_off
+        entity_id: switch.living_room_main_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.kitchen_bar_light
+      - service: switch.turn_off
+        entity_id: switch.entrance_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.bedroom_main_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.small_bathroom_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.kitchen_island_light
+      - delay:
+          milliseconds: 1500
+      - service: switch.turn_off
+        entity_id: switch.service_room_light
+      - service: switch.turn_off
+        entity_id: switch.closet_room_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.small_hallway_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.shower_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.main_bathroom_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.guest_room_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.living_room_small_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.balcony_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.main_hallway_light
+      - service: switch.turn_off
+        entity_id: switch.office_light
+  
+        
+  sleep_time:
+    sequence:
+      - service: media_player.turn_on
+        entity_id: media_player.bedroom_tv
+      - service: switch.turn_on
+        entity_id: switch.kitchen_island_light
+      - delay:
+          milliseconds: 1500
+      - service: switch.turn_off
+        entity_id: light.living_room_night_light
+      - service: switch.turn_off
+        entity_id: switch.living_room_main_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.kitchen_bar_light
+      - service: switch.turn_off
+        entity_id: switch.entrance_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.bedroom_main_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.small_bathroom_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.kitchen_main_light
+      - delay:
+          milliseconds: 1500
+      - service: switch.turn_off
+        entity_id: switch.service_room_light
+      - service: switch.turn_off
+        entity_id: switch.closet_room_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.small_hallway_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.shower_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.main_bathroom_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.guest_room_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.living_room_small_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.balcony_light
+      - delay:
+          milliseconds: 500
+      - service: switch.turn_off
+        entity_id: switch.main_hallway_light
+      - service: light.turn_off
+        entity_id: light.tv_lights
+      - service: remote.turn_off
+        entity_id: remote.living_room_harmony_hub
+      - delay:
+          seconds: 10
+      - service: script.bedroom_tv_set_timer
+        data_template:
+          minutes: '90'
+      - service: switch.turn_off
+        entity_id: switch.office_light
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.lr_ac_status
+      - service: switch.turn_on
+        entity_id: switch.kitchen_island_light
+      - delay:
+          minutes: 5
+      - service: switch.turn_off
+        entity_id: switch.kitchen_island_light
+
+  correct_objects_values:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "smarthome/mqtt_client/status_update"
+          payload: "Offline"
+      - service: group.set_visibility
+        data_template:
+          entity_id: group.living_room_ac_hidden_controls
+          visible: "{%if (states.input_boolean.lr_ac_status.state == 'on')%}true{%else%}false{%endif%}"
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.lr_ac_temp_text
+          value: "{%if states.input_text.lr_ac_temp_text.state != 'unknown' %}{{ states.input_text.lr_ac_temp_text.state }}{%else%}30{%endif%}"
+      - service: input_text.set_value
+        data_template:
+          entity_id: input_text.shabbat_notify_minutes_start
+          value: "{%if states.input_text.shabbat_notify_minutes_start.state != 'unknown' %}{{ states.input_text.shabbat_notify_minutes_start.state }}{%else%}15{%endif%}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.nursery_ambiance_color_temperature
+          value: "{% if states.light.nursery_main_light.attributes.color_temp %}{{ states.light.nursery_main_light.attributes.color_temp }}{%else%}153{%endif%}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.nursery_lightstrip_brightness
+          value: "{% if states.light.nursery_dresser_light.attributes.brightness %}{{ states.light.nursery_dresser_light.attributes.brightness }}{%else%}0{%endif%}"
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.nursery_bloom_brightness
+          value: "{% if states.light.nursery_chair_light.attributes.brightness %}{{ states.light.nursery_chair_light.attributes.brightness }}{%else%}0{%endif%}"
+      - service: script.turn_on
+        data:
+          entity_id: script.sync_nursery_ac_entities
+      - service: script.turn_on
+        data:
+          entity_id: script.sync_bedroom_ac_entities
+      - service: script.turn_on
+        data:
+          entity_id: script.sync_living_room_ac_entities
+  
+  get_workstation_mqtt_client_status:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "smarthome/mqtt_client/askmypc_action"
+          payload: "request_status_update"
+
+  get_sensors_report_notificiation_from_ui:
+    sequence:
+      - service_template: >
+          {% if everyone.lower() == 'tomer' %}notify.telegram_tomer_service
+          {% elif everyone.lower() == 'hava' %}notify.telegram_hava_service
+          {% else %}notify.everyone
+          {% endif %}
+        data_template:
+          message: >
+            {% for sensor_name in states.group.all_s1c_sensors.attributes.entity_id %}{% set sensor_name = sensor_name.replace('sensor.', '') %}
+            
+            {{ states.sensor[sensor_name].attributes.friendly_name }} is {{ states.sensor[sensor_name].state }}
+            {% endfor %}
+          title: '{{ notification_title }}'
+  
+  run_speed_test:
+    sequence:
+      - service: sensor.update_speedtest
+      
+  alexa_restart_hass:
+    sequence:
+      - service: notify.telegram_tomer_service
+        data:
+          message: "Restart Home Assistant was requested by alexa."
+          title: "System Restart Initiated"
+      - service: homeassistant.restart
+
+sensor:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    forecast:
+      - 1
+    monitored_conditions:
+      - summary
+      - hourly_summary
+      - daily_summary
+      - temperature
+      - apparent_temperature
+      - temperature_low
+      - temperature_high
+      - humidity
+      - precip_probability
+      - precip_intensity
+      - precip_type
+      - wind_speed
+      - wind_bearing
+      - pressure
+      - icon
+  
+  - platform: template
+    sensors:
+      run_speed_test_last_run:
+        value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+      hallway_rf_gw_nmap_tracker:
+        value_template: "{%if states.device_tracker.rfgw_hallwayhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+
+  - platform: cert_expiry
+    name: ha_duckdns_cert_expiry
+    host: !secret duckdns_dns
+    scan_interval: 86400
+  
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+    manual: true
+    
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: disk_use
+        arg: /home
+      - type: disk_free
+        arg: /home
+      - type: memory_use_percent
+      - type: memory_use
+      - type: memory_free
+      - type: processor_use
+      - type: last_boot
+  
+  - platform: command_line
+    name: "cpu_temp"
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round }}'
+    
+  - platform: broadlink_s1c
+    ip_address: !secret hallways_broadlink_s1c_ip
+    mac: !secret hallways_broadlink_s1c_mac

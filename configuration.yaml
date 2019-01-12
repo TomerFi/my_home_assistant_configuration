@@ -9,8 +9,6 @@ homeassistant:
   unit_system: metric
   time_zone: Asia/Jerusalem
   customize: !include customize_ent.yaml
-  customize_glob: !include customize_glob.yaml
-  customize_domain: !include customize_domain.yaml
   packages: !include_dir_named packages
 
 ##########################################
@@ -29,24 +27,14 @@ http:
 ##########################################
 ################ Includes ################
 ##########################################
-recorder: !include recorder.yaml
 switch: !include switches.yaml
 media_player: !include media_players.yaml
-input_select: !include input_select.yaml
-input_boolean: !include input_boolean.yaml
-input_text: !include input_text.yaml
 sensor: !include sensors.yaml
 group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
 device_tracker: !include device_tracker.yaml
-zone: !include zones.yaml
-scene: !include scenes.yaml
 notify: !include notifications.yaml
-date_notifier: !include date_notifiers.yaml
 alexa: !include alexa.yaml
 google_assistant: !include google_assistant.yaml
-cast: !include cast.yaml
 
 ##########################################
 ######### Components Configuration #######
@@ -66,14 +54,6 @@ config:
 updater:
   reporting: false
 
-history:
-
-logbook:
-
-owntracks:
-  max_gps_accuracy: 100
-  track_new_devices: false
-
 python_script:
 
 mqtt:
@@ -84,26 +64,6 @@ mqtt:
   password: !secret mosquitto_ha_password
   discovery: false
 
-#enable_loop_debug:
-
-logger:
-  default: error
-#  logs:
-#    homeassistant.components.script: debug
-#    homeassistant.components.automation: debug
-#    homeassistant.helpers.service: debug
-#    homeassistant.components.switch.broadlink: debug
-#    custom_components.smartthings_bridge: debug
-
-switcher_aio:
-  phone_id: !secret switcher_phone_id
-  device_id: !secret switcher_device_id
-  device_password: !secret switcher_device_password
-    
-smartthings_bridge:
-  url: !secret smartthings_bridge_url
-  token: !secret smartthings_bridge_token
-  
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_bot_api_key
@@ -115,11 +75,6 @@ lifx:
 
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
-
-
-#weather:
-#  - platform: darksky
-#    api_key: !secret darksky_api_key
 
 hue:
   bridges:

@@ -1,20 +1,6 @@
 ##########################################
 ################ Switches ################
 ##########################################
-switch.kitchen_bar_light:
-  friendly_name: "Bar light"
-switch.service_room_light:
-  friendly_name: "Service Room Light"
-switch.kitchen_main_light:
-  friendly_name: "Kitchen Main Light"
-  assumed_state: true
-switch.kitchen_main_light_fixed:
-  hidden: true
-switch.kitchen_island_light:
-  friendly_name: "Island Light"
-  assumed_state: true
-switch.kitchen_island_light_fixed:
-  hidden: true
 switch.main_hallway_light:
   friendly_name: "Main Hallway Light"
   assumed_state: true
@@ -31,19 +17,6 @@ switch.main_bathroom_light:
   friendly_name: "Main Bathroom Light"
 switch.small_hallway_light:
   friendly_name: "Small Hallway Light"
-switch.office_light:
-  friendly_name: "Office Light"
-switch.office_fan_light:
-  friendly_name: "Fan Light"
-  icon: mdi:spotlight
-switch.office_fan_low_speed:
-  hidden: true
-switch.office_fan_medium_speed:
-  hidden: true
-switch.office_fan_high_speed:
-  hidden: true
-switch.office_fan:
-  hidden: true
 
 ##########################################
 ############# Media Players ##############
@@ -51,322 +24,40 @@ switch.office_fan:
 media_player.spotify:
   friendly_name: "Tomer's Spotify"
   icon: mdi:spotify
-media_player.office_tv:
-  friendly_name: "Office Metz TV"
-  icon: mdi:television
-
-##########################################
-############# Input Select ###############
-##########################################
-input_select.select_log_level:
-  friendly_name: "Log Level"
-  icon: mdi:alert-circle-outline
-input_select.office_ceiling_fan_level:
-  friendly_name: "Fan"
-  icon: mdi:fan
-
-##########################################
-############### Input Text ###############
-##########################################
-input_text.hava_last_state:
-  name: hava_last_state
-input_text.tomer_last_state:
-  name: tomer_last_state
 
 ##########################################
 ################# Sensors ################
 ##########################################
 sensor.broadlink_s1c_small_bathroom:
   friendly_name: "Small Bathroom Door"
-sensor.broadlink_s1c_service_room:
-  friendly_name: "Service Room Door"
 sensor.broadlink_s1c_key_fob:
   friendly_name: "Key Fob"
 sensor.broadlink_s1c_balcony_door:
   friendly_name: "Balcony Door"
-sensor.hava_tracker_sensor:
-  friendly_name: "Hava's Location"
-  icon: mdi:account-location
-sensor.tomer_tracker_sensor:
-  friendly_name: "Tomer's Location"
-  icon: mdi:account-location
-sensor.hava_owntracks_battery_sensor:
-  friendly_name: "Hava's Battery"
-sensor.tomer_owntracks_battery_sensor:
-  friendly_name: "Tomer's Battery"
-sensor.ha_duckdns_cert_expiry:
-  friendly_name: "DuckDNS Certificate Days Left"
-  icon: mdi:certificate
-sensor.speedtest_ping:
-  friendly_name: "Speedtest Ping"
-  icon: mdi:network
-sensor.speedtest_download:
-  friendly_name: "Speedtest Download"
-  icon: mdi:download-network
-sensor.speedtest_upload:
-  friendly_name: "Speedtest Upload"
-  icon: mdi:upload-network
-sensor.kitchen_echo_one_nmap_tracker:
-  friendly_name: "Kitchen Echo"
+sensor.dash_wand_nmap_tracker:
+  friendly_name: "Dash Wand"
   icon: mdi:amazon
-sensor.office_dot_nmap_tracker:
-  friendly_name: "Office Dot"
-  icon: mdi:amazon
-sensor.home_workstation_nmap_tracker:
-  friendly_name: "Home Workstation"
-  icon: mdi:windows
+sensor.broadlink_s1c_main_bathroom:
+  friendly_name: "Main Bathroom Door"
 sensor.tomers_laptop_nmap_tracker:
   friendly_name: "Tomer's Laptop"
   icon: mdi:windows
 sensor.havas_laptop_nmap_tracker:
   friendly_name: "Hava's Laptop"
   icon: mdi:windows
-sensor.office_chromecast_nmap_tracker:
-  friendly_name: "Office Chromecast"
-  icon: mdi:google-chrome
-sensor.xbox_360_nmap_tracker:
-  friendly_name: "Xbox 360"
-  icon: mdi:xbox
-sensor.kitchen_fire_8_tablet_nmap_tracker:
-  friendly_name: "Kitchen Fire 8"
-  icon: mdi:amazon
-sensor.tomers_phone_nmap_tracker:
-  friendly_name: "Tomer's Phone"
-  icon: mdi:cellphone-android
-sensor.havas_phone_nmap_tracker:
-  friendly_name: "Hava's Phone"
-  icon: mdi:cellphone-android
-sensor.office_rm_mini_nmap_tracker:
-  friendly_name: "Office RM Mini"
-  icon: mdi:remote
-sensor.office_netgear_hub5_nmap_tracker:
-  friendly_name: "Office Netgear 5 Port Hub"
-  icon: mdi:access-point-network
-sensor.kitchen_bar_sp2_nmap_tracker:
-  friendly_name: "Kitchen Bar SP2"
-  icon: mdi:power-socket-eu
-sensor.service_room_s1c_nmap_tracker:
-  friendly_name: "Service Room SC1"
-  icon: mdi:power-socket-eu
-sensor.switcher_v2_nmap_tracker:
-  friendly_name: "Switcher Water Heater"
-  icon: mdi:steam
-sensor.dash_wand_nmap_tracker:
-  friendly_name: "Dash Wand"
-  icon: mdi:amazon
-sensor.hallway_rf_gw_nmap_tracker:
-  friendly_name: "Hallway RF Gateway"
-  icon: mdi:developer-board
-sensor.office_msensor_nmap_tracker:
-  friendly_name: "Office Multi-Sensor"
-  icon: mdi:developer-board
-sensor.run_speed_test_last_run:
-  friendly_name: "Last Speed Test"
-  icon: mdi:timetable
-sensor.tomer_owntracks_gecode:
-  hidden: true
-sensor.hava_owntracks_gecode:
-  hidden: true
-sensor.home_workstation_mqtt_client_status:
-  friendly_name: "Workstation Mqtt Client"
-  icon: mdi:developer-board
-sensor.processor_use:
-  friendly_name: "CPU Usage"
-sensor.cpu_temp:
-  friendly_name: "CPU Temperature"
-sensor.disk_free_home:
-  friendly_name: "Disk Free"
-sensor.disk_use_percent_home:
-  friendly_name: "Disk Used Percentage"
-sensor.disk_use_home:
-  friendly_name: "Disk Used"
-sensor.memory_free:
-  friendly_name: "RAM Free"
-sensor.memory_use:
-  friendly_name: "RAM Used"
-sensor.memory_use_percent:
-  friendly_name: "RAM Used Percentage"
-sensor.last_boot:
-  friendly_name: "Last Boot"
-sensor.homenas_status:
-  friendly_name: "Status"
-sensor.homenas_system_temperature:
-  friendly_name: "System Temperature"
-sensor.homenas_cpu_usage:
-  friendly_name: "CPU Usage"
-sensor.homenas_cpu_temperature:
-  friendly_name: "CPU Temperature"
-sensor.homenas_memory_usage:
-  friendly_name: "Memory Usage"
-sensor.homenas_memory_available:
-  friendly_name: "Memory Available"
-sensor.homenas_memory_used:
-  friendly_name: "Memory Used"
-sensor.homenas_network_link_eth0:
-  friendly_name: "Network Link (eth0)"
-sensor.homenas_network_down_eth0:
-  friendly_name: "Network Down (eth0)"
-sensor.homenas_network_up_eth0:
-  friendly_name: "Netword Up (eth0)"
-sensor.homenas_smart_status_drive_01:
-  friendly_name: "SMART Status (Drive 0:1)"
-sensor.homenas_temperature_drive_01:
-  friendly_name: "Temperature (Drive 0:1)"
-sensor.homenas_volume_used_datavol1:
-  friendly_name: "Volume Used (DataVol1)"
-sensor.homenas_free_space_datavol1:
-  friendly_name: "Free Space (DataVol1)"
-sensor.homenas_used_space_datavol1:
-  friendly_name: "Used Space (DataVol1)"
-sensor.qnap_homenas_uptime:
-  friendly_name: "Uptime"
-  icon: mdi:timelapse
-sensor.tomerfu:
-  friendly_name: "Xbox Live Account"
-sensor.db_size:
-  friendly_name: "SQL Size"
-  icon: mdi:database
-sensor.db_days_kept:
-  friendly_name: "Days in DB"
-  icon: mdi:delta
-sensor.last_recorder_status:
-  friendly_name: "Last Recorder Session"
-  icon: mdi:history
-sensor.home_workstation_uptime_human:
-  friendly_name: "Workstation Uptime"
-  icon: mdi:timelapse
-sensor.home_workstation_uptime_ticks:
-  hidden: true
-sensor.qbittorrent_client_down_speed:
-  friendly_name: "Down Speed"
-  icon: mdi:download-network
-sensor.qbittorrent_client_status:
-  friendly_name: "Status"
-  icon: mdi:network
-sensor.qbittorrent_client_up_speed:
-  friendly_name: "Up Speed"
-  icon: mdi:upload-network
-sensor.broadlink_s1c_main_bathroom:
-  friendly_name: "Main Bathroom Door"
-
-##########################################
-################# Scripts ################
-##########################################
-script.update_all_devices:
-  friendly_name: "Update Devices"
-  icon: mdi:cellphone-link
-  custom_text: "UPDATE"
-script.update_hava_devices:
-  hidden: true
-script.update_tomer_devices:
-  hidden: true
-script.send_sensors_report_notification:
-  hidden: true
-script.get_sensors_report_notificiation_from_leaving_home:
-  hidden: true
-script.get_sensors_report_notificiation_from_ui:
-  friendly_name: "Get Sensors Report"
-  icon: mdi:file-chart
-  custom_text: "GET"
-script.get_sensors_report_notificiation_from_alexa:
-  hidden: true
-script.run_speed_test:
-  friendly_name: "Run Speedtest"
-  icon: mdi:speedometer
-  custom_text: "RUN"
-script.correct_objects_values:
-  hidden: true
-script.leaving_home:
-  hidden: true
-script.get_workstation_mqtt_client_status:
-  friendly_name: "Get Workstation Mqtt Status"
-  icon: mdi:developer-board
-  custom_text: "SEND"
-script.check_last_recorder_session:
-  friendly_name: "Get Recorder Sesssion Status"
-  icon: mdi:history
-  custom_text: "GET"
-script.sleep_time:
-  hidden: true
-script.alexa_restart_hass:
-  hidden: true
-script.set_office_ceiling_fan_timer_1h:
-  friendly_name: "1 Hour Timer"
-  icon: mdi:timer
-  custom_text: "SET"
-script.set_office_ceiling_fan_timer_3h:
-  friendly_name: "3 Hour Timer"
-  icon: mdi:timer
-  custom_text: "SET"
-script.set_office_ceiling_fan_timer_6h:
-  friendly_name: "6 Hour Timer"
-  icon: mdi:timer
-  custom_text: "SET"
-script.office_rm_mini_send_packet:
-  hidden: true
-script.ring_the_doorbell:
-  friendly_name: "Ring The Doorbell"
-  icon: mdi:bell-ring
-  custom_text: "RING"
 
 ##########################################
 ################# Groups #################
 ##########################################
-group.kitchen_switches:
-  friendly_name: "Lights"
 group.hallways_switches:
   friendly_name: "Lights"
 group.bathrooms_switches:
   friendly_name: "Lights"
-group.service_room_switches:
-  friendly_name: "Lights"
 group.balcony_switches:
   friendly_name: "Lights"
-group.office_switches:
-  friendly_name: "Lights"
-group.user_tomer_devices:
-  friendly_name: "Tomer's Devices"
-  icon: mdi:human-male
-  control: hidden
-group.user_hava_devices:
-  friendly_name: "Hava's Devices"
-  icon: mdi:human-female
-  control: hidden
-group.all_s1c_sensors:
-  friendly_name: "S1C Sensors"
-  icon: mdi:glassdoor
-  control: hidden
-group.all_kitchen_sensors:
-  friendly_name: "Sensors"
-  icon: mdi:surround-sound
-  control: hidden
 group.all_bathrooms_sensors:
   friendly_name: "Sensors"
   icon: mdi:surround-sound
-  control: hidden
-group.all_service_room_sensors:
-  friendly_name: "Sensors"
-  icon: mdi:surround-sound
-  control: hidden
-group.activate_operations:
-  friendly_name: "Activate Operations"
-  icon: mdi:script
-  control: hidden
-group.household_summary:
-  friendly_name: "Household"
-  icon: home-heart
-  control: hidden
-group.start_scenes:
-  friendly_name: "Start Scenes"
-  icon: mdi:crop-landscape
-  control: hidden
-group.ha_statistics:
-  friendly_name: "Home Assistant Pi"
-  icon: mdi:raspberrypi
-  control: hidden
-group.ha_operations:
-  friendly_name: "Activate Operaions"
-  icon: mdi:script
   control: hidden
 group.nmap_pa_trackers:
   friendly_name: "Personal Assistants"
@@ -388,10 +79,6 @@ group.nmap_diy_tracker:
   friendly_name: "DIY Stuff"
   icon: mdi:developer-board
   control: hidden
-group.nmap_phones_tracker:
-  friendly_name: "Phones"
-  icon: mdi:cellphone
-  control: hidden
 group.nmap_lights_tracker:
   friendly_name: "Lights"
   icon: mdi:lightbulb
@@ -400,57 +87,18 @@ group.nmap_various_trackers:
   friendly_name: "Various Devices"
   icon: mdi:developer-board
   control: hidden
-group.qnap_homenas_group:
-  friendly_name: "Home NAS"
-group.office_ceiling_fan:
-  friendly_name: "Ceiling Fan"
-  control: hidden
-group.all_office_sensors:
-  friendly_name: "Sensors"
-  control: hidden
-group.qbittorent_client:
-  friendly_name: "Qbittorrent"
-  control: hidden
 
 ##########################################
 ################# Views ##################
 ##########################################
 group.default_view:
   friendly_name: "Home"
-group.kitchen_view:
-  friendly_name: "Kitchen"
 group.hallways_view:
   friendly_name: "Hallways"
 group.bathrooms_view:
   friendly_name: "Bathrooms"
-group.service_room_view:
-  friendly_name: "Service Room"
 group.balcony_view:
   friendly_name: "Balcony"
-group.office_view:
-  friendly_name: "Office"
-group.tech_support_view:
-  friendly_name: "Tech Support"
-group.tomer_testing:
-  friendly_name: "Tests"
-
-##########################################
-################# Scenes #################
-##########################################
-scene.leaving_home:
-  friendly_name: "Leaving Home"
-scene.sleep_time:
-  friendly_name: "Sleep Time"
-scene.turn_on_boiler_15_min:
-  hidden: true
-scene.turn_on_boiler_30_min:
-  hidden: true
-scene.turn_on_boiler_45_min:
-  hidden: true
-scene.turn_on_boiler_60_min:
-  hidden: true
-scene.turn_on_boiler_1_h:
-  hidden: true
 
 ##########################################
 ############# Custom UI Tiles ############

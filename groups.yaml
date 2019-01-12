@@ -1,14 +1,6 @@
 ##########################################
 ################# Groups #################
 ##########################################
-kitchen_switches:
-  name: kitchen_switches
-  entities:
-    - switch.kitchen_main_light
-    - switch.kitchen_island_light
-    - switch.kitchen_bar_light
-    - switch.service_room_light
-
 hallways_switches:
   name: hallways_switches    
   entities:
@@ -23,114 +15,16 @@ bathrooms_switches:
     - switch.small_bathroom_light
     - switch.shower_light
 
-service_room_switches:
-  name: service_room_switches
-  entities:
-    - switch.service_room_light
-
 balcony_switches:
   name: balcony_switches
   entities:
     - switch.balcony_light
     
-office_switches:
-  name: office_switches
-  entities:
-    - switch.office_light
-
-user_tomer_devices:
-  name: user_tomer_devices
-  entities:
-    - device_tracker.tomerphone_tpowntracks
-    - device_tracker.tomer_bluetooth
-    - device_tracker.tomers_phone
-
-user_hava_devices:
-  name: user_hava_devices
-  entities:
-    - device_tracker.havaphone_hpowntracks
-    - device_tracker.hava_bluetooth
-    - device_tracker.havas_phone
-
-all_s1c_sensors:
-  name: all_s1c_sensors
-  entities:
-    - sensor.broadlink_s1c_small_bathroom
-    - sensor.broadlink_s1c_main_bathroom
-    - sensor.broadlink_s1c_closet_room
-    - sensor.broadlink_s1c_shower_motion_sensor
-    - sensor.broadlink_s1c_service_room
-    - sensor.broadlink_s1c_key_fob
-    - sensor.broadlink_s1c_balcony_door
-
-all_kitchen_sensors:
-  name: all_kitchen_sensors
-  entities:
-    - sensor.broadlink_s1c_service_room
-
 all_bathrooms_sensors:
   name: all_bathrooms_sensors
   entities:
     - sensor.broadlink_s1c_small_bathroom
     - sensor.broadlink_s1c_main_bathroom
-
-all_service_room_sensors:
-  name: all_service_room_sensors
-  entities:
-    - sensor.broadlink_s1c_service_room
-
-activate_operations:
-  name: activate_operations
-  entities:
-    - script.get_sensors_report_notificiation_from_ui
-    - script.ring_the_doorbell
-        
-household_summary:
-  name: household_summary
-  entities:
-    - sensor.hava_tracker_sensor
-    - sensor.hava_owntracks_battery_sensor
-    - sensor.tomer_tracker_sensor
-    - sensor.tomer_owntracks_battery_sensor
-
-start_scenes:
-  name: start_scenes
-  entities:
-    - scene.watch_tv
-    - scene.watch_movie
-    - scene.leaving_home
-    - scene.sleep_time
-
-ha_statistics:
-  name: ha_statistics
-  entities:
-    - sensor.cpu_temp
-    - sensor.processor_use
-    - sensor.db_size
-    - sensor.db_days_kept
-    - sensor.last_recorder_status
-    - sensor.ha_duckdns_cert_expiry
-    - sensor.last_boot
-    - sensor.disk_use_percent_home
-    - sensor.disk_use_home
-    - sensor.disk_free_home
-    - sensor.memory_use_percent
-    - sensor.memory_use
-    - sensor.memory_free
-    - sensor.speedtest_ping
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-    - sensor.run_speed_test_last_run
-    - sensor.home_workstation_update_mqtt_client_status
-    
-ha_operations:
-  name: ha_operations
-  entities:
-    - input_select.select_log_level
-    - script.run_speed_test
-    - script.office_office_mqtt_client_status
-    - script.update_all_devices
-    - script.check_last_recorder_session
 
 nmap_pa_trackers:
   name: nmap_pa_trackers
@@ -177,12 +71,6 @@ nmap_computers_tracker:
     - sensor.nursery_fire_8_tablet_nmap_tracker
     - sensor.kitchen_fire_8_tablet_nmap_tracker
 
-nmap_phones_tracker:
-  name: nmap_phones_tracker
-  entities:
-    - sensor.tomers_phone_nmap_tracker
-    - sensor.havas_phone_nmap_tracker
-
 nmap_lights_tracker:
   name: nmap_lights_tracker
   entities:
@@ -201,58 +89,6 @@ nmap_various_trackers:
     - sensor.tomerfu
     - sensor.home_workstation_uptime_human
 
-qnap_homenas_group:
-  name: qnap_homenas_group
-  entities:
-    - sensor.homenas_status
-    - sensor.qnap_homenas_uptime
-    - sensor.homenas_system_temperature
-    - sensor.homenas_cpu_usage
-    - sensor.homenas_cpu_temperature
-    - sensor.homenas_memory_usage
-    - sensor.homenas_memory_available
-    - sensor.homenas_memory_used
-    - sensor.homenas_network_link_eth0
-    - sensor.homenas_network_down_eth0
-    - sensor.homenas_network_up_eth0
-    - sensor.homenas_smart_status_drive_01
-    - sensor.homenas_temperature_drive_01
-    - sensor.homenas_volume_used_datavol1
-    - sensor.homenas_free_space_datavol1
-    - sensor.homenas_used_space_datavol1
-
-office_ceiling_fan:
-  name: office_ceiling_fan
-  entities:
-    - input_select.office_ceiling_fan_level
-    - script.set_office_ceiling_fan_timer_1h
-    - script.set_office_ceiling_fan_timer_3h
-    - script.set_office_ceiling_fan_timer_6h
-    - switch.office_fan_light
-
-qbittorent_client:
-  name: qbittorent_client
-  entities:
-    - sensor.qbittorrent_client_status
-    - sensor.qbittorrent_client_down_speed
-    - sensor.qbittorrent_client_up_speed
-
-############################################
-############### Test Groups ################
-############################################
-st_test:
-  name: st_test
-  entities:
-    - sensor.st_bridge_tomers_mi_a2
-    - sensor.st_bridge_havas_s9
-
-multisensor_office:  
-  name: MultiSensor Office
-  entities:  
-    - sensor.office_temperature
-    - sensor.office_humidity  
-    - sensor.office_pir 
-
 ##########################################
 ################# Views ##################
 ##########################################
@@ -266,13 +102,6 @@ default_view:
     - group.all_s1c_sensors
     - media_player.spotify
 
-kitchen_view:
-  name: kitchen_view
-  view: true
-  entities:
-    - group.all_kitchen_sensors
-    - group.kitchen_switches
-    
 bathrooms_view:
   name: bathrooms_view
   view: true
@@ -286,63 +115,8 @@ hallways_view:
   entities:
     - group.hallways_switches
 
-service_room_view:
-  name: service_room_view
-  view: true
-  entities:
-    - group.all_service_room_sensors
-    - group.service_room_switches
-    
 balcony_view:
   name: balcony_view
   view: true
   entities:
     - group.balcony_switches
-    
-office_view:
-  name: office_view
-  view: true
-  entities:
-    - group.multisensor_office
-    - group.office_switches
-    - group.office_ceiling_fan
-
-tech_support_view:
-  name: tech_support_view
-  view: true
-  entities:
-    - group.living_room_google_wifi_point
-    - group.guest_room_google_wifi_point
-    - group.bedroom_google_wifi_point
-    - group.shabbat_reminder_settings
-    - group.user_tomer_devices
-    - group.user_hava_devices
-    - group.ha_statistics
-    - group.qnap_homenas_group
-    - group.qbittorent_client
-    - group.ha_operations
-    - group.nmap_pa_trackers
-    - group.nmap_remotes_trackers
-    - group.nmap_yes_stb_trackers
-    - group.nmap_diy_tracker
-    - group.nmap_computers_tracker
-    - group.nmap_phones_tracker
-    - group.nmap_lights_tracker
-    - group.nmap_various_trackers
-
-###########################################
-############### Test Views ################
-###########################################
-tomer_testing:
-  name: tomer_testing
-  view: true
-  entities:
-    - media_player.samsung_tv_remote
-    - remote.living_room_harmony_hub
-    - media_player.bedroom_tv
-    - media_player.office_tv
-    - media_player.office_chromecast
-    - media_player.shield
-    - media_player.office_speaker
-    - group.st_test
-    - input_boolean.test_uitiles

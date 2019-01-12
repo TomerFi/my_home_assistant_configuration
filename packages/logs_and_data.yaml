@@ -1,0 +1,106 @@
+homeassistant:
+  customize:
+    input_select.select_log_level:
+      friendly_name: "Log Level"
+      icon: mdi:alert-circle-outline
+    sensor.db_size:
+      friendly_name: "SQL Size"
+      icon: mdi:database
+    sensor.db_days_kept:
+      friendly_name: "Days in DB"
+      icon: mdi:delta
+    sensor.last_recorder_status:
+      friendly_name: "Last Recorder Session"
+      icon: mdi:history
+    script.check_last_recorder_session:
+      friendly_name: "Get Recorder Sesssion Status"
+      icon: mdi:history
+      custom_text: "GET"
+
+history:
+
+logbook:
+
+logger:
+  default: error
+#  logs:
+#    homeassistant.components.script: debug
+#    homeassistant.components.automation: debug
+#    homeassistant.helpers.service: debug
+#    homeassistant.components.switch.broadlink: debug
+#    custom_components.smartthings_bridge: debug
+
+input_select:
+  select_log_level:
+    name: select_log_level
+    options:
+      - critical
+      - fatal
+      - error
+      - warning
+      - warn
+      - info
+      - debug
+      - notset
+    initial: error
+
+automation:
+  - id: set_log_level
+    alias: set_log_level
+    trigger:
+      platform: state
+      entity_id: input_select.select_log_level
+    action:
+      service: logger.set_level
+      data_template:
+        homeassistant.components: "{{ trigger.to_state.state }}"
+
+script:
+  check_last_recorder_session:
+    sequence:
+      - service: notify.telegram_tomer_service
+        data:
+          message: "Last ended session end status was {{ states.sensor.last_recorder_status.state }}"
+          title: "Recorder"
+
+sensor:
+  - platform: sql
+    db_url: !secret hass_db_url
+    queries:
+      - name: db_size
+        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema'
+        column: 'value'
+        unit_of_measurement: MB
+      - name: db_days_kept
+        query: 'SELECT DATEDIFF(CURRENT_DATE(), MIN(created)) AS "days_in_db" FROM homeassistant.events WHERE event_type != "state_changed"'
+        column: 'days_in_db'
+        unit_of_measurement: Days
+      - name: last_recorder_status
+        query: 'SELECT REPLACE(REPLACE(closed_incorrect, 0, "ok"), 1, "incorrect") AS "status" FROM homeassistant.recorder_runs WHERE run_id = (SELECT MAX(run_id) FROM homeassistant.recorder_runs WHERE end IS NOT NULL)'
+        column: 'status'
+
+recorder:
+  db_url: !secret hass_db_url
+  purge_interval: 2
+  purge_keep_days: 7
+  include:
+    domains:
+      - climate
+      - fan
+      - input_boolean
+      - input_number
+      - input_select
+      - input_text
+      - sensor
+      - light
+    entities:
+      - switcher_aio.notification_service_input_select
+      - switcher_aio.timer_minutes_input_select
+  exclude:
+    entities:
+      - sensor.google_wifi_bedroom_uptime
+      - sensor.google_wifi_guest_room_uptime
+      - sensor.google_wifi_living_room_uptime
+      - sensor.home_workstation_uptime_human
+      - sensor.home_workstation_uptime_ticks
+      - sensor.qnap_homenas_uptime

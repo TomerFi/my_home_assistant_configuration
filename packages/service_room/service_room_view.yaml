@@ -1,0 +1,31 @@
+homeassistant:
+  customize:
+    group.service_room_view:
+      friendly_name: "Service Room"
+    group.service_room_switches:
+      friendly_name: "Lights"
+    group.all_service_room_sensors:
+      friendly_name: "Sensors"
+      icon: mdi:surround-sound
+      control: hidden
+
+group:
+  service_room_view:
+    name: service_room_view
+    view: true
+    entities:
+      - group.all_service_room_sensors
+      - group.service_room_switches
+    
+
+  all_service_room_sensors:
+    name: all_service_room_sensors
+    entities:
+      - sensor.broadlink_s1c_service_room
+
+
+  service_room_switches:
+    name: service_room_switches
+    entities:
+      - switch.service_room_light
+

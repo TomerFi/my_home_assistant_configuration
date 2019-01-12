@@ -1,0 +1,19 @@
+homeassistant:
+  customize:
+    media_player.office_tv:
+      friendly_name: "Office Metz TV"
+      icon: mdi:television
+    sensor.office_chromecast_nmap_tracker:
+      friendly_name: "Office Chromecast"
+      icon: mdi:google-chrome
+
+cast:
+  office_chromecast:
+    - host: !secret office_chromecast_ip
+    
+media_player:
+  - platform: broadlink
+    name: office_tv
+    host: !secret office_broadlink_rm_mini_ip
+    mac: !secret office_broadlink_rm_mini_mac
+    ircodes_ini: 'ir_codes/office_tv.ini'

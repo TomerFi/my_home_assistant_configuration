@@ -1,0 +1,24 @@
+homeassistant:
+  customize:
+    group.tomer_testing:
+      friendly_name: "Tests"
+
+input_boolean:
+  test_uitiles:
+  
+smartthings_bridge:
+  url: !secret smartthings_bridge_url
+  token: !secret smartthings_bridge_token
+  
+group:
+  st_test:
+    name: st_test
+    entities:
+      - sensor.st_bridge_tomers_mi_a2
+      - sensor.st_bridge_havas_s9
+  tomer_testing:
+    name: tomer_testing
+    view: true
+    entities:
+      - group.st_test
+      - input_boolean.test_uitiles
