@@ -1,0 +1,132 @@
+homeassistant:
+  customize:
+    automation.shower_motion_sensor_motion_detected:
+      friendly_name: "Shower Motion Detected: Light On"
+      icon: mdi:lightbulb-on
+    automation.shower_motion_sensor_no_motion:
+      friendly_name: "Shower No Motion 5 Min: Light Off"
+      icon: mdi:lightbulb-outline
+    sensor.google_wifi_bedroom_status:
+      friendly_name: "Access Point"
+    sensor.google_wifi_bedroom_last_restart:
+      friendly_name: "Last Restart"
+    sensor.google_wifi_bedroom_current_version:
+      friendly_name: "Current Version"
+    sensor.google_wifi_bedroom_uptime:
+      friendly_name: "Uptime"
+    sensor.google_wifi_bedroom_new_version:
+      friendly_name: "Version Status"
+    sensor.bedroom_ac_temp_sensor:
+      friendly_name: "Current Temperature"
+      icon_template: mdi:thermometer
+    sensor.broadlink_s1c_main_bathroom:
+      friendly_name: "Main Bathroom Door"
+    sensor.broadlink_s1c_closet_room:
+      friendly_name: "Closet Room Door"
+    sensor.broadlink_s1c_shower_motion_sensor:
+      friendly_name: "Shower Motion Sensor"
+    sensor.bedroom_echo_nmap_tracker:
+      friendly_name: "Bedroom Echo"
+      icon: mdi:amazon
+    sensor.bedroom_yes_nmap_tracker:
+      friendly_name: "Bedroom Yes"
+      icon: mdi:television-classic
+    sensor.bedroom_rm_mini_nmap_tracker:
+      friendly_name: "Bedroom RM Mini"
+      icon: mdi:remote
+    sensor.bedroom_msensor_nmap_tracker:
+      friendly_name: "Bedroom Multi-Sensor"
+      icon: mdi:developer-board
+    group.all_bedroom_sensors:
+      friendly_name: "Sensors"
+      icon: mdi:surround-sound
+      control: hidden
+    group.bedroom_google_wifi_point:
+      friendly_name: "Bedroom Access Point"
+      icon: mdi:access-point-network
+      control: hidden
+
+automation:
+  - id: shower_motion_sensor_motion_detected
+    alias: shower_motion_sensor_motion_detected
+    trigger:
+      platform: state
+      entity_id: sensor.broadlink_s1c_shower_motion_sensor
+      to: 'motion_detected'
+    action:
+      service: switch.turn_on
+      entity_id: switch.shower_light
+  
+  - id: shower_motion_sensor_no_motion
+    alias: shower_motion_sensor_no_motion
+    trigger:
+      platform: state
+      entity_id: sensor.broadlink_s1c_shower_motion_sensor
+      to: 'no_motion'
+      for: 
+        minutes: 5
+    action:
+      service: switch.turn_off
+      entity_id: switch.shower_light
+
+group:
+  multisensor_bedroom:  
+    name: MultiSensor Bedroom
+    entities:  
+      - sensor.bedroom_temperature
+      - sensor.bedroom_humidity  
+      - sensor.bedroom_pir  
+  bedroom_google_wifi_point:
+    name: bedroom_google_wifi_point
+    entities:
+      - sensor.google_wifi_bedroom_status
+      - sensor.google_wifi_bedroom_last_restart
+      - sensor.google_wifi_bedroom_uptime
+      - sensor.google_wifi_bedroom_current_version
+      - sensor.google_wifi_bedroom_new_version
+  all_bedroom_sensors:
+    name: all_bedroom_sensors
+    entities:
+      - sensor.google_wifi_bedroom_status
+      - sensor.broadlink_s1c_closet_room
+      - sensor.broadlink_s1c_shower_motion_sensor
+      
+sensor:
+  - platform: google_wifi
+    host: !secret bedroom_google_wifi_ip
+    name: google_wifi_bedroom
+    monitored_conditions:
+      - current_version
+      - last_restart
+      - new_version
+      - status
+      - uptime
+      
+  - platform: mqtt  
+    state_topic: "multisensor/bedroomnode"  
+    name: "Bedroom Humidity"  
+    unit_of_measurement: "%"  
+    value_template: '{{ value_json.humidity | round(1) }}'  
+  
+  - platform: mqtt  
+    state_topic: "multisensor/bedroomnode"  
+    name: "Bedroom PIR"  
+    value_template: '{{ value_json.motion }}'  
+  
+  - platform: mqtt  
+    state_topic: "multisensor/bedroomnode"  
+    name: "Bedroom Temperature"  
+    unit_of_measurement: "°C"  
+    value_template: '{{ value_json.temperature | round(1) }}' 
+    
+  - platform: template
+    sensors:
+      bedroom_yes_nmap_tracker:
+        value_template: "{%if states.device_tracker.bedroom_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+      bedroom_echo_nmap_tracker:
+        value_template: "{%if states.device_tracker.bedroom_echo.state == 'home'%}Online{%else%}Offline{%endif%}"
+      bedroom_rm_mini_nmap_tracker:
+        value_template: "{%if states.device_tracker.bedroom_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+      bedroom_msensor_nmap_tracker:
+        value_template: "{%if states.device_tracker.bedroom_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+  

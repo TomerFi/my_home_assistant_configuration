@@ -57,23 +57,6 @@ service_room_switches:
   entities:
     - switch.service_room_light
 
-bedroom_ac:
-  name: bedroom_ac
-  entities:
-    - input_boolean.bedroom_ac_status
-    - sensor.bedroom_ac_temp_sensor
-    - cover.bedroom_ac_temp_cover
-    - input_select.bedroom_ac_state
-    - input_select.bedroom_ac_fan
-    - group.bedroom_ac_hidden_controls
-
-bedroom_switches:
-  name: bedroom_switches
-  entities:
-    - switch.closet_room_light
-    - switch.shower_light
-    - switch.bedroom_main_light
-
 guest_room_switches:
   name: guest_room_switches
   entities:
@@ -107,15 +90,6 @@ guest_room_google_wifi_point:
     - sensor.google_wifi_guest_room_current_version
     - sensor.google_wifi_guest_room_new_version
 
-bedroom_google_wifi_point:
-  name: bedroom_google_wifi_point
-  entities:
-    - sensor.google_wifi_bedroom_status
-    - sensor.google_wifi_bedroom_last_restart
-    - sensor.google_wifi_bedroom_uptime
-    - sensor.google_wifi_bedroom_current_version
-    - sensor.google_wifi_bedroom_new_version
-    
 user_tomer_devices:
   name: user_tomer_devices
   entities:
@@ -161,13 +135,6 @@ all_service_room_sensors:
   name: all_service_room_sensors
   entities:
     - sensor.broadlink_s1c_service_room
-
-all_bedroom_sensors:
-  name: all_bedroom_sensors
-  entities:
-    - sensor.google_wifi_bedroom_status
-    - sensor.broadlink_s1c_closet_room
-    - sensor.broadlink_s1c_shower_motion_sensor
 
 all_guest_room_sensors:
   name: all_guest_room_sensors
@@ -226,12 +193,6 @@ ha_operations:
     - script.office_office_mqtt_client_status
     - script.update_all_devices
     - script.check_last_recorder_session
-    
-bedroom_ac_hidden_controls:
-  name: bedroom_ac_hidden_controls
-  entities:
-    - switch.bedroom_ac_light
-    - switch.bedroom_ac_shutter
 
 living_room_ac_hidden_controls:
   name: living_room_ac_hidden_controls
@@ -371,13 +332,6 @@ st_test:
     - sensor.st_bridge_tomers_mi_a2
     - sensor.st_bridge_havas_s9
 
-multisensor_bedroom:  
-  name: MultiSensor Bedroom
-  entities:  
-    - sensor.bedroom_temperature
-    - sensor.bedroom_humidity  
-    - sensor.bedroom_pir  
-    
 multisensor_office:  
   name: MultiSensor Office
   entities:  
@@ -433,15 +387,6 @@ service_room_view:
   entities:
     - group.all_service_room_sensors
     - group.service_room_switches
-    
-bedroom_view:
-  name: bedroom_view
-  view: true
-  entities:
-    - group.multisensor_bedroom
-    - group.all_bedroom_sensors
-    - group.bedroom_ac
-    - group.bedroom_switches
     
 guest_room_view:
   name: guest_room_view

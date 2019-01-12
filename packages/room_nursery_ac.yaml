@@ -26,6 +26,8 @@ homeassistant:
       hidden: true
     automation.nursery_ac_temperature_input_number:
       hidden: true
+    script.sync_nursery_ac_entities:
+      hidden: true
 
 group:
   nursery_ac:
@@ -148,3 +150,29 @@ switch:
           data:
             entity_id: input_select.nursery_ac_operation_mode
             option: "off"
+            
+script:
+  sync_nursery_ac_entities:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.nursery_ac_temperature_select
+          value: "{%if states.input_number.nursery_ac_temperature_select.state != 'unknown' %}{{ states.input_number.nursery_ac_temperature_select.state }}{%else%}30{%endif%}"
+      - service: mqtt.publish
+        data_template:
+          topic: "tomerfi_custom_ac/nursery/current_temperature"
+          payload_template: "{{ states.sensor.nursery_broadlink_a1_temperature.state | round(1) }}"
+      - service: climate.set_fan_mode
+        data_template:
+          entity_id: climate.nursery_ac
+          fan_mode: "{{ states.input_select.nursery_ac_fan_level.state }}"
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.nursery_ac
+          temperature: "{{ states.input_number.nursery_ac_temperature_select.state }}"
+      - condition: template
+        value_template: "{{ states.input_select.nursery_ac_operation_mode.state != 'off' }}"
+      - service: climate.set_operation_mode
+        data_template:
+          entity_id: climate.nursery_ac
+          operation_mode: "{{ states.input_select.nursery_ac_operation_mode.state }}"

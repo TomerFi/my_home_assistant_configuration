@@ -1,0 +1,34 @@
+homeassistant:
+  customize:
+    media_player.bedroom_tv:
+      friendly_name: "Bedroom Hisense TV"
+      icon: mdi:television
+    script.bedroom_tv_set_timer:
+      hidden: true
+      
+media_player:
+  - platform: broadlink
+    name: bedroom_tv
+    host: !secret bedroom_broadlink_rm_mini_ip
+    mac: !secret bedroom_broadlink_rm_mini_mac
+    ircodes_ini: 'ir_codes/bedroom_tv.ini'
+    
+script:
+  bedroom_tv_set_timer:
+    sequence:
+      - service: python_script.service_call_loop
+        data_template:
+          domain_name: "media_player"
+          service_name: "select_source"
+          data_details: {"entity_id": "media_player.bedroom_tv", "source": "TV_SLEEP_TIMER"}
+          delay_seconds: 1
+          loop_count: >
+            {% if minutes | int < 15 %}2
+            {%elif minutes | int < 25 %}3
+            {%elif minutes | int < 45 %}4
+            {%elif minutes | int < 75 %}5
+            {%elif minutes | int < 105 %}6
+            {%elif minutes | int < 150 %}7
+            {%elif minutes | int < 210 %}8
+            {%else%}9
+            {%endif%}

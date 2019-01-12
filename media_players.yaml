@@ -7,12 +7,6 @@
   mac: !secret living_room_samaung_tv_mac
 
 - platform: broadlink
-  name: bedroom_tv
-  host: !secret bedroom_broadlink_rm_mini_ip
-  mac: !secret bedroom_broadlink_rm_mini_mac
-  ircodes_ini: 'ir_codes/bedroom_tv.ini'
-  
-- platform: broadlink
   name: office_tv
   host: !secret office_broadlink_rm_mini_ip
   mac: !secret office_broadlink_rm_mini_mac

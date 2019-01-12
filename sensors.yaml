@@ -39,22 +39,10 @@
     - status
     - uptime
   
-- platform: google_wifi
-  host: !secret bedroom_google_wifi_ip
-  name: google_wifi_bedroom
-  monitored_conditions:
-    - current_version
-    - last_restart
-    - new_version
-    - status
-    - uptime
-
 - platform: template
   sensors:
     lr_ac_temp_sensor:
       value_template: "{{ states.input_text.lr_ac_temp_text.state }}"
-    bedroom_ac_temp_sensor:
-      value_template: "{{ states.input_text.bedroom_ac_temp_text.state }}"
     hava_tracker_sensor:
       value_template: "{%if states.sensor.havas_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.hava_last_state.state }}{%endif%}"
     tomer_tracker_sensor:
@@ -97,8 +85,6 @@
         {% endif %}
     home_workstation_nmap_tracker:
       value_template: "{%if states.device_tracker.home_workstation.state == 'home'%}Online{%else%}Offline{%endif%}"
-    bedroom_yes_nmap_tracker:
-      value_template: "{%if states.device_tracker.bedroom_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
     guest_room_yes_nmap_tracker:
       value_template: "{%if states.device_tracker.guest_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
     kitchen_echo_one_nmap_tracker:
@@ -107,8 +93,6 @@
       value_template: "{%if states.device_tracker.living_room_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
     switcher_v2_nmap_tracker:
       value_template: "{%if states.device_tracker.switcher_v2.state == 'home'%}Online{%else%}Offline{%endif%}"
-    bedroom_echo_nmap_tracker:
-      value_template: "{%if states.device_tracker.bedroom_echo.state == 'home'%}Online{%else%}Offline{%endif%}"
     living_room_yes_nmap_tracker:
       value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
     hallway_netgear_hub5_nmap_tracker:
@@ -133,8 +117,6 @@
       value_template: "{%if states.device_tracker.kitchen_bar_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
     living_room_rm_pro_nmap_tracker:
       value_template: "{%if states.device_tracker.living_room_rm_pro.state == 'home'%}Online{%else%}Offline{%endif%}"
-    bedroom_rm_mini_nmap_tracker:
-      value_template: "{%if states.device_tracker.bedroom_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
     service_room_s1c_nmap_tracker:
       value_template: "{%if states.device_tracker.service_room_s1c.state == 'home'%}Online{%else%}Offline{%endif%}"
     tv_lifxz_led_nmap_tracker:
@@ -159,8 +141,6 @@
       value_template: "{%if states.device_tracker.rfgw_hallwayhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
     office_msensor_nmap_tracker:
       value_template: "{%if states.device_tracker.office_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
-    bedroom_msensor_nmap_tracker:
-      value_template: "{%if states.device_tracker.bedroom_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
     run_speed_test_last_run:
       value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
     select_city_shabbat_start_time:
@@ -327,22 +307,5 @@
 - platform: mqtt  
   state_topic: "multisensor/officenode"  
   name: "Office Temperature"  
-  unit_of_measurement: "°C"  
-  value_template: '{{ value_json.temperature | round(1) }}'  
-
-- platform: mqtt  
-  state_topic: "multisensor/bedroomnode"  
-  name: "Bedroom Humidity"  
-  unit_of_measurement: "%"  
-  value_template: '{{ value_json.humidity | round(1) }}'  
-
-- platform: mqtt  
-  state_topic: "multisensor/bedroomnode"  
-  name: "Bedroom PIR"  
-  value_template: '{{ value_json.motion }}'  
-
-- platform: mqtt  
-  state_topic: "multisensor/bedroomnode"  
-  name: "Bedroom Temperature"  
   unit_of_measurement: "°C"  
   value_template: '{{ value_json.temperature | round(1) }}'  

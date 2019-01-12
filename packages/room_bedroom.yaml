@@ -1,0 +1,15 @@
+homeassistant:
+  customize:
+    group.bedroom_view:
+      friendly_name: "Bedroom"
+      
+group:
+  bedroom_view:
+    name: bedroom_view
+    view: true
+    entities:
+      - group.multisensor_bedroom
+      - group.all_bedroom_sensors
+      - group.bedroom_switches
+      - group.bedroom_ac
+      

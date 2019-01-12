@@ -1,0 +1,176 @@
+homeassistant:
+  customize:
+    switch.bedroom_ac_toggle:
+      friendly_name: "AC Power"
+      icon: mdi:power
+    input_number.bedroom_ac_temperature_select:
+      friendly_name: "Target"
+      icon: mdi:temperature-celsius
+    input_select.bedroom_ac_operation_mode:
+      friendly_name: "Mode"
+      icon: mdi:weather-windy-variant
+    input_select.bedroom_ac_fan_level:
+      friendly_name: "Fan"
+      icon: mdi:fan
+    cover.bedroom_ac_target_temperature:
+      friendly_name: "Temperature"
+      icon: test_icon #mdi:temperature-celsius
+    climate.bedroom_ac:
+      friendly_name: "Bedroom Air Conditioner"
+    group.bedroom_ac:
+      friendly_name: "Bedroom AC"
+      control: hidden
+    automation.bedroom_ac_operation_mode_input_select:
+      hidden: true
+    automation.bedroom_ac_fan_level_input_select:
+      hidden: true
+    automation.bedroom_ac_temperature_input_number:
+      hidden: true
+    script.sync_bedroom_ac_entities:
+      hidden: true
+
+group:
+  bedroom_ac:
+    name: bedroom_ac
+    entities:
+      - climate.bedroom_ac
+      - switch.bedroom_ac_toggle
+      - input_number.bedroom_ac_temperature_select
+      - cover.bedroom_ac_target_temperature
+      - input_select.bedroom_ac_operation_mode
+      - input_select.bedroom_ac_fan_level
+
+climate:
+  - platform: mqtt
+    name: "bedroom_ac"
+    qos: 0
+    retain: false
+    send_if_off: false
+    initial: 25
+    current_temperature_topic: "tomerfi_custom_ac/bedroom/current_temperature"
+    mode_command_topic: "tomerfi_custom_ac/bedroom/mode"
+    modes:
+      - "off"
+      - "cool"
+      - "heat"
+    temperature_command_topic: "tomerfi_custom_ac/bedroom/temperature"
+    fan_mode_command_topic: "tomerfi_custom_ac/bedroom/fan"
+    fan_modes:
+      - "auto"
+      - "low"
+      - "medium"
+      - "high"
+    min_temp: 17
+    max_temp: 30
+    temp_step: 1
+    
+automation:
+  - id: bedroom_ac_operation_mode_input_select
+    alias: bedroom_ac_operation_mode_input_select
+    trigger:
+      platform: state
+      entity_id: input_select.bedroom_ac_operation_mode
+    action:
+      service: climate.set_operation_mode
+      data_template:
+        entity_id: climate.bedroom_ac
+        operation_mode: "{{ trigger.to_state.state }}"
+  
+  - id: bedroom_ac_fan_level_input_select
+    alias: bedroom_ac_fan_level_input_select
+    trigger:
+      platform: state
+      entity_id: input_select.bedroom_ac_fan_level
+    action:
+      service: climate.set_fan_mode
+      data_template:
+        entity_id: climate.bedroom_ac
+        fan_mode: "{{ trigger.to_state.state }}"
+        
+  - id: bedroom_ac_temperature_input_number
+    alias: bedroom_ac_temperature_input_number
+    trigger:
+      platform: state
+      entity_id: input_number.bedroom_ac_temperature_select
+    action:
+      service: climate.set_temperature
+      data_template:
+        entity_id: climate.bedroom_ac
+        temperature: "{{ trigger.to_state.state | int }}"
+        
+cover:
+  - platform: template
+    covers:
+      bedroom_ac_target_temperature:
+        position_template: "{{ states.climate.bedroom_ac.attributes.temperature | int }}"
+        open_cover:
+          service: input_number.increment
+          entity_id: input_number.bedroom_ac_temperature_select
+        close_cover:
+          service: input_number.decrement
+          entity_id: input_number.bedroom_ac_temperature_select
+
+input_number:
+  bedroom_ac_temperature_select:
+    name: bedroom_ac_temperature_select
+    min: 17
+    max: 30
+    step: 1
+    
+input_select:
+  bedroom_ac_operation_mode:
+    name: bedroom_ac_operation_mode
+    options:
+      - "off"
+      - "cool"
+      - "heat"
+  bedroom_ac_fan_level:
+    name: bedroom_ac_fan_level
+    options:
+      - "auto"
+      - "low"
+      - "medium"
+      - "high"
+      
+switch:
+  - platform: template
+    switches:
+      bedroom_ac_toggle:
+        friendly_name: "bedroom_ac_toggle"
+        value_template: "{%if states.climate.bedroom_ac.state == 'off' %}off{%else%}on{%endif%}"
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.bedroom_ac_operation_mode
+            option: "heat"
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.bedroom_ac_operation_mode
+            option: "off"
+            
+script:
+  sync_bedroom_ac_entities:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.bedroom_ac_temperature_select
+          value: "{%if states.input_number.bedroom_ac_temperature_select.state != 'unknown' %}{{ states.input_number.bedroom_ac_temperature_select.state }}{%else%}30{%endif%}"
+      - service: mqtt.publish
+        data_template:
+          topic: "tomerfi_custom_ac/bedroom/current_temperature"
+          payload_template: "{{ states.sensor.bedroom_temperature.state | round(1) }}"
+      - service: climate.set_fan_mode
+        data_template:
+          entity_id: climate.bedroom_ac
+          fan_mode: "{{ states.input_select.bedroom_ac_fan_level.state }}"
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.bedroom_ac
+          temperature: "{{ states.input_number.bedroom_ac_temperature_select.state }}"
+      - condition: template
+        value_template: "{{ states.input_select.bedroom_ac_operation_mode.state != 'off' }}"
+      - service: climate.set_operation_mode
+        data_template:
+          entity_id: climate.bedroom_ac
+          operation_mode: "{{ states.input_select.bedroom_ac_operation_mode.state }}"

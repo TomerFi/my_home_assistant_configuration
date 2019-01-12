@@ -30,6 +30,7 @@ smarthome_custom_ac:
   class: AlexaCustomAC
   entities:
     - climate.nursery_ac
+    - climate.bedroom_ac
   default_mode_for_on: "heat"
   scale: "CELSIUS"
   global_dependencies:
@@ -198,6 +199,29 @@ temperature_sensor_to_mqtt:
   class: TemperatureSensorToMqtt
   sensor_entity: sensor.nursery_broadlink_a1_temperature
   topic: "tomerfi_custom_ac/nursery/current_temperature"
+  
+########################################
+######## Bedroom AC Automations ########
+########################################
+bedroom_ac_automation:
+  module: ir_packets_control
+  class: HandleMqttACUnit
+  climate_entity: climate.bedroom_ac
+  ir_send_service: switch.broadlink_send_packet_192_168_0_130
+  ac_type: "elco_small"
+  default_mode_for_on: "heat"
+  mode_command_topic: "tomerfi_custom_ac/bedroom/mode"
+  mode_entity_for_update: input_select.bedroom_ac_operation_mode
+  temperature_command_topic: "tomerfi_custom_ac/bedroom/temperature"
+  temperature_entity_for_update: input_number.bedroom_ac_temperature_select 
+  fan_mode_command_topic: "tomerfi_custom_ac/bedroom/fan"
+  fan_mode_entity_for_update: input_select.bedroom_ac_fan_level
+  
+temperature_sensor_to_mqtt:
+  module: ir_packets_control
+  class: TemperatureSensorToMqtt
+  sensor_entity: sensor.bedroom_temperature
+  topic: "tomerfi_custom_ac/bedroom/current_temperature"
 
 #######################################
 ##### OpenMqttGateway Automations #####

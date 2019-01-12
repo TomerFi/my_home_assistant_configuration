@@ -49,20 +49,6 @@ lr_ac_fan:
     - HIGH
     - AUTO
     
-bedroom_ac_state:
-  name: bedroom_ac_state
-  options :
-    - COOL
-    - HEAT
-
-bedroom_ac_fan:
-  name: bedroom_ac_fan
-  options:
-    - LOW
-    - MED
-    - HIGH
-    - AUTO
-
 select_shabbat_city:
   name: select_shabbat_city
   options:

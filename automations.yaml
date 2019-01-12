@@ -281,101 +281,10 @@
       entity_id: group.living_room_ac_hidden_controls
       visible: false
 
-##########################################
-######### Bedroom AC Automations #########
-##########################################
-- id: bedroom_ac_changes
-  alias: bedroom_ac_changes
-  trigger:
-    - platform: state
-      entity_id: sensor.bedroom_ac_temp_sensor
-    - platform: state
-      entity_id: input_select.bedroom_ac_state
-    - platform: state
-      entity_id: input_select.bedroom_ac_fan
-  action:
-    - condition: state
-      entity_id: input_boolean.bedroom_ac_status
-      state: 'on'
-    - service: script.bedroom_ac_check_state_script
-      data_template:
-        selected_mode: '{{ states.input_select.bedroom_ac_state.state }}'
-        selected_fan: '{{ states.input_select.bedroom_ac_fan.state }}'
-        selected_temp: '{{ states.sensor.bedroom_ac_temp_sensor.state }}'
-
-- id: bedroom_ac_status_on
-  alias: bedroom_ac_status_on
-  trigger:
-    platform: state
-    entity_id: input_boolean.bedroom_ac_status
-    to: 'on'
-  action:
-    service: script.bedroom_ac_check_state_script
-    data_template:
-      selected_mode: '{{ states.input_select.bedroom_ac_state.state }}'
-      selected_fan: '{{ states.input_select.bedroom_ac_fan.state }}'
-      selected_temp: '{{ states.sensor.bedroom_ac_temp_sensor.state }}'
-          
-- id: bedroom_ac_status_off
-  alias: bedroom_ac_status_off
-  trigger:
-    platform: state
-    entity_id: input_boolean.bedroom_ac_status
-    to: 'off'
-  action:
-    service: script.bedroom_rm_mini_send_packet
-    data:
-      packet_code:
-        - "JgDKAJCMFzQSERM0EjQUEBMQEzQTEBMREjQVDxIREzQTMxMREjUSERI1EjQTNBM0ERISNRE2EDYRExATERIRExA2ERMQExE2EDcSNBQQEhESERMREhESEhATEBMRNhA3EDYRNhE2EKyPkhA2ERMQNhE2EBMRExA2ERMQExE2EBMRExA2ETYREhE2ERMQNhE2EDcQNhETEDYRNhE2EBMRExATERIRNhESERMQNxA2ETYREhETEBMREhETEBMSEhIREDcSNBE2ETYSNRIADQUAAAAAAAAAAAAAAAAAAA=="
-        
-- id: bedroom_ac_show_extra_controls_on
-  alias: bedroom_ac_show_extra_controls_on
-  trigger:
-    platform: state
-    entity_id: input_boolean.bedroom_ac_status
-    to: 'on'
-  action:
-    service: group.set_visibility
-    data:
-      entity_id: group.bedroom_ac_hidden_controls
-      visible: true
-      
-- id: bedroom_ac_show_extra_controls_off
-  alias: bedroom_ac_show_extra_controls_off
-  trigger:
-    platform: state
-    entity_id: input_boolean.bedroom_ac_status
-    to: 'off'
-  action:
-    service: group.set_visibility
-    data:
-      entity_id: group.bedroom_ac_hidden_controls
-      visible: false
-
 ###########################################
 ###### Motion Sensors Automations #########
 ###########################################
-- id: shower_motion_sensor_motion_detected
-  alias: shower_motion_sensor_motion_detected
-  trigger:
-    platform: state
-    entity_id: sensor.broadlink_s1c_shower_motion_sensor
-    to: 'motion_detected'
-  action:
-    service: switch.turn_on
-    entity_id: switch.shower_light
 
-- id: shower_motion_sensor_no_motion
-  alias: shower_motion_sensor_no_motion
-  trigger:
-    platform: state
-    entity_id: sensor.broadlink_s1c_shower_motion_sensor
-    to: 'no_motion'
-    for: 
-      minutes: 5
-  action:
-    service: switch.turn_off
-    entity_id: switch.shower_light
     
 ###########################################
 ######### Tracking Automations ############

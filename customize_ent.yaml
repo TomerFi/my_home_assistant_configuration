@@ -29,12 +29,6 @@ switch.small_bathroom_light:
   assumed_state: true
 switch.small_bathroom_light_fixed:
   hidden: true
-switch.shower_light:
-  friendly_name: "Shower Light"
-switch.closet_room_light:
-  friendly_name: "Closet Room Light"
-switch.bedroom_main_light:
-  friendly_name: "Bedroom Main Light"
 switch.guest_room_light:
   friendly_name: "Guest Room Light"
 switch.balcony_light:
@@ -45,12 +39,6 @@ switch.main_bathroom_light:
   friendly_name: "Main Bathroom Light"
 switch.small_hallway_light:
   friendly_name: "Small Hallway Light"
-switch.bedroom_ac_shutter:
-  friendly_name: "Shutter"
-  icon: mdi:blinds
-switch.bedroom_ac_light:
-  friendly_name: "Panel Light"
-  icon: mdi:spotlight
 switch.living_room_ac_updown_shutter:
   friendly_name: "Up-down Shutter"
   icon: mdi:blinds
@@ -94,9 +82,6 @@ media_player.samsung_tv_remote:
 media_player.spotify:
   friendly_name: "Tomer's Spotify"
   icon: mdi:spotify
-media_player.bedroom_tv:
-  friendly_name: "Bedroom Hisense TV"
-  icon: mdi:television
 media_player.office_tv:
   friendly_name: "Office Metz TV"
   icon: mdi:television
@@ -126,12 +111,6 @@ input_select.lr_ac_state:
 input_select.lr_ac_fan:
   friendly_name: "Fan"
   icon: mdi:fan
-input_select.bedroom_ac_state:
-  friendly_name: "Mode"
-  icon: mdi:weather-windy-variant
-input_select.bedroom_ac_fan:
-  friendly_name: "Fan"
-  icon: mdi:fan
 input_select.select_shabbat_city:
   friendly_name: "City"
   icon: mdi:city
@@ -148,9 +127,6 @@ input_select.office_ceiling_fan_level:
 input_boolean.lr_ac_status:
   friendly_name: "Status"
   icon: mdi:air-conditioner
-input_boolean.bedroom_ac_status:
-  friendly_name: "Status"
-  icon: mdi:air-conditioner
 input_boolean.send_shabbat_notification_tomer:
   friendly_name: "Notify Tomer"
   icon: mdi:send
@@ -163,8 +139,6 @@ input_boolean.send_shabbat_notification_hava:
 ##########################################
 input_text.lr_ac_temp_text:
   name: lr_ac_temp_text
-input_text.bedroom_ac_temp_text:
-  name: bedroom_ac_temp_text
 input_text.hava_last_state:
   name: hava_last_state
 input_text.tomer_last_state:
@@ -178,9 +152,6 @@ input_text.shabbat_notify_minutes_start:
 cover.lr_ac_temp_cover:
   friendly_name: "Change Temperature"
   icon: mdi:temperature-celsius
-cover.bedroom_ac_temp_cover:
-  friendly_name: "Change Temperature"
-  icon: mdi:temperature-celsius
 cover.shabbat_notify_minutes_start:
   friendly_name: "Adjust Minutes"
   icon: mdi:alarm-plus
@@ -188,16 +159,6 @@ cover.shabbat_notify_minutes_start:
 ##########################################
 ################# Sensors ################
 ##########################################
-sensor.google_wifi_bedroom_status:
-  friendly_name: "Access Point"
-sensor.google_wifi_bedroom_last_restart:
-  friendly_name: "Last Restart"
-sensor.google_wifi_bedroom_current_version:
-  friendly_name: "Current Version"
-sensor.google_wifi_bedroom_uptime:
-  friendly_name: "Uptime"
-sensor.google_wifi_bedroom_new_version:
-  friendly_name: "Version Status"
 sensor.google_wifi_guest_room_status:
   friendly_name: "Accees Point"
 sensor.google_wifi_guest_room_last_restart:
@@ -221,17 +182,8 @@ sensor.google_wifi_living_room_new_version:
 sensor.lr_ac_temp_sensor:
   friendly_name: "Current Temperature"
   icon_template: mdi:thermometer
-sensor.bedroom_ac_temp_sensor:
-  friendly_name: "Current Temperature"
-  icon_template: mdi:thermometer
 sensor.broadlink_s1c_small_bathroom:
   friendly_name: "Small Bathroom Door"
-sensor.broadlink_s1c_main_bathroom:
-  friendly_name: "Main Bathroom Door"
-sensor.broadlink_s1c_closet_room:
-  friendly_name: "Closet Room Door"
-sensor.broadlink_s1c_shower_motion_sensor:
-  friendly_name: "Shower Motion Sensor"
 sensor.broadlink_s1c_service_room:
   friendly_name: "Service Room Door"
 sensor.broadlink_s1c_key_fob:
@@ -266,18 +218,12 @@ sensor.kitchen_echo_one_nmap_tracker:
 sensor.living_room_dot_nmap_tracker:
   friendly_name: "Living Room Dot"
   icon: mdi:amazon
-sensor.bedroom_echo_nmap_tracker:
-  friendly_name: "Bedroom Echo"
-  icon: mdi:amazon
 sensor.office_dot_nmap_tracker:
   friendly_name: "Office Dot"
   icon: mdi:amazon
 sensor.living_room_ghome_mini_nmap_tracker:
   friendly_name: "Living Room G-Home Mini"
   icon: mdi:google-assistant
-sensor.bedroom_yes_nmap_tracker:
-  friendly_name: "Bedroom Yes"
-  icon: mdi:television-classic
 sensor.guest_room_yes_nmap_tracker:
   friendly_name: "Guest Room Yes"
   icon: mdi:television-classic
@@ -320,9 +266,6 @@ sensor.living_room_harmony_hub_nmap_tracker:
 sensor.living_room_rm_pro_nmap_tracker:
   friendly_name: "Living Room RM Pro"
   icon: mdi:remote
-sensor.bedroom_rm_mini_nmap_tracker:
-  friendly_name: "Bedroom RM Mini"
-  icon: mdi:remote
 sensor.office_rm_mini_nmap_tracker:
   friendly_name: "Office RM Mini"
   icon: mdi:remote
@@ -355,9 +298,6 @@ sensor.hallway_rf_gw_nmap_tracker:
   icon: mdi:developer-board
 sensor.office_msensor_nmap_tracker:
   friendly_name: "Office Multi-Sensor"
-  icon: mdi:developer-board
-sensor.bedroom_msensor_nmap_tracker:
-  friendly_name: "Bedroom Multi-Sensor"
   icon: mdi:developer-board
 sensor.run_speed_test_last_run:
   friendly_name: "Last Speed Test"
@@ -485,26 +425,6 @@ script.living_room_ac_heat_auto_script:
   hidden: true
 script.living_room_rm_pro_send_packet:
   hidden: true
-script.bedroom_ac_check_state_script:
-  hidden: true
-script.bedroom_ac_cool_low_script:
-  hidden: true
-script.bedroom_ac_cool_medium_script:
-  hidden: true
-script.bedroom_ac_cool_high_script:
-  hidden: true
-script.bedroom_ac_cool_auto_script:
-  hidden: true
-script.bedroom_ac_heat_low_script:
-  hidden: true
-script.bedroom_ac_heat_medium_script:
-  hidden: true
-script.bedroom_ac_heat_high_script:
-  hidden: true
-script.bedroom_ac_heat_auto_script:
-  hidden: true
-script.bedroom_rm_mini_send_packet:
-  hidden: true
 script.tv_led_theme_select_script:
   hidden: true
 script.update_all_devices:
@@ -544,8 +464,6 @@ script.check_last_recorder_session:
   icon: mdi:history
   custom_text: "GET"
 script.sleep_time:
-  hidden: true
-script.bedroom_tv_set_timer:
   hidden: true
 script.alexa_restart_hass:
   hidden: true
@@ -601,17 +519,9 @@ group.bathrooms_switches:
   friendly_name: "Lights"
 group.service_room_switches:
   friendly_name: "Lights"
-group.bedroom_ac:
-  friendly_name: "Bedroom AC"
-  control: hidden
-group.bedroom_ac_hidden_controls:
-  friendly_name: "Extra Controls"
-  control: hidden
 group.living_room_ac_hidden_controls:
   friendly_name: "Extra Controls"
   control: hidden
-group.bedroom_switches:
-  friendly_name: "Lights"
 group.guest_room_switches:
   friendly_name: "Lights"
 group.balcony_switches:
@@ -624,10 +534,6 @@ group.living_room_google_wifi_point:
   control: hidden
 group.guest_room_google_wifi_point:
   friendly_name: "Guest Room Access Point"
-  icon: mdi:access-point-network
-  control: hidden
-group.bedroom_google_wifi_point:
-  friendly_name: "Bedroom Access Point"
   icon: mdi:access-point-network
   control: hidden
 group.user_tomer_devices:
@@ -655,10 +561,6 @@ group.all_bathrooms_sensors:
   icon: mdi:surround-sound
   control: hidden
 group.all_service_room_sensors:
-  friendly_name: "Sensors"
-  icon: mdi:surround-sound
-  control: hidden
-group.all_bedroom_sensors:
   friendly_name: "Sensors"
   icon: mdi:surround-sound
   control: hidden
@@ -753,8 +655,6 @@ group.bathrooms_view:
   friendly_name: "Bathrooms"
 group.service_room_view:
   friendly_name: "Service Room"
-group.bedroom_view:
-  friendly_name: "Bedroom"
 group.guest_room_view:
   friendly_name: "Guest Room"
 group.balcony_view:
@@ -849,22 +749,6 @@ automation.lr_ac_status_on:
   hidden: true
 automation.lr_ac_status_off:
   hidden: true
-automation.bedroom_ac_changes:
-  hidden: true
-automation.bedroom_ac_status_on:
-  hidden: true
-automation.bedroom_ac_status_off:
-  hidden: true
-automation.bedroom_ac_show_extra_controls_on:
-  hidden: true
-automation.bedroom_ac_show_extra_controls_off:
-  hidden: true
-automation.shower_motion_sensor_motion_detected:
-  friendly_name: "Shower Motion Detected: Light On"
-  icon: mdi:lightbulb-on
-automation.shower_motion_sensor_no_motion:
-  friendly_name: "Shower No Motion 5 Min: Light Off"
-  icon: mdi:lightbulb-outline
 automation.on_start_event:
   hidden: true
 automation.update_tracker_devices:
