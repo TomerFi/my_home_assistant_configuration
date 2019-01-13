@@ -14,19 +14,6 @@ homeassistant:
     script.set_office_ceiling_fan_off:
       friendly_name: ""
       custom_text: "OFF"
-    group.office_ceiling_fan:
-      friendly_name: "Ceiling Fan"
-      control: hidden
-    
-group:
-  office_ceiling_fan:
-    name: office_ceiling_fan
-    entities:
-      - script.set_office_ceiling_fan_off
-      - script.set_office_ceiling_fan_low
-      - script.set_office_ceiling_fan_medium
-      - script.set_office_ceiling_fan_high
-      - fan.office_ceiling_fan
 
 fan:
   - platform: mqtt

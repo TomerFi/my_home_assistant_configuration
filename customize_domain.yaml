@@ -1,0 +1,9 @@
+script:
+  custom_ui_state_card: state-card-script-custom-text
+scene:
+  hidden: true
+sensor:
+  force_update: true
+automation:
+  initial_state: true
+  hidden: true

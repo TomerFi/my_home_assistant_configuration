@@ -1,0 +1,236 @@
+ring_the_doorbell:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "omg/rfgw_hallway/commands/PLSL_450/433_1/RFBITS_24"
+        payload: "14878223"
+        
+leaving_home:
+  sequence:
+    - service: remote.turn_off
+      entity_id: remote.living_room_harmony_hub
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lr_ac_status
+    - service: light.turn_off
+      entity_id: light.tv_lights
+    - service: switch.turn_on
+      entity_id: switch.kitchen_main_light
+    - delay:
+        milliseconds: 1500
+    - service: light.turn_off
+      entity_id: light.living_room_night_light
+    - service: switch.turn_off
+      entity_id: switch.living_room_main_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.kitchen_bar_light
+    - service: switch.turn_off
+      entity_id: switch.entrance_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.bedroom_main_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.small_bathroom_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.kitchen_island_light
+    - delay:
+        milliseconds: 1500
+    - service: switch.turn_off
+      entity_id: switch.service_room_light
+    - service: switch.turn_off
+      entity_id: switch.closet_room_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.small_hallway_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.shower_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.main_bathroom_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.guest_room_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.living_room_small_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.balcony_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.main_hallway_light
+    - service: switch.turn_off
+      entity_id: switch.office_light
+
+      
+sleep_time:
+  sequence:
+    - service: media_player.turn_on
+      entity_id: media_player.bedroom_tv
+    - service: switch.turn_on
+      entity_id: switch.kitchen_island_light
+    - delay:
+        milliseconds: 1500
+    - service: switch.turn_off
+      entity_id: light.living_room_night_light
+    - service: switch.turn_off
+      entity_id: switch.living_room_main_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.kitchen_bar_light
+    - service: switch.turn_off
+      entity_id: switch.entrance_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.bedroom_main_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.small_bathroom_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.kitchen_main_light
+    - delay:
+        milliseconds: 1500
+    - service: switch.turn_off
+      entity_id: switch.service_room_light
+    - service: switch.turn_off
+      entity_id: switch.closet_room_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.small_hallway_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.shower_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.main_bathroom_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.guest_room_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.living_room_small_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.balcony_light
+    - delay:
+        milliseconds: 500
+    - service: switch.turn_off
+      entity_id: switch.main_hallway_light
+    - service: light.turn_off
+      entity_id: light.tv_lights
+    - service: remote.turn_off
+      entity_id: remote.living_room_harmony_hub
+    - delay:
+        seconds: 10
+    - service: script.bedroom_tv_set_timer
+      data_template:
+        minutes: '90'
+    - service: switch.turn_off
+      entity_id: switch.office_light
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lr_ac_status
+    - service: switch.turn_on
+      entity_id: switch.kitchen_island_light
+    - delay:
+        minutes: 5
+    - service: switch.turn_off
+      entity_id: switch.kitchen_island_light
+
+correct_objects_values:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "smarthome/mqtt_client/status_update"
+        payload: "Offline"
+    - service: group.set_visibility
+      data_template:
+        entity_id: group.living_room_ac_hidden_controls
+        visible: "{%if (states.input_boolean.lr_ac_status.state == 'on')%}true{%else%}false{%endif%}"
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.lr_ac_temp_text
+        value: "{%if states.input_text.lr_ac_temp_text.state != 'unknown' %}{{ states.input_text.lr_ac_temp_text.state }}{%else%}30{%endif%}"
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.shabbat_notify_minutes_start
+        value: "{%if states.input_text.shabbat_notify_minutes_start.state != 'unknown' %}{{ states.input_text.shabbat_notify_minutes_start.state }}{%else%}15{%endif%}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.nursery_ambiance_color_temperature
+        value: "{% if states.light.nursery_main_light.attributes.color_temp %}{{ states.light.nursery_main_light.attributes.color_temp }}{%else%}153{%endif%}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.nursery_lightstrip_brightness
+        value: "{% if states.light.nursery_dresser_light.attributes.brightness %}{{ states.light.nursery_dresser_light.attributes.brightness }}{%else%}0{%endif%}"
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.nursery_bloom_brightness
+        value: "{% if states.light.nursery_chair_light.attributes.brightness %}{{ states.light.nursery_chair_light.attributes.brightness }}{%else%}0{%endif%}"
+    - service: script.turn_on
+      data:
+        entity_id: script.sync_nursery_ac_entities
+    - service: script.turn_on
+      data:
+        entity_id: script.sync_bedroom_ac_entities
+    - service: script.turn_on
+      data:
+        entity_id: script.sync_living_room_ac_entities
+
+get_workstation_mqtt_client_status:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "smarthome/mqtt_client/askmypc_action"
+        payload: "request_status_update"
+
+get_sensors_report_notificiation_from_ui:
+  sequence:
+    - service_template: >
+        {% if everyone.lower() == 'tomer' %}notify.telegram_tomer_service
+        {% elif everyone.lower() == 'hava' %}notify.telegram_hava_service
+        {% else %}notify.everyone
+        {% endif %}
+      data_template:
+        message: >
+          {% for sensor_name in states.group.all_s1c_sensors.attributes.entity_id %}{% set sensor_name = sensor_name.replace('sensor.', '') %}
+          
+          {{ states.sensor[sensor_name].attributes.friendly_name }} is {{ states.sensor[sensor_name].state }}
+          {% endfor %}
+        title: '{{ notification_title }}'
+
+run_speed_test:
+  sequence:
+    - service: sensor.update_speedtest
+    
+alexa_restart_hass:
+  sequence:
+    - service: notify.telegram_tomer_service
+      data:
+        message: "Restart Home Assistant was requested by alexa."
+        title: "System Restart Initiated"
+    - service: homeassistant.restart

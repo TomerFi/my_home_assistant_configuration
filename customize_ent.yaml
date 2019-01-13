@@ -34,17 +34,45 @@ sensor.broadlink_s1c_key_fob:
   friendly_name: "Key Fob"
 sensor.broadlink_s1c_balcony_door:
   friendly_name: "Balcony Door"
-sensor.dash_wand_nmap_tracker:
-  friendly_name: "Dash Wand"
-  icon: mdi:amazon
 sensor.broadlink_s1c_main_bathroom:
   friendly_name: "Main Bathroom Door"
-sensor.tomers_laptop_nmap_tracker:
-  friendly_name: "Tomer's Laptop"
-  icon: mdi:windows
-sensor.havas_laptop_nmap_tracker:
-  friendly_name: "Hava's Laptop"
-  icon: mdi:windows
+sensor.ha_duckdns_cert_expiry:
+  friendly_name: "DuckDNS Certificate Days Left"
+  icon: mdi:certificate
+sensor.speedtest_ping:
+  friendly_name: "Speedtest Ping"
+  icon: mdi:network
+sensor.speedtest_download:
+  friendly_name: "Speedtest Download"
+  icon: mdi:download-network
+sensor.speedtest_upload:
+  friendly_name: "Speedtest Upload"
+  icon: mdi:upload-network
+sensor.run_speed_test_last_run:
+  friendly_name: "Last Speed Test"
+  icon: mdi:timetable
+sensor.processor_use:
+  friendly_name: "CPU Usage"
+sensor.cpu_temp:
+  friendly_name: "CPU Temperature"
+sensor.disk_free_home:
+  friendly_name: "Disk Free"
+sensor.disk_use_percent_home:
+  friendly_name: "Disk Used Percentage"
+sensor.disk_use_home:
+  friendly_name: "Disk Used"
+sensor.memory_free:
+  friendly_name: "RAM Free"
+sensor.memory_use:
+  friendly_name: "RAM Used"
+sensor.memory_use_percent:
+  friendly_name: "RAM Used Percentage"
+sensor.last_boot:
+  friendly_name: "Last Boot"
+sensor.hallway_rf_gw_nmap_tracker:
+  friendly_name: "Hallway RF Gateway"
+  icon: mdi:developer-board
+
 
 ##########################################
 ################# Groups #################
@@ -59,34 +87,36 @@ group.all_bathrooms_sensors:
   friendly_name: "Sensors"
   icon: mdi:surround-sound
   control: hidden
-group.nmap_pa_trackers:
-  friendly_name: "Personal Assistants"
-  icon: mdi:assistant
+group.all_s1c_sensors:
+  friendly_name: "S1C Sensors"
+  icon: mdi:glassdoor
   control: hidden
-group.nmap_remotes_trackers:
-  friendly_name: "Remotes"
-  icon: mdi:remote
+group.activate_operations:
+  friendly_name: "Activate Operations"
+  icon: mdi:script
   control: hidden
-group.nmap_yes_stb_trackers:
-  friendly_name: "Yes STB's"
-  icon: mdi:movie
+group.start_scenes:
+  friendly_name: "Start Scenes"
+  icon: mdi:crop-landscape
   control: hidden
-group.nmap_computers_tracker:
-  friendly_name: "Computers, Streamers & Consoles"
-  icon: mdi:desktop-classic
+group.ha_statistics:
+  friendly_name: "Home Assistant Pi"
+  icon: mdi:raspberrypi
   control: hidden
-group.nmap_diy_tracker:
-  friendly_name: "DIY Stuff"
-  icon: mdi:developer-board
+group.ha_operations:
+  friendly_name: "Activate Operaions"
+  icon: mdi:script
   control: hidden
-group.nmap_lights_tracker:
-  friendly_name: "Lights"
-  icon: mdi:lightbulb
-  control: hidden
-group.nmap_various_trackers:
-  friendly_name: "Various Devices"
-  icon: mdi:developer-board
-  control: hidden
+
+##########################################
+################# Scenes #################
+##########################################
+scene.leaving_home:
+  friendly_name: "Leaving Home"
+  hidden: false
+scene.sleep_time:
+  friendly_name: "Sleep Time"
+  hidden: false
 
 ##########################################
 ################# Views ##################
@@ -99,6 +129,37 @@ group.bathrooms_view:
   friendly_name: "Bathrooms"
 group.balcony_view:
   friendly_name: "Balcony"
+group.tech_support_view:
+  friendly_name: "Tech Support"
+
+##########################################
+################ Scripts #################
+##########################################
+script.get_sensors_report_notificiation_from_ui:
+  friendly_name: "Get Sensors Report"
+  icon: mdi:file-chart
+  custom_text: "GET"
+script.run_speed_test:
+  friendly_name: "Run Speedtest"
+  icon: mdi:speedometer
+  custom_text: "RUN"
+script.correct_objects_values:
+  hidden: true
+script.leaving_home:
+  hidden: true
+script.get_workstation_mqtt_client_status:
+  friendly_name: "Get Workstation Mqtt Status"
+  icon: mdi:developer-board
+  custom_text: "SEND"
+script.sleep_time:
+  hidden: true
+script.alexa_restart_hass:
+  hidden: true
+script.ring_the_doorbell:
+  friendly_name: "Ring The Doorbell"
+  icon: mdi:bell-ring
+  custom_text: "RING"
+
 
 ##########################################
 ############# Custom UI Tiles ############

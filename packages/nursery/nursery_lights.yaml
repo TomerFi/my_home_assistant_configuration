@@ -1,20 +1,20 @@
 homeassistant:
   customize:
-    light.hue_ambiance_lamp_1: #this is actually the nursery main 1st buld, I preffer controlling it via its group light.nursery_main_light
+    light.hue_ambiance_lamp_1: # this is actually the nursery main 1st buld, I preffer controlling it via its group light.nursery_main_light
       hidden: true
-    light.hue_ambiance_lamp_1_2: #this is actually the nursery main 2nd buld, I preffer controlling it via its group light.nursery_main_light
+    light.hue_ambiance_lamp_1_2: # this is actually the nursery main 2nd buld, I preffer controlling it via its group light.nursery_main_light
       hidden: true
-    light.nursery_main_light:
+    light.nursery_main_light: # this switch is configured in living_room_switches.yaml
       friendly_name: "Main Light"
       supported_features: 43
-    light.hue_bloom_1: #this is actually the nursery chair light, I preffer controlling it via its group light.nursery_chair_light
+    light.hue_bloom_1: # this is actually the nursery chair light, I preffer controlling it via its group light.nursery_chair_light
       hidden: true
-    light.nursery_chair_light:
+    light.nursery_chair_light: # this switch is configured within the hue component
       friendly_name: "Chair Light"
       supported_features: 61
-    light.hue_lightstrip_plus_1: #this is actually the nursery dresser strip, I preffer controlling it via its group light.nursery_dresser_light
+    light.hue_lightstrip_plus_1: # this is actually the nursery dresser strip, I preffer controlling it via its group light.nursery_dresser_light
       hidden: true
-    light.nursery_dresser_light:
+    light.nursery_dresser_light: # this switch is configured within the hue component
       friendly_name: "Dresser Light"
       supported_features: 63
     input_number.nursery_ambiance_color_temperature:
@@ -26,39 +26,6 @@ homeassistant:
     input_number.nursery_bloom_brightness:
       friendly_name: "Brightness"
       icon: mdi:brightness-6
-    group.nursery_lights:
-      friendly_name: "Lights"
-      control: hidden
-    automation.nursery_main_color_temp_input_select:
-      hidden: true
-    automation.nursery_main_light_on:
-      hidden: true
-    automation.nursery_main_off:
-      hidden: true
-    automation.nursery_lightstrip_brightness_input_select:
-      hidden: true
-    automation.nursery_bloom_brightness_input_select:
-      hidden: true
-    automation.nursery_lightstrip_on:
-      hidden: true
-    automation.nursery_bloom_on:
-      hidden: true
-    automation.nursery_lightstrip_off:
-      hidden: true
-    automation.nursery_bloom_off:
-      hidden: true
-
-
-group:
-  nursery_lights:
-    name: nursery_lights
-    entities:
-      - light.nursery_dresser_light
-      - input_number.nursery_lightstrip_brightness
-      - light.nursery_chair_light
-      - input_number.nursery_bloom_brightness
-      - light.nursery_main_light
-      - input_number.nursery_ambiance_color_temperature
 
 automation:
   - id: nursery_main_color_temp_input_select

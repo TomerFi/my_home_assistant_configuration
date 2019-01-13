@@ -1,12 +1,23 @@
 homeassistant:
   customize:
-    sensor.nursery_fire_8_tablet_nmap_tracker:
-      friendly_name: "Nursery Fire 8"
-      icon: mdi:amazon
-    sensor.nursery_broadlink_a1_nmap_tracker:
-      friendly_name: "Nursery A1"
     group.nursery_view:
       friendly_name: "Nursery"
+    group.nursery_lights:
+      friendly_name: "Lights"
+      control: hidden
+    group.nursery_ac:
+      friendly_name: "Nursery AC"
+      control: hidden
+    group.nursery_ceiling_fan:
+      friendly_name: "Ceiling Fan"
+      control: hidden
+    group.nursery_wall_panel:
+      friendly_name: "Wall-Panel"
+      control: hidden
+    group.all_nursery_sensors:
+      friendly_name: "Sensors"
+      icon: mdi:surround-sound
+      control: hidden
 
 group:
   nursery_view:
@@ -19,9 +30,48 @@ group:
       - group.nursery_ceiling_fan
       - group.nursery_wall_panel
 
-switch:
-  - platform: broadlink
-    host: !secret nursery_broadlink_rm_mini_ip
-    mac: !secret nursery_broadlink_rm_mini_mac
-    timeout: 15
-    type: rm_mini
+  all_nursery_sensors:  
+    name: all_nursery_sensors
+    entities:  
+      - sensor.nursery_broadlink_a1_temperature
+      - sensor.nursery_broadlink_a1_humidity
+      - sensor.nursery_broadlink_a1_air_quality
+      - sensor.nursery_broadlink_a1_light
+      - sensor.nursery_broadlink_a1_noise
+
+  nursery_lights:
+    name: nursery_lights
+    entities:
+      - light.nursery_dresser_light
+      - input_number.nursery_lightstrip_brightness
+      - light.nursery_chair_light
+      - input_number.nursery_bloom_brightness
+      - light.nursery_main_light
+      - input_number.nursery_ambiance_color_temperature
+
+  nursery_ac:
+    name: nursery_ac
+    entities:
+      - climate.nursery_ac
+      - switch.nursery_ac_toggle
+      - input_number.nursery_ac_temperature_select
+      - cover.nursery_ac_target_temperature
+      - input_select.nursery_ac_operation_mode
+      - input_select.nursery_ac_fan_level
+      
+  nursery_ceiling_fan:
+    name: nursery_ceiling_fan
+    entities:
+      - script.set_nursery_ceiling_fan_off
+      - script.set_nursery_ceiling_fan_low
+      - script.set_nursery_ceiling_fan_medium
+      - script.set_nursery_ceiling_fan_high
+      - fan.nursery_ceiling_fan
+      
+  nursery_wall_panel:
+    name: nursery_wall_panel
+    entities:
+      - sensor.wallpanel_nursery_screen_on
+      - sensor.wallpanel_nursery_battery
+      - sensor.wallpanel_nursery_light
+      - sensor.wallpanel_nursery_motion

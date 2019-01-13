@@ -17,28 +17,6 @@ homeassistant:
       icon: test_icon #mdi:temperature-celsius
     climate.nursery_ac:
       friendly_name: "Nursery Air Conditioner"
-    group.nursery_ac:
-      friendly_name: "Nursery AC"
-      control: hidden
-    automation.nursery_ac_operation_mode_input_select:
-      hidden: true
-    automation.nursery_ac_fan_level_input_select:
-      hidden: true
-    automation.nursery_ac_temperature_input_number:
-      hidden: true
-    script.sync_nursery_ac_entities:
-      hidden: true
-
-group:
-  nursery_ac:
-    name: nursery_ac
-    entities:
-      - climate.nursery_ac
-      - switch.nursery_ac_toggle
-      - input_number.nursery_ac_temperature_select
-      - cover.nursery_ac_target_temperature
-      - input_select.nursery_ac_operation_mode
-      - input_select.nursery_ac_fan_level
 
 climate:
   - platform: mqtt

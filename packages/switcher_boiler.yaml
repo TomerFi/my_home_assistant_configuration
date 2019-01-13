@@ -1,17 +1,7 @@
 homeassistant:
-  customize:
-    sensor.switcher_v2_nmap_tracker:
-      friendly_name: "Switcher Water Heater"
-      icon: mdi:steam
   customize_glob:
     "*.turn_on_boiler_*":
       hidden: true
-
-sensor:
-  - platform: template
-    sensors:
-      switcher_v2_nmap_tracker:
-        value_template: "{%if states.device_tracker.switcher_v2.state == 'home'%}Online{%else%}Offline{%endif%}"
 
 switcher_aio:
   phone_id: !secret switcher_phone_id

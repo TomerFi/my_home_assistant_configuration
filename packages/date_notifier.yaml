@@ -1,3 +1,8 @@
+homeassistant:
+  customize_domain:
+    date_notifier:
+      hidden: true
+
 date_notifier:
   ##########################################
   ########## One Time Reminders ############
@@ -261,26 +266,26 @@ date_notifier:
     notifier: "everyone"
     countdown: true
 
-##########################################
-########## Monthly Reminders #############
-##########################################
-# Monthly Reminder will be send on the 19th of every month at 21:27
-#monthly_reminder:
-#  name: "montly test"
-#  hour: 21
-#  minute: 27
-#  day: 19
-#  message: "montly test2"
-#  days_notice: 0
-#  notifier: "telegram_tomer_service"
-
-##########################################
-########### Daily Reminders ##############
-########################################## 
-# Daily Reminder will be send every day at 21:28
-#daily_reminder:
-#  name: "daily test"
-#  hour: 21
-#  minute: 28
-#  message: "daily test"
-#  notifier: "telegram_tomer_service"
+  ##########################################
+  ########## Monthly Reminders #############
+  ##########################################
+  # Monthly Reminder will be send on the 19th of every month at 21:27
+  #monthly_reminder:
+  #  name: "montly test"
+  #  hour: 21
+  #  minute: 27
+  #  day: 19
+  #  message: "montly test2"
+  #  days_notice: 0
+  #  notifier: "telegram_tomer_service"
+  
+  ##########################################
+  ########### Daily Reminders ##############
+  ########################################## 
+  # Daily Reminder will be send every day at 21:28
+  #daily_reminder:
+  #  name: "daily test"
+  #  hour: 21
+  #  minute: 28
+  #  message: "daily test"
+  #  notifier: "telegram_tomer_service"

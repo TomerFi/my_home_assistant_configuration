@@ -1,3 +1,16 @@
+homeassistant:
+  customize:
+    camera.nursery_cam:
+      friendly_name: "Camera"
+    sensor.nursery_cam_motion_detected:
+      friendly_name: "Motion Detection"
+    sensor.nursery_cam_ptz_preset:
+      friendly_name: "PTZ Preset"
+    switch.motion_detection_nursery_cam:
+      friendly_name: "Toggle Motion Detection"
+    switch.motion_recording_nursery_cam:
+      friendly_name: "Toggle Motion Recording"
+
 camera:
   - platform: amcrest
   
@@ -8,7 +21,7 @@ amcrest:
   - host: !secret nursery_amcrest_cam_ip
     username: !secret nursery_cam_username
     password: !secret nursery_cam_password
-    name: 'Nursery Cam'
+    name: nursery_cam
     port: !secret nursery_cam_port
     resolution: 'high'
     stream_source: 'rtsp'

@@ -14,19 +14,6 @@ homeassistant:
     script.set_nursery_ceiling_fan_off:
       friendly_name: ""
       custom_text: "OFF"
-    group.nursery_ceiling_fan:
-      friendly_name: "Ceiling Fan"
-      control: hidden
-    
-group:
-  nursery_ceiling_fan:
-    name: nursery_ceiling_fan
-    entities:
-      - script.set_nursery_ceiling_fan_off
-      - script.set_nursery_ceiling_fan_low
-      - script.set_nursery_ceiling_fan_medium
-      - script.set_nursery_ceiling_fan_high
-      - fan.nursery_ceiling_fan
 
 fan:
   - platform: mqtt

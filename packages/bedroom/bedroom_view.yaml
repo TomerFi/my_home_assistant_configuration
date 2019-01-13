@@ -2,9 +2,6 @@ homeassistant:
   customize:
     group.bedroom_view:
       friendly_name: "Bedroom"
-    group.multisensor_bedroom:
-      friendly_name: "MultiSensor"
-      control: hidden
     group.all_bedroom_sensors:
       friendly_name: "Sensors"
       icon: mdi:surround-sound
@@ -19,21 +16,17 @@ group:
     name: bedroom_view
     view: true
     entities:
-      - group.multisensor_bedroom
       - group.all_bedroom_sensors
       - group.bedroom_switches
       - group.bedroom_ac
       - media_player.bedroom_tv
-  multisensor_bedroom:  
-    name: multisensor_bedroom
-    entities:  
-      - sensor.bedroom_temperature
-      - sensor.bedroom_humidity  
-      - sensor.bedroom_pir 
   all_bedroom_sensors:
     name: all_bedroom_sensors
     entities:
       - sensor.google_wifi_bedroom_status
+      - sensor.bedroom_temperature
+      - sensor.bedroom_humidity  
+      - sensor.bedroom_pir 
       - sensor.broadlink_s1c_closet_room
       - sensor.broadlink_s1c_shower_motion_sensor
   bedroom_switches:

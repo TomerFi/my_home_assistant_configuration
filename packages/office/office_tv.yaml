@@ -3,12 +3,12 @@ homeassistant:
     media_player.office_tv:
       friendly_name: "Office Metz TV"
       icon: mdi:television
-    sensor.office_chromecast_nmap_tracker:
+    media_player.office_chromecast:
       friendly_name: "Office Chromecast"
       icon: mdi:google-chrome
 
 cast:
-  office_chromecast:
+  office_chromecast: #check this
     - host: !secret office_chromecast_ip
     
 media_player:

@@ -1,5 +1,0 @@
-homeassistant:
-  customize:
-    sensor.office_dot_nmap_tracker:
-      friendly_name: "Office Dot"
-      icon: mdi:amazon

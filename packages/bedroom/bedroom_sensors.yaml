@@ -14,16 +14,10 @@ homeassistant:
       friendly_name: "Bedroom PIR"
     sensor.bedroom_temperature:
       friendly_name: "Bedroom Temperature" 
-    sensor.broadlink_s1c_closet_room:
+    sensor.broadlink_s1c_closet_room: # this sensor is configured within the s1c component
       friendly_name: "Closet Room Door"
-    sensor.broadlink_s1c_shower_motion_sensor:
+    sensor.broadlink_s1c_shower_motion_sensor: # this sensor is configured within the s1c component
       friendly_name: "Shower Motion Sensor"
-    sensor.bedroom_rm_mini_nmap_tracker:
-      friendly_name: "Bedroom RM Mini"
-      icon: mdi:remote
-    sensor.bedroom_msensor_nmap_tracker:
-      friendly_name: "Bedroom Multi-Sensor"
-      icon: mdi:developer-board
 
 automation:
   - id: shower_motion_sensor_motion_detected
@@ -65,11 +59,3 @@ sensor:
     name: bedroom_temperature
     unit_of_measurement: "°C"  
     value_template: '{{ value_json.temperature | round(1) }}' 
-    
-  - platform: template
-    sensors:
-      bedroom_rm_mini_nmap_tracker:
-        value_template: "{%if states.device_tracker.bedroom_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
-      bedroom_msensor_nmap_tracker:
-        value_template: "{%if states.device_tracker.bedroom_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
-  

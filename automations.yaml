@@ -1,0 +1,32 @@
+- id: on_start_event
+  alias: on_start_event
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: '00:00:30'
+    - service: script.turn_on
+      entity_id: script.correct_objects_values
+    - service: script.turn_on
+      entity_id: script.run_speed_test
+    - service: script.turn_on
+      entity_id: script.get_workstation_mqtt_client_status
+    - service: script.turn_on
+      entity_id: script.check_last_recorder_session
+
+- id: home_workstation_update_mqtt_client_status
+  alias: home_workstation_update_mqtt_client_status
+  trigger:
+    platform: state
+    entity_id: sensor.home_workstation_nmap_tracker
+    to: "Offline"
+    for:
+      minutes: 5
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "smarthome/mqtt_client/status_update"
+        payload: "Offline"
+    - delay: '00:01:00'
+    - service: script.turn_on
+      entity_id: script.get_workstation_mqtt_client_status

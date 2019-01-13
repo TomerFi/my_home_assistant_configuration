@@ -1,8 +1,63 @@
+- platform: darksky
+  api_key: !secret darksky_api_key
+  forecast:
+    - 1
+  monitored_conditions:
+    - summary
+    - hourly_summary
+    - daily_summary
+    - temperature
+    - apparent_temperature
+    - temperature_low
+    - temperature_high
+    - humidity
+    - precip_probability
+    - precip_intensity
+    - precip_type
+    - wind_speed
+    - wind_bearing
+    - pressure
+    - icon
+
 - platform: template
   sensors:
-    tomers_laptop_nmap_tracker:
-      value_template: "{%if states.device_tracker.tomers_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
-    havas_laptop_nmap_tracker:
-      value_template: "{%if states.device_tracker.havas_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
-    dash_wand_nmap_tracker:
-      value_template: "{%if states.device_tracker.dash_wand.state == 'home'%}Online{%else%}Offline{%endif%}"
+    run_speed_test_last_run:
+      value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+    hallway_rf_gw_nmap_tracker:
+      value_template: "{%if states.device_tracker.rfgw_hallwayhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+
+- platform: cert_expiry
+  name: ha_duckdns_cert_expiry
+  host: !secret duckdns_dns
+  scan_interval: 86400
+
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  manual: true
+  
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: disk_use
+      arg: /home
+    - type: disk_free
+      arg: /home
+    - type: memory_use_percent
+    - type: memory_use
+    - type: memory_free
+    - type: processor_use
+    - type: last_boot
+
+- platform: command_line
+  name: "cpu_temp"
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round }}'
+  
+- platform: broadlink_s1c
+  ip_address: !secret hallways_broadlink_s1c_ip
+  mac: !secret hallways_broadlink_s1c_mac

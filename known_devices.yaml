@@ -30,8 +30,7 @@ tomer_bluetooth:
   name: "Tomer Bluetooth"
   picture:
   track: true
-  gravatar: !secret tomer_gmail_address
-  
+
 hava_bluetooth:
   hide_if_away: false
   icon: mdi:bluetooth

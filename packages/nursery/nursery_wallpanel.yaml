@@ -12,19 +12,7 @@ homeassistant:
     sensor.wallpanel_nursery_motion:
       friendly_name: "Motion"
       icon: mdi:walk
-    group.nursery_wall_panel:
-      friendly_name: "Wall-Panel"
-      control: hidden
 
-group:
-  nursery_wall_panel:
-    name: nursery_wall_panel
-    entities:
-      - sensor.wallpanel_nursery_screen_on
-      - sensor.wallpanel_nursery_battery
-      - sensor.wallpanel_nursery_light
-      - sensor.wallpanel_nursery_motion
-      
 sensor:
   - platform: mqtt
     state_topic: "wallpanel/nursery_dash/state"

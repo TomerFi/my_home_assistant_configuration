@@ -1,11 +1,13 @@
 homeassistant:
   customize:
-    light.tv_lights:
+    light.tv_lights: # this light is configured within the lifx component
       friendly_name: "TV Back Led"
-    light.living_room_night_light:
+    light.living_room_night_light: # this light is configured within the hue component
       friendly_name: "Night Light"
       supported_features: 43
     light.nursery_ambiance_1: #this is actually the living night light, I preffer controlling it via its group light.living_room_night_light
+      hidden: true
+    script.tv_led_theme_select_script:
       hidden: true
     input_number.tv_led_brightness:
       friendly_name: "Brightness"
@@ -19,55 +21,6 @@ homeassistant:
     input_select.tv_led_theme:
       friendly_name: "Theme"
       icon: mdi:white-balance-iridescent
-    sensor.tv_lifxz_led_nmap_tracker:
-      friendly_name: "Living Room Lifx Strip"
-      icon: mdi:led-strip
-    script.tv_led_theme_select_script:
-      hidden: true
-    scene.blissful_lights:
-      hidden: true
-    scene.cheerful_lights:
-      hidden: true
-    scene.dream_lights:
-      hidden: true
-    scene.energizing_lights:
-      hidden: true
-    scene.epic_lights:
-      hidden: true
-    scene.exciting_lights:
-      hidden: true
-    scene.focusing_lights:
-      hidden: true
-    scene.halloween_lights:
-      hidden: true
-    scene.hanukkah_lights:
-      hidden: true
-    scene.holy_lights:
-      hidden: true
-    scene.independence_day_lights:
-      hidden: true
-    scene.intense_lights:
-      hidden: true
-    scene.mellow_lights:
-      hidden: true
-    scene.peaceful_lights:
-      hidden: true
-    scene.powerful_lights:
-      hidden: true
-    scene.relaxing_lights:
-      hidden: true
-    scene.santa_lights:
-      hidden: true
-    scene.serene_lights:
-      hidden: true
-    scene.soothing_lights:
-      hidden: true
-    scene.sports_lights:
-      hidden: true
-    scene.tranquil_lights:
-      hidden: true
-    scene.warming_lights:
-      hidden: true
 
 automation:
   - id: change_tv_led_brightness
@@ -122,7 +75,6 @@ input_number:
     min: 0
     max: 100
     step: 5
-  
   tv_led_temperature:
     name: tv_led_temperature
     initial: 300
@@ -200,9 +152,3 @@ script:
             {% elif (selected_theme == "Tranquil") %} scene.tranquil_lights
             {% elif (selected_theme == "Warming") %} scene.warming_lights
             {% endif %}
-            
-sensor:
-  - platform: template
-    sensors:
-      tv_lifxz_led_nmap_tracker:
-        value_template: "{%if states.device_tracker.tv_lifxz_led.state == 'home'%}Online{%else%}Offline{%endif%}"

@@ -1,0 +1,6 @@
+switch:
+  - platform: broadlink
+    host: !secret nursery_broadlink_rm_mini_ip
+    mac: !secret nursery_broadlink_rm_mini_mac
+    timeout: 15
+    type: rm_mini

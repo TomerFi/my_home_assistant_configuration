@@ -14,24 +14,7 @@ homeassistant:
     sensor.nursery_broadlink_a1_noise:
       friendly_name: "Noise"
       icon: mdi:voice
-    sensor.nursery_dot_nmap_tracker:
-      friendly_name: "Nursery Dot"
-      icon: mdi:amazon
-    group.all_nursery_sensors:
-      friendly_name: "Sensors"
-      icon: mdi:surround-sound
-      control: hidden
 
-group:
-  all_nursery_sensors:  
-    name: all_nursery_sensors
-    entities:  
-      - sensor.nursery_broadlink_a1_temperature
-      - sensor.nursery_broadlink_a1_humidity
-      - sensor.nursery_broadlink_a1_air_quality
-      - sensor.nursery_broadlink_a1_light
-      - sensor.nursery_broadlink_a1_noise
-      
 sensor:
   - platform: broadlink
     name: nursery_broadlink_a1
@@ -44,12 +27,3 @@ sensor:
       - air_quality
       - light
       - noise
-  
-  - platform: template
-    sensors:
-      nursery_dot_nmap_tracker:
-        value_template: "{%if states.device_tracker.nursery_echo_dot == 'home'%}Online{%else%}Offline{%endif%}"
-      nursery_fire_8_tablet_nmap_tracker:
-        value_template: "{%if states.device_tracker.nursery_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
-      nursery_broadlink_a1_nmap_tracker:
-        value_template: "{%if states.device_tracker.nursery_broadlink_a1.state == 'home'%}Online{%else%}Offline{%endif%}"

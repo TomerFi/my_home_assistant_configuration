@@ -10,6 +10,8 @@ homeassistant:
   time_zone: Asia/Jerusalem
   customize: !include customize_ent.yaml
   packages: !include_dir_named packages
+  customize_domain: !include customize_domain.yaml
+  customize_glob: !include customize_glob.yaml
 
 ##########################################
 ############### Web Stuff ################
@@ -27,6 +29,9 @@ http:
 ##########################################
 ################ Includes ################
 ##########################################
+automation: !include automations.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
 switch: !include switches.yaml
 media_player: !include media_players.yaml
 sensor: !include sensors.yaml

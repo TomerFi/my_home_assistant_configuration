@@ -1,20 +1,5 @@
 homeassistant:
   customize:
-    sensor.home_workstation_nmap_tracker:
-      friendly_name: "Home Workstation"
-      icon: mdi:windows
-    sensor.office_rm_mini_nmap_tracker:
-      friendly_name: "Office RM Mini"
-      icon: mdi:remote
-    sensor.office_netgear_hub5_nmap_tracker:
-      friendly_name: "Office Netgear 5 Port Hub"
-      icon: mdi:access-point-network
-    sensor.office_msensor_nmap_tracker:
-      friendly_name: "Office Multi-Sensor"
-      icon: mdi:developer-board
-    sensor.xbox_360_nmap_tracker:
-      friendly_name: "Xbox 360"
-      icon: mdi:xbox
     sensor.home_workstation_mqtt_client_status:
       friendly_name: "Workstation Mqtt Client"
       icon: mdi:developer-board
@@ -41,7 +26,6 @@ homeassistant:
     sensor.office_temperature:
       friendly_name: "Office Temperature"
 
-
 sensor:
   - platform: template
     sensors:
@@ -53,20 +37,6 @@ sensor:
           {% set minutes = ((full % 3600) / 60) | int %}
           {% set seconds = (full % 60) | int %}
           {{ days }}D {{ hours }}H {{ minutes }}M {{ seconds }}S
-      home_workstation_nmap_tracker:
-        value_template: "{%if states.device_tracker.home_workstation.state == 'home'%}Online{%else%}Offline{%endif%}"
-      office_netgear_hub5_nmap_tracker:
-        value_template: "{%if states.device_tracker.office_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
-      office_chromecast_nmap_tracker:
-        value_template: "{%if states.device_tracker.office_chromecast.state == 'home'%}Online{%else%}Offline{%endif%}"
-      xbox_360_nmap_tracker:
-        value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
-      office_dot_nmap_tracker:
-        value_template: "{%if states.device_tracker.office_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
-      office_rm_mini_nmap_tracker:
-        value_template: "{%if states.device_tracker.office_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
-      office_msensor_nmap_tracker:
-        value_template: "{%if states.device_tracker.office_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
 
   - platform: mqtt
     state_topic: "smarthome/mqtt_client/status_update"

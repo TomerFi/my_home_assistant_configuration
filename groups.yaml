@@ -26,68 +26,61 @@ all_bathrooms_sensors:
     - sensor.broadlink_s1c_small_bathroom
     - sensor.broadlink_s1c_main_bathroom
 
-nmap_pa_trackers:
-  name: nmap_pa_trackers
+all_s1c_sensors:
+  name: all_s1c_sensors
   entities:
-    - sensor.kitchen_echo_one_nmap_tracker
-    - sensor.living_room_dot_nmap_tracker
-    - sensor.bedroom_echo_nmap_tracker
-    - sensor.office_dot_nmap_tracker
-    - sensor.nursery_dot_nmap_tracker
-    - sensor.dash_wand_nmap_tracker
-    - sensor.living_room_ghome_mini_nmap_tracker
+    - sensor.broadlink_s1c_small_bathroom
+    - sensor.broadlink_s1c_main_bathroom
+    - sensor.broadlink_s1c_closet_room
+    - sensor.broadlink_s1c_shower_motion_sensor
+    - sensor.broadlink_s1c_service_room
+    - sensor.broadlink_s1c_key_fob
+    - sensor.broadlink_s1c_balcony_door
+    
+activate_operations:
+  name: activate_operations
+  entities:
+    - script.get_sensors_report_notificiation_from_ui
+    - script.ring_the_doorbell
+        
+start_scenes:
+  name: start_scenes
+  entities:
+    - scene.watch_tv
+    - scene.watch_movie
+    - scene.leaving_home
+    - scene.sleep_time
 
-nmap_remotes_trackers:
-  name: nmap_remote_trackers
+ha_statistics:
+  name: ha_statistics
   entities:
-    - sensor.living_room_rm_pro_nmap_tracker
-    - sensor.bedroom_rm_mini_nmap_tracker
-    - sensor.office_rm_mini_nmap_tracker
-    - sensor.living_room_harmony_hub_nmap_tracker
-
-nmap_yes_stb_trackers:
-  name: nmap_yes_stb_trackers
+    - sensor.cpu_temp
+    - sensor.processor_use
+    - sensor.db_size
+    - sensor.db_days_kept
+    - sensor.last_recorder_status
+    - sensor.ha_duckdns_cert_expiry
+    - sensor.last_boot
+    - sensor.disk_use_percent_home
+    - sensor.disk_use_home
+    - sensor.disk_free_home
+    - sensor.memory_use_percent
+    - sensor.memory_use
+    - sensor.memory_free
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.run_speed_test_last_run
+    - sensor.home_workstation_update_mqtt_client_status
+    
+ha_operations:
+  name: ha_operations
   entities:
-    - sensor.living_room_yes_nmap_tracker
-    - sensor.bedroom_yes_nmap_tracker
-    - sensor.guest_room_yes_nmap_tracker
-
-nmap_diy_tracker:
-  name: nmap_diy_tracker
-  entities:
-    - sensor.hallway_rf_gw_nmap_tracker
-    - sensor.office_msensor_nmap_tracker
-    - sensor.bedroom_msensor_nmap_tracker
-      
-nmap_computers_tracker:
-  name: nmap_computers_tracker
-  entities:
-    - sensor.home_workstation_nmap_tracker
-    - sensor.shield_console_nmap_tracker
-    - sensor.office_chromecast_nmap_tracker
-    - sensor.xbox_360_nmap_tracker
-    - sensor.tomers_laptop_nmap_tracker
-    - sensor.havas_laptop_nmap_tracker
-    - sensor.nursery_fire_8_tablet_nmap_tracker
-    - sensor.kitchen_fire_8_tablet_nmap_tracker
-
-nmap_lights_tracker:
-  name: nmap_lights_tracker
-  entities:
-    - sensor.kitchen_bar_sp2_nmap_tracker
-    - sensor.tv_lifxz_led_nmap_tracker
-    - sensor.service_room_s1c_nmap_tracker
-    - sensor.hue_bridge_nmap_tracker
-      
-nmap_various_trackers:
-  name: nmap_trackers
-  entities:
-    - sensor.switcher_v2_nmap_tracker
-    - sensor.office_netgear_hub5_nmap_tracker
-    - sensor.nursery_broadlink_a1_nmap_tracker
-    - sensor.living_room_samsung_tv_nmap_tracker
-    - sensor.tomerfu
-    - sensor.home_workstation_uptime_human
+    - input_select.select_log_level
+    - script.run_speed_test
+    - script.office_office_mqtt_client_status
+    - script.update_all_devices
+    - script.check_last_recorder_session
 
 ##########################################
 ################# Views ##################
@@ -120,3 +113,27 @@ balcony_view:
   view: true
   entities:
     - group.balcony_switches
+
+
+tech_support_view:
+  name: tech_support_view
+  view: true
+  entities:
+    - group.living_room_google_wifi_point
+    - group.guest_room_google_wifi_point
+    - group.bedroom_google_wifi_point
+    - group.shabbat_reminder_settings
+    - group.user_tomer_devices
+    - group.user_hava_devices
+    - group.ha_statistics
+    - group.qnap_homenas_group
+    - group.qbittorent_client
+    - group.ha_operations
+    - group.nmap_pa_trackers
+    - group.nmap_remotes_trackers
+    - group.nmap_yes_stb_trackers
+    - group.nmap_diy_tracker
+    - group.nmap_computers_tracker
+    - group.nmap_phones_tracker
+    - group.nmap_lights_tracker
+    - group.nmap_various_trackers

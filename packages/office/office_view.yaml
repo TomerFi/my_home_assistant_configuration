@@ -10,8 +10,8 @@ homeassistant:
     group.qbittorent_client:
       friendly_name: "Qbittorrent"
       control: hidden
-    group.multisensor_office:
-      friendly_name: "MultiSensor Office"
+    group.office_ceiling_fan:
+      friendly_name: "Ceiling Fan"
       control: hidden
 
 group:
@@ -26,12 +26,12 @@ group:
     name: office_view
     view: true
     entities:
-      - group.multisensor_office
+      - group.all_office_sensors
       - group.office_switches
       - group.office_ceiling_fan
 
-  multisensor_office:  
-    name: multisensor_office
+  all_office_sensors:  
+    name: all_office_sensors
     entities:  
       - sensor.office_temperature
       - sensor.office_humidity  
@@ -41,3 +41,14 @@ group:
     name: office_switches
     entities:
       - switch.office_light
+      
+  office_ceiling_fan:
+    name: office_ceiling_fan
+    entities:
+      - script.set_office_ceiling_fan_off
+      - script.set_office_ceiling_fan_low
+      - script.set_office_ceiling_fan_medium
+      - script.set_office_ceiling_fan_high
+      - fan.office_ceiling_fan
+
+

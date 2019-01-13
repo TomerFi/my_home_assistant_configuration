@@ -5,10 +5,7 @@ homeassistant:
       icon: mdi:television
     script.bedroom_tv_set_timer:
       hidden: true
-    sensor.bedroom_yes_nmap_tracker:
-      friendly_name: "Bedroom Yes"
-      icon: mdi:television-classic
-      
+
 media_player:
   - platform: broadlink
     name: bedroom_tv
@@ -35,9 +32,3 @@ script:
             {%elif minutes | int < 210 %}8
             {%else%}9
             {%endif%}
-            
-sensor:
-  - platform: template
-    sensors:
-      bedroom_yes_nmap_tracker:
-        value_template: "{%if states.device_tracker.bedroom_yes.state == 'home'%}Online{%else%}Offline{%endif%}"

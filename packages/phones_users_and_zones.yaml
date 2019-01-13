@@ -14,12 +14,6 @@ homeassistant:
       friendly_name: "Hava's Battery"
     sensor.tomer_owntracks_battery_sensor:
       friendly_name: "Tomer's Battery"
-    sensor.tomers_phone_nmap_tracker:
-      friendly_name: "Tomer's Phone"
-      icon: mdi:cellphone-android
-    sensor.havas_phone_nmap_tracker:
-      friendly_name: "Hava's Phone"
-      icon: mdi:cellphone-android
     sensor.tomer_owntracks_gecode:
       hidden: true
     sensor.hava_owntracks_gecode:
@@ -43,10 +37,6 @@ homeassistant:
     group.household_summary:
       friendly_name: "Household"
       icon: home-heart
-      control: hidden
-    group.nmap_phones_tracker:
-      friendly_name: "Phones"
-      icon: mdi:cellphone
       control: hidden
 
 group:
@@ -72,12 +62,6 @@ group:
       - sensor.tomer_tracker_sensor
       - sensor.tomer_owntracks_battery_sensor
       
-  nmap_phones_tracker:
-    name: nmap_phones_tracker
-    entities:
-      - sensor.tomers_phone_nmap_tracker
-      - sensor.havas_phone_nmap_tracker
-
 owntracks:
   max_gps_accuracy: 100
   track_new_devices: false
@@ -172,10 +156,6 @@ sensor:
         value_template: "{%if states.sensor.havas_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.hava_last_state.state }}{%endif%}"
       tomer_tracker_sensor:
         value_template: "{%if states.sensor.tomers_phone_nmap_tracker.state == 'Online' %}Home{%else%}{{ states.input_text.tomer_last_state.state }}{%endif%}"
-      tomers_phone_nmap_tracker:
-        value_template: "{%if states.device_tracker.tomers_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
-      havas_phone_nmap_tracker:
-        value_template: "{%if states.device_tracker.havas_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
       hava_owntracks_battery_sensor:
         value_template: "{%if states.device_tracker.havaphone_hpowntracks.attributes.battery is defined %}{{ states.device_tracker.havaphone_hpowntracks.attributes.battery | round }}{% else %}0{% endif %}"
         unit_of_measurement: '%'

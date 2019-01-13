@@ -5,12 +5,6 @@ homeassistant:
       icon: mdi:television
     media_player.living_room_shield:
       friendly_name: "Living Room Nvidie Shield"
-    sensor.living_room_harmony_hub_nmap_tracker:
-      friendly_name: "Living Room Harmony Hub"
-      icon: mdi:remote
-    sensor.living_room_samsung_tv_nmap_tracker:
-      friendly_name: "Living Room Samsung TV"
-      icon: mdi:television
     script.watch_living_room_tv:
       hidden: true
     scene.watch_tv:
@@ -19,12 +13,6 @@ homeassistant:
       friendly_name: "Watch A Movie"
     remote.living_room_harmony_hub:
       friendly_name: "Living Room Harmony Hub"
-    sensor.living_room_yes_nmap_tracker:
-      friendly_name: "Living Room Yes"
-      icon: mdi:television-classic
-    sensor.shield_console_nmap_tracker:
-      friendly_name: "Shield Console"
-      icon: mdi:android
 
 media_player:
   - platform: samsungtv
@@ -101,15 +89,3 @@ script:
         entity_id: switch.kitchen_island_light
       - service: switch.turn_off
         entity_id: switch.office_light
-        
-sensor:
-  - platform: template
-    sensors:
-      living_room_harmony_hub_nmap_tracker:
-        value_template: "{%if states.device_tracker.living_room_harmony_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
-      living_room_samsung_tv_nmap_tracker:
-        value_template: "{%if states.device_tracker.living_room_samsung_tv.state == 'home'%}Online{%else%}Offline{%endif%}"
-      living_room_yes_nmap_tracker:
-        value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
-      shield_console_nmap_tracker:
-        value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
