@@ -9,7 +9,7 @@ homeassistant:
   unit_system: metric
   time_zone: Asia/Jerusalem
   customize: !include customize_ent.yaml
-  packages: !include_dir_named packages
+  packages: !include_dir_named yaml_packages
   customize_domain: !include customize_domain.yaml
   customize_glob: !include customize_glob.yaml
 
