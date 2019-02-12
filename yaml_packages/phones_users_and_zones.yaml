@@ -106,7 +106,7 @@ automation:
   - id: update_tracker_devices
     alias: update_tracker_devices
     trigger:
-      - platform: time
+      - platform: time_pattern
         minutes: '/20'
         seconds: 00
     action:

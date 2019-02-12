@@ -2,6 +2,7 @@ homeassistant:
   customize:
     group.nursery_view:
       friendly_name: "Nursery"
+      order: 5
     group.nursery_lights:
       friendly_name: "Lights"
       control: hidden

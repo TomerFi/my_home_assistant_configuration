@@ -2,6 +2,7 @@ homeassistant:
   customize:
     group.guest_room_view:
       friendly_name: "Guest Room"
+      order: 8
     group.guest_room_switches:
       friendly_name: "Lights"
     group.all_guest_room_sensors:

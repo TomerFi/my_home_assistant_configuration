@@ -123,14 +123,19 @@ scene.sleep_time:
 ##########################################
 group.default_view:
   friendly_name: "Home"
+  order: 1
 group.hallways_view:
   friendly_name: "Hallways"
+  order: 6
 group.bathrooms_view:
   friendly_name: "Bathrooms"
+  order: 11
 group.balcony_view:
   friendly_name: "Balcony"
+  order: 10
 group.tech_support_view:
   friendly_name: "Tech Support"
+  order: 12
 
 ##########################################
 ################ Scripts #################

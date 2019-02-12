@@ -2,6 +2,7 @@ homeassistant:
   customize:
     group.bedroom_view:
       friendly_name: "Bedroom"
+      order: 4
     group.all_bedroom_sensors:
       friendly_name: "Sensors"
       icon: mdi:surround-sound

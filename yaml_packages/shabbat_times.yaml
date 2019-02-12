@@ -43,7 +43,7 @@ automation:
   - id: shabbat_candle_lighting_time_reminder
     alias: shabbat_candle_lighting_time_reminder
     trigger:
-      - platform: time
+      - platform: time_pattern
         minutes: '/1'
         seconds: 00
     condition:

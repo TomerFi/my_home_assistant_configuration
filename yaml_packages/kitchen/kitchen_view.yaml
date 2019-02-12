@@ -2,6 +2,7 @@ homeassistant:
   customize:
     group.kitchen_view:
       friendly_name: "Kitchen"
+      order: 3
     group.kitchen_switches:
       friendly_name: "Lights"
     group.all_kitchen_sensors:

@@ -2,6 +2,7 @@ homeassistant:
   customize:
     group.service_room_view:
       friendly_name: "Service Room"
+      order: 7
     group.service_room_switches:
       friendly_name: "Lights"
     group.all_service_room_sensors:

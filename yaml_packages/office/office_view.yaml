@@ -7,6 +7,7 @@ homeassistant:
       control: hidden
     group.office_view:
       friendly_name: "Office"
+      order: 9
     group.qbittorent_client:
       friendly_name: "Qbittorrent"
       control: hidden

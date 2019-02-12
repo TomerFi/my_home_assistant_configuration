@@ -2,6 +2,7 @@ homeassistant:
   customize:
     group.living_room_view:
       friendly_name: "Living Room"
+      order: 2
     group.living_room_ac:
       friendly_name: "Living Room AC"
       control: hidden

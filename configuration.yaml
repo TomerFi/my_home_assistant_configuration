@@ -56,9 +56,6 @@ frontend:
 
 config:
 
-updater:
-  reporting: false
-
 python_script:
 
 mqtt:
