@@ -4,7 +4,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 **Environment**
 - Installation: [Home Assistant in a Python virtual environment](https://www.home-assistant.io/docs/installation/virtualenv/)
-- Current Installed Version: 0.84.6
+- Current Installed Version: 0.87.1
 - Platform: Raspberry Pi 3 B
 
 **Table Of Contents**
