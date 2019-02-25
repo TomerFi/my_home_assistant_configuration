@@ -4,7 +4,7 @@ I will try to keep this repository updated with any changes I'll make in my work
 
 **Environment**
 - Installation: [Home Assistant in a Python virtual environment](https://www.home-assistant.io/docs/installation/virtualenv/)
-- Current Installed Version: 0.87.1
+- Current Installed Version: 0.88.1
 - Platform: Raspberry Pi 3 B
 
 **Table Of Contents**
@@ -24,12 +24,12 @@ I will try to keep this repository updated with any changes I'll make in my work
 ## Home Assistant
 
 ### Custom Components
-- [**date_notifier**](custom_components/date_notifier.py) made by myself, get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/date_notifier).
+- [**date_notifier**](custom_components/date_notifier) made by myself, get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/date_notifier).
 - **sensor/google_geocode** as instructed in [this post](https://community.home-assistant.io/t/google-geocode-custom-component-gps-to-street-address/22233).
-- [**sensor/shabbat_times**](custom_components/sensor/shabbat_times.py) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/shabbat_times).
+- [**sensor/shabbat_times**](custom_components/shabbat_times) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/shabbat_times).
 - **media_player/broadlink** as instructed in [this post](https://community.home-assistant.io/t/broadlink-ir-media-player-for-old-dump-tvs/27706). The files in the [*ir_codes*](ir_codes) folder are related to this component.
 - [**switcher_aio**](custom_components/switcher_aio) made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/switcher_aio).
-- [**sensor/broadlink_s1c**](custom_components/sensor/broadlink_s1c.py). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
+- [**sensor/broadlink_s1c**](custom_components/broadlink_s1c). made by myself, you can get it [here](https://github.com/TomerFi/home-assistant-custom-components/tree/master/broadlink_s1c).
 - [**smartthings_bridge**](custom_components/smartthings_bridge) as the bridge component and [**sensor/smartthings_bridge**](custom_components/sensor/smartthings_bridge.py) as the sensor entity. made by myself, you can get it [here](https://github.com/TomerFi/home_assistant_smartthings_bridge).
 
 ### Custom UI

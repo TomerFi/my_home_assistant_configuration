@@ -17,8 +17,8 @@
 *.conf
 
 # not mine to share
-*custom_components/media_player/*
-*custom_components/sensor/google_geocode.py
+*custom_components/broadlink_mp/*
+*custom_components/google_geocode/*
 *themes/*
 *www/device_pics/*
 *www/custom_ui/state-card-tiles.html
