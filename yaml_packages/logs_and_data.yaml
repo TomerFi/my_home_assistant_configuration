@@ -22,7 +22,7 @@ history:
 logbook:
 
 logger:
-  default: error
+  default: warning
 #  logs:
 #    homeassistant.components.script: debug
 #    homeassistant.components.automation: debug

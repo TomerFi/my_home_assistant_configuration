@@ -14,8 +14,8 @@ group:
   st_test:
     name: st_test
     entities:
-      - sensor.st_bridge_tomers_mi_a2
-      - sensor.st_bridge_havas_s9
+      - sensor.st_bridge_tomers_mi_a2_presence
+      - sensor.st_bridge_havas_s9_presence
   tomer_testing:
     name: tomer_testing
     view: true

@@ -22,7 +22,7 @@ climate:
   - platform: mqtt
     name: "nursery_ac"
     qos: 0
-    retain: false
+#    retain: false
     send_if_off: false
     initial: 25
     current_temperature_topic: "tomerfi_custom_ac/nursery/current_temperature"

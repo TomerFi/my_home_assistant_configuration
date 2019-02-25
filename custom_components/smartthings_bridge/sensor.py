@@ -72,7 +72,7 @@ class ST_Sensor(Entity):
     def __init__(self, hass, st_url, st_headers, st_device):
         """initiate the sensor entity"""
         self._hass = hass
-        self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, st_device.label, hass=hass)
+        self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, '_'.join([st_device.label, st_device.type_name]), hass=hass)
         self._device = st_device
         self._st_url = st_url
         self._st_headers = st_headers

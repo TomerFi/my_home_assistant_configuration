@@ -225,7 +225,7 @@ get_sensors_report_notificiation_from_ui:
 
 run_speed_test:
   sequence:
-    - service: sensor.update_speedtest
+    - service: speedtestdotnet.speedtest
     
 alexa_restart_hass:
   sequence:

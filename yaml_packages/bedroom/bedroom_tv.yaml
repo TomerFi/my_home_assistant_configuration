@@ -7,7 +7,7 @@ homeassistant:
       hidden: true
 
 media_player:
-  - platform: broadlink
+  - platform: broadlink_mp
     name: bedroom_tv
     host: !secret bedroom_broadlink_rm_mini_ip
     mac: !secret bedroom_broadlink_rm_mini_mac

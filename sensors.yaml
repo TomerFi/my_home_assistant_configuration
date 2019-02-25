@@ -31,13 +31,6 @@
   host: !secret duckdns_dns
   scan_interval: 86400
 
-- platform: speedtest
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-  manual: true
-  
 - platform: systemmonitor
   resources:
     - type: disk_use_percent

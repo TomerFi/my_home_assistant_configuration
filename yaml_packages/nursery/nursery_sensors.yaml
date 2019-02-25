@@ -18,7 +18,7 @@ homeassistant:
 sensor:
   - platform: broadlink
     name: nursery_broadlink_a1
-    update_interval: 30
+    scan_interval: 30
     host: !secret nursery_broadlink_a1_ip
     mac: !secret nursery_broadlink_a1_mac
     monitored_conditions:

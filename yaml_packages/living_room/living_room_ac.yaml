@@ -22,7 +22,7 @@ climate:
   - platform: mqtt
     name: "living_room_ac"
     qos: 0
-    retain: false
+#    retain: false
     send_if_off: false
     initial: 25
     current_temperature_topic: "tomerfi_custom_ac/living_room/current_temperature"

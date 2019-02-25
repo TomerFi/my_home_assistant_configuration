@@ -58,6 +58,8 @@ config:
 
 python_script:
 
+system_health:
+
 mqtt:
   broker: !secret mosquitto_broker_ip
   port: !secret mosquitto_broker_port
@@ -83,3 +85,10 @@ hue:
     - host: !secret living_room_hue_bridge_ip
       allow_unreachable: true
       allow_hue_groups: true
+
+speedtestdotnet:
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  manual: true
