@@ -1,9 +1,0 @@
-- name: leaving_home
-  entities:
-    script.leaving_home:
-      state: on
-
-- name: sleep_time
-  entities:
-    script.sleep_time:
-      state: on

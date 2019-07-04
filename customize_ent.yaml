@@ -2,32 +2,66 @@
 ################ Switches ################
 ##########################################
 switch.main_hallway_light:
-  friendly_name: "Main Hallway Light"
   assumed_state: true
-switch.main_hallway_light_fixed:
-  hidden: true
 switch.small_bathroom_light:
-  friendly_name: "Small Bathroom Light"
   assumed_state: true
-switch.small_bathroom_light_fixed:
-  hidden: true
-switch.balcony_light:
-  friendly_name: "Balcony Light"
-switch.main_bathroom_light:
-  friendly_name: "Main Bathroom Light"
-switch.small_hallway_light:
-  friendly_name: "Small Hallway Light"
+switch.kitchen_main_light:
+  assumed_state: true
+switch.kitchen_island_light:
+  assumed_state: true
 
 ##########################################
 ############# Media Players ##############
 ##########################################
-media_player.spotify:
-  friendly_name: "Tomer's Spotify"
-  icon: mdi:spotify
+media_player.living_room_ghome_mini:
+  friendly_name: "Living Room Google Mini"
+media_player.samsung_tv_remote:
+  friendly_name: "Living Room Samsung TV"
+  icon: mdi:television
+media_player.living_room_shield:
+  friendly_name: "Living Room Nvidie Shield"
+media_player.office_chromecast:
+  friendly_name: "Office Chromecast"
+  icon: mdi:google-chrome
+
+##########################################
+################# Lights #################
+##########################################
+light.tv_lights: # this light is configured within the lifx component
+  friendly_name: "TV Back Led"
+light.living_room_night_light: # this light is configured within the hue component
+  friendly_name: "Night Light"
+  supported_features: 43
+light.nursery_ambiance_1: #this is actually the living night light, I preffer controlling it via its group light.living_room_night_light
+  hidden: true
+light.hue_ambiance_lamp_1: # this is actually the nursery main 1st buld, I preffer controlling it via its group light.nursery_main_light
+  hidden: true
+light.hue_ambiance_lamp_1_2: # this is actually the nursery main 2nd buld, I preffer controlling it via its group light.nursery_main_light
+  hidden: true
+light.nursery_main_light: # this switch is configured in living_room_switches.yaml
+  friendly_name: "Main Light"
+  supported_features: 43
+light.hue_bloom_1: # this is actually the nursery chair light, I preffer controlling it via its group light.nursery_chair_light
+  hidden: true
+light.nursery_chair_light: # this switch is configured within the hue component
+  friendly_name: "Chair Light"
+  supported_features: 61
+light.hue_lightstrip_plus_1: # this is actually the nursery dresser strip, I preffer controlling it via its group light.nursery_dresser_light
+  hidden: true
+light.nursery_dresser_light: # this switch is configured within the hue component
+  friendly_name: "Dresser Light"
+  supported_features: 63
+
+##########################################
+############# Binary Sensors #############
+##########################################
+binary_sensor.nursery_cam_motion_detected:
+  friendly_name: "Motion Detection"
 
 ##########################################
 ################# Sensors ################
 ##########################################
+# s1c
 sensor.broadlink_s1c_small_bathroom:
   friendly_name: "Small Bathroom Door"
 sensor.broadlink_s1c_key_fob:
@@ -36,9 +70,13 @@ sensor.broadlink_s1c_balcony_door:
   friendly_name: "Balcony Door"
 sensor.broadlink_s1c_main_bathroom:
   friendly_name: "Main Bathroom Door"
-sensor.ha_duckdns_cert_expiry:
-  friendly_name: "DuckDNS Certificate Days Left"
-  icon: mdi:certificate
+sensor.broadlink_s1c_closet_room:
+  friendly_name: "Closet Room Door"
+sensor.broadlink_s1c_shower_motion_sensor:
+  friendly_name: "Shower Motion Sensor"
+sensor.broadlink_s1c_service_room:
+  friendly_name: "Service Room Door"
+# speedtest
 sensor.speedtest_ping:
   friendly_name: "Speedtest Ping"
   icon: mdi:network
@@ -48,13 +86,12 @@ sensor.speedtest_download:
 sensor.speedtest_upload:
   friendly_name: "Speedtest Upload"
   icon: mdi:upload-network
-sensor.run_speed_test_last_run:
-  friendly_name: "Last Speed Test"
-  icon: mdi:timetable
-sensor.processor_use:
-  friendly_name: "CPU Usage"
+# command line
 sensor.cpu_temp:
   friendly_name: "CPU Temperature"
+# system monitor
+sensor.processor_use:
+  friendly_name: "CPU Usage"
 sensor.disk_free_home:
   friendly_name: "Disk Free"
 sensor.disk_use_percent_home:
@@ -69,230 +106,162 @@ sensor.memory_use_percent:
   friendly_name: "RAM Used Percentage"
 sensor.last_boot:
   friendly_name: "Last Boot"
-sensor.hallway_rf_gw_nmap_tracker:
-  friendly_name: "Hallway RF Gateway"
-  icon: mdi:developer-board
-
-
-##########################################
-################# Groups #################
-##########################################
-group.hallways_switches:
-  friendly_name: "Lights"
-group.bathrooms_switches:
-  friendly_name: "Lights"
-group.balcony_switches:
-  friendly_name: "Lights"
-group.all_bathrooms_sensors:
-  friendly_name: "Sensors"
-  icon: mdi:surround-sound
-  control: hidden
-group.all_s1c_sensors:
-  friendly_name: "S1C Sensors"
-  icon: mdi:glassdoor
-  control: hidden
-group.activate_operations:
-  friendly_name: "Activate Operations"
-  icon: mdi:script
-  control: hidden
-group.start_scenes:
-  friendly_name: "Start Scenes"
-  icon: mdi:crop-landscape
-  control: hidden
-group.ha_statistics:
-  friendly_name: "Home Assistant Pi"
-  icon: mdi:raspberrypi
-  control: hidden
-group.ha_operations:
-  friendly_name: "Activate Operaions"
-  icon: mdi:script
-  control: hidden
-
-##########################################
-################# Scenes #################
-##########################################
-scene.leaving_home:
-  friendly_name: "Leaving Home"
-  hidden: false
-scene.sleep_time:
-  friendly_name: "Sleep Time"
-  hidden: false
-
-##########################################
-################# Views ##################
-##########################################
-group.default_view:
-  friendly_name: "Home"
-  order: 1
-group.hallways_view:
-  friendly_name: "Hallways"
-  order: 6
-group.bathrooms_view:
-  friendly_name: "Bathrooms"
-  order: 11
-group.balcony_view:
-  friendly_name: "Balcony"
-  order: 10
-group.tech_support_view:
-  friendly_name: "Tech Support"
-  order: 12
+# mqtt
+sensor.bedroom_humidity:
+  friendly_name: "Humidity"
+sensor.bedroom_pir:
+  friendly_name: "PIR"
+sensor.bedroom_temperature:
+  friendly_name: "Temp" 
+sensor.wallpanel_nursery_battery:
+  friendly_name: "Battery"
+  icon: mdi:battery
+sensor.office_humidity:
+  friendly_name: "Humidity"
+sensor.office_pir:
+  friendly_name: "PIR"
+sensor.office_temperature:
+  friendly_name: "Temp"
+# rm pro
+sensor.living_room_temperature:
+  friendly_name: "Temp"
+  icon: mdi:temperature-celsius
+# amcrest
+sensor.nursery_cam_ptz_preset:
+  friendly_name: "PTZ Preset"
+# a1
+sensor.nursery_broadlink_a1_temperature:
+  friendly_name: "Temp"
+sensor.nursery_broadlink_a1_humidity:
+  friendly_name: "Humidity"
+  icon: mdi:water-percent
+sensor.nursery_broadlink_a1_air_quality:
+  friendly_name: "Air Quality"
+  icon: mdi:weather-windy
+sensor.nursery_broadlink_a1_light:
+  friendly_name: "Light"
+  icon: mdi:brightness-5
+sensor.nursery_broadlink_a1_noise:
+  friendly_name: "Noise"
+  icon: mdi:voice
+# xbox
+sensor.tomerfu:
+  friendly_name: "Xbox Live Account"
+# snmp
+sensor.home_workstation_uptime_ticks:
+  hidden: true
+# qbittorrent
+sensor.qbittorrent_client_down_speed:
+  friendly_name: "Down Speed"
+  icon: mdi:download-network
+sensor.qbittorrent_client_status:
+  friendly_name: "Status"
+  icon: mdi:network
+sensor.qbittorrent_client_up_speed:
+  friendly_name: "Up Speed"
+  icon: mdi:upload-network
+# google wifi
+sensor.google_wifi_bedroom_status:
+  friendly_name: "Access Point"
+sensor.google_wifi_bedroom_last_restart:
+  friendly_name: "Last Restart"
+sensor.google_wifi_bedroom_current_version:
+  friendly_name: "Current Version"
+sensor.google_wifi_bedroom_uptime:
+  friendly_name: "Uptime"
+sensor.google_wifi_bedroom_new_version:
+  friendly_name: "Version Status"
+sensor.google_wifi_living_room_status:
+  friendly_name: "Access Point"
+sensor.google_wifi_living_room_last_restart:
+  friendly_name: "Last Restart"
+sensor.google_wifi_living_room_current_version:
+  friendly_name: "Current Version"
+sensor.google_wifi_living_room_uptime:
+  friendly_name: "Uptime"
+sensor.google_wifi_living_room_new_version:
+  friendly_name: "Version Status"
+sensor.google_wifi_guest_room_status:
+  friendly_name: "Accees Point"
+sensor.google_wifi_guest_room_last_restart:
+  friendly_name: "Last Restart"
+sensor.google_wifi_guest_room_current_version:
+  friendly_name: "Current Version"
+sensor.google_wifi_guest_room_uptime:
+  friendly_name: "Uptime"
+sensor.google_wifi_guest_room_new_version:
+  friendly_name: "Version Status"
+# sql
+sensor.db_size:
+  friendly_name: "SQL Size"
+  icon: mdi:database
+sensor.db_days_kept:
+  friendly_name: "Days in DB"
+  icon: mdi:delta
+sensor.last_recorder_status:
+  friendly_name: "Last Recorder Session"
+  icon: mdi:history
+# nas
+sensor.homenas_status:
+  friendly_name: "Status"
+sensor.homenas_system_temperature:
+  friendly_name: "System Temperature"
+sensor.homenas_cpu_usage:
+  friendly_name: "CPU Usage"
+sensor.homenas_cpu_temperature:
+  friendly_name: "CPU Temperature"
+sensor.homenas_memory_usage:
+  friendly_name: "Memory Usage"
+sensor.homenas_memory_available:
+  friendly_name: "Memory Available"
+sensor.homenas_memory_used:
+  friendly_name: "Memory Used"
+sensor.homenas_network_link_eth0:
+  friendly_name: "Network Link (eth0)"
+sensor.homenas_network_down_eth0:
+  friendly_name: "Network Down (eth0)"
+sensor.homenas_network_up_eth0:
+  friendly_name: "Netword Up (eth0)"
+sensor.homenas_smart_status_drive_01:
+  friendly_name: "SMART Status (Drive 0:1)"
+sensor.homenas_temperature_drive_01:
+  friendly_name: "Temperature (Drive 0:1)"
+sensor.homenas_volume_used_datavol1:
+  friendly_name: "Volume Used (DataVol1)"
+sensor.homenas_free_space_datavol1:
+  friendly_name: "Free Space (DataVol1)"
+sensor.homenas_used_space_datavol1:
+  friendly_name: "Used Space (DataVol1)"
 
 ##########################################
 ################ Scripts #################
 ##########################################
-script.get_sensors_report_notificiation_from_ui:
-  friendly_name: "Get Sensors Report"
-  icon: mdi:file-chart
-  custom_text: "GET"
 script.run_speed_test:
   friendly_name: "Run Speedtest"
   icon: mdi:speedometer
-  custom_text: "RUN"
 script.correct_objects_values:
-  hidden: true
-script.leaving_home:
-  hidden: true
-script.get_workstation_mqtt_client_status:
-  friendly_name: "Get Workstation Mqtt Status"
-  icon: mdi:developer-board
-  custom_text: "SEND"
-script.sleep_time:
-  hidden: true
-script.alexa_restart_hass:
   hidden: true
 script.ring_the_doorbell:
   friendly_name: "Ring The Doorbell"
   icon: mdi:bell-ring
-  custom_text: "RING"
-
-
-##########################################
-############# Custom UI Tiles ############
-##########################################
-input_boolean.test_uitiles:
-  friendly_name: "Office Metz TV"
-  custom_ui_state_card: state-card-tiles
-  config:
-    columns: 3
-    column_width: 24px
-    row_height: 24px
-    text_uppercase: false
-    icon_size: 24px
-    entities:
-      - entity: switch.office_tv_power
-        icon: mdi:power
-        column: 1
-        row: 1
-      - entity: switch.office_tv_mute
-        icon: mdi:volume-mute
-        column: 3
-        row: 1
-      - entity: switch.office_tv_cnl1
-        icon: mdi:numeric-1-box
-        column: 1
-        row: 2
-      - entity: switch.office_tv_cnl2
-        icon: mdi:numeric-2-box
-        column: 2
-        row: 2
-      - entity: switch.office_tv_cnl3
-        icon: mdi:numeric-3-box
-        column: 3
-        row: 2
-      - entity: switch.office_tv_cnl4
-        icon: mdi:numeric-4-box
-        column: 1
-        row: 3
-      - entity: switch.office_tv_cnl5
-        icon: mdi:numeric-5-box
-        column: 2
-        row: 3
-      - entity: switch.office_tv_cnl6
-        icon: mdi:numeric-6-box
-        column: 3
-        row: 3
-      - entity: switch.office_tv_cnl7
-        icon: mdi:numeric-7-box
-        column: 1
-        row: 4
-      - entity: switch.office_tv_cnl8
-        icon: mdi:numeric-8-box
-        column: 2
-        row: 4
-      - entity: switch.office_tv_cnl9
-        icon: mdi:numeric-9-box
-        column: 3
-        row: 4
-      - entity: switch.office_tv_cnl0
-        icon: mdi:numeric-0-box
-        column: 2
-        row: 5
-      - entity: switch.office_tv_smart_sound
-        label: "S"
-        column: 1
-        row: 6
-      - entity: switch.office_tv_color
-        label: "C"
-        column: 2
-        row: 6
-      - entity: switch.office_tv_smart_picture
-        label: "P"
-        column: 3
-        row: 6
-      - entity: switch.office_tv_up
-        icon: mdi:menu-up-outline
-        column: 2
-        row: 7
-      - entity: switch.office_tv_left
-        icon: mdi:menu-left-outline
-        column: 1
-        row: 8
-      - entity: switch.office_tv_ok
-        icon: mdi:circle
-        column: 2
-        row: 8
-      - entity: switch.office_tv_right
-        icon: mdi:menu-right-outline
-        column: 3
-        row: 8
-      - entity: switch.office_tv_down
-        icon: mdi:menu-down-outline
-        column: 2
-        row: 9
-      - entity: switch.office_tv_volume_up
-        icon: mdi:volume-plus
-        column: 1
-        row: 10
-      - entity: switch.office_tv_menu
-        icon: mdi:menu
-        column: 2
-        row: 10
-      - entity: switch.office_tv_channel_up
-        icon: mdi:plus-circle-outline
-        column: 3
-        row: 10
-      - entity: switch.office_tv_volume_down
-        icon: mdi:volume-minus
-        column: 1
-        row: 11
-      - entity: switch.office_tv_source
-        icon: mdi:video-input-hdmi
-        column: 2
-        row: 11
-      - entity: switch.office_tv_channel_down
-        icon: mdi:minus-circle-outline
-        column: 3
-        row: 11
-      - entity: switch.office_tv_info
-        icon: mdi:information-outline
-        column: 1
-        row: 12
-      - entity: switch.office_tv_timer
-        icon: mdi:timer
-        column: 2
-        row: 12
-      - entity: switch.office_tv_freeze
-        label: "F1"
-        column: 3
-        row: 12
-      
+script.tv_led_theme_select_script:
+  hidden: true
+script.set_nursery_ceiling_fan_low:
+  friendly_name: "LOW"
+script.set_nursery_ceiling_fan_medium:
+  friendly_name: "MEDIUM"
+script.set_nursery_ceiling_fan_high:
+  friendly_name: "HIGH"
+script.set_nursery_ceiling_fan_off:
+  friendly_name: "OFF"
+script.set_office_ceiling_fan_low:
+  friendly_name: "LOW"
+script.set_office_ceiling_fan_medium:
+  friendly_name: "MEDIUM"
+script.set_office_ceiling_fan_high:
+  friendly_name: "HIGH"
+script.set_office_ceiling_fan_off:
+  friendly_name: "OFF"
+script.check_last_recorder_session:
+  friendly_name: "Get Recorder Sesssion Status"
+  icon: mdi:history

@@ -1,7 +1,6 @@
 # not necessary
 *secrets.yaml
 *ip_bans.yaml
-*appdaemon/apps/user_secrets.py
 *.c9*
 *.cloud*
 *.storage*
@@ -12,17 +11,10 @@
 *.HA_VERSION
 *spotify-token-cache
 *uuid
-*ui-lovelace.yaml
 *.log
 *.conf
 
 # not mine to share
-*custom_components/broadlink_mp/*
 *custom_components/google_geocode/*
 *themes/*
 *www/device_pics/*
-*www/custom_ui/state-card-tiles.html
-*www/custom_ui/state-card-tiles_es5.html
-*appdaemon/custom_css/*
-*appdaemon/custom_widgets/*
-*appdaemon/compiled/*

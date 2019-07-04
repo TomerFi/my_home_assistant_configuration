@@ -22,14 +22,223 @@
 - platform: template
   sensors:
     run_speed_test_last_run:
+      friendly_name: "Last Speed Test"
       value_template: "{{ as_timestamp(states.script.run_speed_test.attributes.last_triggered) | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+      icon_template: mdi:timetable
     hallway_rf_gw_nmap_tracker:
+      friendly_name: "Hallway RF Gateway"
       value_template: "{%if states.device_tracker.rfgw_hallwayhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
-
-- platform: cert_expiry
-  name: ha_duckdns_cert_expiry
-  host: !secret duckdns_dns
-  scan_interval: 86400
+      icon_template: mdi:developer-board
+    tomers_laptop_nmap_tracker:
+      friendly_name: "Tomer's Laptop"
+      value_template: "{%if states.device_tracker.tomers_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:windows
+    havas_laptop_nmap_tracker:
+      friendly_name: "Hava's Laptop"
+      value_template: "{%if states.device_tracker.havas_laptop.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:windows
+    dash_wand_nmap_tracker:
+      friendly_name: "Dash Wand"
+      value_template: "{%if states.device_tracker.dash_wand.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    tomers_phone_nmap_tracker:
+      friendly_name: "Tomer's Phone"
+      value_template: "{%if states.device_tracker.tomers_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:cellphone-android
+    havas_phone_nmap_tracker:
+      friendly_name: "Hava's Phone"
+      value_template: "{%if states.device_tracker.havas_phone.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:cellphone-android
+    switcher_v2_nmap_tracker:
+      friendly_name: "Switcher Water Heater"
+      value_template: "{%if states.device_tracker.switcher_v2.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:steam
+    bedroom_rm_mini_nmap_tracker:
+      friendly_name: "Bedroom RM Mini"
+      value_template: "{%if states.device_tracker.bedroom_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:remote
+    bedroom_msensor_nmap_tracker:
+      friendly_name: "Bedroom Multi-Sensor"
+      value_template: "{%if states.device_tracker.bedroom_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:developer-board
+    bedroom_echo_nmap_tracker:
+      friendly_name: "Bedroom Echo"
+      value_template: "{%if states.device_tracker.bedroom_echo.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    bedroom_yes_nmap_tracker:
+      friendly_name: "Bedroom Yes"
+      value_template: "{%if states.device_tracker.bedroom_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:television-classic
+    guest_room_yes_nmap_tracker:
+      friendly_name: "Guest Room Yes"
+      value_template: "{%if states.device_tracker.guest_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:television-classic
+    kitchen_fire_8_tablet_nmap_tracker:
+      friendly_name: "Kitchen Fire 8"
+      value_template: "{%if states.device_tracker.kitchen_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    kitchen_bar_sp2_nmap_tracker:
+      friendly_name: "Kitchen Bar SP2"
+      value_template: "{%if states.device_tracker.kitchen_bar_sp2.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:power-socket-eu
+    kitchen_echo_one_nmap_tracker:
+      friendly_name: "Kitchen Echo"
+      value_template: "{%if states.device_tracker.kitchen_echo_one.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    tv_lifxz_led_nmap_tracker:
+      friendly_name: "Living Room Lifx Strip"
+      value_template: "{%if states.device_tracker.tv_lifxz_led.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:led-strip
+    hue_bridge_nmap_tracker:
+      friendly_name: "Living Room Hue Bridge"
+      value_template: "{%if states.device_tracker.hue_bridgehomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:lighthouse
+    living_room_rm_pro_nmap_tracker:
+      friendly_name: "Living Room RM Pro"
+      value_template: "{%if states.device_tracker.living_room_rm_pro.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:remote
+    living_room_dot_nmap_tracker:
+      friendly_name: "Living Room Dot"
+      value_template: "{%if states.device_tracker.living_room_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    living_room_ghome_mini_nmap_tracker:
+      friendly_name: "Living Room G-Home Mini"
+      value_template: "{%if states.device_tracker.living_room_ghome_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:google-assistant
+    living_room_harmony_hub_nmap_tracker:
+      friendly_name: "Living Room Harmony Hub"
+      value_template: "{%if states.device_tracker.living_room_harmony_hub.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:remote
+    living_room_samsung_tv_nmap_tracker:
+      friendly_name: "Living Room Samsung TV"
+      value_template: "{%if states.device_tracker.living_room_samsung_tv.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:television
+    living_room_yes_nmap_tracker:
+      friendly_name: "Living Room Yes"
+      value_template: "{%if states.device_tracker.living_room_yes.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:television-classic
+    shield_console_nmap_tracker:
+      friendly_name: "Shield Console"
+      value_template: "{%if states.device_tracker.shield_console.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:android
+    nursery_dot_nmap_tracker:
+      friendly_name: "Nursery Dot"
+      value_template: "{%if states.device_tracker.nursery_echo_dot == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    nursery_fire_8_tablet_nmap_tracker:
+      friendly_name: "Nursery Fire 8"
+      value_template: "{%if states.device_tracker.nursery_fire_8_tablet.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    nursery_broadlink_a1_nmap_tracker:
+      friendly_name: "Nursery A1"
+      value_template: "{%if states.device_tracker.nursery_broadlink_a1.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:developer-board
+    home_workstation_nmap_tracker:
+      friendly_name: "Home Workstation"
+      value_template: "{%if states.device_tracker.home_workstation.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:windows
+    office_netgear_hub5_nmap_tracker:
+      friendly_name: "Office Netgear 5 Port Hub"
+      value_template: "{%if states.device_tracker.office_netgear_hub5.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:access-point-network
+    office_chromecast_nmap_tracker:
+      friendly_name: "Office Chromecast"
+      value_template: "{%if states.device_tracker.office_chromecast.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:google-chrome
+    xbox_360_nmap_tracker:
+      friendly_name: "Xbox 360"
+      value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:xbox
+    office_dot_nmap_tracker:
+      friendly_name: "Office Dot"
+      value_template: "{%if states.device_tracker.office_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:amazon
+    office_rm_mini_nmap_tracker:
+      friendly_name: "Office RM Mini"
+      value_template: "{%if states.device_tracker.office_rm_mini.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:remote
+    office_msensor_nmap_tracker:
+      friendly_name: "Office Multi-Sensor"
+      value_template: "{%if states.device_tracker.office_sensorhomeserverlocal.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:developer-board
+    service_room_s1c_nmap_tracker:
+      friendly_name: "Service Room SC1"
+      value_template: "{%if states.device_tracker.service_room_s1c.state == 'home'%}Online{%else%}Offline{%endif%}"
+      icon_template: mdi:power-socket-eu
+    hava_traccar_battery_sensor:
+      friendly_name: "Hava's Battery"
+      value_template: "{%if states.device_tracker.hava_traccar.attributes.battery is defined %}{{ states.device_tracker.hava_traccar.attributes.battery | round }}{% else %}0{% endif %}"
+      unit_of_measurement: '%'
+      icon_template: >
+        {%if states.device_tracker.hava_traccar.attributes.battery is defined %}
+          {% if ((states.device_tracker.hava_traccar.attributes.battery | round) > 90) %} mdi:battery
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 80) %} mdi:battery-90
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 70) %} mdi:battery-80
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 60) %} mdi:battery-70
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 50) %} mdi:battery-60
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 40) %} mdi:battery-50
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 30) %} mdi:battery-40
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 20) %} mdi:battery-30
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 10) %} mdi:battery-20
+          {% elif ((states.device_tracker.hava_traccar.attributes.battery | round) > 0) %} mdi:battery-10
+          {% endif%}
+        {% else %} mdi:battery-unknown
+        {% endif %}
+    tomer_traccar_battery_sensor:
+      friendly_name: "Tomer's Battery"
+      value_template: "{%if states.device_tracker.tomer_traccar.attributes.battery is defined %}{{ states.device_tracker.tomer_traccar.attributes.battery | round }}{% else %}0{% endif %}"
+      unit_of_measurement: '%'
+      icon_template: >
+        {%if states.device_tracker.tomer_traccar.attributes.battery is defined %}
+          {% if ((states.device_tracker.tomer_traccar.attributes.battery | round) > 90) %} mdi:battery
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 80) %} mdi:battery-90
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 70) %} mdi:battery-80
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 60) %} mdi:battery-70
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 50) %} mdi:battery-60
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 40) %} mdi:battery-50
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 30) %} mdi:battery-40
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 20) %} mdi:battery-30
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 10) %} mdi:battery-20
+          {% elif ((states.device_tracker.tomer_traccar.attributes.battery | round) > 0) %} mdi:battery-10
+          {% endif%}
+        {% else %} mdi:battery-unknown
+        {% endif %}
+    qnap_homenas_uptime:
+      friendly_name: "Uptime"
+      value_template: "{{ states.sensor.homenas_status.attributes.Uptime }}"
+      icon_template: mdi:timelapse
+    select_city_shabbat_start_time:
+      friendly_name: "Shabbat Start"
+      value_template: >
+        {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_start }}
+        {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_start }}
+        {%endif%}
+      icon_template: mdi:clock-start
+    select_city_shabbat_end_time:
+      friendly_name: "Shabbat End"
+      value_template: >
+        {% if states.input_select.select_shabbat_city.state == "Haifa" %}{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_end }}
+        {% elif states.input_select.select_shabbat_city.state == "Rishon LeZion" %}{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_end }}
+        {%endif%}
+      icon_template: mdi:clock-end
+    shabbat_notify_minutes_start:
+      friendly_name: "Notify Minutes Before Start"
+      value_template: "{{ states.input_text.shabbat_notify_minutes_start.state }}"
+      icon_template: mdi:timer
+    shabbat_start_notification_status:
+      friendly_name: "Reminder Set To"
+      value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}{{ states.sensor.shabbat_notify_minutes_start.state }} Minutes Before Start{%else%}Off{%endif%}"
+      icon_template: mdi:mailbox
+    home_workstation_uptime_human:
+      friendly_name: "Workstation Uptime"
+      value_template: >
+        {% set full = states.sensor.home_workstation_uptime_ticks.state | int / 100 %}
+        {% set days = (full / 86400) | int %}
+        {% set hours = ((full % 86400) / 3600) | int %}
+        {% set minutes = ((full % 3600) / 60) | int %}
+        {% set seconds = (full % 60) | int %}
+        {{ days }}D {{ hours }}H {{ minutes }}M {{ seconds }}S
+      icon_template: mdi:timelapse
 
 - platform: systemmonitor
   resources:
@@ -54,3 +263,173 @@
 - platform: broadlink_s1c
   ip_address: !secret hallways_broadlink_s1c_ip
   mac: !secret hallways_broadlink_s1c_mac
+
+- platform: mqtt  
+  state_topic: "multisensor/bedroomnode"  
+  name: bedroom_humidity
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/bedroomnode"  
+  name: bedroom_pir
+  value_template: '{{ value_json.motion }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/bedroomnode"  
+  name: bedroom_temperature
+  unit_of_measurement: "°C"  
+  value_template: '{{ value_json.temperature | round(1) }}'
+
+- platform: broadlink
+  host: !secret living_room_broadlink_rm_pro_ip
+  mac: !secret living_room_broadlink_rm_pro_mac
+  timeout: 15
+  name: "living_room"
+  monitored_conditions:
+      - temperature
+
+- platform: broadlink
+  name: nursery_broadlink_a1
+  scan_interval: 30
+  host: !secret nursery_broadlink_a1_ip
+  mac: !secret nursery_broadlink_a1_mac
+  monitored_conditions:
+    - temperature
+    - humidity
+    - air_quality
+    - light
+    - noise
+
+- platform: mqtt
+  state_topic: "wallpanel/nursery_dash/sensor/battery"
+  name: wallpanel_nursery_battery
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.value }}"
+
+- platform: snmp
+  name: "home_workstation_uptime_ticks"
+  host: !secret home_workstation_ip
+  community: !secret home_workstation_snmp_community
+  baseoid: 1.3.6.1.2.1.25.1.1.0
+  accept_errors: true
+  default_value: 0
+  
+- platform: xbox_live
+  api_key: !secret xbox_api
+  xuid: !secret xbox_xuid
+  scan_interval: 60
+
+- platform: qbittorrent
+  url: !secret qbittorrent_webui_url
+  name: "qbittorrent_client"
+  username: !secret qbittorrent_webui_username
+  password: !secret qbittorrent_webui_password
+
+- platform: mqtt  
+  state_topic: "multisensor/officenode"  
+  name: office_humidity
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/officenode"  
+  name: office_pir 
+  value_template: '{{ value_json.motion }}'  
+
+- platform: mqtt  
+  state_topic: "multisensor/officenode"  
+  name: office_temperature  
+  unit_of_measurement: "°C"  
+  value_template: '{{ value_json.temperature | round(1) }}'
+
+- platform: google_wifi
+  host: !secret bedroom_google_wifi_ip
+  name: google_wifi_bedroom
+  monitored_conditions:
+    - current_version
+    - last_restart
+    - new_version
+    - status
+    - uptime
+- platform: google_wifi
+  host: !secret living_room_google_wifi_ip
+  name: google_wifi_living_room
+  monitored_conditions:
+    - current_version
+    - last_restart
+    - new_version
+    - status
+    - uptime
+- platform: google_wifi
+  host: !secret guest_room_google_wifi_ip
+  name: google_wifi_guest_room
+  monitored_conditions:
+    - current_version
+    - last_restart
+    - new_version
+    - status
+    - uptime
+
+- platform: sql
+  db_url: !secret hass_db_url
+  queries:
+    - name: db_size
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: db_days_kept
+      query: 'SELECT DATEDIFF(CURRENT_DATE(), MIN(created)) AS "days_in_db" FROM homeassistant.events WHERE event_type != "state_changed"'
+      column: 'days_in_db'
+      unit_of_measurement: Days
+    - name: last_recorder_status
+      query: 'SELECT REPLACE(REPLACE(closed_incorrect, 0, "ok"), 1, "incorrect") AS "status" FROM homeassistant.recorder_runs WHERE run_id = (SELECT MAX(run_id) FROM homeassistant.recorder_runs WHERE end IS NOT NULL)'
+      column: 'status'
+
+- platform: google_geocode
+  name: tomer_traccar_geocode
+  origin: device_tracker.tomer_traccar
+  options: street, city
+  display_zone: hide
+  api_key: !secret google_geocoding_api_key
+  
+- platform: google_geocode
+  name: hava_traccar_gecode
+  origin: device_tracker.hava_traccar
+  options: street, city
+  display_zone: hide
+  api_key: !secret google_geocoding_api_key
+
+- platform: qnap
+  host: !secret qnap_ip
+  port: !secret qnap_port
+  username: !secret qnap_user
+  password: !secret qnap_password
+  ssl: false
+  verify_ssl: false
+  timeout: 30
+  drives:
+    - 0:1
+  volumes:
+    - DataVol1
+  nics:
+    - eth0
+  monitored_conditions:
+    - status
+    - system_temp
+    - cpu_temp
+    - cpu_usage
+    - memory_free
+    - memory_used
+    - memory_percent_used
+    - network_link_status
+    - network_tx
+    - network_rx
+    - drive_smart_status
+    - drive_temp
+    - volume_size_free
+    - volume_size_used
+    - volume_percentage_used
+
+- platform: shabbat_times
+  geonames: "IL-Haifa,IL-Rishon LeZion"

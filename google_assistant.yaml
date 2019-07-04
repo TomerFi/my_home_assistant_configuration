@@ -3,8 +3,6 @@ api_key: !secret ha_ghome_api_key
 expose_by_default: false
 exposed_domains:
   - switch
-  - scene
-  - switcher_aio
 entity_config:
   switch.office_light:
     name: "Office Light"
@@ -60,36 +58,9 @@ entity_config:
   switch.office_fan_light:
     name: "Office Fan Light"
     expose: true
-  scene.leaving_home:
-    name: "Leaving Home Scene"
-    expose: true
-  scene.watch_tv:
-    name: "Watch TV Scene"
-    expose: true
-  scene.watch_movie:
-    name: "Watch A Movie Scene"
-    expose: true
-  scene.sleep_time:
-    name: "Sleep Time Scene"
-    expose: true
-  switcher_aio.control_device_switch:
+  switch.switcher_boiler:
     name: "Boiler"
     expose: true
-  scene.turn_on_boiler_15_min:
-    expose: true
-    name: "Boiler for 15 minutes"
-  scene.turn_on_boiler_30_min:
-    expose: true
-    name: "Boiler for 30 minutes"
-  scene.turn_on_boiler_45_min:
-    expose: true
-    name: "Boiler for 45 minutes"
-  scene.turn_on_boiler_60_min:
-    expose: true
-    name: "Boiler for 60 minutes"
-  scene.turn_on_boiler_1_h:
-    expose: true
-    name: "Boiler for 1 hour"
   switch.bedroom_ac_light:
     expose: true
     name: "Bedroom AC Panel Light"

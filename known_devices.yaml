@@ -1,69 +1,4 @@
 ##########################################
-############### Owntracks ################
-##########################################
-tomerphone_tpowntracks:
-  hide_if_away: false
-  icon: mdi:map
-  mac:
-  name: "Tomer Owntracks"
-  picture:
-  track: true
-  vendor:
-  gravatar: !secret tomer_gmail_address
-
-havaphone_hpowntracks:
-  hide_if_away: false
-  icon: mdi:map
-  mac:
-  name: "Hava Owntracks"
-  picture:
-  track: true
-  vendor:
-
-##########################################
-############### Bluetooth ################
-##########################################
-tomer_bluetooth:
-  hide_if_away: false
-  icon:
-  mac: !secret tomer_phone_bluetooth_mac
-  name: "Tomer Bluetooth"
-  picture:
-  track: true
-
-hava_bluetooth:
-  hide_if_away: false
-  icon: mdi:bluetooth
-  mac: !secret hava_phone_bluetooth_mac
-  name: "Hava Bluetooth"
-  picture:
-  track: true
-  
-sabre_sb35_bt:
-  hide_if_away: false
-  icon:
-  mac: !secret living_room_sabre_sb35_bt_mac
-  name: "Sabre SB35 BT"
-  picture:
-  track: false
-
-shield_bt:
-  hide_if_away: false
-  icon:
-  mac: !secret living_room_shield_bt_mac
-  name: "Shield Bluetooth"
-  picture:
-  track: false
-
-samsung_tv_bt:
-  hide_if_away: false
-  icon:
-  mac: !secret living_room_samsung_tv_bt_mac
-  name: "Samsung TV BT"
-  picture:
-  track: false
-
-##########################################
 ############# Nmap Devices ###############
 ##########################################
 home_workstation:
@@ -375,3 +310,24 @@ bedroom_sensorhomeserverlocal:
   name: "Bedroom Multi-Sensor"
   picture:
   track: true
+
+##########################################
+################ Traccar #################
+##########################################
+tomer_traccar:
+  hide_if_away: false
+  icon:
+  mac:
+  name: "Tomer Traccar"
+  picture:
+  track: true
+  gravatar: !secret tomer_gmail_address
+
+hava_traccar:
+  hide_if_away: false
+  icon:
+  mac:
+  name: "Hava Traccar"
+  picture:
+  track: true
+  gravatar: !secret hava_gmail_address

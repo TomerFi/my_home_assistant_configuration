@@ -2,20 +2,46 @@
 ############## Home Assistant ############
 ##########################################
 homeassistant:
-  name: Home
+  name: The Figenblat Home
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
   elevation: !secret homeassistant_elevation
   unit_system: metric
   time_zone: Asia/Jerusalem
   customize: !include customize_ent.yaml
-  packages: !include_dir_named yaml_packages
-  customize_domain: !include customize_domain.yaml
-  customize_glob: !include customize_glob.yaml
+  customize_domain:
+    automation:
+      initial_state: true
+      hidden: true
+    date_notifier:
+      hidden: true
+    scene:
+      hidden: true
+    sensor:
+      force_update: true
+  customize_glob:
+    "sensor.*_door_sensor":
+      icon: mdi:glassdoor
+    "sensor.google_wifi_*_status":
+      icon: mdi:wifi
+    "sensor.*_traccar_geocode":
+      hidden: true
+    "sensor.shabbat_times_*":
+      hidden: true
+    "switch.*_light*":
+      icon: mdi:lightbulb
+    "switch.*_light_fixed":
+      hidden: true
+    "switch.*_ac_toggle":
+      icon: mdi:power
 
 ##########################################
-############### Web Stuff ################
+########## Basic Configuration ###########
 ##########################################
+config:
+
+history:
+
 http:
   base_url: !secret http_base_url
   api_password: !secret http_api_password
@@ -26,39 +52,111 @@ http:
   trusted_proxies:
     - !secret trusted_proxy
 
-##########################################
-################ Includes ################
-##########################################
-automation: !include automations.yaml
-scene: !include scenes.yaml
-script: !include scripts.yaml
-switch: !include switches.yaml
-media_player: !include media_players.yaml
-sensor: !include sensors.yaml
-group: !include groups.yaml
-device_tracker: !include device_tracker.yaml
-notify: !include notifications.yaml
-alexa: !include alexa.yaml
-google_assistant: !include google_assistant.yaml
+frontend:
+  themes: !include_dir_merge_named themes
+  javascript_version: latest
+
+logbook:
+
+logger:
+  default: warning
+
+lovelace:
+  mode: yaml
+
+system_health:
 
 ##########################################
 ######### Components Configuration #######
 ##########################################
-frontend:
-  themes: !include_dir_merge_named themes
-  javascript_version: latest
-  extra_html_url:
-    - /local/custom_ui/state-card-script-custom-text.html
-    - /local/custom_ui/state-card-tiles.html
-  extra_html_url_es5:
-    - /local/custom_ui/state-card-script-custom-text-es5.html
-    - /local/custom_ui/state-card-tiles_es5.html
+alexa: !include alexa.yaml
 
-config:
+amcrest:
+  - host: !secret nursery_amcrest_cam_ip
+    username: !secret nursery_cam_username
+    password: !secret nursery_cam_password
+    name: "Camera"
+    port: !secret nursery_cam_port
+    resolution: 'high'
+    stream_source: 'rtsp'
+    scan_interval: 3
+    binary_sensors:
+      - motion_detected
+    sensors:
+      - ptz_preset
 
-python_script:
+automation: !include automations.yaml
 
-system_health:
+cast:
+  living_room_ghome_mini:
+    - host: !secret living_room_ghome_mini_ip
+  living_room_shield:
+    - host: !secret living_room_shield_ip
+  office_chromecast:
+    - host: !secret office_chromecast_ip
+
+climate: !include climates.yaml
+
+cover:
+  - platform: template
+    covers:
+      shabbat_notify_minutes_start:
+        friendly_name: "Adjust Minutes"
+        icon_template: mdi:alarm-plus
+        position_template: "{% if states.sensor.shabbat_notify_minutes_start.state ==  none %}30{% else %}{{ states.sensor.shabbat_notify_minutes_start.state | int}}{% endif %}"
+        open_cover:
+          service: input_text.set_value
+          data_template:
+            entity_id: input_text.shabbat_notify_minutes_start
+            value: "{{ [((states.input_text.shabbat_notify_minutes_start.state | int // 5 * 5) + 5), 90] | min }}"
+        close_cover:
+          service: input_text.set_value
+          data_template:
+            entity_id: input_text.shabbat_notify_minutes_start
+            value: "{{ [((states.input_text.shabbat_notify_minutes_start.state | int // 5 * 5) - 5), 0] | max }}"
+            
+date_notifier: !include date_notifiers.yaml
+
+device_tracker: !include device_trackers.yaml
+
+fan: !include fans.yaml
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+
+google_assistant: !include google_assistant.yaml
+
+hue:
+  bridges:
+    - host: !secret living_room_hue_bridge_ip
+      allow_unreachable: true
+      allow_hue_groups: true
+
+input_boolean:
+  send_shabbat_notification_tomer:
+    name: "Notify Tomer"
+    icon: mdi:send
+  send_shabbat_notification_hava:
+    name: "Notify Hava"
+    icon: mdi:send
+    
+input_number: !include input_numbers.yaml
+
+input_select: !include input_selects.yaml
+
+input_text:
+  shabbat_notify_minutes_start:
+    name: shabbat_notify_minutes_start
+
+lifx:
+
+media_player:
+  - platform: spotify
+    client_id: !secret tomer_spotify_client_id
+    client_secret: !secret tomer_spotify_client_secret
+    name: "Tomer's Spotify"
+    cache_path: ".spotify-token-cache"
 
 mqtt:
   broker: !secret mosquitto_broker_ip
@@ -68,23 +166,55 @@ mqtt:
   password: !secret mosquitto_ha_password
   discovery: false
 
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_bot_api_key
-    allowed_chat_ids:
-      - !secret telegram_tomer_chat_id
-      - !secret telegram_hava_chat_id
+notify:
+  - platform: telegram
+    name: telegram_tomer_service
+    chat_id: !secret telegram_tomer_chat_id
+  - platform: telegram
+    name: telegram_hava_service
+    chat_id: !secret telegram_hava_chat_id
+  - platform: group
+    name: everyone
+    services:
+      - service: telegram_tomer_service
+      - service: telegram_hava_service
 
-lifx:
+recorder:
+  db_url: !secret hass_db_url
+  purge_interval: 2
+  purge_keep_days: 7
+  include:
+    domains:
+      - climate
+      - fan
+      - input_boolean
+      - input_number
+      - input_select
+      - input_text
+      - sensor
+      - light
+  exclude:
+    entities:
+      - sensor.google_wifi_bedroom_uptime
+      - sensor.google_wifi_guest_room_uptime
+      - sensor.google_wifi_living_room_uptime
+      - sensor.home_workstation_uptime_human
+      - sensor.home_workstation_uptime_ticks
+      - sensor.qnap_homenas_uptime
 
-ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg
+remote:
+  - platform: harmony
+    name: "Living Room Harmony Hub"
+    host: !secret living_room_logitech_harmony_hub_ip
+    activity: Watch TV
 
-hue:
-  bridges:
-    - host: !secret living_room_hue_bridge_ip
-      allow_unreachable: true
-      allow_hue_groups: true
+scene:
+  - platform: lifx_cloud
+    token: !secret lifx_cloud_token
+
+script: !include scripts.yaml
+
+sensor: !include sensors.yaml
 
 speedtestdotnet:
   monitored_conditions:
@@ -92,3 +222,36 @@ speedtestdotnet:
     - download
     - upload
   manual: true
+
+switch: !include switches.yaml
+
+switcher_kis:
+  phone_id: !secret switcher_phone_id
+  device_id: !secret switcher_device_id
+  device_password: !secret switcher_device_password
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api_key
+    allowed_chat_ids:
+      - !secret telegram_tomer_chat_id
+      - !secret telegram_hava_chat_id
+
+zone:
+  - name: home
+    latitude: !secret homeassistant_latitude
+    longitude: !secret homeassistant_longitude
+    radius: 100
+    icon: mdi:home
+
+  - name: the_white_house
+    latitude: !secret the_white_house_latitude
+    longitude: !secret the_white_house_longitude
+    radius: 100
+    icon: mdi:home-heart
+    
+  - name: bynet
+    latitude: !secret bynet_latitude
+    longitude: !secret bynet_longitude
+    radius: 200
+    icon: mdi:worker

@@ -1,0 +1,31 @@
+- platform: mqtt
+  name: "Nursery Ceiling Fan"
+  command_topic: "tomerfi_custom_fan/nursery/command"
+  payload_on: "on"
+  payload_off: "off"
+  qos: 0
+  retain: false
+  speed_command_topic: "tomerfi_custom_fan/nursery/speed"
+  payload_low_speed: "low"
+  payload_medium_speed: "medium"
+  payload_high_speed: "high"
+  speeds:
+    - "low"
+    - "medium"
+    - "high"
+
+- platform: mqtt
+  name: "Office Ceiling Fan"
+  command_topic: "tomerfi_custom_fan/office/command"
+  payload_on: "on"
+  payload_off: "off"
+  qos: 0
+  retain: false
+  speed_command_topic: "tomerfi_custom_fan/office/speed"
+  payload_low_speed: "low"
+  payload_medium_speed: "medium"
+  payload_high_speed: "high"
+  speeds:
+    - "low"
+    - "medium"
+    - "high"

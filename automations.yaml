@@ -4,29 +4,337 @@
     - platform: homeassistant
       event: start
   action:
-    - delay: '00:00:30'
+    #- delay: '00:00:30'
     - service: script.turn_on
       entity_id: script.correct_objects_values
     - service: script.turn_on
       entity_id: script.run_speed_test
     - service: script.turn_on
-      entity_id: script.get_workstation_mqtt_client_status
-    - service: script.turn_on
       entity_id: script.check_last_recorder_session
+    - service: script.turn_on
+      entity_id: script.sync_nursery_ac_entities
+    - service: script.turn_on
+      entity_id: script.sync_living_room_ac_entities
+    - service: script.turn_on
+      entity_id: script.sync_bedroom_ac_entities
 
-- id: home_workstation_update_mqtt_client_status
-  alias: home_workstation_update_mqtt_client_status
+- id: shower_motion_sensor_motion_detected
+  alias: shower_motion_sensor_motion_detected
   trigger:
     platform: state
-    entity_id: sensor.home_workstation_nmap_tracker
-    to: "Offline"
-    for:
+    entity_id: sensor.broadlink_s1c_shower_motion_sensor
+    to: 'motion_detected'
+  action:
+    service: switch.turn_on
+    entity_id: switch.shower_light
+
+- id: shower_motion_sensor_no_motion
+  alias: shower_motion_sensor_no_motion
+  trigger:
+    platform: state
+    entity_id: sensor.broadlink_s1c_shower_motion_sensor
+    to: 'no_motion'
+    for: 
       minutes: 5
   action:
-    - service: mqtt.publish
-      data:
-        topic: "smarthome/mqtt_client/status_update"
-        payload: "Offline"
-    - delay: '00:01:00'
-    - service: script.turn_on
-      entity_id: script.get_workstation_mqtt_client_status
+    service: switch.turn_off
+    entity_id: switch.shower_light
+
+- id: change_tv_led_brightness
+  alias: change_tv_led_brightness
+  trigger:
+    platform: state
+    entity_id: input_number.tv_led_brightness
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.tv_lights
+      brightness_pct: '{{ states.input_number.tv_led_brightness.state | int }}'
+
+- id: change_tv_led_temperature
+  alias: change_tv_led_temperature
+  trigger:
+    platform: state
+    entity_id: input_number.tv_led_temperature
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.tv_lights
+      color_temp: '{{ states.input_number.tv_led_temperature.state | int }}'
+      brightness_pct: '{{ states.input_number.tv_led_brightness.state | int }}'
+
+- id: change_tv_led_color
+  alias: change_tv_led_color
+  trigger:
+    platform: state
+    entity_id: input_select.tv_led_color
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.tv_lights
+      color_name: '{{ states.input_select.tv_led_color.state | string }}'
+      brightness_pct: '{{ states.input_number.tv_led_brightness.state | int }}'
+
+- id: change_tv_led_theme
+  alias: change_tv_led_theme
+  trigger:
+    platform: state
+    entity_id: input_select.tv_led_theme
+  action:
+    service: script.tv_led_theme_select_script
+    data_template:
+      selected_theme: '{{ states.input_select.tv_led_theme.state }}'
+
+- id: nursery_main_color_temp_input_select
+  alias: "nursery_main_color_temp_input_select"
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_ambiance_color_temperature
+  condition:
+    condition: template
+    value_template: "{{ states.light.nursery_main_light.state != 'off'}}"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.nursery_main_light
+      color_temp: "{{ trigger.to_state.state | int}}"
+
+- id: nursery_lightstrip_brightness_input_select
+  alias: "nursery_lightstrip_brightness_input_select"
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_lightstrip_brightness
+  condition:
+    condition: template
+    value_template: "{{ states.light.nursery_dresser_light.state != 'off'}}"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.nursery_dresser_light
+      brightness: "{{ trigger.to_state.state | int}}"
+
+- id: nursery_bloom_brightness_input_select
+  alias: "nursery_bloom_brightness_input_select"
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_bloom_brightness
+  condition:
+    condition: template
+    value_template: "{{ states.light.nursery_chair_light.state != 'off'}}"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.nursery_chair_light
+      brightness: "{{ trigger.to_state.state | int}}"
+
+- id: nursery_main_light_on
+  alias: nursery_main_light_on
+  trigger:
+    platform: state
+    entity_id: light.nursery_main_light
+    to: "on"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.nursery_ambiance_color_temperature
+      value: "{{ states.light.nursery_main_light.attributes.color_temp | int}}"
+
+- id: nursery_lightstrip_on
+  alias: nursery_lightstrip_on
+  trigger:
+    platform: state
+    entity_id: light.nursery_dresser_light
+    to: "on"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.nursery_lightstrip_brightness
+      value: "{{ states.light.nursery_dresser_light.attributes.brightness | int}}"
+      
+- id: nursery_bloom_on
+  alias: nursery_bloom_on
+  trigger:
+    platform: state
+    entity_id: light.nursery_chair_light
+    to: "on"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.nursery_bloom_brightness
+      value: "{{ states.light.nursery_chair_light.attributes.brightness | int}}"
+
+- id: nursery_main_off
+  alias: nursery_main_off
+  trigger:
+    platform: state
+    entity_id: light.nursery_main_light
+    to: "off"
+  action:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.nursery_ambiance_color_temperature
+      value: 153
+      
+- id: nursery_lightstrip_off
+  alias: nursery_lightstrip_off
+  trigger:
+    platform: state
+    entity_id: light.nursery_dresser_light
+    to: "off"
+  action:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.nursery_lightstrip_brightness
+      value: 0
+
+- id: nursery_bloom_off
+  alias: nursery_bloom_off
+  trigger:
+    platform: state
+    entity_id: light.nursery_chair_light
+    to: "off"
+  action:
+    service: input_number.set_value
+    data:
+      entity_id: input_number.nursery_bloom_brightness
+      value: 0
+
+- id: set_log_level
+  alias: set_log_level
+  trigger:
+    platform: state
+    entity_id: input_select.select_log_level
+  action:
+    service: logger.set_level
+    data_template:
+      homeassistant.components: "{{ trigger.to_state.state }}"
+
+- id: shabbat_candle_lighting_time_reminder
+  alias: shabbat_candle_lighting_time_reminder
+  trigger:
+    - platform: time_pattern
+      minutes: '/1'
+      seconds: 00
+  condition:
+    - condition: time
+      weekday: fri
+    - condition: template
+      value_template: "{% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' or states.input_boolean.send_shabbat_notification_hava.state == 'on' %}true{%else%}false{%endif%}"
+    - condition: template
+      value_template: "{{ as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%y-%m-%d') == now().strftime('%y-%m-%d') }}"
+    - condition: template
+      value_template: >
+        {% set shabbat_time = states.sensor.select_city_shabbat_start_time.state.split(" ")[1] %}
+        {% set cur_time = now().strftime('%H:%M') %}
+        {{ (shabbat_time.split(':')[0] | int * 60 + shabbat_time.split(':')[1] | int) - (cur_time.split(':')[0] | int * 60 + cur_time.split(':')[1] | int ) == states.sensor.shabbat_notify_minutes_start.state | int }}
+  action:
+    - service_template: >
+        {% if states.input_boolean.send_shabbat_notification_tomer.state == 'on' and states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.everyone
+        {% elif states.input_boolean.send_shabbat_notification_hava.state == 'on' %}notify.telegram_hava_service
+        {% elif states.input_boolean.send_shabbat_notification_tomer.state == 'on' %}notify.telegram_tomer_service
+        {% endif %}
+      data_template:
+        title: "Shabbat Times"
+        message: >
+          Shabbat in {{ states.input_select.select_shabbat_city.state }} starts at {{ (as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%H:%M')) }}.
+          
+          You have {{ states.sensor.shabbat_notify_minutes_start.state }} minutes left for candle lighting.
+
+- id: nursery_ac_operation_mode_input_select
+  alias: nursery_ac_operation_mode_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.nursery_ac_operation_mode
+  action:
+    service: climate.set_operation_mode
+    data_template:
+      entity_id: climate.nursery_air_conditioner
+      operation_mode: "{{ trigger.to_state.state }}"
+
+- id: nursery_ac_fan_level_input_select
+  alias: nursery_ac_fan_level_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.nursery_ac_fan_level
+  action:
+    service: climate.set_fan_mode
+    data_template:
+      entity_id: climate.nursery_air_conditioner
+      fan_mode: "{{ trigger.to_state.state }}"
+
+- id: nursery_ac_temperature_input_number
+  alias: nursery_ac_temperature_input_number
+  trigger:
+    platform: state
+    entity_id: input_number.nursery_ac_temperature_select
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.nursery_air_conditioner
+      temperature: "{{ trigger.to_state.state | int }}"
+
+- id: living_room_ac_operation_mode_input_select
+  alias: living_room_ac_operation_mode_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_ac_operation_mode
+  action:
+    service: climate.set_operation_mode
+    data_template:
+      entity_id: climate.living_room_air_conditioner
+      operation_mode: "{{ trigger.to_state.state }}"
+
+- id: living_room_ac_fan_level_input_select
+  alias: living_room_ac_fan_level_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_ac_fan_level
+  action:
+    service: climate.set_fan_mode
+    data_template:
+      entity_id: climate.living_room_air_conditioner
+      fan_mode: "{{ trigger.to_state.state }}"
+      
+- id: living_room_ac_temperature_input_number
+  alias: living_room_ac_temperature_input_number
+  trigger:
+    platform: state
+    entity_id: input_number.living_room_ac_temperature_select
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.living_room_air_conditioner
+      temperature: "{{ trigger.to_state.state | int }}"
+
+- id: bedroom_ac_operation_mode_input_select
+  alias: bedroom_ac_operation_mode_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_ac_operation_mode
+  action:
+    service: climate.set_operation_mode
+    data_template:
+      entity_id: climate.bedroom_air_conditioner
+      operation_mode: "{{ trigger.to_state.state }}"
+
+- id: bedroom_ac_fan_level_input_select
+  alias: bedroom_ac_fan_level_input_select
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_ac_fan_level
+  action:
+    service: climate.set_fan_mode
+    data_template:
+      entity_id: climate.bedroom_air_conditioner
+      fan_mode: "{{ trigger.to_state.state }}"
+      
+- id: bedroom_ac_temperature_input_number
+  alias: bedroom_ac_temperature_input_number
+  trigger:
+    platform: state
+    entity_id: input_number.bedroom_ac_temperature_select
+  action:
+    service: climate.set_temperature
+    data_template:
+      entity_id: climate.bedroom_air_conditioner
+      temperature: "{{ trigger.to_state.state | int }}"

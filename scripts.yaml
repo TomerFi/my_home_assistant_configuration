@@ -5,176 +5,12 @@ ring_the_doorbell:
         topic: "omg/rfgw_hallway/commands/PLSL_450/433_1/RFBITS_24"
         payload: "14878223"
         
-leaving_home:
-  sequence:
-    - service: remote.turn_off
-      entity_id: remote.living_room_harmony_hub
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.lr_ac_status
-    - service: light.turn_off
-      entity_id: light.tv_lights
-    - service: switch.turn_on
-      entity_id: switch.kitchen_main_light
-    - delay:
-        milliseconds: 1500
-    - service: light.turn_off
-      entity_id: light.living_room_night_light
-    - service: switch.turn_off
-      entity_id: switch.living_room_main_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.kitchen_bar_light
-    - service: switch.turn_off
-      entity_id: switch.entrance_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.bedroom_main_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.small_bathroom_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.kitchen_island_light
-    - delay:
-        milliseconds: 1500
-    - service: switch.turn_off
-      entity_id: switch.service_room_light
-    - service: switch.turn_off
-      entity_id: switch.closet_room_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.small_hallway_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.shower_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.main_bathroom_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.guest_room_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.living_room_small_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.balcony_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.main_hallway_light
-    - service: switch.turn_off
-      entity_id: switch.office_light
-
-      
-sleep_time:
-  sequence:
-    - service: media_player.turn_on
-      entity_id: media_player.bedroom_tv
-    - service: switch.turn_on
-      entity_id: switch.kitchen_island_light
-    - delay:
-        milliseconds: 1500
-    - service: switch.turn_off
-      entity_id: light.living_room_night_light
-    - service: switch.turn_off
-      entity_id: switch.living_room_main_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.kitchen_bar_light
-    - service: switch.turn_off
-      entity_id: switch.entrance_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.bedroom_main_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.small_bathroom_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.kitchen_main_light
-    - delay:
-        milliseconds: 1500
-    - service: switch.turn_off
-      entity_id: switch.service_room_light
-    - service: switch.turn_off
-      entity_id: switch.closet_room_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.small_hallway_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.shower_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.main_bathroom_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.guest_room_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.living_room_small_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.balcony_light
-    - delay:
-        milliseconds: 500
-    - service: switch.turn_off
-      entity_id: switch.main_hallway_light
-    - service: light.turn_off
-      entity_id: light.tv_lights
-    - service: remote.turn_off
-      entity_id: remote.living_room_harmony_hub
-    - delay:
-        seconds: 10
-    - service: script.bedroom_tv_set_timer
-      data_template:
-        minutes: '90'
-    - service: switch.turn_off
-      entity_id: switch.office_light
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.lr_ac_status
-    - service: switch.turn_on
-      entity_id: switch.kitchen_island_light
-    - delay:
-        minutes: 5
-    - service: switch.turn_off
-      entity_id: switch.kitchen_island_light
-
 correct_objects_values:
   sequence:
     - service: mqtt.publish
       data:
         topic: "smarthome/mqtt_client/status_update"
         payload: "Offline"
-    - service: group.set_visibility
-      data_template:
-        entity_id: group.living_room_ac_hidden_controls
-        visible: "{%if (states.input_boolean.lr_ac_status.state == 'on')%}true{%else%}false{%endif%}"
-    - service: input_text.set_value
-      data_template:
-        entity_id: input_text.lr_ac_temp_text
-        value: "{%if states.input_text.lr_ac_temp_text.state != 'unknown' %}{{ states.input_text.lr_ac_temp_text.state }}{%else%}30{%endif%}"
     - service: input_text.set_value
       data_template:
         entity_id: input_text.shabbat_notify_minutes_start
@@ -201,36 +37,171 @@ correct_objects_values:
       data:
         entity_id: script.sync_living_room_ac_entities
 
-get_workstation_mqtt_client_status:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "smarthome/mqtt_client/askmypc_action"
-        payload: "request_status_update"
-
-get_sensors_report_notificiation_from_ui:
-  sequence:
-    - service_template: >
-        {% if everyone.lower() == 'tomer' %}notify.telegram_tomer_service
-        {% elif everyone.lower() == 'hava' %}notify.telegram_hava_service
-        {% else %}notify.everyone
-        {% endif %}
-      data_template:
-        message: >
-          {% for sensor_name in states.group.all_s1c_sensors.attributes.entity_id %}{% set sensor_name = sensor_name.replace('sensor.', '') %}
-          
-          {{ states.sensor[sensor_name].attributes.friendly_name }} is {{ states.sensor[sensor_name].state }}
-          {% endfor %}
-        title: '{{ notification_title }}'
-
 run_speed_test:
   sequence:
     - service: speedtestdotnet.speedtest
-    
-alexa_restart_hass:
+
+tv_led_theme_select_script:
+  sequence:
+    - service: scene.turn_on
+      data_template:
+        entity_id: >
+          {% if (selected_theme == "Blissful") %} scene.blissful_lights
+          {% elif (selected_theme == "Cheerful") %} scene.cheerful_lights
+          {% elif (selected_theme == "Dream") %} scene.dream_lights
+          {% elif (selected_theme == "Energizing") %} scene.energizing_lights
+          {% elif (selected_theme == "Epic") %} scene.epic_lights
+          {% elif (selected_theme == "Exciting") %} scene.exciting_lights
+          {% elif (selected_theme == "Focusing") %} scene.focusing_lights
+          {% elif (selected_theme == "Halloween") %} scene.halloween_lights
+          {% elif (selected_theme == "Hanukkah") %} scene.hanukkah_lights
+          {% elif (selected_theme == "Holy") %} scene.holy_lights
+          {% elif (selected_theme == "Independence Day") %} scene.independence_day_lights
+          {% elif (selected_theme == "Intense") %} scene.intense_lights
+          {% elif (selected_theme == "Mellow") %} scene.mellow_lights
+          {% elif (selected_theme == "Peaceful") %} scene.peaceful_lights
+          {% elif (selected_theme == "Powerful") %} scene.powerful_lights
+          {% elif (selected_theme == "Relaxing") %} scene.relaxing_lights
+          {% elif (selected_theme == "Santa") %} scene.santa_lights
+          {% elif (selected_theme == "Serene") %} scene.serene_lights
+          {% elif (selected_theme == "Soothing") %} scene.soothing_lights
+          {% elif (selected_theme == "Sports") %} scene.sports_lights
+          {% elif (selected_theme == "Tranquil") %} scene.tranquil_lights
+          {% elif (selected_theme == "Warming") %} scene.warming_lights
+          {% endif %}
+
+set_nursery_ceiling_fan_low:
+  sequence:
+    - service: fan.set_speed
+      data:
+        entity_id: "fan.nursery_ceiling_fan"
+        speed: "low"
+
+set_nursery_ceiling_fan_medium:
+  sequence:
+    - service: fan.set_speed
+      data:
+        entity_id: "fan.nursery_ceiling_fan"
+        speed: "medium"
+
+set_nursery_ceiling_fan_high:
+  sequence:
+    - service: fan.set_speed
+      data:
+        entity_id: "fan.nursery_ceiling_fan"
+        speed: "high"
+
+set_nursery_ceiling_fan_off:
+  sequence:
+    - service: fan.turn_off
+      data:
+        entity_id: "fan.nursery_ceiling_fan"
+
+set_office_ceiling_fan_low:
+  sequence:
+    - service: fan.set_speed
+      data:
+        entity_id: "fan.office_ceiling_fan"
+        speed: "low"
+
+set_office_ceiling_fan_medium:
+  sequence:
+    - service: fan.set_speed
+      data:
+        entity_id: "fan.office_ceiling_fan"
+        speed: "medium"
+
+set_office_ceiling_fan_high:
+  sequence:
+    - service: fan.set_speed
+      data:
+        entity_id: "fan.office_ceiling_fan"
+        speed: "high"
+
+set_office_ceiling_fan_off:
+  sequence:
+    - service: fan.turn_off
+      data:
+        entity_id: "fan.office_ceiling_fan"
+
+check_last_recorder_session:
   sequence:
     - service: notify.telegram_tomer_service
       data:
-        message: "Restart Home Assistant was requested by alexa."
-        title: "System Restart Initiated"
-    - service: homeassistant.restart
+        message: "Last ended session end status was {{ states.sensor.last_recorder_status.state }}"
+        title: "Recorder"
+
+sync_nursery_ac_entities:
+  sequence:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.nursery_ac_temperature_select
+        value: "{%if states.input_number.nursery_ac_temperature_select.state != 'unknown' %}{{ states.input_number.nursery_ac_temperature_select.state }}{%else%}30{%endif%}"
+    - service: mqtt.publish
+      data_template:
+        topic: "tomerfi_custom_ac/nursery/current_temperature"
+        payload_template: "{{ states.sensor.nursery_broadlink_a1_temperature.state | round(1) }}"
+    - service: climate.set_fan_mode
+      data_template:
+        entity_id: climate.nursery_air_conditioner
+        fan_mode: "{{ states.input_select.nursery_ac_fan_level.state }}"
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.nursery_air_conditioner
+        temperature: "{{ states.input_number.nursery_ac_temperature_select.state }}"
+    - condition: template
+      value_template: "{{ states.input_select.nursery_ac_operation_mode.state != 'off' }}"
+    - service: climate.set_operation_mode
+      data_template:
+        entity_id: climate.nursery_air_conditioner
+        operation_mode: "{{ states.input_select.nursery_ac_operation_mode.state }}"
+
+sync_living_room_ac_entities:
+  sequence:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.living_room_ac_temperature_select
+        value: "{%if states.input_number.living_room_ac_temperature_select.state != 'unknown' %}{{ states.input_number.living_room_ac_temperature_select.state }}{%else%}30{%endif%}"
+    - service: mqtt.publish
+      data_template:
+        topic: "tomerfi_custom_ac/living_room/current_temperature"
+        payload_template: "{{ states.sensor.living_room_temperature.state | round(1) }}"
+    - service: climate.set_fan_mode
+      data_template:
+        entity_id: climate.living_room_air_conditioner
+        fan_mode: "{{ states.input_select.living_room_ac_fan_level.state }}"
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.living_room_air_conditioner
+        temperature: "{{ states.input_number.living_room_ac_temperature_select.state }}"
+    - condition: template
+      value_template: "{{ states.input_select.living_room_ac_operation_mode.state != 'off' }}"
+    - service: climate.set_operation_mode
+      data_template:
+        entity_id: climate.living_room_air_conditioner
+        operation_mode: "{{ states.input_select.living_room_ac_operation_mode.state }}"
+
+sync_bedroom_ac_entities:
+  sequence:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.bedroom_ac_temperature_select
+        value: "{%if states.input_number.bedroom_ac_temperature_select.state != 'unknown' %}{{ states.input_number.bedroom_ac_temperature_select.state }}{%else%}30{%endif%}"
+    - service: mqtt.publish
+      data_template:
+        topic: "tomerfi_custom_ac/bedroom/current_temperature"
+        payload_template: "{{ states.sensor.bedroom_temperature.state | round(1) }}"
+    - service: climate.set_fan_mode
+      data_template:
+        entity_id: climate.bedroom_air_conditioner
+        fan_mode: "{{ states.input_select.bedroom_ac_fan_level.state }}"
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.bedroom_air_conditioner
+        temperature: "{{ states.input_number.bedroom_ac_temperature_select.state }}"
+    - condition: template
+      value_template: "{{ states.input_select.bedroom_ac_operation_mode.state != 'off' }}"
+    - service: climate.set_operation_mode
+      data_template:
+        entity_id: climate.bedroom_air_conditioner
+        operation_mode: "{{ states.input_select.bedroom_ac_operation_mode.state }}"

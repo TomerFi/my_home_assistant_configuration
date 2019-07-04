@@ -1,8 +1,0 @@
-homeassistant:
-  customize:
-    media_player.living_room_ghome_mini:
-      friendly_name: "Living Room Google Mini"
-
-cast:
-  living_room_ghome_mini:
-    - host: !secret living_room_ghome_mini_ip

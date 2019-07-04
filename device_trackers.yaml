@@ -1,0 +1,50 @@
+- platform: traccar
+  host: !secret traccar_local_host
+  port: !secret traccar_local_port
+  username: !secret traccar_local_username
+  password: !secret traccar_local_password
+  ssl: false
+  verify_ssl: false
+  track_new_devices: false
+
+- platform: nmap_tracker
+  home_interval: 10
+  consider_home: 0
+  scan_options: -Pn --host-timeout 5s
+  track_new_devices: false
+  hosts:
+    - !secret home_workstation_ip
+    - !secret living_room_shield_ip
+    - !secret guest_room_yes_ip
+    - !secret bedroom_yes_ip
+    - !secret living_room_yes_ip
+    - !secret office_netgear_switch5_ip
+    - !secret switcher_ip
+    - !secret office_echo_dot_ip
+    - !secret kitchen_echo_one_ip
+    - !secret bedroom_echo_one_ip
+    - !secret nursery_broadlink_a1_ip
+    - !secret kitchen_bar_light_broadlink_sp2_ip
+    - !secret service_room_light_broadlink_sc1_ip
+    - !secret bedroom_broadlink_rm_mini_ip
+    - !secret living_room_broadlink_rm_pro_ip
+    - !secret living_room_samaung_tv_ip
+    - !secret living_room_tv_lifx_z_ip
+    - !secret living_room_logitech_harmony_hub_ip
+    - !secret tomer_phone_ip
+    - !secret hava_phone_ip
+    - !secret tomer_work_dell_ip
+    - !secret hava_lenovo_ip
+    - !secret dash_wand_ip
+    - !secret living_room_ghome_mini_ip
+    - !secret office_chromecast_ip
+    - !secret office_broadlink_rm_mini_ip
+    - !secret office_xbox_360_ip
+    - !secret hallways_omg_ip
+    - !secret office_multisensor_ip
+    - !secret bedroom_multisensor_ip
+    - !secret living_room_hue_bridge_ip
+    - !secret nursery_fire8_ip
+    - !secret living_room_echo_dot_ip
+    - !secret nursery_echo_dot_ip
+    - !secret kitchen_fire_8_ip

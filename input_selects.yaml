@@ -1,0 +1,110 @@
+tv_led_color:
+  name: "Color"
+  icon: mdi:format-color-fill
+  options:
+    - "Red"
+    - "Blue"
+    - "Green"
+    - "Gold"
+    - "Orange"
+    - "Pink"
+    - "Purple"
+
+tv_led_theme:
+  name: "Theme"
+  icon: mdi:white-balance-iridescent
+  options:
+    - "Blissful"
+    - "Cheerful"
+    - "Dream"
+    - "Energizing"
+    - "Epic"
+    - "Exciting"
+    - "Focusing"
+    - "Halloween"
+    - "Hanukkah"
+    - "Holy"
+    - "Independence Day"
+    - "Intense"
+    - "Mellow"
+    - "Peaceful"
+    - "Powerful"
+    - "Relaxing"
+    - "Santa"
+    - "Serene"
+    - "Soothing"
+    - "Sports"
+    - "Tranquil"
+    - "Warming"
+
+select_log_level:
+  name: "Log Level"
+  icon: mdi:alert-circle-outline
+  options:
+    - "critical"
+    - "fatal"
+    - "error"
+    - "warning"
+    - "warn"
+    - "info"
+    - "debug"
+    - "notset"
+  initial: error
+
+select_shabbat_city:
+  name: "City"
+  icon: mdi:city
+  options:
+    - "Rishon LeZion"
+    - "Haifa"
+
+nursery_ac_operation_mode:
+  name: "Mode"
+  icon: mdi:weather-windy-variant
+  options:
+    - "off"
+    - "cool"
+    - "heat"
+
+nursery_ac_fan_level:
+  name: "Fan"
+  icon: mdi:fan
+  options:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"
+
+living_room_ac_operation_mode:
+  name: "Mode"
+  icon: mdi:weather-windy-variant
+  options:
+    - "off"
+    - "cool"
+    - "heat"
+
+living_room_ac_fan_level:
+  name: "Fan"
+  icon: mdi:fan
+  options:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"
+
+bedroom_ac_operation_mode:
+  name: "Mode"
+  icon: mdi:weather-windy-variant
+  options:
+    - "off"
+    - "cool"
+    - "heat"
+
+bedroom_ac_fan_level:
+  name: "Fan"
+  icon: mdi:fa
+  options:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"

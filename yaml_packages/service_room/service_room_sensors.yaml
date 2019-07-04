@@ -1,4 +1,0 @@
-homeassistant:
-  customize:
-    sensor.broadlink_s1c_service_room: # exists in s1c component
-      friendly_name: "Service Room Door"

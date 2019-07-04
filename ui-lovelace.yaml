@@ -1,0 +1,381 @@
+title: The Figenblat Home
+views:
+
+###########################################
+################ Main View ################
+###########################################
+  - path: main_view
+    title: Main
+    badges:
+      - device_tracker.tomer_traccar
+      - sensor.tomer_traccar_battery_sensor
+      - device_tracker.hava_traccar
+      - sensor.hava_traccar_battery_sensor
+    cards:
+      - type: entities
+        title: Shabbat Times
+        show_header_toggle: false
+        entities:
+          - input_select.select_shabbat_city
+          - sensor.select_city_shabbat_start_time
+          - sensor.select_city_shabbat_end_time
+          - sensor.shabbat_start_notification_status
+
+      - type: entity-button
+        entity: switch.switcher_boiler
+
+      - type: entities
+        title: Sensors
+        show_header_toggle: false
+        entities:
+          - sensor.broadlink_s1c_small_bathroom
+          - sensor.broadlink_s1c_main_bathroom
+          - sensor.broadlink_s1c_closet_room
+          - sensor.broadlink_s1c_shower_motion_sensor
+          - sensor.broadlink_s1c_service_room
+          - sensor.broadlink_s1c_key_fob
+          - sensor.broadlink_s1c_balcony_door
+
+###########################################
+############# Living Room View ############
+###########################################
+  - path: living_room_view
+    title: Living Room
+    badges:
+      - sensor.google_wifi_living_room_status
+      - sensor.living_room_temperature
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - light.tv_lights
+          - light.living_room_night_light
+          - switch.living_room_main_light
+          - switch.living_room_small_light
+          - switch.balcony_light
+          - switch.entrance_light
+          - switch.balcony_light
+
+      - type: thermostat
+        entity: climate.living_room_air_conditioner
+
+      - type: conditional
+        conditions:
+          - entity: light.tv_lights
+            state: "on"
+        card:
+          type: entities
+          title: TV Back Led
+          show_header_toggle: false
+          entities:
+            - input_number.tv_led_brightness
+            - input_number.tv_led_temperature
+            - input_select.tv_led_color
+            - input_select.tv_led_theme
+
+###########################################
+############## Kitchen View ###############
+###########################################
+  - path: kitchen_view
+    title: Kitchen
+    badges:
+      - sensor.broadlink_s1c_service_room
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - switch.kitchen_main_light
+          - switch.kitchen_island_light
+          - switch.kitchen_bar_light
+          - switch.service_room_light
+          - switch.main_hallway_light
+
+###########################################
+############## Bedroom View ###############
+###########################################
+  - path: bedroom_view
+    title: Bedroom
+    badges:
+      - sensor.google_wifi_bedroom_status
+      - sensor.bedroom_temperature
+      - sensor.bedroom_humidity
+      - sensor.bedroom_pir
+      - sensor.broadlink_s1c_closet_room
+      - sensor.broadlink_s1c_shower_motion_sensor
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - switch.closet_room_light
+          - switch.shower_light
+          - switch.bedroom_main_light
+          - switch.small_hallway_light
+
+      - type: thermostat
+        entity: climate.bedroom_air_conditioner
+
+###########################################
+############## Nursery View ###############
+###########################################
+  - path: nursery_view
+    title: Nursery
+    badges:
+      - sensor.nursery_broadlink_a1_temperature
+      - sensor.nursery_broadlink_a1_humidity
+      - sensor.nursery_broadlink_a1_air_quality
+      - sensor.nursery_broadlink_a1_light
+      - sensor.nursery_broadlink_a1_noise
+      - sensor.wallpanel_nursery_battery
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          - light.nursery_dresser_light
+          - input_number.nursery_lightstrip_brightness
+          - light.nursery_chair_light
+          - input_number.nursery_bloom_brightness
+          - light.nursery_main_light
+          - input_number.nursery_ambiance_color_temperature
+
+      - type: thermostat
+        entity: climate.nursery_air_conditioner
+
+      - type: entities
+        title: Ceiling Fan
+        show_header_toggle: false
+        entities:
+          - script.set_nursery_ceiling_fan_off
+          - script.set_nursery_ceiling_fan_low
+          - script.set_nursery_ceiling_fan_medium
+          - script.set_nursery_ceiling_fan_high
+          - fan.nursery_ceiling_fan
+
+###########################################
+############# Guest Room View #############
+###########################################
+  - path: guest_room_view
+    title: Guest Room
+    badges:
+      - sensor.google_wifi_guest_room_status
+      - sensor.broadlink_s1c_main_bathroom
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - switch.guest_room_light
+          - switch.main_bathroom_light
+
+###########################################
+############### Office View ###############
+###########################################
+  - path: office_view
+    title: Office
+    badges:
+      - sensor.office_temperature
+      - sensor.office_humidity
+      - sensor.office_pir
+      - sensor.broadlink_s1c_small_bathroom
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - switch.office_light
+          - switch.small_bathroom_light
+
+      - type: entities
+        title: Ceiling Fan
+        show_header_toggle: false
+        entities:
+          - script.set_office_ceiling_fan_off
+          - script.set_office_ceiling_fan_low
+          - script.set_office_ceiling_fan_medium
+          - script.set_office_ceiling_fan_high
+          - fan.office_ceiling_fan
+
+###########################################
+############ Tech Support View ############
+###########################################
+  - path: tech_support_view
+    title: Tech Support
+    badges: []
+    cards:
+      - type: entities
+        title: Living Room Access Point
+        show_header_toggle: false
+        entities:
+          - sensor.google_wifi_living_room_status
+          - sensor.google_wifi_living_room_last_restart
+          - sensor.google_wifi_living_room_uptime
+          - sensor.google_wifi_living_room_current_version
+          - sensor.google_wifi_living_room_new_version
+
+      - type: entities
+        title: Guest Room Access Point
+        show_header_toggle: false
+        entities:
+          - sensor.google_wifi_guest_room_status
+          - sensor.google_wifi_guest_room_last_restart
+          - sensor.google_wifi_guest_room_uptime
+          - sensor.google_wifi_guest_room_current_version
+          - sensor.google_wifi_guest_room_new_version
+
+      - type: entities
+        title: Bedroom Access Point
+        show_header_toggle: false
+        entities:
+          - sensor.google_wifi_bedroom_status
+          - sensor.google_wifi_bedroom_last_restart
+          - sensor.google_wifi_bedroom_uptime
+          - sensor.google_wifi_bedroom_current_version
+          - sensor.google_wifi_bedroom_new_version
+
+      - type: entities
+        title: Shabbat Reminder Settings
+        show_header_toggle: false
+        entities:
+          - sensor.shabbat_notify_minutes_start
+          - cover.shabbat_notify_minutes_start
+          - input_boolean.send_shabbat_notification_hava
+          - input_boolean.send_shabbat_notification_tomer
+
+      - type: entities
+        title: Home Assistant Pi
+        show_header_toggle: false
+        entities:
+          - sensor.cpu_temp
+          - sensor.processor_use
+          - sensor.db_size
+          - sensor.db_days_kept
+          - sensor.last_recorder_status
+          - sensor.last_boot
+          - sensor.disk_use_percent_home
+          - sensor.disk_use_home
+          - sensor.disk_free_home
+          - sensor.memory_use_percent
+          - sensor.memory_use
+          - sensor.memory_free
+          - sensor.speedtest_ping
+          - sensor.speedtest_download
+          - sensor.speedtest_upload
+          - sensor.run_speed_test_last_run
+ 
+      - type: entities
+        title: Home NAS
+        show_header_toggle: false
+        entities:
+          - sensor.homenas_status
+          - sensor.qnap_homenas_uptime
+          - sensor.homenas_system_temperature
+          - sensor.homenas_cpu_usage
+          - sensor.homenas_cpu_temperature
+          - sensor.homenas_memory_usage
+          - sensor.homenas_memory_available
+          - sensor.homenas_memory_used
+          - sensor.homenas_network_link_eth0
+          - sensor.homenas_network_down_eth0
+          - sensor.homenas_network_up_eth0
+          - sensor.homenas_smart_status_drive_0_1
+          - sensor.homenas_temperature_drive_0_1
+          - sensor.homenas_volume_used_datavol1
+          - sensor.homenas_free_space_datavol1
+          - sensor.homenas_used_space_datavol1
+
+      - type: entities
+        title: Qbittorrent
+        show_header_toggle: false
+        entities:
+          - sensor.qbittorrent_client_status
+          - sensor.qbittorrent_client_down_speed
+          - sensor.qbittorrent_client_up_speed
+        
+      - type: entities
+        title: Activate Operaions
+        show_header_toggle: false
+        entities:
+          - input_select.select_log_level
+          - script.run_speed_test
+          - script.check_last_recorder_session
+          - script.ring_the_doorbell
+
+      - type: entities
+        title: Personal Assistants
+        show_header_toggle: false
+        entities:
+          - sensor.kitchen_echo_one_nmap_tracker
+          - sensor.living_room_dot_nmap_tracker
+          - sensor.bedroom_echo_nmap_tracker
+          - sensor.office_dot_nmap_tracker
+          - sensor.nursery_dot_nmap_tracker
+          - sensor.dash_wand_nmap_tracker
+          - sensor.living_room_ghome_mini_nmap_tracker
+        
+      - type: entities
+        title: Remotes
+        show_header_toggle: false
+        entities:
+          - sensor.living_room_rm_pro_nmap_tracker
+          - sensor.bedroom_rm_mini_nmap_tracker
+          - sensor.office_rm_mini_nmap_tracker
+          - sensor.living_room_harmony_hub_nmap_tracker
+
+      - type: entities
+        title: Yes STB's
+        show_header_toggle: false
+        entities:
+          - sensor.living_room_yes_nmap_tracker
+          - sensor.bedroom_yes_nmap_tracker
+          - sensor.guest_room_yes_nmap_tracker
+        
+      - type: entities
+        title: DIY Stuff
+        show_header_toggle: false
+        entities:
+          - sensor.hallway_rf_gw_nmap_tracker
+          - sensor.office_msensor_nmap_tracker
+          - sensor.bedroom_msensor_nmap_tracker
+        
+      - type: entities
+        title: 'Computers, Streamers & Consoles'
+        show_header_toggle: false
+        entities:
+          - sensor.home_workstation_nmap_tracker
+          - sensor.shield_console_nmap_tracker
+          - sensor.office_chromecast_nmap_tracker
+          - sensor.xbox_360_nmap_tracker
+          - sensor.tomers_laptop_nmap_tracker
+          - sensor.havas_laptop_nmap_tracker
+          - sensor.nursery_fire_8_tablet_nmap_tracker
+          - sensor.kitchen_fire_8_tablet_nmap_tracker
+        
+      - type: entities
+        title: Phones
+        show_header_toggle: false
+        entities:
+          - sensor.tomers_phone_nmap_tracker
+          - sensor.havas_phone_nmap_tracker
+        
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          - sensor.kitchen_bar_sp2_nmap_tracker
+          - sensor.tv_lifxz_led_nmap_tracker
+          - sensor.service_room_s1c_nmap_tracker
+          - sensor.hue_bridge_nmap_tracker
+        
+      - type: entities
+        title: Various Devices
+        show_header_toggle: false
+        entities:
+          - sensor.switcher_v2_nmap_tracker
+          - sensor.office_netgear_hub5_nmap_tracker
+          - sensor.nursery_broadlink_a1_nmap_tracker
+          - sensor.living_room_samsung_tv_nmap_tracker
+          - sensor.tomerfu
+          - sensor.home_workstation_uptime_human

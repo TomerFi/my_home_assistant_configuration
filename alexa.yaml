@@ -1,7 +1,7 @@
 smart_home:
   filter:
     include_entities:
-      - switcher_aio.control_device_switch
+      - switch.switcher_boiler
       - switch.kitchen_bar_light
       - switch.service_room_light
       - switch.living_room_main_light
@@ -26,15 +26,6 @@ smart_home:
       - switch.office_fan_medium_speed
       - switch.office_fan_high_speed
       - switch.office_fan
-      - scene.leaving_home
-      - scene.watch_tv
-      - scene.watch_movie
-      - scene.sleep_time
-      - scene.turn_on_boiler_15_min
-      - scene.turn_on_boiler_30_min
-      - scene.turn_on_boiler_45_min
-      - scene.turn_on_boiler_60_min
-      - scene.turn_on_boiler_1_h
       - sensor.broadlink_s1c_balcony_door
       - sensor.broadlink_s1c_closet_room
       - sensor.broadlink_s1c_main_bathroom
@@ -45,7 +36,7 @@ smart_home:
       - sensor.office_temperature
       - sensor.nursery_broadlink_a1_temperature
   entity_config:
-    switcher_aio.control_device_switch:
+    switch.switcher_boiler:
       name: "Boiler"
       description: "Switcher V2 Boiler Control"
       display_categories: "SWITCH"
@@ -144,42 +135,6 @@ smart_home:
     switch.office_fan:
       name: "Office Fan"
       description: "Ceiling Fan Speed"
-      display_categories: "ACTIVITY_TRIGGER"
-    scene.leaving_home:
-      name: "Leaving Home Scene"
-      description: "Home Assistant Scene"
-      display_categories: "SCENE_TRIGGER"
-    scene.watch_tv:
-      name: "Watch TV Scene"
-      description: "Home Assistant Scene"
-      display_categories: "SCENE_TRIGGER"
-    scene.watch_movie:
-      name: "Watch A Movie Scene"
-      description: "Home Assistant Scene"
-      display_categories: "SCENE_TRIGGER"
-    scene.sleep_time:
-      name: "Go To Sleep Scene"
-      description: "Home Assistant Scene"
-      display_categories: "SCENE_TRIGGER"
-    scene.turn_on_boiler_15_min:
-      name: "Boiler for 15 minutes"
-      description: "Switcher V2 Boiler Timer"
-      display_categories: "ACTIVITY_TRIGGER"
-    scene.turn_on_boiler_30_min:
-      name: "Boiler for 30 minutes"
-      description: "Switcher V2 Boiler Timer"
-      display_categories: "ACTIVITY_TRIGGER"
-    scene.turn_on_boiler_45_min:
-      name: "Boiler for 45 minutes"
-      description: "Switcher V2 Boiler Timer"
-      display_categories: "ACTIVITY_TRIGGER"
-    scene.turn_on_boiler_60_min:
-      name: "Boiler for 60 minutes"
-      description: "Switcher V2 Boiler Timer"
-      display_categories: "ACTIVITY_TRIGGER"
-    scene.turn_on_boiler_1_h:
-      name: "Boiler for 1 hour"
-      description: "Switcher V2 Boiler Timer"
       display_categories: "ACTIVITY_TRIGGER"
     sensor.broadlink_s1c_balcony_door:
       name: "Balcony Door"

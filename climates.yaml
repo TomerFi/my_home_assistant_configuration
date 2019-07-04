@@ -1,0 +1,65 @@
+- platform: mqtt
+  name: "Bedroom Air Conditioner"
+  qos: 0
+  send_if_off: false
+  initial: 25
+  current_temperature_topic: "tomerfi_custom_ac/bedroom/current_temperature"
+  mode_command_topic: "tomerfi_custom_ac/bedroom/mode"
+  modes:
+    - "off"
+    - "cool"
+    - "heat"
+  temperature_command_topic: "tomerfi_custom_ac/bedroom/temperature"
+  fan_mode_command_topic: "tomerfi_custom_ac/bedroom/fan"
+  fan_modes:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"
+  min_temp: 17
+  max_temp: 30
+  temp_step: 1
+
+- platform: mqtt
+  name: "Living Room Air Conditioner"
+  qos: 0
+  send_if_off: false
+  initial: 25
+  current_temperature_topic: "tomerfi_custom_ac/living_room/current_temperature"
+  mode_command_topic: "tomerfi_custom_ac/living_room/mode"
+  modes:
+    - "off"
+    - "cool"
+    - "heat"
+  temperature_command_topic: "tomerfi_custom_ac/living_room/temperature"
+  fan_mode_command_topic: "tomerfi_custom_ac/living_room/fan"
+  fan_modes:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"
+  min_temp: 17
+  max_temp: 30
+  temp_step: 1
+
+- platform: mqtt
+  name: "Nursery Air Conditioner"
+  qos: 0
+  send_if_off: false
+  initial: 25
+  current_temperature_topic: "tomerfi_custom_ac/nursery/current_temperature"
+  mode_command_topic: "tomerfi_custom_ac/nursery/mode"
+  modes:
+    - "off"
+    - "cool"
+    - "heat"
+  temperature_command_topic: "tomerfi_custom_ac/nursery/temperature"
+  fan_mode_command_topic: "tomerfi_custom_ac/nursery/fan"
+  fan_modes:
+    - "auto"
+    - "low"
+    - "medium"
+    - "high"
+  min_temp: 17
+  max_temp: 30
+  temp_step: 1
