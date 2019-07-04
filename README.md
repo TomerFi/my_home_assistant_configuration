@@ -11,7 +11,7 @@ You can also check out my [AppDaemon Configuration](https://github.com/TomerFi/m
 [3]: https://www.raspberrypi.org/products/raspberry-pi-3-model-b/
 
 <!-- badge links -->
-[maintained]: https://img.shields.io/badge/Maintained%3F-yes-green.svg
+[maintained]: https://img.shields.io/badge/maintained%3F-yes-green.svg
 [ha-version]: https://img.shields.io/badge/version-0.95.4-green.svg
 [ha-environment]: https://img.shields.io/badge/environment-docker-informational.svg
 [hardware]: https://img.shields.io/badge/hardware-rpi3b-important.svg
