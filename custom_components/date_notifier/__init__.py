@@ -57,7 +57,7 @@ from typing import Dict, Generator, List, Optional, Tuple
 
 import voluptuous as vol
 from homeassistant.components.notify import DOMAIN as NOTIFY_DOMAIN
-from homeassistant.core import HomeAssistant, ServiceCall, callback
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.entity import Entity, async_generate_entity_id
 from homeassistant.helpers.entity_component import EntityComponent
@@ -186,7 +186,7 @@ def async_setup(hass: HomeAssistant, config: Dict) -> Generator:
         )
 
     @asyncio.coroutine
-    def async_scan_dates_service(call: ServiceCall) -> Generator:
+    def async_scan_dates_service(timestamp: datetime.datetime) -> Generator:
         """Implementation of Home Assistant service for updating entities."""
         for entity in component.entities:
             target_notifiers = [entity]

@@ -1,0 +1,8 @@
+{
+  "domain": "broadlink_s1c",
+  "name": "Broadlink S1C Custom Component",
+  "documentation": "https://github.com/TomerFi/my_home_assistant_configuration",
+  "dependencies": [],
+  "codeowners": ["@tomerfi"],
+  "requirements": ["broadlink==0.11.1"]
+}

@@ -37,7 +37,6 @@ from homeassistant.util.dt import now
 
 # fmt: on
 
-REQUIREMENTS = ["broadlink"]
 _LOGGER = logging.getLogger(__name__)
 
 DOMAIN = "sensor"

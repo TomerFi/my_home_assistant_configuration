@@ -1,0 +1,8 @@
+{
+  "domain": "date_notifier",
+  "name": "Date Notifier Custom Component",
+  "documentation": "https://github.com/TomerFi/my_home_assistant_configuration",
+  "dependencies": [],
+  "codeowners": ["@tomerfi"],
+  "requirements": []
+}

@@ -1,0 +1,8 @@
+{
+  "domain": "shabbat_times",
+  "name": "Shabbat Times Custom Component",
+  "documentation": "https://github.com/TomerFi/my_home_assistant_configuration",
+  "dependencies": [],
+  "codeowners": ["@tomerfi"],
+  "requirements": []
+}
