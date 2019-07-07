@@ -3,6 +3,7 @@ extends: default
 ignore: |
   .c9
   themes
+  *site-packages*
 
 rules:
   line-length:

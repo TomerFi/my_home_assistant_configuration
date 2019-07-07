@@ -3,6 +3,7 @@
 *ip_bans.yaml
 .c9
 .cloud
+.mypy_cache
 .storage
 .tox
 */__pycache__/*
