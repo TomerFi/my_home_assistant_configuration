@@ -1,23 +1,25 @@
+# yamllint disable rule:line-length
+
 - platform: broadlink
   host: !secret living_room_broadlink_rm_pro_ip
   mac: !secret living_room_broadlink_rm_pro_mac
   timeout: 15
-  switches: 
-    living_room_main_light: 
+  switches:
+    living_room_main_light:
       friendly_name: "Living Room Main Light"
       command_on: "6QpCAN8JFgkJFgkWFgkWCQkWFgkWCQkWFgkJFgkWFgkWCRYJCRYWCQkWCRYWCRYJCRYWCRYJCRYJ FhYJCRYJFhYJCRYJFg=="
       command_off: "6QpCAN8JCRYJFgkWFgkJFgkWFgkJFhYJFgkWCQkWFgkWCRYJFgkJFgkWCRYWCQkWCRYWCRYJFgkW CRYJCRYJFgkWCRYJFg=="
-    living_room_small_light: 
+    living_room_small_light:
       friendly_name: "Living Room Small Light"
       command_on: "6QpCAN8JFgkJFgkWCRYJFhYJCRYWCRYJCRYWCQkWCRYJFhYJFgkJFgkWCRYJFhYJFgkWCQkWCRYW CRYJCRYWCQkWFgkWCQ=="
       command_off: "6QpCAN8JCRYJFgkWCRYJFgkWFgkWCRYJCRYJFhYJFgkWCQkWFgkWCRYJCRYWCRYJCRYWCRYJCRYJ FhYJCRYWCQkWFgkJFg=="
-    kitchen_main_light_fixed: 
+    kitchen_main_light_fixed:
       command_on: "6QpCAN8JCRYJFhYJCRYJFgkWFgkJFhYJCRYWCQkWFgkWCQkWCRYWCRYJCRYJFgkWFgkJFgkWCRYJFhYJFgkWCQkWCRYWCQ=="
       command_off: "6QpCAN8JCRYWCRYJCRYJFgkWFgkWCRYJFgkJFgkWCRYJFhYJFgkJFhYJFgkWCQkWFgkJFhYJFgkWCRYJCRYWCRYJCRYJFg=="
-    kitchen_island_light_fixed: 
+    kitchen_island_light_fixed:
       command_on: "6QpCAN8JFgkWCQkWFgkJFhYJFgkWCQkWCRYWCRYJCRYJFhYJFgkWCQkWFgkWCRYJCRYWCQkWCRYJFhYJCRYWCQkWCRYJFg=="
       command_off: "6QpCAN8JCRYJFhYJCRYJFgkWCRYWCQkWFgkWCRYJFgkWCQkWFgkWCQkWCRYWCQkWCRYJFgkWFgkWCQkWFgkJFgkWFgkJFg=="
-    main_hallway_light_fixed: 
+    main_hallway_light_fixed:
       command_on: "6QpCAN8JFgkWCRYJFgkJFgkWCRYJFhYJFgkWCQkWCRYWCRYJCRYJFhYJFgkWCQkWCRYWCQkWCRYJFhYJCRYJFgkWFgkWCQ=="
       command_off: "6QpCAN8JFgkWCRYJCRYWCQkWFgkJFhYJFgkWCQkWFgkJFgkWFgkJFhYJCRYJFhYJFgkWCQkWCRYJFgkWCRYJFhYJFgkJFg=="
     small_bathroom_light_fixed:
@@ -435,7 +437,7 @@
     xbox_last_pound:
       command_on: "JgDMAFgdDw4PDg8dDx0sHQ0QDRAODw4QDRANEA0QDhANEA0QHg4PDg8PDR4eDg0QDR8eHA0QDhAOEA0QHg4PDg0eDhANAAjCVx8PDg8ODxwQHCseEA4PDg8OEA0QDg8ODw4QDRAODw4cEA4PDg8OHhwQDg8OHRwfDw4PDxANEA4cEA4PDh0QDRAACMBZHA8PDw4PHA0fLRwODw4QDRANEA0QDhANEA0QDRAOEB0PDw4PDg8cHg8PDg8cHhwOEA0RDRANEB4OEA4PHA0QDgANBQAAAAAAAAAAAAAAAA=="
       command_off: "JgDMAFgdDw4PDg8dDx0sHQ0QDRAODw4QDRANEA0QDhANEA0QHg4PDg8PDR4eDg0QDR8eHA0QDhAOEA0QHg4PDg0eDhANAAjCVx8PDg8ODxwQHCseEA4PDg8OEA0QDg8ODw4QDRAODw4cEA4PDg8OHhwQDg8OHRwfDw4PDxANEA4cEA4PDh0QDRAACMBZHA8PDw4PHA0fLRwODw4QDRANEA0QDhANEA0QDRAOEB0PDw4PDg8cHg8PDg8cHhwOEA0RDRANEB4OEA4PHA0QDgANBQAAAAAAAAAAAAAAAA=="
-      
+
 - platform: broadlink
   host: !secret service_room_light_broadlink_sc1_ip
   mac: !secret service_room_light_broadlink_sc1_mac

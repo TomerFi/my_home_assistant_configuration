@@ -1,10 +1,11 @@
+# yamllint disable rule:line-length
+
 - id: on_start_event
   alias: on_start_event
   trigger:
     - platform: homeassistant
       event: start
   action:
-    #- delay: '00:00:30'
     - service: script.turn_on
       entity_id: script.correct_objects_values
     - service: script.turn_on
@@ -34,7 +35,7 @@
     platform: state
     entity_id: sensor.broadlink_s1c_shower_motion_sensor
     to: 'no_motion'
-    for: 
+    for:
       minutes: 5
   action:
     service: switch.turn_off
@@ -150,7 +151,7 @@
     data_template:
       entity_id: input_number.nursery_lightstrip_brightness
       value: "{{ states.light.nursery_dresser_light.attributes.brightness | int}}"
-      
+
 - id: nursery_bloom_on
   alias: nursery_bloom_on
   trigger:
@@ -174,7 +175,7 @@
     data:
       entity_id: input_number.nursery_ambiance_color_temperature
       value: 153
-      
+
 - id: nursery_lightstrip_off
   alias: nursery_lightstrip_off
   trigger:
@@ -237,7 +238,7 @@
         title: "Shabbat Times"
         message: >
           Shabbat in {{ states.input_select.select_shabbat_city.state }} starts at {{ (as_timestamp(states.sensor.select_city_shabbat_start_time.state) | timestamp_custom('%H:%M')) }}.
-          
+
           You have {{ states.sensor.shabbat_notify_minutes_start.state }} minutes left for candle lighting.
 
 - id: nursery_ac_operation_mode_input_select
@@ -294,7 +295,7 @@
     data_template:
       entity_id: climate.living_room_air_conditioner
       fan_mode: "{{ trigger.to_state.state }}"
-      
+
 - id: living_room_ac_temperature_input_number
   alias: living_room_ac_temperature_input_number
   trigger:
@@ -327,7 +328,7 @@
     data_template:
       entity_id: climate.bedroom_air_conditioner
       fan_mode: "{{ trigger.to_state.state }}"
-      
+
 - id: bedroom_ac_temperature_input_number
   alias: bedroom_ac_temperature_input_number
   trigger:

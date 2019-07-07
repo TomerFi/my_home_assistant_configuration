@@ -27,28 +27,33 @@ media_player.office_chromecast:
 ##########################################
 ################# Lights #################
 ##########################################
-light.tv_lights: # this light is configured within the lifx component
+light.tv_lights:
   friendly_name: "TV Back Led"
-light.living_room_night_light: # this light is configured within the hue component
+light.living_room_night_light:
   friendly_name: "Night Light"
   supported_features: 43
-light.nursery_ambiance_1: #this is actually the living night light, I preffer controlling it via its group light.living_room_night_light
+# this is the lr night light, I preffer controlling it with group light.living_room_night_light.
+light.nursery_ambiance_1:
   hidden: true
-light.hue_ambiance_lamp_1: # this is actually the nursery main 1st buld, I preffer controlling it via its group light.nursery_main_light
+# this is the nursery main bulb-1, I preffer controlling with group light.nursery_main_light.
+light.hue_ambiance_lamp_1:
   hidden: true
-light.hue_ambiance_lamp_1_2: # this is actually the nursery main 2nd buld, I preffer controlling it via its group light.nursery_main_light
+# this is the nursery main bulb-2, I preffer controlling it with group light.nursery_main_light.
+light.hue_ambiance_lamp_1_2:
   hidden: true
-light.nursery_main_light: # this switch is configured in living_room_switches.yaml
+light.nursery_main_light:
   friendly_name: "Main Light"
   supported_features: 43
-light.hue_bloom_1: # this is actually the nursery chair light, I preffer controlling it via its group light.nursery_chair_light
+# this is the nursery chair light, I preffer controlling it with group light.nursery_chair_light.
+light.hue_bloom_1:
   hidden: true
-light.nursery_chair_light: # this switch is configured within the hue component
+light.nursery_chair_light:
   friendly_name: "Chair Light"
   supported_features: 61
-light.hue_lightstrip_plus_1: # this is actually the nursery dresser strip, I preffer controlling it via its group light.nursery_dresser_light
+# this is the nursery strip, I preffer controlling it with group light.nursery_dresser_light.
+light.hue_lightstrip_plus_1:
   hidden: true
-light.nursery_dresser_light: # this switch is configured within the hue component
+light.nursery_dresser_light:
   friendly_name: "Dresser Light"
   supported_features: 63
 
@@ -112,7 +117,7 @@ sensor.bedroom_humidity:
 sensor.bedroom_pir:
   friendly_name: "PIR"
 sensor.bedroom_temperature:
-  friendly_name: "Temp" 
+  friendly_name: "Temp"
 sensor.wallpanel_nursery_battery:
   friendly_name: "Battery"
   icon: mdi:battery

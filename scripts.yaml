@@ -1,10 +1,12 @@
+# yamllint disable rule:line-length
+
 ring_the_doorbell:
   sequence:
     - service: mqtt.publish
       data:
         topic: "omg/rfgw_hallway/commands/PLSL_450/433_1/RFBITS_24"
         payload: "14878223"
-        
+
 correct_objects_values:
   sequence:
     - service: mqtt.publish

@@ -10,7 +10,7 @@ rafis_memorial_date:
   message: "Dad's memorial"
   days_notice: 7
   notifier: "telegram_tomer_service"
-  
+
 tzilas_memorial_date:
   name: tzilas_memorial_date
   hour: 10
@@ -43,7 +43,7 @@ wedding_day:
   days_notice: 7
   notifier: "everyone"
   countdown: true
-  
+
 havas_birthday:
   name: havas_birthday
   hour: 10
@@ -53,7 +53,7 @@ havas_birthday:
   days_notice: 7
   notifier: "telegram_tomer_service"
   countdown: true
-  
+
 tomers_birthday:
   name: tomers_birthday
   hour: 10
@@ -73,7 +73,7 @@ matans_birthday:
   days_notice: 2
   notifier: "everyone"
   countdown: true
-  
+
 gilis_birthday:
   name: gilis_birthday
   hour: 10
@@ -83,7 +83,7 @@ gilis_birthday:
   days_notice: 2
   notifier: "everyone"
   countdown: true
-  
+
 mayas_birthday:
   name: mayas_birthday
   hour: 10
@@ -93,7 +93,7 @@ mayas_birthday:
   days_notice: 2
   notifier: "everyone"
   countdown: true
-  
+
 shir_stav_birthday:
   name: shir_stav_birthday
   hour: 10
@@ -103,7 +103,7 @@ shir_stav_birthday:
   days_notice: 2
   notifier: "everyone"
   countdown: true
-  
+
 tzilas_birthday:
   name: tzilas_birthday
   hour: 10
@@ -112,7 +112,7 @@ tzilas_birthday:
   message: "Mom's birthday"
   days_notice: 2
   notifier: "telegram_tomer_service"
-  
+
 rafis_birthday:
   name: rafis_birthday
   hour: 10
@@ -121,21 +121,23 @@ rafis_birthday:
   message: "Dad's birthday"
   days_notice: 2
   notifier: "telegram_tomer_service"
-  
+
 tzilas_passing_date:
   name: tzilas_passing_date
   hour: 10
   day: !secret tzilas_passing_date_day
   month: !secret tzilas_passing_date_month
+  # yamllint disable-line rule:line-length
   message: "Mom's passing jewish date is the 25 of Elul 28/09/2016, please set a new reminder with the gregorian date for the memorial"
   days_notice: 0
   notifier: "telegram_tomer_service"
-  
+
 rafis_passing_date:
   name: rafis_passing_date
   hour: 10
   day: !secret rafis_passing_date_day
   month: !secret rafis_passing_date_month
+  # yamllint disable-line rule:line-length
   message: "Dad's passing jewish date is the 16 of Adar 16/02/2014, please set a new reminder with the gregorian date for the memorial"
   days_notice: 0
   notifier: "telegram_tomer_service"
@@ -209,7 +211,7 @@ daniel_birthday:
   days_notice: 2
   notifier: "everyone"
   countdown: true
-  
+
 liel_birthday:
   name: liel_birthday
   hour: 10
@@ -219,7 +221,7 @@ liel_birthday:
   days_notice: 2
   notifier: "everyone"
   countdown: true
-  
+
 tuval_birthday:
   name: tuval_birthday
   hour: 10
@@ -239,7 +241,7 @@ aviv_birthday:
   days_notice: 2
   notifier: "everyone"
   countdown: true
-  
+
 shalev_birthday:
   name: shalev_birthday
   hour: 10
@@ -264,22 +266,24 @@ roy_sean_birthday:
 ########## Monthly Reminders #############
 ##########################################
 # Monthly Reminder will be send on the 19th of every month at 21:27
-#monthly_reminder:
-#  name: "montly test"
-#  hour: 21
-#  minute: 27
-#  day: 19
-#  message: "montly test2"
-#  days_notice: 0
-#  notifier: "telegram_tomer_service"
+
+# monthly_reminder:
+#   name: "montly test"
+#   hour: 21
+#   minute: 27
+#   day: 19
+#   message: "montly test2"
+#   days_notice: 0
+#   notifier: "telegram_tomer_service"
 
 ##########################################
 ########### Daily Reminders ##############
-########################################## 
+##########################################
 # Daily Reminder will be send every day at 21:28
-#daily_reminder:
-#  name: "daily test"
-#  hour: 21
-#  minute: 28
-#  message: "daily test"
-#  notifier: "telegram_tomer_service"
+
+# daily_reminder:
+#   name: "daily test"
+#   hour: 21
+#   minute: 28
+#   message: "daily test"
+#   notifier: "telegram_tomer_service"

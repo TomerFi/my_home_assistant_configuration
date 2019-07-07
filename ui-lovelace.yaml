@@ -1,9 +1,9 @@
 title: The Figenblat Home
 views:
 
-###########################################
-################ Main View ################
-###########################################
+  ###########################################
+  ################ Main View ################
+  ###########################################
   - path: main_view
     title: Main
     badges:
@@ -36,9 +36,9 @@ views:
           - sensor.broadlink_s1c_key_fob
           - sensor.broadlink_s1c_balcony_door
 
-###########################################
-############# Living Room View ############
-###########################################
+  ###########################################
+  ############# Living Room View ############
+  ###########################################
   - path: living_room_view
     title: Living Room
     badges:
@@ -74,9 +74,9 @@ views:
             - input_select.tv_led_color
             - input_select.tv_led_theme
 
-###########################################
-############## Kitchen View ###############
-###########################################
+  ###########################################
+  ############## Kitchen View ###############
+  ###########################################
   - path: kitchen_view
     title: Kitchen
     badges:
@@ -92,9 +92,9 @@ views:
           - switch.service_room_light
           - switch.main_hallway_light
 
-###########################################
-############## Bedroom View ###############
-###########################################
+  ###########################################
+  ############## Bedroom View ###############
+  ###########################################
   - path: bedroom_view
     title: Bedroom
     badges:
@@ -117,9 +117,9 @@ views:
       - type: thermostat
         entity: climate.bedroom_air_conditioner
 
-###########################################
-############## Nursery View ###############
-###########################################
+  ###########################################
+  ############## Nursery View ###############
+  ###########################################
   - path: nursery_view
     title: Nursery
     badges:
@@ -154,9 +154,9 @@ views:
           - script.set_nursery_ceiling_fan_high
           - fan.nursery_ceiling_fan
 
-###########################################
-############# Guest Room View #############
-###########################################
+  ###########################################
+  ############# Guest Room View #############
+  ###########################################
   - path: guest_room_view
     title: Guest Room
     badges:
@@ -170,9 +170,9 @@ views:
           - switch.guest_room_light
           - switch.main_bathroom_light
 
-###########################################
-############### Office View ###############
-###########################################
+  ###########################################
+  ############### Office View ###############
+  ###########################################
   - path: office_view
     title: Office
     badges:
@@ -198,9 +198,9 @@ views:
           - script.set_office_ceiling_fan_high
           - fan.office_ceiling_fan
 
-###########################################
-############ Tech Support View ############
-###########################################
+  ###########################################
+  ############ Tech Support View ############
+  ###########################################
   - path: tech_support_view
     title: Tech Support
     badges: []
@@ -264,7 +264,7 @@ views:
           - sensor.speedtest_download
           - sensor.speedtest_upload
           - sensor.run_speed_test_last_run
- 
+
       - type: entities
         title: Home NAS
         show_header_toggle: false
@@ -293,7 +293,7 @@ views:
           - sensor.qbittorrent_client_status
           - sensor.qbittorrent_client_down_speed
           - sensor.qbittorrent_client_up_speed
-        
+
       - type: entities
         title: Activate Operaions
         show_header_toggle: false
@@ -314,7 +314,7 @@ views:
           - sensor.nursery_dot_nmap_tracker
           - sensor.dash_wand_nmap_tracker
           - sensor.living_room_ghome_mini_nmap_tracker
-        
+
       - type: entities
         title: Remotes
         show_header_toggle: false
@@ -331,7 +331,7 @@ views:
           - sensor.living_room_yes_nmap_tracker
           - sensor.bedroom_yes_nmap_tracker
           - sensor.guest_room_yes_nmap_tracker
-        
+
       - type: entities
         title: DIY Stuff
         show_header_toggle: false
@@ -339,7 +339,7 @@ views:
           - sensor.hallway_rf_gw_nmap_tracker
           - sensor.office_msensor_nmap_tracker
           - sensor.bedroom_msensor_nmap_tracker
-        
+
       - type: entities
         title: 'Computers, Streamers & Consoles'
         show_header_toggle: false
@@ -352,14 +352,14 @@ views:
           - sensor.havas_laptop_nmap_tracker
           - sensor.nursery_fire_8_tablet_nmap_tracker
           - sensor.kitchen_fire_8_tablet_nmap_tracker
-        
+
       - type: entities
         title: Phones
         show_header_toggle: false
         entities:
           - sensor.tomers_phone_nmap_tracker
           - sensor.havas_phone_nmap_tracker
-        
+
       - type: entities
         title: Lights
         show_header_toggle: false
@@ -368,7 +368,7 @@ views:
           - sensor.tv_lifxz_led_nmap_tracker
           - sensor.service_room_s1c_nmap_tracker
           - sensor.hue_bridge_nmap_tracker
-        
+
       - type: entities
         title: Various Devices
         show_header_toggle: false

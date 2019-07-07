@@ -103,18 +103,21 @@ cover:
       shabbat_notify_minutes_start:
         friendly_name: "Adjust Minutes"
         icon_template: mdi:alarm-plus
+        # yamllint disable-line rule:line-length
         position_template: "{% if states.sensor.shabbat_notify_minutes_start.state ==  none %}30{% else %}{{ states.sensor.shabbat_notify_minutes_start.state | int}}{% endif %}"
         open_cover:
           service: input_text.set_value
           data_template:
             entity_id: input_text.shabbat_notify_minutes_start
+            # yamllint disable-line rule:line-length
             value: "{{ [((states.input_text.shabbat_notify_minutes_start.state | int // 5 * 5) + 5), 90] | min }}"
         close_cover:
           service: input_text.set_value
           data_template:
             entity_id: input_text.shabbat_notify_minutes_start
+            # yamllint disable-line rule:line-length
             value: "{{ [((states.input_text.shabbat_notify_minutes_start.state | int // 5 * 5) - 5), 0] | max }}"
-            
+
 date_notifier: !include date_notifiers.yaml
 
 device_tracker: !include device_trackers.yaml
@@ -140,7 +143,7 @@ input_boolean:
   send_shabbat_notification_hava:
     name: "Notify Hava"
     icon: mdi:send
-    
+
 input_number: !include input_numbers.yaml
 
 input_select: !include input_selects.yaml
@@ -249,7 +252,7 @@ zone:
     longitude: !secret the_white_house_longitude
     radius: 100
     icon: mdi:home-heart
-    
+
   - name: bynet
     latitude: !secret bynet_latitude
     longitude: !secret bynet_longitude
