@@ -1,20 +1,21 @@
 # not necessary
 *secrets.yaml
 *ip_bans.yaml
-*.c9*
-*.cloud*
-*.storage*
+.c9
+.cloud
+.storage
+.tox
 */__pycache__/*
 *.pyc
-*deps/*
-*tts/*
-*.HA_VERSION
-*spotify-token-cache
-*uuid
+deps
+tts
+.HA_VERSION
+.spotify-token-cache
+.uuid
 *.log
 *.conf
 
 # not mine to share
-*custom_components/google_geocode/*
-*themes/*
-*www/device_pics/*
+custom_components/google_geocode
+themes
+www/device_pics/

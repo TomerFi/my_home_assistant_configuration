@@ -1,0 +1,17 @@
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = test
+isolated_build = true
+minversion = 3.13.2
+skipdist = true
+
+[testenv:test]
+basepython = python3.7
+skip_install = true
+deps =
+    yamllint==1.16.0
+commands = 
+    yamllint --format colored --strict .
+
+"""
