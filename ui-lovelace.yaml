@@ -347,7 +347,7 @@ views:
           - sensor.home_workstation_nmap_tracker
           - sensor.shield_console_nmap_tracker
           - sensor.office_chromecast_nmap_tracker
-          - sensor.xbox_360_nmap_tracker
+          #- sensor.xbox_360_nmap_tracker
           - sensor.tomers_laptop_nmap_tracker
           - sensor.havas_laptop_nmap_tracker
           - sensor.nursery_fire_8_tablet_nmap_tracker

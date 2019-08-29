@@ -147,10 +147,10 @@
       friendly_name: "Office Chromecast"
       value_template: "{%if states.device_tracker.office_chromecast.state == 'home'%}Online{%else%}Offline{%endif%}"
       icon_template: mdi:google-chrome
-    xbox_360_nmap_tracker:
-      friendly_name: "Xbox 360"
-      value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
-      icon_template: mdi:xbox
+    #xbox_360_nmap_tracker:
+    #  friendly_name: "Xbox 360"
+    #  value_template: "{%if states.device_tracker.xbox_360.state == 'home'%}Online{%else%}Offline{%endif%}"
+    #  icon_template: mdi:xbox
     office_dot_nmap_tracker:
       friendly_name: "Office Dot"
       value_template: "{%if states.device_tracker.office_dot.state == 'home'%}Online{%else%}Offline{%endif%}"
