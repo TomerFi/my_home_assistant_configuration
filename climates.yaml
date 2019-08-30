@@ -1,5 +1,4 @@
 ---
-
 - platform: mqtt
   name: "Bedroom Air Conditioner"
   qos: 0

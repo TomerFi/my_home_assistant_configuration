@@ -1,5 +1,4 @@
 ---
-
 # yamllint disable rule:line-length
 
 - id: on_start_event

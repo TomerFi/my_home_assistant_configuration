@@ -1,5 +1,4 @@
 ---
-
 - platform: traccar
   host: !secret traccar_local_host
   port: !secret traccar_local_port

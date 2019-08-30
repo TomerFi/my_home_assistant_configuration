@@ -1,5 +1,4 @@
 ---
-
 - platform: mqtt
   name: "Nursery Ceiling Fan"
   command_topic: "tomerfi_custom_fan/nursery/command"
