@@ -149,9 +149,6 @@ sensor.nursery_broadlink_a1_light:
 sensor.nursery_broadlink_a1_noise:
   friendly_name: "Noise"
   icon: mdi:voice
-# xbox
-#sensor.tomerfu:
-  #friendly_name: "Xbox Live Account"
 # snmp
 sensor.home_workstation_uptime_ticks:
   hidden: true

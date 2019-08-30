@@ -39,7 +39,6 @@
     - !secret living_room_ghome_mini_ip
     - !secret office_chromecast_ip
     - !secret office_broadlink_rm_mini_ip
-    #- !secret office_xbox_360_ip
     - !secret hallways_omg_ip
     - !secret office_multisensor_ip
     - !secret bedroom_multisensor_ip

@@ -20,15 +20,15 @@ basepython = python3.7
 skip_install = true
 deps =
     black==19.3b0
-    flake8==3.7.7
+    flake8==3.7.8
     isort==4.3.21
-    mypy==0.711
+    mypy==0.720
     toml==0.10.0
-    yamllint==1.16.0
+    yamllint==1.17.0
 commands = 
     yamllint --config-file .yamllint --format colored --strict .
     flake8 --exclude custom_components/google_geocode --statistics --count --doctests custom_components
-    mypy custom_components
+    mypy --follow-imports silent --ignore-missing-imports custom_components
     isort --check-only --recursive custom_components
     black --check custom_components
 
