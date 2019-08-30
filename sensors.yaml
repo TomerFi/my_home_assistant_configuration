@@ -317,10 +317,10 @@
   accept_errors: true
   default_value: 0
 
-- platform: xbox_live
-  api_key: !secret xbox_api
-  xuid: !secret xbox_xuid
-  scan_interval: 60
+#- platform: xbox_live
+#  api_key: !secret xbox_api
+#  xuid: !secret xbox_xuid
+#  scan_interval: 60
 
 - platform: qbittorrent
   url: !secret qbittorrent_webui_url
