@@ -1,3 +1,5 @@
+---
+
 smart_home:
   filter:
     include_entities:

@@ -1,3 +1,5 @@
+---
+
 project_id: !secret ha_ghome_project_id
 api_key: !secret ha_ghome_api_key
 expose_by_default: false

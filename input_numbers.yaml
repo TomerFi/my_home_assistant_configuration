@@ -1,3 +1,5 @@
+---
+
 tv_led_brightness:
   name: "Brightness"
   icon: mdi:brightness-6

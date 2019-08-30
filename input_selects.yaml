@@ -1,3 +1,5 @@
+---
+
 tv_led_color:
   name: "Color"
   icon: mdi:format-color-fill
