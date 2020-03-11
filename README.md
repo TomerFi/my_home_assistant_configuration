@@ -13,7 +13,7 @@ You can also check out my [AppDaemon][4] configuration and my [Docker][5] config
 [5]: https://github.com/TomerFi/my_docker_environment_configuration
 
 <!-- badge links -->
-[maintained]: https://img.shields.io/badge/maintained%3F-yes-green.svg
+[maintained]: https://img.shields.io/maintenance/no/2020
 [ha-version]: https://img.shields.io/badge/version-0.99.2-green.svg
 [ha-environment]: https://img.shields.io/badge/environment-docker-informational.svg
 [hardware]: https://img.shields.io/badge/hardware-rpi3b-important.svg
